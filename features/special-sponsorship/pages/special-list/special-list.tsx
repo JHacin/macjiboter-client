@@ -106,7 +106,11 @@ export const SpecialList: FC = () => {
                     takrat v oskrbi Mačje hiše.
                   </>
                 }
-                benefits={<>V zameno za donacijo boste prejeli mesečno ozadje za namizje.</>}
+                benefits={
+                  <>
+                    V zameno za donacijo boste prejeli mesečno <strong>ozadje za namizje</strong>.
+                  </>
+                }
                 formLink={ROUTES.SpecialSponsorshipsForm(SpecialSponsorshipType.BoterMeseca)}
               />
             </SpecialListCard>
@@ -120,10 +124,13 @@ export const SpecialList: FC = () => {
                     <Text>V zameno za donacijo boste prejeli:</Text>
                     <Box>
                       <UnorderedList>
-                        <ListItem>prilagojeno mačje ozadje za namizje,</ListItem>
                         <ListItem>
-                          sliko mucka, za katerega je bil porabljen prispevek ter kratko novičko o
-                          tem, kaj se z njim dogaja (najkasneje v roku enega meseca)
+                          prilagojeno mačje <strong>ozadje za namizje</strong>,
+                        </ListItem>
+                        <ListItem>
+                          <strong>sliko mucka</strong>, za katerega je bil porabljen prispevek ter
+                          kratko <strong>novičko</strong> o tem, kaj se z njim dogaja (najkasneje v
+                          roku enega meseca)
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -175,20 +182,22 @@ export const SpecialList: FC = () => {
                     <Box>
                       <UnorderedList>
                         <ListItem>
-                          prilagojeno elektronsko voščilnico (v primeru, da gre za darilo),
+                          prilagojeno elektronsko <strong>voščilnico</strong> (v primeru, da gre za
+                          darilo),
                         </ListItem>
                         <ListItem>
-                          uvrščeni boste na seznam botrov Bubijev za obdobje enega leta. Eno leto
-                          boste prejemali vse, kar prejemajo stalni mačji botri Bubijev (pisma
-                          muckov, voščila, dostop do mesečnih namizij ...),
+                          uvrščeni boste na seznam botrov <strong>Bubijev</strong> za obdobje enega
+                          leta. Eno leto boste prejemali vse, kar prejemajo stalni mačji botri
+                          Bubijev (pisma muckov, voščila, dostop do mesečnih namizij ...),
                         </ListItem>
                         <ListItem>
-                          sliko mucka, za katerega je bil porabljen prispevek ter kratko novičko o
-                          tem, kaj se z njim dogaja (najkasneje v roku enega meseca),
+                          <strong>sliko mucka</strong>, za katerega je bil porabljen prispevek ter
+                          kratko <strong>novičko</strong> o tem, kaj se z njim dogaja (najkasneje v
+                          roku enega meseca),
                         </ListItem>
                         <ListItem>
-                          obveščeni boste tudi o vseh pomembnih dogodkih v zvezi z mucko, ki ste ji
-                          pomagali
+                          obveščeni boste tudi o vseh <strong>pomembnih dogodkih</strong> v zvezi z
+                          mucko, ki ste ji pomagali
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -206,8 +215,8 @@ export const SpecialList: FC = () => {
                   <VStack spacing={4}>
                     <Text>
                       Enemu FIP bojevniku omogočite zdravljenje za določeno število dni. Mačji FIP
-                      bojevnik prejema zdravila vsaj 12 tednov (84 dni), ob tem pa potrebuje redne
-                      kontrole in vitaminsko podporo.
+                      bojevnik prejema zdravila vsaj <strong>12 tednov</strong> (84 dni), ob tem pa
+                      potrebuje redne kontrole in vitaminsko podporo.
                     </Text>
                     <Text>
                       Zaradi visokih stroškov je botrstvo FIP bojevnik vseskozi aktivno, tudi
@@ -231,10 +240,13 @@ export const SpecialList: FC = () => {
                     <Text>V zameno za donacijo boste vi oz. vaš obdarovanec prejeli:</Text>
                     <Box>
                       <UnorderedList>
-                        <ListItem>elektronsko potrdilo/diplomo FIP bojevnik,</ListItem>
                         <ListItem>
-                          v primeru, da v času vašega botrovanja zdravimo katerega od muckov, vas
-                          obvestimo o tem, komu smo namenili botrovanje in kako poteka zdravljenje.
+                          elektronsko potrdilo/diplomo <strong>FIP bojevnik</strong>,
+                        </ListItem>
+                        <ListItem>
+                          v primeru, da v času vašega botrovanja zdravimo katerega od muckov, vas{" "}
+                          <strong>obvestimo</strong> o tem, komu smo namenili botrovanje in kako
+                          poteka zdravljenje.
                         </ListItem>
                       </UnorderedList>
                     </Box>
@@ -315,12 +327,12 @@ export const SpecialList: FC = () => {
                       boleznimi ustne votline, tretjim ne prizanaša zob časa.
                     </Text>
                     <Text>
-                      Zdravje ustne votline je, tako kot pri ljudeh, tudi pri mačkah ključno za
-                      vitalnost celotnega organizma, zato so zdravi zobje naših muckov ena naših
-                      prioritet. Včasih je treba le odstraniti zobni kamen, drugič izpuliti
-                      poškodovan zob, v nekaterih primerih pa je potreben večji zobni poseg. Četudi
-                      škrbasti, so mucki brez bolečih zob dosti bolj zadovoljni in zdravi, da o
-                      apetitu sploh ne govorimo.
+                      Zdravje ustne votline je, tako kot pri ljudeh, tudi pri mačkah{" "}
+                      <strong>ključno za vitalnost celotnega organizma</strong>, zato so zdravi
+                      zobje naših muckov ena naših prioritet. Včasih je treba le odstraniti zobni
+                      kamen, drugič izpuliti poškodovan zob, v nekaterih primerih pa je potreben
+                      večji zobni poseg. Četudi škrbasti, so mucki brez bolečih zob dosti bolj
+                      zadovoljni in zdravi, da o apetitu sploh ne govorimo.
                     </Text>
                   </VStack>
                 }
@@ -330,15 +342,16 @@ export const SpecialList: FC = () => {
                     <Box>
                       <UnorderedList>
                         <ListItem>
-                          uvrstitev med botre Čombeta za eno leto (prejemali boste vse, kar
-                          prejemajo stalni botri),
+                          uvrstitev med botre <strong>Čombeta</strong> za eno leto (prejemali boste
+                          vse, kar prejemajo stalni botri),
                         </ListItem>
                         <ListItem>
-                          prilagojeno elektronsko voščilnico (v primeru, da gre za darilo),
+                          prilagojeno elektronsko <strong>voščilnico</strong> (v primeru, da gre za
+                          darilo),
                         </ListItem>
                         <ListItem>
-                          sliko mucka, ki ga je s pomočjo botrstva obiskala zobna miška (najkasneje
-                          v treh mesecih)
+                          <strong>sliko mucka</strong>, ki ga je s pomočjo botrstva obiskala zobna
+                          miška (najkasneje v treh mesecih)
                         </ListItem>
                       </UnorderedList>
                     </Box>
