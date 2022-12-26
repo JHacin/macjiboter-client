@@ -85,7 +85,7 @@ export const News: FC = () => {
   return (
     <>
       <Section spacing={{ bottom: "none" }}>
-        <Box bgGradient="linear(to-br, copper.200, copper.100, copper.100)">
+        <Box bgGradient="linear(to-br, purple.50, purple.100, purple.50)" shadow="md">
           <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
             <Heading size={{ base: "2xl", lg: "3xl" }}>Novice</Heading>
 

@@ -33,8 +33,8 @@ export const CatList: FC = () => {
     <>
       <Section spacing={{ bottom: "none" }}>
         <Box
-          bg="copper.100"
-          bgGradient="linear(to-br, copper.200, copper.100, copper.100)"
+          bgGradient="linear(to-br, copper.200, copper.100, copper.200)"
+          shadow="md"
           overflow="hidden"
         >
           <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">

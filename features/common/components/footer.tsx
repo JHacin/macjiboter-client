@@ -1,22 +1,14 @@
 import { FC } from "react";
-import {
-  Box,
-  ButtonGroup,
-  Container,
-  HStack,
-  IconButton,
-  Stack,
-  Text,
-  VStack,
-} from "@chakra-ui/react";
+import { ButtonGroup, Container, HStack, IconButton, Stack, Text, VStack } from "@chakra-ui/react";
 import dayjs from "dayjs";
 import { Envelope, FacebookLogo, InstagramLogo } from "phosphor-react";
 import { LinkVariant, TextLink } from "./text-link";
 import { EXTERNAL_LINKS, ROUTES } from "../constants";
+import { Section } from "@/common/components/section";
 
 export const Footer: FC = () => {
   return (
-    <Box bg="copper.200" as="footer" py={{ base: 12, md: 16, lg: 12 }}>
+    <Section as="footer" spacing="sm">
       <Container>
         <VStack spacing={{ base: 6 }} align="stretch">
           <Stack
@@ -67,6 +59,6 @@ export const Footer: FC = () => {
           </Text>
         </VStack>
       </Container>
-    </Box>
+    </Section>
   );
 };

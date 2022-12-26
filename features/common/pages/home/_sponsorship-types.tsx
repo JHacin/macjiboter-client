@@ -36,7 +36,7 @@ const items: SponsorshipTypeCardProps[] = [
     },
     theme: {
       icon: PawPrint,
-      color: "blue",
+      color: "orange",
     },
   },
   {
@@ -51,7 +51,7 @@ const items: SponsorshipTypeCardProps[] = [
     theme: {
       icon: Sparkle,
       iconRotate: "255deg",
-      color: "orange",
+      color: "purple",
     },
   },
   {
@@ -65,7 +65,7 @@ const items: SponsorshipTypeCardProps[] = [
     },
     theme: {
       icon: Gift,
-      color: "green",
+      color: "blue",
     },
   },
 ];
@@ -137,8 +137,8 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
 export const SponsorshipTypes: FC = () => {
   return (
     <>
-      <SectionWaves waveColor="light-1" bgColor="copper.200" />
-      <Section position="relative" spacing={{ top: "sm", bottom: "lg" }} bg="copper.50">
+      <SectionWaves waveColor="light-1" bgColor="copper.100" />
+      <Section position="relative" spacing={{ top: "sm", bottom: "lg" }}>
         <Container maxWidth="950px">
           <SectionHeader title="Vrste botrstev" isCenteredOnDesktop={true} markerColor="purple">
             Mucam v naši oskrbi lahko na daljavo pomagate na več načinov.

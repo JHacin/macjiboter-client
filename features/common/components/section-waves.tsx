@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/react";
 
 interface SectionWavesProps {
   waveColor: keyof typeof waveVariants;
-  bgColor: "copper.50" | "copper.100" | "copper.200";
+  bgColor: "copper.50" | "copper.100" | "copper.200" | "white";
 }
 
 const waveVariants = {

@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
 import { SponsorDetails } from "@/common/components/sponsor-details";
 import { Cat } from "../../types";
+import { Users } from "phosphor-react";
 
 interface CatDetailsSponsorsProps {
   cat: Cat;
@@ -17,12 +18,15 @@ export const SponsorsList: FC<CatDetailsSponsorsProps> = ({ cat: { sponsorships,
   ).length;
 
   return (
-    <Box borderColor="copper.200" borderWidth={6} p={8} rounded="md">
-      <Heading as="h3" size="lg">
-        {is_group ? "Naši botri" : "Moji botri"}
-      </Heading>
+    <Box bgColor="copper.200" px={5} py={6} rounded="md" shadow="sm">
+      <Flex alignItems="center" gap={3}>
+        <Icon as={Users} boxSize={6} weight="bold" />
+        <Heading as="h3" size="md">
+          {is_group ? "Naši botri" : "Moji botri"}
+        </Heading>
+      </Flex>
 
-      <Box mt={10} fontSize={{ base: "md", lg: "lg" }}>
+      <Box mt={6} pl={3}>
         {sponsorships.length === 0 && <Text>Muca še nima botrov.</Text>}
 
         {sponsorships.length > 0 && (

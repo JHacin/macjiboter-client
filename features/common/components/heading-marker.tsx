@@ -2,12 +2,14 @@ import { FC } from "react";
 import { Box } from "@chakra-ui/react";
 
 export interface HeadingMarkerProps {
-  color: "orange" | "purple";
+  color: "copper" | "purple" | "blue" | "orange";
 }
 
 const colorToGradientMap = {
   orange: "orange.200, orange.500",
-  purple: "blue.100, blue.400",
+  purple: "purple.200, purple.500",
+  blue: "blue.200, blue.500",
+  copper: "copper.200, copper.500",
 };
 
 export const HeadingMarker: FC<HeadingMarkerProps> = ({ color }) => {

@@ -71,16 +71,22 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
           {status === CatStatus.TempNotSeekingSponsors && <TempNotSeekingSponsorsMsg />}
 
           {status === CatStatus.SeekingSponsors && (
-            <Box bgColor="copper.200" p={12} rounded="md" shadow="lg">
+            <Box
+              bgColor="purple.100"
+              px={{ base: 6, lg: 12 }}
+              py={{ base: 10, lg: 12 }}
+              rounded="md"
+              shadow="lg"
+            >
               <Box h="6px" w="120px">
-                <HeadingMarker color="orange" />
+                <HeadingMarker color="purple" />
               </Box>
 
-              <Heading as="h2" mt={8}>
+              <Heading as="h2" mt={6} size={{ base: "lg", lg: "xl" }}>
                 Želiš postati {is_group ? "naš" : "moj"} boter?
               </Heading>
 
-              <VStack fontSize="lg" spacing={6} mt={12}>
+              <VStack fontSize="lg" spacing={6} mt={16}>
                 <Text>
                   Lahko izpolniš{" "}
                   <Text as="span" fontWeight="semibold">
@@ -103,7 +109,12 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
                 </Text>
               </VStack>
 
-              <ButtonLink href={ROUTES.BecomeCatSponsor(slug)} size="lg" mt={20}>
+              <ButtonLink
+                colorScheme="purple"
+                href={ROUTES.BecomeCatSponsor(slug)}
+                size="lg"
+                mt={20}
+              >
                 Postani {is_group ? "naš" : "moj"} boter
               </ButtonLink>
             </Box>

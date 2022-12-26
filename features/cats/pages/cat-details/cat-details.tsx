@@ -67,7 +67,7 @@ export const CatDetails: FC = () => {
                 <Box
                   mb={{
                     base: 16,
-                    lg: 12,
+                    lg: 4,
                   }}
                 >
                   <DataPieces cat={cat} />

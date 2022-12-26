@@ -37,7 +37,7 @@ const CatsGridItem: FC<CatListItemProps> = ({ cat }) => {
             color={cat.is_group ? "white" : "orange.500"}
             _hover={{ color: cat.is_group ? "whiteAlpha.700" : "orange.700" }}
           >
-            Preberi mojo zgodbo
+            {cat.is_group ? "Preberi si več o nas" : "Preberi mojo zgodbo"}
           </ButtonLink>
         </>
       }

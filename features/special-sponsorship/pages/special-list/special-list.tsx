@@ -30,8 +30,8 @@ export const SpecialList: FC = () => {
     <>
       <Section spacing={{ bottom: "none" }}>
         <Box
-          bg="copper.100"
-          bgGradient="linear(to-bl, copper.200, copper.100, copper.100)"
+          bgGradient="linear(to-br, copper.200, copper.100, copper.200)"
+          shadow="md"
           overflow="hidden"
         >
           <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
@@ -95,7 +95,7 @@ export const SpecialList: FC = () => {
       <Section>
         <Container>
           <VStack spacing={{ base: 6, lg: 16 }} align="stretch" maxWidth="1100px" mx="auto">
-            <SpecialListCard>
+            <SpecialListCard color="orange">
               <SpecialListCardHeader
                 imageUrl="/img/posebna-boter-meseca.jpeg"
                 title="Boter meseca"
@@ -112,10 +112,12 @@ export const SpecialList: FC = () => {
                   </>
                 }
                 formLink={ROUTES.SpecialSponsorshipsForm(SpecialSponsorshipType.BoterMeseca)}
+                color="orange"
               />
             </SpecialListCard>
-            <SpecialListCard>
+            <SpecialListCard color="blue">
               <SpecialListCardHeader
+                color="blue"
                 imageUrl="/img/posebna-brez-skrbi.jpeg"
                 title="Brez skrbi v nove dni"
                 subtitle={<>Pokrijte stroške sterilizacije ali kastracije za enega mucka.</>}
@@ -137,8 +139,9 @@ export const SpecialList: FC = () => {
                   </VStack>
                 }
               />
-              <SimpleGrid columns={{ base: 1, lg: 2 }} mt={8} gap={8}>
+              <SimpleGrid columns={{ base: 1, lg: 2 }} mt={8} gap={4}>
                 <SpecialListSubvariantCard
+                  color="blue"
                   title="Muc gre brez skrbi v nove dni"
                   subtitle={
                     <>
@@ -151,6 +154,7 @@ export const SpecialList: FC = () => {
                   )}
                 />
                 <SpecialListSubvariantCard
+                  color="blue"
                   title="Muca gre brez skrbi v nove dni"
                   subtitle={
                     <>
@@ -165,8 +169,9 @@ export const SpecialList: FC = () => {
               </SimpleGrid>
             </SpecialListCard>
 
-            <SpecialListCard>
+            <SpecialListCard color="orange">
               <SpecialListCardHeader
+                color="orange"
                 imageUrl="/img/posebna-nov-zacetek.jpeg"
                 title="Nov začetek"
                 subtitle={
@@ -207,8 +212,9 @@ export const SpecialList: FC = () => {
               />
             </SpecialListCard>
 
-            <SpecialListCard>
+            <SpecialListCard color="purple">
               <SpecialListCardHeader
+                color="purple"
                 imageUrl="/img/posebna-fip.jpeg"
                 title="FIP bojevniki"
                 subtitle={
@@ -253,10 +259,11 @@ export const SpecialList: FC = () => {
                   </VStack>
                 }
               />
-              <Grid gridTemplateColumns={{ base: "auto", sm: "repeat(2, 1fr)" }} mt={8} gap={8}>
+              <Grid gridTemplateColumns={{ base: "auto", sm: "repeat(2, 1fr)" }} mt={8} gap={4}>
                 <GridItem>
-                  <VStack spacing={8}>
+                  <VStack spacing={4}>
                     <SpecialListSubvariantCard
+                      color="purple"
                       title="FIP bojevnik za en dan"
                       subtitle={
                         <>
@@ -269,6 +276,7 @@ export const SpecialList: FC = () => {
                       )}
                     />
                     <SpecialListSubvariantCard
+                      color="purple"
                       title="FIP bojevnik za dva dni"
                       subtitle={
                         <>
@@ -284,6 +292,7 @@ export const SpecialList: FC = () => {
                 </GridItem>
                 <GridItem as={Flex}>
                   <SpecialListSubvariantCard
+                    color="purple"
                     title="FIP bojevnik za en teden"
                     subtitle={
                       <>
@@ -292,14 +301,7 @@ export const SpecialList: FC = () => {
                           enemu FIP bojevniku omogočite en teden zdravljenja, kar pomeni 1/12 vseh
                           stroškov zdravljenja za enega muca.
                         </Text>
-                        <Text
-                          bgColor="whiteAlpha.500"
-                          rounded="md"
-                          shadow="sm"
-                          px={5}
-                          py={4}
-                          mt={6}
-                        >
+                        <Text bgColor="purple.50" rounded="md" shadow="sm" px={5} py={4} mt={6}>
                           Poleg zgoraj navedenega (diploma in obveščanje) boste za dve leti uvrščeni
                           med botre mucka <strong>Čombeta</strong> in prejemali vse, kar prejemajo
                           redni mačji botri (pisma muckov, voščila, mesečna ozadja za namizje, in še
@@ -315,8 +317,9 @@ export const SpecialList: FC = () => {
               </Grid>
             </SpecialListCard>
 
-            <SpecialListCard>
+            <SpecialListCard color="blue">
               <SpecialListCardHeader
+                color="blue"
                 imageUrl="/img/posebna-zobna.jpeg"
                 title="Zobna miška"
                 subtitle={
@@ -358,8 +361,9 @@ export const SpecialList: FC = () => {
                   </VStack>
                 }
               />
-              <SimpleGrid columns={{ base: 1, lg: 2 }} mt={8} gap={8}>
+              <SimpleGrid columns={{ base: 1, lg: 2 }} mt={8} gap={4}>
                 <SpecialListSubvariantCard
+                  color="blue"
                   title="Majhna zobna miška"
                   subtitle={
                     <>
@@ -370,6 +374,7 @@ export const SpecialList: FC = () => {
                   formLink={ROUTES.SpecialSponsorshipsForm(SpecialSponsorshipType.MajhnaZobnaMiska)}
                 />
                 <SpecialListSubvariantCard
+                  color="blue"
                   title="Velika zobna miš"
                   subtitle={
                     <>
