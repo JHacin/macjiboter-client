@@ -113,6 +113,7 @@ export const CatList: FC = () => {
                 variant="link"
                 onClick={() => {
                   setSearch("");
+                  setSearchInputValue("");
                 }}
               >
                 Počisti iskanje
