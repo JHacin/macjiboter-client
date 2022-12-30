@@ -1,5 +1,5 @@
 import { ChangeEventHandler, FC } from "react";
-import { Input, Icon, InputProps } from "@chakra-ui/react";
+import { Input, Icon, InputProps, SystemStyleObject } from "@chakra-ui/react";
 import { useField } from "formik";
 import { InputGroup, InputLeftElement } from "@chakra-ui/input";
 import { IconProps } from "phosphor-react";
@@ -9,6 +9,7 @@ export interface TextFieldInputProps {
   type?: "text" | "number";
   leftElementIcon?: FC<IconProps>;
   placeholder?: string;
+  _placeholder?: SystemStyleObject;
   value?: any;
   onChangeOverride?: ChangeEventHandler<HTMLInputElement>;
   autoComplete?: string | undefined;
@@ -27,6 +28,7 @@ export const TextField: FC<TextFieldProps> = ({
     type = "text",
     leftElementIcon,
     placeholder,
+    _placeholder,
     value,
     onChangeOverride,
     autoComplete,
@@ -38,6 +40,7 @@ export const TextField: FC<TextFieldProps> = ({
     ...field,
     type,
     placeholder,
+    _placeholder,
     autoComplete,
     value: value ?? field.value ?? "",
     onChange: onChangeOverride ?? field.onChange,
@@ -51,7 +54,7 @@ export const TextField: FC<TextFieldProps> = ({
             <Icon as={leftElementIcon} color="gray.500" />
           </InputLeftElement>
         )}
-        <Input {...inputProps} _placeholder={{ fontSize: "sm" }} />
+        <Input {...inputProps} />
       </InputGroup>
     </FieldControl>
   );

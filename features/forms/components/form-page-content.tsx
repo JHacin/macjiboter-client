@@ -20,7 +20,7 @@ export const FormPageContent: FC<{
         maxWidth={{
           base: "md",
           md: "lg",
-          lg: "1000px",
+          lg: "1100px",
         }}
       >
         <Box position="relative" mt={{ base: 24, sm: 32, lg: 44 }}>

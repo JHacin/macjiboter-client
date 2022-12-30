@@ -103,6 +103,7 @@ export const OptionsWithCustomValue: FC<OptionsWithCustomValueProps> = ({
 
                 helpers.setValue(value);
               },
+              _placeholder: { fontSize: { base: "sm", sm: "md" } },
             }}
           />
         </GridItem>

@@ -13,7 +13,7 @@ export const ParamsStep: FC = () => {
 
   return (
     <>
-      <FormGroup spacing="lg">
+      <FormGroup>
         <OptionsWithCustomValue
           name="monthly_amount"
           label="Mesečni znesek"
@@ -37,12 +37,12 @@ export const ParamsStep: FC = () => {
         />
       </FormGroup>
 
-      <FormGroup spacing="lg">
+      <FormGroup>
         <CheckboxField name="is_gift" label="Botrstvo želim podariti" />
       </FormGroup>
 
       {values.is_gift && (
-        <FormGroup spacing="lg">
+        <FormGroup>
           <OptionsWithCustomValue
             name="requested_duration"
             label="Trajanje"
@@ -70,7 +70,7 @@ export const ParamsStep: FC = () => {
         </FormGroup>
       )}
 
-      <FormGroup spacing="lg">
+      <FormGroup>
         <InlineTooltipDecorator tooltipContent="Po oddaji obrazca vam bomo na vaš e-mail naslov poslali navodila za plačevanje prek trajnika.">
           <CheckboxField name="wants_direct_debit" label="Želim plačevati prek trajnika" />
         </InlineTooltipDecorator>
