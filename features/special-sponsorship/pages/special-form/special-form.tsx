@@ -62,6 +62,7 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
 
   return (
     <FormPageContent
+      title="Dogovor za posebno botrstvo"
       breadcrumbItems={[
         { text: "Posebna botrstva", href: ROUTES.SpecialSponsorships },
         { text: "Sklenitev dogovora", isCurrentPage: true },

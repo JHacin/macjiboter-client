@@ -6,9 +6,10 @@ import { FormAsideNotes } from "@/forms/components/form-aside-notes";
 import { Section } from "@/common/components/section";
 
 export const FormPageContent: FC<{
+  title: string;
   breadcrumbItems: BreadcrumbsProps["items"];
   form: ReactNode;
-}> = ({ breadcrumbItems, form }) => {
+}> = ({ title, breadcrumbItems, form }) => {
   return (
     <Section spacing={{ top: "sm", bottom: "lg" }}>
       <Container>
@@ -34,7 +35,7 @@ export const FormPageContent: FC<{
 
           <Box position="relative">
             <Heading as="h1" size={{ base: "xl", lg: "2xl" }}>
-              Dogovor o posvojitvi na daljavo
+              {title}
             </Heading>
           </Box>
         </Box>

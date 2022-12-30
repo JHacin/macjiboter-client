@@ -65,6 +65,7 @@ export const CatForm: FC = () => {
 
   return (
     <FormPageContent
+      title="Dogovor o posvojitvi na daljavo"
       breadcrumbItems={[
         { text: "Muce, ki iščejo botra", href: ROUTES.CatsList },
         { text: cat.name, href: ROUTES.CatDetails(cat.slug) },
