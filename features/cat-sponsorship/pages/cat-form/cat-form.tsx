@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import { Box, Heading, Image, SimpleGrid } from "@chakra-ui/react";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
 import {
   gifteeDefaultValues,
@@ -12,13 +11,10 @@ import { useCurrentCat } from "@/cats/hooks/use-current-cat";
 import { apiPost } from "@/api/util";
 import { CatFormValues } from "../../types";
 import { ParamsStep } from "./_params-step";
-import { SummaryStep } from "./_summary-step";
 import { catFormValidation } from "../../constants";
-import { Breadcrumbs } from "@/common/components/breadcrumbs";
 import { ROUTES } from "@/common/constants";
-import { Section } from "@/common/components/section";
-import { FormAsideNotes } from "@/forms/components/form-aside-notes";
-import { Container } from "@/common/components/container";
+import { SummaryStep } from "@/forms/components/summary-step";
+import { FormPageContent } from "@/forms/components/form-page-content";
 
 const initialValues: CatFormValues = {
   is_gift: false,
@@ -68,55 +64,20 @@ export const CatForm: FC = () => {
   };
 
   return (
-    <Section spacing={{ top: "sm", bottom: "lg" }}>
-      <Container>
-        <Breadcrumbs
-          items={[
-            { text: "Muce, ki iščejo botra", href: ROUTES.CatsList },
-            { text: cat.name, href: ROUTES.CatDetails(cat.slug) },
-          ]}
+    <FormPageContent
+      breadcrumbItems={[
+        { text: "Muce, ki iščejo botra", href: ROUTES.CatsList },
+        { text: cat.name, href: ROUTES.CatDetails(cat.slug) },
+        { text: "Sklenitev dogovora", isCurrentPage: true },
+      ]}
+      form={
+        <MultiStepForm
+          steps={steps}
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          onValuesChange={setValues}
         />
-      </Container>
-
-      <Container
-        maxWidth={{
-          base: "md",
-          md: "lg",
-          lg: "1000px",
-        }}
-      >
-        <Box position="relative" mt={{ base: 24, sm: 32, lg: 44 }}>
-          <Image
-            src="/img/form-page-heading-blob.svg"
-            alt=""
-            pos="absolute"
-            top={{ base: "-75px", sm: "-85px", md: "-75px", lg: "-90px" }}
-            left={{ base: "-105px", sm: "-90px", md: "-120px", lg: "-130px" }}
-            boxSize={{ base: "220px", sm: "240px" }}
-          />
-
-          <Box position="relative">
-            <Heading as="h1" size={{ base: "xl", lg: "2xl" }}>
-              Dogovor o posvojitvi na daljavo
-            </Heading>
-          </Box>
-        </Box>
-
-        <SimpleGrid columns={{ base: 1, lg: 2 }} spacing={12} mt={{ base: 24, sm: 36, lg: 40 }}>
-          <Box mt={{ base: 0, lg: 20 }}>
-            <FormAsideNotes />
-          </Box>
-
-          <Box>
-            <MultiStepForm
-              steps={steps}
-              initialValues={initialValues}
-              onSubmit={onSubmit}
-              onValuesChange={setValues}
-            />
-          </Box>
-        </SimpleGrid>
-      </Container>
-    </Section>
+      }
+    />
   );
 };

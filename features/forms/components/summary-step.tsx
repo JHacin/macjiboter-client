@@ -38,9 +38,9 @@ export const SummaryStep: FC = () => {
   return (
     <>
       <FormGroup>
-        <Box bg="orange.100" rounded="md" p={4} fontSize="sm">
-          Hvala za vaše podatke. Po oddaji obrazca boste na svoj email naslov prejeli samodejni
-          odgovor z nadaljnimi podatki glede plačila.
+        <Box bg="orange.100" rounded="md" py={4} px={5} fontSize="sm">
+          Po oddaji obrazca boste na svoj elektronski naslov prejeli samodejni odgovor z nadaljnimi
+          podatki glede plačila.
         </Box>
       </FormGroup>
 
@@ -51,7 +51,7 @@ export const SummaryStep: FC = () => {
             <>
               Potrjujem, da se strinjam s{" "}
               <TextLink href={ROUTES.FAQ} isExternal={true}>
-                pravili posvojitve na daljavo
+                pravili botrstva
               </TextLink>
               , ter da Mačji hiši dovoljujem rabo osebnih podatkov izključno za namene obveščanja.
             </>

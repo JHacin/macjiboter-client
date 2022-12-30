@@ -6,13 +6,14 @@ import {
   payerStepValidation,
   PersonFormStep,
 } from "@/forms/components/person-form-step";
-import { Box } from "@chakra-ui/react";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
 import { SPECIAL_SPONSORSHIPS_META, specialFormValidation } from "../../constants";
 import { SpecialFormValues, SpecialSponsorshipType } from "../../types";
 import { apiPost } from "@/api/util";
 import { ParamsStep } from "./_params-step";
-import { SummaryStep } from "./_summary-step";
+import { ROUTES } from "@/common/constants";
+import { SummaryStep } from "@/forms/components/summary-step";
+import { FormPageContent } from "@/forms/components/form-page-content";
 
 interface SpecialFormProps {
   defaultType: SpecialSponsorshipType;
@@ -49,7 +50,7 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
       isHidden: !values.is_gift,
     },
     {
-      name: "Povzetek",
+      name: "Zaključek",
       validationSchema: specialFormValidation.summaryStep,
       component: <SummaryStep />,
     },
@@ -60,13 +61,19 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
   };
 
   return (
-    <Box py={16} maxW="680px" mx="auto">
-      <MultiStepForm
-        steps={steps}
-        initialValues={initialValues}
-        onSubmit={onSubmit}
-        onValuesChange={setValues}
-      />
-    </Box>
+    <FormPageContent
+      breadcrumbItems={[
+        { text: "Posebna botrstva", href: ROUTES.SpecialSponsorships },
+        { text: "Sklenitev dogovora", isCurrentPage: true },
+      ]}
+      form={
+        <MultiStepForm
+          steps={steps}
+          initialValues={initialValues}
+          onSubmit={onSubmit}
+          onValuesChange={setValues}
+        />
+      }
+    />
   );
 };
