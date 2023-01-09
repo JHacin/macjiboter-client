@@ -28,6 +28,14 @@ export enum SpecialSponsorshipType {
   VelikaZobnaMis = 9,
 }
 
+export enum SpecialSponsorshipGroup {
+  BoterMeseca,
+  BrezSkrbiVNoveDni,
+  NovZacetek,
+  FipBojevniki,
+  ZobnaMiska,
+}
+
 export type SpecialFormValues = SpecialFormParamsValues &
   SponsorshipFormPayerValues &
   SponsorshipFormGifteeValues &
