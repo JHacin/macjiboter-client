@@ -1,4 +1,5 @@
-import { SpecialSponsorshipType } from "@/special-sponsorship/types";
+import { SpecialSponsorshipGroup, SpecialSponsorshipType } from "@/special-sponsorship/types";
+import { SPECIAL_SPONSORSHIP_GROUP_META } from "@/special-sponsorship/constants";
 
 export const BACKEND_URL = process.env["NEXT_PUBLIC_BACKEND_URL"];
 
@@ -12,6 +13,8 @@ export const ROUTES = {
   BecomeCatSponsor: (slug: string) => `/muce/${slug}/postani-boter`,
   WhyBecomeSponsor: "/zakaj-postati-boter",
   SpecialSponsorships: "/posebna-botrstva",
+  SpecialSponsorshipGroup: (group: SpecialSponsorshipGroup) =>
+    `/posebna-botrstva/${SPECIAL_SPONSORSHIP_GROUP_META[group].pageSlug}`,
   SpecialSponsorshipsForm: (type: SpecialSponsorshipType) =>
     `/posebna-botrstva/obrazec?tip=${type}`,
   GiftSponsorship: "/podari-botrstvo",

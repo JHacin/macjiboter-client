@@ -53,6 +53,47 @@ export const SPECIAL_SPONSORSHIPS_META: Record<
   },
 };
 
+export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
+  SpecialSponsorshipGroup,
+  {
+    name: string;
+    imageUrls: { sm: string; lg: string };
+    description: string;
+    pageSlug: string;
+  }
+> = {
+  [SpecialSponsorshipGroup.BoterMeseca]: {
+    name: "Boter meseca",
+    imageUrls: { sm: "/img/posebna-boter-meseca_sm.jpeg", lg: "/img/posebna-boter-meseca.jpeg" },
+    description: "Pomagajte preživeti izbrani mesec vsem muckom, ki so v oskrbi Mačje hiše.",
+    pageSlug: "boter-meseca",
+  },
+  [SpecialSponsorshipGroup.BrezSkrbiVNoveDni]: {
+    name: "Brez skrbi v nove dni",
+    imageUrls: { sm: "/img/posebna-brez-skrbi_sm.jpeg", lg: "/img/posebna-brez-skrbi.jpeg" },
+    description: "Pokrijte stroške sterilizacije/kastracije za enega mucka.",
+    pageSlug: "brez-skrbi-v-nove-dni",
+  },
+  [SpecialSponsorshipGroup.NovZacetek]: {
+    name: "Nov začetek",
+    imageUrls: { sm: "/img/posebna-nov-zacetek_sm.jpeg", lg: "/img/posebna-nov-zacetek.jpeg" },
+    description: "Enemu mucku zagotovite popolno veterinarsko oskrbo.",
+    pageSlug: "nov-zacetek",
+  },
+  [SpecialSponsorshipGroup.FipBojevniki]: {
+    name: "FIP bojevniki",
+    imageUrls: { sm: "/img/posebna-fip_sm.jpeg", lg: "/img/posebna-fip.jpeg" },
+    description: "Enemu FIP bojevniku omogočite zdravljenje za določeno število dni.",
+    pageSlug: "fip-bojevniki",
+  },
+  [SpecialSponsorshipGroup.ZobnaMiska]: {
+    name: "Zobna miška",
+    imageUrls: { sm: "/img/posebna-zobna_sm.jpeg", lg: "/img/posebna-zobna.jpeg" },
+    description: "Enemu mucku pokrijte stroške zobne oskrbe.",
+    pageSlug: "zobna-miska",
+  },
+};
+
 export const specialFormValidation = {
   paramsStep: {
     is_gift: yup.boolean(),

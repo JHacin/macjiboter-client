@@ -1,4 +1,4 @@
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 import { Section } from "@/common/components/section";
 import { Container } from "@/common/components/container";
 import {
@@ -13,18 +13,16 @@ import {
   Image,
 } from "@chakra-ui/react";
 import { ArrowRight, Sparkle } from "phosphor-react";
-import { SPECIAL_SPONSORSHIPS_META } from "../../constants";
+import { SPECIAL_SPONSORSHIP_GROUP_META, SPECIAL_SPONSORSHIPS_META } from "../../constants";
 import { SpecialSponsorshipGroup } from "../../types";
 import { max, min } from "lodash-es";
 import { NextLink } from "@/common/components/next-link";
 import { ButtonLink } from "@/common/components/button-link";
+import { ROUTES } from "@/common/constants";
 
 interface SpecialSponsorshipListItemProps {
-  title: string;
+  group: SpecialSponsorshipGroup;
   amountRange: string;
-  thumbnail: string;
-  description: ReactNode;
-  link: string;
 }
 
 const generateAmountRange = (group: SpecialSponsorshipGroup) => {
@@ -50,58 +48,27 @@ const generateAmountRange = (group: SpecialSponsorshipGroup) => {
   return `${smallest}-${largest} €`;
 };
 
-const LIST_ITEMS: SpecialSponsorshipListItemProps[] = [
-  {
-    title: "Boter meseca",
-    amountRange: generateAmountRange(SpecialSponsorshipGroup.BoterMeseca),
-    thumbnail: "/img/posebna-boter-meseca.jpeg",
-    description: <>Pomagajte preživeti izbrani mesec vsem muckom, ki so v oskrbi Mačje hiše.</>,
-    link: "",
-  },
-  {
-    title: "Brez skrbi v nove dni",
-    amountRange: generateAmountRange(SpecialSponsorshipGroup.BrezSkrbiVNoveDni),
-    thumbnail: "/img/posebna-brez-skrbi.jpeg",
-    description: <>Pokrijte stroške sterilizacije/kastracije za enega mucka.</>,
-    link: "",
-  },
-  {
-    title: "Nov začetek",
-    amountRange: generateAmountRange(SpecialSponsorshipGroup.NovZacetek),
-    thumbnail: "/img/posebna-nov-zacetek.jpeg",
-    description: <>Enemu mucku zagotovite popolno veterinarsko oskrbo.</>,
-    link: "",
-  },
-  {
-    title: "FIP bojevniki",
-    amountRange: generateAmountRange(SpecialSponsorshipGroup.FipBojevniki),
-    thumbnail: "/img/posebna-fip.jpeg",
-    description: <>Enemu FIP bojevniku omogočite zdravljenje za določeno število dni.</>,
-    link: "",
-  },
-  {
-    title: "Zobna miška",
-    amountRange: generateAmountRange(SpecialSponsorshipGroup.ZobnaMiska),
-    thumbnail: "/img/posebna-zobna.jpeg",
-    description: <>Enemu mucku pokrijte stroške zobne oskrbe.</>,
-    link: "",
-  },
-];
+const LIST_ITEMS: SpecialSponsorshipListItemProps[] = Object.keys(SPECIAL_SPONSORSHIP_GROUP_META)
+  .map((group) => Number(group))
+  .map((group: SpecialSponsorshipGroup) => ({
+    group,
+    amountRange: generateAmountRange(group),
+  }));
 
 const SpecialSponsorshipTypeCard: FC<SpecialSponsorshipListItemProps> = ({
-  title,
+  group,
   amountRange,
-  thumbnail,
-  description,
-  link,
 }) => {
+  const { imageUrls, name, description } = SPECIAL_SPONSORSHIP_GROUP_META[group];
+  const href = ROUTES.SpecialSponsorshipGroup(group);
+
   return (
     <LinkBox as={Flex} flexDirection="column" bg="white" shadow="lg" rounded="md">
-      <Image src={thumbnail} alt={title} position="relative" roundedTop="inherit" />
+      <Image src={imageUrls.sm} alt={name} position="relative" roundedTop="inherit" />
       <Flex flexGrow={1} flexDirection="column" alignItems="flex-start" p={6}>
-        <LinkOverlay as={NextLink} href={link}>
+        <LinkOverlay as={NextLink} href={href}>
           <Text as="h3" fontSize={{ base: "xl", sm: "2xl" }} fontWeight="bold">
-            {title}
+            {name}
           </Text>
         </LinkOverlay>
         <Text color="gray.500" fontSize="sm">
@@ -109,7 +76,7 @@ const SpecialSponsorshipTypeCard: FC<SpecialSponsorshipListItemProps> = ({
         </Text>
         <Text mt={4}>{description}</Text>
         <Box mt="auto" pt={8}>
-          <ButtonLink href={link} rightIcon={<Icon as={ArrowRight} weight="bold" />}>
+          <ButtonLink href={href} rightIcon={<Icon as={ArrowRight} weight="bold" />}>
             Izberi
           </ButtonLink>
         </Box>
@@ -182,7 +149,7 @@ export const SpecialList: FC = () => {
             spacingY={{ base: 10, xl: 14 }}
           >
             {LIST_ITEMS.map((type) => (
-              <SpecialSponsorshipTypeCard key={type.title} {...type} />
+              <SpecialSponsorshipTypeCard key={type.group} {...type} />
             ))}
           </SimpleGrid>
         </Container>
