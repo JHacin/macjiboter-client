@@ -37,7 +37,7 @@ export const CatList: FC = () => {
           shadow="md"
           overflow="hidden"
         >
-          <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
+          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
             <Icon
               as={PawPrint}
               color="copper.300"

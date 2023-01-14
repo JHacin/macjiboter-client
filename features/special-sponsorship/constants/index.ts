@@ -89,7 +89,7 @@ export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
   [SpecialSponsorshipGroup.ZobnaMiska]: {
     name: "Zobna miška",
     imageUrls: { sm: "/img/posebna-zobna_sm.jpeg", lg: "/img/posebna-zobna.jpeg" },
-    description: "Enemu mucku pokrijte stroške zobne oskrbe.",
+    description: "Enemu mucku pokrijte stroške čiščenja zobnega kamna ali zobnega posega.",
     pageSlug: "zobna-miska",
   },
 };

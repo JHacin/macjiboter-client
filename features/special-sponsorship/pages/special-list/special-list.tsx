@@ -94,7 +94,7 @@ export const SpecialList: FC = () => {
           bgGradient="linear(to-bl, copper.200, copper.100, copper.100)"
           overflow="hidden"
         >
-          <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
+          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
             <Icon
               as={Sparkle}
               color="copper.300"

@@ -2,12 +2,20 @@ import { FC, PropsWithChildren } from "react";
 import {
   Container as ChakraContainer,
   ContainerProps as ChakraContainerProps,
+  ResponsiveObject,
 } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 
-interface ContainerProps extends PropsWithChildren, ChakraContainerProps {}
+interface ContainerProps extends PropsWithChildren, Pick<ChakraContainerProps, "position"> {
+  paddingHorizontal?: ResponsiveObject<number>;
+  paddingVertical?: ResponsiveObject<number>;
+}
 
-export const Container: FC<ContainerProps> = ({ children, ...containerProps }) => {
+export const Container: FC<ContainerProps> = ({
+  paddingHorizontal = {},
+  paddingVertical = {},
+  children,
+}) => {
   const { breakpoints } = useTheme();
 
   return (
@@ -23,8 +31,9 @@ export const Container: FC<ContainerProps> = ({ children, ...containerProps }) =
       px={{
         base: 4,
         lg: 8,
+        ...paddingHorizontal,
       }}
-      {...containerProps}
+      py={paddingVertical}
     >
       {children}
     </ChakraContainer>

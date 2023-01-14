@@ -20,7 +20,7 @@ export const FAQ: FC = () => {
     <>
       <Section spacing={{ bottom: "none" }}>
         <Box bgGradient="linear(to-br, blue.50, blue.100, blue.50)" shadow="md">
-          <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
+          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
             <Heading size={{ base: "2xl", lg: "3xl" }}>Pravila in pogosta vprašanja</Heading>
 
             <Text
