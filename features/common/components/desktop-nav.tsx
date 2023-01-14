@@ -66,7 +66,7 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
         <Portal containerRef={ref}>
           <PopoverContent p={3}>
             <PopoverArrow />
-            <VStack spacing={2}>
+            <VStack spacing={2} align="stretch">
               {links.map((link) => (
                 <DesktopNavDropdownItem {...link} key={link.label} />
               ))}
