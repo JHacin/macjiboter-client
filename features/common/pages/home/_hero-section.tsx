@@ -10,7 +10,14 @@ export const HeroSection = () => {
     <Box overflow="hidden" position="relative">
       <Container
         position="relative"
-        pb={{ base: "140px", sm: "320px", md: "120px", lg: "140px", xl: "70px", "2xl": "70px" }}
+        paddingBottom={{
+          base: "140px",
+          sm: "320px",
+          md: "120px",
+          lg: "140px",
+          xl: "70px",
+          "2xl": "70px",
+        }}
       >
         <Section
           pb={{ base: 48, sm: 28, md: 36, lg: 48 }}

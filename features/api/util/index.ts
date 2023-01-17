@@ -1,6 +1,5 @@
 import axios from "axios";
 import { API_URL, BACKEND_URL } from "@/common/constants";
-
 const apiClient = axios.create({
   baseURL: API_URL,
   headers: {

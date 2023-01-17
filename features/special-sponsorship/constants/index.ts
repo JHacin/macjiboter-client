@@ -53,6 +53,28 @@ export const SPECIAL_SPONSORSHIPS_META: Record<
   },
 };
 
+const SpecialGroupMetaFactory = ({
+  group,
+  name,
+  imageName,
+  description,
+  pageSlug,
+}: {
+  group: SpecialSponsorshipGroup;
+  name: string;
+  imageName: string;
+  description: string;
+  pageSlug: string;
+}) => ({
+  name,
+  imageUrls: { sm: `/img/posebna-${imageName}_sm.jpeg`, lg: `/img/posebna-${imageName}.jpeg` },
+  description,
+  pageSlug,
+  childTypes: Object.keys(SPECIAL_SPONSORSHIPS_META)
+    .map((key) => Number(key))
+    .filter((type: SpecialSponsorshipType) => SPECIAL_SPONSORSHIPS_META[type].parent === group),
+});
+
 export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
   SpecialSponsorshipGroup,
   {
@@ -60,38 +82,44 @@ export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
     imageUrls: { sm: string; lg: string };
     description: string;
     pageSlug: string;
+    childTypes: SpecialSponsorshipType[];
   }
 > = {
-  [SpecialSponsorshipGroup.BoterMeseca]: {
+  [SpecialSponsorshipGroup.BoterMeseca]: SpecialGroupMetaFactory({
+    group: SpecialSponsorshipGroup.BoterMeseca,
     name: "Boter meseca",
-    imageUrls: { sm: "/img/posebna-boter-meseca_sm.jpeg", lg: "/img/posebna-boter-meseca.jpeg" },
+    imageName: "boter-meseca",
     description: "Pomagajte preživeti izbrani mesec vsem muckom, ki so v oskrbi Mačje hiše.",
     pageSlug: "boter-meseca",
-  },
-  [SpecialSponsorshipGroup.BrezSkrbiVNoveDni]: {
+  }),
+  [SpecialSponsorshipGroup.BrezSkrbiVNoveDni]: SpecialGroupMetaFactory({
+    group: SpecialSponsorshipGroup.BrezSkrbiVNoveDni,
     name: "Brez skrbi v nove dni",
-    imageUrls: { sm: "/img/posebna-brez-skrbi_sm.jpeg", lg: "/img/posebna-brez-skrbi.jpeg" },
+    imageName: "brez-skrbi",
     description: "Pokrijte stroške sterilizacije/kastracije za enega mucka.",
     pageSlug: "brez-skrbi-v-nove-dni",
-  },
-  [SpecialSponsorshipGroup.NovZacetek]: {
+  }),
+  [SpecialSponsorshipGroup.NovZacetek]: SpecialGroupMetaFactory({
+    group: SpecialSponsorshipGroup.NovZacetek,
     name: "Nov začetek",
-    imageUrls: { sm: "/img/posebna-nov-zacetek_sm.jpeg", lg: "/img/posebna-nov-zacetek.jpeg" },
+    imageName: "nov-zacetek",
     description: "Enemu mucku zagotovite popolno veterinarsko oskrbo.",
     pageSlug: "nov-zacetek",
-  },
-  [SpecialSponsorshipGroup.FipBojevniki]: {
+  }),
+  [SpecialSponsorshipGroup.FipBojevniki]: SpecialGroupMetaFactory({
+    group: SpecialSponsorshipGroup.FipBojevniki,
     name: "FIP bojevniki",
-    imageUrls: { sm: "/img/posebna-fip_sm.jpeg", lg: "/img/posebna-fip.jpeg" },
+    imageName: "fip",
     description: "Enemu FIP bojevniku omogočite zdravljenje za določeno število dni.",
     pageSlug: "fip-bojevniki",
-  },
-  [SpecialSponsorshipGroup.ZobnaMiska]: {
+  }),
+  [SpecialSponsorshipGroup.ZobnaMiska]: SpecialGroupMetaFactory({
+    group: SpecialSponsorshipGroup.ZobnaMiska,
     name: "Zobna miška",
-    imageUrls: { sm: "/img/posebna-zobna_sm.jpeg", lg: "/img/posebna-zobna.jpeg" },
+    imageName: "zobna",
     description: "Enemu mucku pokrijte stroške čiščenja zobnega kamna ali zobnega posega.",
     pageSlug: "zobna-miska",
-  },
+  }),
 };
 
 export const specialFormValidation = {

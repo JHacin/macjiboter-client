@@ -139,7 +139,7 @@ export const SponsorshipTypes: FC = () => {
     <>
       <SectionWaves waveColor="light-1" bgColor="copper.100" />
       <Section position="relative" spacing={{ top: "sm", bottom: "lg" }}>
-        <Container maxWidth="950px">
+        <Container maxWidthOverride="950px">
           <SectionHeader title="Vrste botrstev" isCenteredOnDesktop={true} markerColor="purple">
             Mucam v naši oskrbi lahko na daljavo pomagate na več načinov.
           </SectionHeader>

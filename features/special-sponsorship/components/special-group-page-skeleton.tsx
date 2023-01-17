@@ -1,11 +1,12 @@
 import { FC } from "react";
-import { Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { Flex, Grid, GridItem, Heading, Text, VStack } from "@chakra-ui/react";
 import { SPECIAL_SPONSORSHIP_GROUP_META } from "../constants";
 import { SpecialSponsorshipGroup } from "../types";
 import { Section } from "@/common/components/section";
 import { Container } from "@/common/components/container";
 import { Breadcrumbs } from "@/common/components/breadcrumbs";
 import { ROUTES } from "@/common/constants";
+import { RecentSpecialSponsors } from "./recent-special-sponsors";
 
 export const SpecialGroupPageSkeleton: FC<{
   group: SpecialSponsorshipGroup;
@@ -15,7 +16,7 @@ export const SpecialGroupPageSkeleton: FC<{
   return (
     <>
       <Container>
-        <Section spacing={{ top: "sm", bottom: "xs" }}>
+        <Section spacing={{ top: "sm", bottom: "none" }}>
           <Breadcrumbs
             items={[
               { text: "Posebna botrstva", href: ROUTES.SpecialSponsorships },
@@ -26,7 +27,7 @@ export const SpecialGroupPageSkeleton: FC<{
       </Container>
 
       <Container paddingHorizontal={{ base: 0 }}>
-        <Section spacing={{ top: "none" }}>
+        <Section spacing={{ top: "xs", bottom: "none" }}>
           <Flex
             flexDirection="column"
             justifyContent="flex-end"
@@ -65,6 +66,17 @@ export const SpecialGroupPageSkeleton: FC<{
               </Text>
             </VStack>
           </Flex>
+        </Section>
+      </Container>
+
+      <Container>
+        <Section spacing={{ top: "sm" }}>
+          <Grid gridTemplateColumns={{ base: "2fr 1fr" }}>
+            <GridItem>Opis</GridItem>
+            <GridItem>
+              <RecentSpecialSponsors group={group} />
+            </GridItem>
+          </Grid>
         </Section>
       </Container>
     </>

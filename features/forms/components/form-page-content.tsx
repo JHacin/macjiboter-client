@@ -17,7 +17,7 @@ export const FormPageContent: FC<{
       </Container>
 
       <Container
-        maxWidth={{
+        maxWidthOverride={{
           base: "md",
           md: "lg",
           lg: "1100px",

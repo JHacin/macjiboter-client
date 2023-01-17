@@ -26,9 +26,9 @@ interface SpecialSponsorshipListItemProps {
 }
 
 const generateAmountRange = (group: SpecialSponsorshipGroup) => {
-  const amounts = Object.values(SPECIAL_SPONSORSHIPS_META)
-    .filter((meta) => meta.parent === group)
-    .map((meta) => meta.amount);
+  const amounts = SPECIAL_SPONSORSHIP_GROUP_META[group].childTypes.map(
+    (type) => SPECIAL_SPONSORSHIPS_META[type].amount
+  );
 
   if (!amounts.length) {
     return "";
