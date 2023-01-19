@@ -41,7 +41,10 @@ export const Container: FC<ContainerProps> = ({
         ...paddingHorizontal,
       }}
       pt={paddingVertical}
-      pb={paddingBottom ?? paddingVertical}
+      pb={{
+        ...paddingVertical,
+        ...paddingBottom,
+      }}
     >
       {children}
     </ChakraContainer>

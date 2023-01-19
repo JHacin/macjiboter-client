@@ -2,11 +2,13 @@ import {
   SponsorshipFormGifteeValues,
   SponsorshipFormPayerValues,
 } from "@/forms/components/person-form-step";
+import { PersonData } from "@/common/types";
 
 export interface SpecialSponsorship {
   id: number;
   type: SpecialSponsorshipType;
   sponsor_id: number | null;
+  sponsor?: PersonData;
   payer_id: number | null;
   is_gift: boolean;
   confirmed_at: string | null;

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Box, Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
-import { SponsorDetails } from "@/common/components/sponsor-details";
+import { SponsorDetailsWithQuery } from "@/common/components/sponsor-details";
 import { Cat } from "../../types";
 import { Users } from "phosphor-react";
 
@@ -32,7 +32,7 @@ export const SponsorsList: FC<CatDetailsSponsorsProps> = ({ cat: { sponsorships,
         {sponsorships.length > 0 && (
           <VStack spacing={3}>
             {identifiableSponsorIds.map((id) => (
-              <SponsorDetails key={id} id={id} />
+              <SponsorDetailsWithQuery key={id} id={id} />
             ))}
 
             {anonymousSponsorsCount > 0 && (

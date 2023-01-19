@@ -3,24 +3,22 @@ import { useQuery } from "@tanstack/react-query";
 import { Skeleton } from "@chakra-ui/react";
 import { QueryKey } from "@/api/types";
 import { getPersonData } from "../util/api";
+import { PersonData } from "../types";
 
-interface SponsorDetailsProps {
-  id: number;
-}
+export const SponsorDetails: FC<PersonData> = ({ first_name, city }) => {
+  return (
+    <span>
+      {first_name ?? "brez imena"}, {city ?? "brez kraja"}
+    </span>
+  );
+};
 
-export const SponsorDetails: FC<SponsorDetailsProps> = ({ id }) => {
+export const SponsorDetailsWithQuery: FC<{ id: number }> = ({ id }) => {
   const { data: sponsor, isSuccess } = useQuery([QueryKey.PersonData, id], () => getPersonData(id));
 
   if (!isSuccess) {
     return <Skeleton height="30px" width="110px" />;
   }
 
-  const firstName = sponsor.first_name ?? "brez imena";
-  const city = sponsor.city ?? "brez kraja";
-
-  return (
-    <span>
-      {firstName}, {city}
-    </span>
-  );
+  return <SponsorDetails {...sponsor} />;
 };
