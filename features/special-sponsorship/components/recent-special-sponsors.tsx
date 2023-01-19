@@ -4,9 +4,10 @@ import { SPECIAL_SPONSORSHIP_GROUP_META, SPECIAL_SPONSORSHIPS_META } from "../co
 import { useQuery } from "@tanstack/react-query";
 import { QueryKey } from "@/api/types";
 import { getRecentSpecialSponsorships } from "../util/api";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Box, StackDivider, Text, VStack } from "@chakra-ui/react";
 import { PersonData } from "@/common/types";
 import { SponsorDetails } from "@/common/components/sponsor-details";
+import dayjs from "dayjs";
 
 const SponsorshipTypeList: FC<{
   type: SpecialSponsorshipType;
@@ -27,7 +28,7 @@ const SponsorshipTypeList: FC<{
   return (
     <Box>
       {!isTheOnlyChildType && (
-        <Text fontSize="lg" fontWeight="semibold">
+        <Text fontSize="lg" fontWeight="semibold" mb={3}>
           {label}
         </Text>
       )}
@@ -35,7 +36,7 @@ const SponsorshipTypeList: FC<{
         {sponsorships.length === 0 && <Text>Botrov še ni bilo.</Text>}
 
         {sponsorships.length > 0 && (
-          <VStack spacing={3}>
+          <VStack spacing={1}>
             {identifiableSponsors.map((sponsor) => (
               <SponsorDetails key={sponsor.id} {...sponsor} />
             ))}
@@ -59,7 +60,7 @@ const SponsorList: FC<{
   sponsorships: SpecialSponsorship[];
 }> = ({ types, sponsorships }) => {
   return (
-    <Box>
+    <VStack spacing={5} divider={<StackDivider borderColor="copper.400" />}>
       {types.map((type) => (
         <SponsorshipTypeList
           key={type}
@@ -68,7 +69,7 @@ const SponsorList: FC<{
           isTheOnlyChildType={types.length === 1}
         />
       ))}
-    </Box>
+    </VStack>
   );
 };
 
@@ -81,14 +82,27 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
   );
 
   return (
-    <Box>
-      <Text fontSize="xl" fontWeight="bold">
-        Botri zadnjih dveh mesecev
+    <Box
+      bgColor="white"
+      px={8}
+      py={8}
+      shadow="md"
+      borderTop="4px"
+      borderColor="orange.500"
+      roundedBottom="sm"
+    >
+      <Text fontSize="3xl" fontWeight="bold">
+        Najnovejši botri
       </Text>
-      <Box>{status === "loading" && "Nalagam..."}</Box>
-      <Box>{status === "error" && "Prišlo je do napake."}</Box>
-      <Box>
-        {status === "success" && <SponsorList types={childTypes} sponsorships={sponsorships} />}
+      <Text color="gray.600">
+        {dayjs().subtract(1, "month").format("MMMM") + "—" + dayjs().format("MMMM")}
+      </Text>
+      <Box mt={{ base: 10 }}>
+        <Box>{status === "loading" && "Nalagam..."}</Box>
+        <Box>{status === "error" && "Prišlo je do napake."}</Box>
+        <Box>
+          {status === "success" && <SponsorList types={childTypes} sponsorships={sponsorships} />}
+        </Box>
       </Box>
     </Box>
   );

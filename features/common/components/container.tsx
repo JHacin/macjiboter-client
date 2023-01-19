@@ -19,6 +19,7 @@ export const Container: FC<ContainerProps> = ({
   paddingVertical = {},
   paddingBottom = {},
   maxWidthOverride,
+  position,
   children,
 }) => {
   const { breakpoints } = useTheme();
@@ -45,6 +46,7 @@ export const Container: FC<ContainerProps> = ({
         ...paddingVertical,
         ...paddingBottom,
       }}
+      position={position}
     >
       {children}
     </ChakraContainer>

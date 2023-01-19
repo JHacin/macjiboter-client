@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Flex, Grid, GridItem, Heading, Text, VStack } from "@chakra-ui/react";
+import { FC, ReactNode } from "react";
+import { Box, Flex, Grid, GridItem, Heading, Text, VStack } from "@chakra-ui/react";
 import { SPECIAL_SPONSORSHIP_GROUP_META } from "../constants";
 import { SpecialSponsorshipGroup } from "../types";
 import { Section } from "@/common/components/section";
@@ -7,10 +7,12 @@ import { Container } from "@/common/components/container";
 import { Breadcrumbs } from "@/common/components/breadcrumbs";
 import { ROUTES } from "@/common/constants";
 import { RecentSpecialSponsors } from "./recent-special-sponsors";
+import { SectionWaves } from "@/common/components/section-waves";
 
 export const SpecialGroupPageSkeleton: FC<{
   group: SpecialSponsorshipGroup;
-}> = ({ group }) => {
+  body: ReactNode;
+}> = ({ group, body }) => {
   const { name, description, imageUrls } = SPECIAL_SPONSORSHIP_GROUP_META[group];
 
   return (
@@ -26,8 +28,12 @@ export const SpecialGroupPageSkeleton: FC<{
         </Section>
       </Container>
 
-      <Container paddingHorizontal={{ base: 0 }}>
-        <Section spacing={{ top: "xs", bottom: "none" }}>
+      <Section spacing={{ top: "xs", bottom: "xs" }} position="relative">
+        <Box position="absolute" bottom="0" width="full">
+          <SectionWaves waveColor="semi-1" bgColor="copper.50" />
+        </Box>
+
+        <Container paddingHorizontal={{ base: 0 }} position="relative">
           <Flex
             flexDirection="column"
             justifyContent="flex-end"
@@ -54,6 +60,7 @@ export const SpecialGroupPageSkeleton: FC<{
                 {name}
               </Heading>
               <Text
+                as="h2"
                 bgColor="orange.200"
                 color="orange.600"
                 fontSize={{ base: "sm", sm: "lg" }}
@@ -66,19 +73,21 @@ export const SpecialGroupPageSkeleton: FC<{
               </Text>
             </VStack>
           </Flex>
-        </Section>
-      </Container>
+        </Container>
+      </Section>
 
-      <Container>
-        <Section spacing={{ top: "sm" }}>
-          <Grid gridTemplateColumns={{ base: "2fr 1fr" }}>
-            <GridItem>Opis</GridItem>
-            <GridItem>
-              <RecentSpecialSponsors group={group} />
-            </GridItem>
-          </Grid>
-        </Section>
-      </Container>
+      <Box bgColor="copper.100">
+        <Container>
+          <Section spacing={{ top: "sm", bottom: "lg" }}>
+            <Grid gridTemplateColumns={{ base: "2fr 1fr" }} gap={{ base: 72 }}>
+              <GridItem>{body}</GridItem>
+              <GridItem>
+                <RecentSpecialSponsors group={group} />
+              </GridItem>
+            </Grid>
+          </Section>
+        </Container>
+      </Box>
     </>
   );
 };
