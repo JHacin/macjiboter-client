@@ -3,7 +3,7 @@ import { SpecialGroupPageSkeleton } from "@/special-sponsorship/components/speci
 import { SpecialSponsorshipGroup } from "@/special-sponsorship/types";
 
 const FipBojevnikiPage: NextPage = () => {
-  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.FipBojevniki} />;
+  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.FipBojevniki} body={<></>} />;
 };
 
 export default FipBojevnikiPage;

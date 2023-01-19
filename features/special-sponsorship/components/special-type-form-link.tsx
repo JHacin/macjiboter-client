@@ -5,11 +5,14 @@ import { ROUTES } from "@/common/constants";
 import { Box, Icon } from "@chakra-ui/react";
 import { ArrowRight } from "phosphor-react";
 
-export const SpecialTypeFormLink: FC<{ type: SpecialSponsorshipType }> = ({ type }) => {
+export const SpecialTypeFormLink: FC<{
+  type: SpecialSponsorshipType;
+  size?: "lg" | "md";
+}> = ({ type, size = "lg" }) => {
   return (
-    <Box mt={12}>
+    <Box mt={size === "lg" ? 16 : 10}>
       <ButtonLink
-        size="lg"
+        size={size}
         href={ROUTES.SpecialSponsorshipsForm(type)}
         rightIcon={<Icon as={ArrowRight} />}
       >

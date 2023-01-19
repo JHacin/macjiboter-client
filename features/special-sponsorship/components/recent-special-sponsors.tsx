@@ -88,7 +88,7 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
       py={8}
       shadow="md"
       borderTop="4px"
-      borderColor="orange.500"
+      borderColor="purple.500"
       roundedBottom="sm"
     >
       <Text fontSize="3xl" fontWeight="bold">

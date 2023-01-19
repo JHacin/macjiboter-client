@@ -3,7 +3,7 @@ import { SpecialGroupPageSkeleton } from "@/special-sponsorship/components/speci
 import { SpecialSponsorshipGroup } from "@/special-sponsorship/types";
 
 const NovZacetekPage: NextPage = () => {
-  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.NovZacetek} />;
+  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.NovZacetek} body={<></>} />;
 };
 
 export default NovZacetekPage;

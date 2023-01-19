@@ -3,7 +3,7 @@ import { SpecialGroupPageSkeleton } from "@/special-sponsorship/components/speci
 import { SpecialSponsorshipGroup } from "@/special-sponsorship/types";
 
 const ZobnaMiskaPage: NextPage = () => {
-  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.ZobnaMiska} />;
+  return <SpecialGroupPageSkeleton group={SpecialSponsorshipGroup.ZobnaMiska} body={<></>} />;
 };
 
 export default ZobnaMiskaPage;
