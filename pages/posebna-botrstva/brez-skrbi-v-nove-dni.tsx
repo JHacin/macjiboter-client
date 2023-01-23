@@ -35,19 +35,14 @@ const BrezSkrbiVNoveDniPage: NextPage = () => {
             items={[
               {
                 id: 1,
-                content: (
-                  <>
-                    prilagojeno mačje <strong>ozadje za namizje</strong>
-                  </>
-                ),
+                content: <>prilagojeno mačje ozadje za namizje</>,
               },
               {
                 id: 2,
                 content: (
                   <>
-                    <strong>sliko mucka</strong>, za katerega je bil porabljen prispevek ter kratko{" "}
-                    <strong>novičko</strong> o tem, kaj se z njim dogaja (najkasneje v roku enega
-                    meseca)
+                    sliko mucka, za katerega je bil porabljen prispevek ter kratko novičko o tem,
+                    kaj se z njim dogaja (najkasneje v roku enega meseca)
                   </>
                 ),
               },

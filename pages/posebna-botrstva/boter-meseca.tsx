@@ -24,9 +24,7 @@ const BoterMesecaPage: NextPage = () => {
               </>
             }
           />
-          <SpecialGroupBenefits
-            items={[{ id: 1, content: <strong>mesečno ozadje za namizje</strong> }]}
-          />
+          <SpecialGroupBenefits items={[{ id: 1, content: <>mesečno ozadje za namizje</> }]} />
           <SpecialTypeFormLink type={SpecialSponsorshipType.BoterMeseca} />
         </>
       }
