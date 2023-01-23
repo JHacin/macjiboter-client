@@ -59,6 +59,7 @@ const BrezSkrbiVNoveDniPage: NextPage = () => {
                     pokrijete stroške kastracije enega mačka.
                   </>
                 ),
+                color: "orange",
               },
               {
                 type: SpecialSponsorshipType.MucaGreBrezSkrbiVNoveDni,
@@ -69,6 +70,7 @@ const BrezSkrbiVNoveDniPage: NextPage = () => {
                     pokrijete stroške sterilizacije ene mačke.
                   </>
                 ),
+                color: "purple",
               },
             ]}
           />

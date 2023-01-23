@@ -5,22 +5,20 @@ import { CheckCircle, Gift } from "phosphor-react";
 export const SpecialGroupBenefits: FC<{
   items: { id: number; content: ReactNode; isForGiftOnly?: boolean }[];
 }> = ({ items: originalItems }) => {
-  const normalizedItems = originalItems
-    .sort((item) => (item.isForGiftOnly ? 1 : -1))
-    .map((item, index) => {
-      const isLastInList = index === originalItems.length - 1;
+  const normalizedItems = originalItems.map((item, index) => {
+    const isLastInList = index === originalItems.length - 1;
 
-      return {
-        ...item,
-        content: (
-          <>
-            {item.isForGiftOnly ? "(če gre za darilo) " : ""}
-            {item.content}
-            {isLastInList ? "." : ","}
-          </>
-        ),
-      };
-    });
+    return {
+      ...item,
+      content: (
+        <>
+          {item.isForGiftOnly ? "(če gre za darilo) " : ""}
+          {item.content}
+          {isLastInList ? "." : ","}
+        </>
+      ),
+    };
+  });
 
   return (
     <Box mt={12} maxW="560px" color="gray.700">

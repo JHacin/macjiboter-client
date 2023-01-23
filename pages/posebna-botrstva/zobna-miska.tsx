@@ -44,11 +44,6 @@ const ZobnaMiskaPage: NextPage = () => {
                 ),
               },
               {
-                id: 2,
-                content: <>prilagojeno elektronsko voščilnico</>,
-                isForGiftOnly: true,
-              },
-              {
                 id: 3,
                 content: (
                   <>
@@ -56,6 +51,11 @@ const ZobnaMiskaPage: NextPage = () => {
                     mesecih)
                   </>
                 ),
+              },
+              {
+                id: 2,
+                content: <>prilagojeno elektronsko voščilnico</>,
+                isForGiftOnly: true,
               },
             ]}
           />
@@ -69,6 +69,7 @@ const ZobnaMiskaPage: NextPage = () => {
                     pokrijete stroške čiščenja zobnega kamna in/ali manjšega zobnega posega.
                   </>
                 ),
+                color: "orange",
               },
               {
                 type: SpecialSponsorshipType.VelikaZobnaMis,
@@ -78,6 +79,7 @@ const ZobnaMiskaPage: NextPage = () => {
                     pokrijete stroške enega večjega zobnega posega ali dveh manjših.
                   </>
                 ),
+                color: "purple",
               },
             ]}
           />

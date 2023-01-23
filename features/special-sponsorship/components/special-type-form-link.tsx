@@ -8,13 +8,15 @@ import { ArrowRight } from "phosphor-react";
 export const SpecialTypeFormLink: FC<{
   type: SpecialSponsorshipType;
   size?: "lg" | "md";
-}> = ({ type, size = "lg" }) => {
+  color?: "orange" | "purple" | "blue";
+}> = ({ type, size = "lg", color = "orange" }) => {
   return (
     <Box mt={size === "lg" ? 16 : 10}>
       <ButtonLink
         size={size}
         href={ROUTES.SpecialSponsorshipsForm(type)}
         rightIcon={<Icon as={ArrowRight} />}
+        colorScheme={color}
       >
         Izpolni obrazec
       </ButtonLink>

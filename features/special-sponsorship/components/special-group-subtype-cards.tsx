@@ -5,7 +5,11 @@ import { SPECIAL_SPONSORSHIPS_META } from "../constants";
 import { SpecialTypeFormLink } from "./special-type-form-link";
 
 export const SpecialGroupSubtypeCards: FC<{
-  items: { type: SpecialSponsorshipType; description: ReactNode }[];
+  items: {
+    type: SpecialSponsorshipType;
+    description: ReactNode;
+    color: "orange" | "purple" | "blue";
+  }[];
 }> = ({ items }) => {
   return (
     <Box mt={16} maxW="540px">
@@ -17,13 +21,13 @@ export const SpecialGroupSubtypeCards: FC<{
             p={6}
             shadow="lg"
             borderTop="4px"
-            borderColor="orange.500"
+            borderColor={`${item.color}.500`}
           >
             <Text as="h4" fontSize="xl" fontWeight="bold">
               {SPECIAL_SPONSORSHIPS_META[item.type].label}
             </Text>
             <Text mt={4}>{item.description}</Text>
-            <SpecialTypeFormLink type={item.type} size="md" />
+            <SpecialTypeFormLink type={item.type} size="md" color={item.color} />
           </Box>
         ))}
       </VStack>

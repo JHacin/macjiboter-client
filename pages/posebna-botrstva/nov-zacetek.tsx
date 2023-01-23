@@ -27,17 +27,12 @@ const NovZacetekPage: NextPage = () => {
           <SpecialGroupBenefits
             items={[
               {
-                id: 1,
-                content: <>prilagojeno elektronsko voščilnico</>,
-                isForGiftOnly: true,
-              },
-              {
                 id: 2,
                 content: (
                   <>
                     uvrstitev na seznam botrov Bubijev za obdobje enega leta. Eno leto boste
                     prejemali vse, kar prejemajo stalni mačji botri Bubijev (pisma muckov, voščila,
-                    dostop do mesečnih namizij ...),
+                    dostop do mesečnih namizij in še kaj)
                   </>
                 ),
               },
@@ -46,7 +41,7 @@ const NovZacetekPage: NextPage = () => {
                 content: (
                   <>
                     sliko mucka, za katerega je bil porabljen prispevek ter kratko novičko o tem,
-                    kaj se z njim dogaja (najkasneje v roku enega meseca),
+                    kaj se z njim dogaja (najkasneje v roku enega meseca)
                   </>
                 ),
               },
@@ -58,6 +53,11 @@ const NovZacetekPage: NextPage = () => {
                     pomagali
                   </>
                 ),
+              },
+              {
+                id: 1,
+                content: <>prilagojeno elektronsko voščilnico</>,
+                isForGiftOnly: true,
               },
             ]}
           />
