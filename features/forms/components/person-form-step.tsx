@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { TextField } from "./text-field";
-import { Grid, GridItem } from "@chakra-ui/react";
+import { Grid, GridItem, Text, VStack } from "@chakra-ui/react";
 import { RadioField } from "./radio-field";
 import * as yup from "yup";
 import { SelectField } from "./select-field";
@@ -9,6 +9,7 @@ import { useFormikContext } from "formik";
 import { FormOption } from "../types";
 import { PersonGender } from "@/common/types";
 import { FormGroup } from "./form-group";
+import { FormNote } from "./form-note";
 
 interface PersonFormStepProps {
   personType: "payer" | "giftee";
@@ -36,15 +37,26 @@ export interface SponsorshipFormGifteeValues {
   giftee_country: string;
 }
 
+const personValidation = {
+  email: yup.string().email().required(),
+  first_name: yup.string().required(),
+  last_name: yup.string().required(),
+  gender: yup.number().typeError("Polje je obvezno.").required(),
+  address: yup.string(),
+  zip_code: yup.string(),
+  city: yup.string(),
+  country: yup.string(),
+};
+
 export const payerStepValidation = {
-  payer_email: yup.string().email().required(),
-  payer_first_name: yup.string().required(),
-  payer_last_name: yup.string().required(),
-  payer_gender: yup.number().typeError("Polje je obvezno.").required(),
-  payer_address: yup.string().required(),
-  payer_zip_code: yup.string().required(),
-  payer_city: yup.string().required(),
-  payer_country: yup.string().required(),
+  payer_email: personValidation.email,
+  payer_first_name: personValidation.first_name,
+  payer_last_name: personValidation.last_name,
+  payer_gender: personValidation.gender,
+  payer_address: personValidation.address,
+  payer_zip_code: personValidation.zip_code,
+  payer_city: personValidation.city,
+  payer_country: personValidation.country,
 };
 
 export const payerDefaultValues = {
@@ -70,14 +82,14 @@ export const gifteeDefaultValues = {
 };
 
 export const gifteeStepValidation = {
-  giftee_email: yup.string().email().required(),
-  giftee_first_name: yup.string().required(),
-  giftee_last_name: yup.string().required(),
-  giftee_gender: yup.number().typeError("Polje je obvezno.").required(),
-  giftee_address: yup.string().required(),
-  giftee_zip_code: yup.string().required(),
-  giftee_city: yup.string().required(),
-  giftee_country: yup.string().required(),
+  giftee_email: personValidation.email,
+  giftee_first_name: personValidation.first_name,
+  giftee_last_name: personValidation.last_name,
+  giftee_gender: personValidation.gender,
+  giftee_address: personValidation.address,
+  giftee_zip_code: personValidation.zip_code,
+  giftee_city: personValidation.city,
+  giftee_country: personValidation.country,
 };
 
 const PERSON_GENDER_LABELS = {
@@ -115,6 +127,20 @@ export const PersonFormStep: FC<PersonFormStepProps> = ({ personType }) => {
 
   return (
     <>
+      <FormGroup>
+        <FormNote>
+          <VStack spacing={4}>
+            <Text>
+              Osebne podatke potrebujemo izključno za namene komunikacije in obveščanja po e-mailu.
+            </Text>
+            <Text>
+              Podatki naslova niso obvezni, vendar nam pridejo prav v primerih, ko se na naslov
+              pošlje kakšno manjše presenečenje ali kaj podobnega.
+            </Text>
+          </VStack>
+        </FormNote>
+      </FormGroup>
+
       <FormGroup>
         <TextField
           name={formatFieldName("email")}

@@ -9,7 +9,8 @@ import { FormSubmitStatus } from "@/forms/types";
 import { FormGroup } from "@/forms/components/form-group";
 import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
-import { Box, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
+import { FormNote } from "./form-note";
 
 export const SummaryStep: FC = () => {
   const { status } = useFormikContext();
@@ -38,10 +39,10 @@ export const SummaryStep: FC = () => {
   return (
     <>
       <FormGroup>
-        <Box bg="orange.100" rounded="md" py={4} px={5} fontSize="sm">
+        <FormNote>
           Po oddaji obrazca boste na svoj elektronski naslov prejeli samodejni odgovor z nadaljnimi
           podatki glede plačila.
-        </Box>
+        </FormNote>
       </FormGroup>
 
       <FormGroup>
