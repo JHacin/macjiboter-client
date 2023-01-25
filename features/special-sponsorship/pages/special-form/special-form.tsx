@@ -46,7 +46,7 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
       component: <PayerStep />,
     },
     {
-      name: "Podatki obdarovanja",
+      name: "Darilo",
       validationSchema: gifteeStepValidation,
       component: <GifteeStep />,
       isHidden: !values.is_gift,

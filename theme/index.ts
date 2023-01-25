@@ -133,6 +133,11 @@ export const theme = extendTheme(
           focusBorderColor: "orange.500",
         },
       },
+      Textarea: {
+        defaultProps: {
+          focusBorderColor: "orange.500",
+        },
+      },
       Select: {
         defaultProps: {
           focusBorderColor: "orange.500",

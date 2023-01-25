@@ -2,6 +2,10 @@ import { FC } from "react";
 import * as yup from "yup";
 import { PersonGender } from "@/common/types";
 import { PersonFields } from "./person-fields";
+import { FormGroup } from "./form-group";
+import { TextareaField } from "./textarea-field";
+import { FormSectionHeading } from "./form-section-heading";
+import { Box } from "@chakra-ui/react";
 
 export interface SponsorshipFormGifteeValues {
   giftee_email: string;
@@ -23,6 +27,8 @@ export const gifteeDefaultValues = {
   giftee_zip_code: "",
   giftee_city: "",
   giftee_country: "SI",
+  gift_message: "",
+  gift_notes: "",
 };
 
 export const gifteeStepValidation = {
@@ -34,12 +40,36 @@ export const gifteeStepValidation = {
   giftee_zip_code: yup.string(),
   giftee_city: yup.string(),
   giftee_country: yup.string(),
+  gift_message: yup.string(),
+  gift_notes: yup.string(),
 };
 
 export const GifteeStep: FC = () => {
   return (
     <>
-      <PersonFields personType="giftee" />
+      <Box mb={12}>
+        <FormGroup>
+          <FormSectionHeading>Podatki obdarovanca</FormSectionHeading>
+        </FormGroup>
+        <PersonFields personType="giftee" />
+      </Box>
+      <FormGroup>
+        <FormSectionHeading>Posebnosti</FormSectionHeading>
+      </FormGroup>
+      <FormGroup>
+        <TextareaField
+          name="gift_message"
+          label="Osebno sporočilo"
+          hint="Sporočilo bomo v vašem imenu poslali skupaj z obvestilom o prejemu botrstva."
+        />
+      </FormGroup>
+      <FormGroup>
+        <TextareaField
+          name="gift_notes"
+          label="Opombe"
+          hint="Nas želite na kaj opozoriti, imate kakšne posebne želje?"
+        />
+      </FormGroup>
     </>
   );
 };

@@ -47,7 +47,7 @@ export const CatForm: FC = () => {
       component: <PayerStep />,
     },
     {
-      name: "Podatki obdarovanja",
+      name: "Darilo",
       validationSchema: gifteeStepValidation,
       component: <GifteeStep />,
       isHidden: !values.is_gift,
