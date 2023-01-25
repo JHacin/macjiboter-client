@@ -1,12 +1,6 @@
 import { FC, useState } from "react";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
-import {
-  gifteeDefaultValues,
-  gifteeStepValidation,
-  payerDefaultValues,
-  payerStepValidation,
-  PersonFormStep,
-} from "@/forms/components/person-form-step";
+import { payerDefaultValues, payerStepValidation, PayerStep } from "@/forms/components/payer-step";
 import { useCurrentCat } from "@/cats/hooks/use-current-cat";
 import { apiPost } from "@/api/util";
 import { CatFormValues } from "../../types";
@@ -16,6 +10,11 @@ import { ROUTES } from "@/common/constants";
 import { SummaryStep } from "@/forms/components/summary-step";
 import { FormPageContent } from "@/forms/components/form-page-content";
 import { TextLink } from "@/common/components/text-link";
+import {
+  gifteeStepValidation,
+  gifteeDefaultValues,
+  GifteeStep,
+} from "@/forms/components/giftee-step";
 
 const initialValues: CatFormValues = {
   is_gift: false,
@@ -45,12 +44,12 @@ export const CatForm: FC = () => {
     {
       name: "Vaši podatki",
       validationSchema: payerStepValidation,
-      component: <PersonFormStep personType="payer" />,
+      component: <PayerStep />,
     },
     {
-      name: "Podatki obdarovanca",
+      name: "Podatki obdarovanja",
       validationSchema: gifteeStepValidation,
-      component: <PersonFormStep personType="giftee" />,
+      component: <GifteeStep />,
       isHidden: !values.is_gift,
     },
     {

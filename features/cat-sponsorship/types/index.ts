@@ -1,9 +1,7 @@
-import {
-  SponsorshipFormGifteeValues,
-  SponsorshipFormPayerValues,
-} from "@/forms/components/person-form-step";
+import { SponsorshipFormPayerValues } from "@/forms/components/payer-step";
 import { Cat } from "@/cats/types";
 import { PersonData } from "@/common/types";
+import { SponsorshipFormGifteeValues } from "@/forms/components/giftee-step";
 
 export interface Sponsorship {
   id: number;
@@ -15,18 +13,12 @@ export interface Sponsorship {
   payer_id: number | null;
   is_gift: boolean;
   is_anonymous: boolean;
-  payment_type: SponsorshipPaymentType;
   monthly_amount: string;
   requested_duration: number | null;
   is_active: boolean;
   ended_at: string | null;
   created_at: string | null;
   updated_at: string | null;
-}
-
-export enum SponsorshipPaymentType {
-  BankTransfer = 1,
-  DirectDebit = 2,
 }
 
 export type CatFormValues = CatFormParamsValues &

@@ -1,11 +1,5 @@
 import { FC, useState } from "react";
-import {
-  gifteeDefaultValues,
-  gifteeStepValidation,
-  payerDefaultValues,
-  payerStepValidation,
-  PersonFormStep,
-} from "@/forms/components/person-form-step";
+import { payerDefaultValues, payerStepValidation, PayerStep } from "@/forms/components/payer-step";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
 import { SPECIAL_SPONSORSHIPS_META, specialFormValidation } from "../../constants";
 import { SpecialFormValues, SpecialSponsorshipType } from "../../types";
@@ -17,6 +11,11 @@ import { FormPageContent } from "@/forms/components/form-page-content";
 import { FormNote } from "@/forms/components/form-note";
 import { FormGroup } from "@/forms/components/form-group";
 import { Divider, Text, VStack } from "@chakra-ui/react";
+import {
+  gifteeDefaultValues,
+  GifteeStep,
+  gifteeStepValidation,
+} from "@/forms/components/giftee-step";
 
 interface SpecialFormProps {
   defaultType: SpecialSponsorshipType;
@@ -44,12 +43,12 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
     {
       name: "Vaši podatki",
       validationSchema: payerStepValidation,
-      component: <PersonFormStep personType="payer" />,
+      component: <PayerStep />,
     },
     {
-      name: "Podatki obdarovanca",
+      name: "Podatki obdarovanja",
       validationSchema: gifteeStepValidation,
-      component: <PersonFormStep personType="giftee" />,
+      component: <GifteeStep />,
       isHidden: !values.is_gift,
     },
     {

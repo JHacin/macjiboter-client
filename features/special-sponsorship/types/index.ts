@@ -1,8 +1,6 @@
-import {
-  SponsorshipFormGifteeValues,
-  SponsorshipFormPayerValues,
-} from "@/forms/components/person-form-step";
+import { SponsorshipFormPayerValues } from "@/forms/components/payer-step";
 import { PersonData } from "@/common/types";
+import { SponsorshipFormGifteeValues } from "@/forms/components/giftee-step";
 
 export interface SpecialSponsorship {
   id: number;
