@@ -15,14 +15,14 @@ export interface SponsorshipFormPayerValues {
 }
 
 export const payerStepValidation = {
-  payer_email: yup.string().email().required(),
-  payer_first_name: yup.string().required(),
-  payer_last_name: yup.string().required(),
+  payer_email: yup.string().email().max(255).required(),
+  payer_first_name: yup.string().max(255).required(),
+  payer_last_name: yup.string().max(255).required(),
   payer_gender: yup.number().typeError("Polje je obvezno.").required(),
-  payer_address: yup.string(),
-  payer_zip_code: yup.string(),
-  payer_city: yup.string(),
-  payer_country: yup.string(),
+  payer_address: yup.string().max(255),
+  payer_zip_code: yup.string().max(255),
+  payer_city: yup.string().max(255),
+  payer_country: yup.string().max(255),
 };
 
 export const payerDefaultValues = {

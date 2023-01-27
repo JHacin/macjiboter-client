@@ -32,16 +32,16 @@ export const gifteeDefaultValues = {
 };
 
 export const gifteeStepValidation = {
-  giftee_email: yup.string().email().required(),
-  giftee_first_name: yup.string().required(),
-  giftee_last_name: yup.string().required(),
+  giftee_email: yup.string().email().max(255).required(),
+  giftee_first_name: yup.string().max(255).required(),
+  giftee_last_name: yup.string().max(255).required(),
   giftee_gender: yup.number().typeError("Polje je obvezno.").required(),
-  giftee_address: yup.string(),
-  giftee_zip_code: yup.string(),
-  giftee_city: yup.string(),
-  giftee_country: yup.string(),
-  gift_message: yup.string(),
-  gift_notes: yup.string(),
+  giftee_address: yup.string().max(255),
+  giftee_zip_code: yup.string().max(255),
+  giftee_city: yup.string().max(255),
+  giftee_country: yup.string().max(255),
+  gift_message: yup.string().max(1000),
+  gift_notes: yup.string().max(1000),
 };
 
 export const GifteeStep: FC = () => {
