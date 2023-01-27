@@ -12,10 +12,14 @@ import { SkipNavContent, SkipNavLink } from "@chakra-ui/skip-nav";
 import { locale } from "@/forms/config/yup-locale";
 import countries from "i18n-iso-countries";
 import localizedCountries from "i18n-iso-countries/langs/sl.json";
+import "react-datepicker/dist/react-datepicker.css";
+import { registerLocale } from "react-datepicker";
+import sl from "date-fns/locale/sl";
 
 dayjs.locale("sl");
 yup.setLocale(locale);
 countries.registerLocale(localizedCountries);
+registerLocale("sl", sl);
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(

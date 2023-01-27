@@ -204,6 +204,12 @@ export const theme = extendTheme(
             backgroundColor: "orange.500",
           },
         },
+        ".react-datepicker__close-icon::after": {
+          backgroundColor: "orange.500",
+        },
+        ".react-datepicker__day--selected": {
+          backgroundColor: "orange.500",
+        },
       },
     },
   },

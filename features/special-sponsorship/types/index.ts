@@ -38,8 +38,9 @@ export enum SpecialSponsorshipGroup {
 
 export type SpecialFormValues = SpecialFormParamsValues &
   SponsorshipFormPayerValues &
-  SponsorshipFormGifteeValues &
-  SpecialFormSummaryValues;
+  SponsorshipFormGifteeValues & {
+    gift_requested_activation_date: string | null;
+  } & SpecialFormSummaryValues;
 
 export interface SpecialFormParamsValues {
   type: SpecialSponsorshipType;

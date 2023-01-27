@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 import * as yup from "yup";
 import { PersonGender } from "@/common/types";
 import { PersonFields } from "./person-fields";
@@ -44,7 +44,9 @@ export const gifteeStepValidation = {
   gift_notes: yup.string().max(1000),
 };
 
-export const GifteeStep: FC = () => {
+export const GifteeStep: FC<{ additionalFieldsBefore?: ReactNode }> = ({
+  additionalFieldsBefore,
+}) => {
   return (
     <>
       <Box mb={12}>
@@ -56,10 +58,11 @@ export const GifteeStep: FC = () => {
       <FormGroup>
         <FormSectionHeading>Posebnosti</FormSectionHeading>
       </FormGroup>
+      {additionalFieldsBefore && additionalFieldsBefore}
       <FormGroup>
         <TextareaField
           name="gift_message"
-          label="Osebno sporočilo"
+          label="Osebno sporočilo obdarovancu"
           hint="Sporočilo bomo v vašem imenu poslali skupaj z obvestilom o prejemu botrstva."
         />
       </FormGroup>

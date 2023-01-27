@@ -25,12 +25,13 @@ export const FieldControl: FC<FieldControlProps> = ({
 
       {children}
 
+      {isInvalid && <FormErrorMessage>{meta.error}</FormErrorMessage>}
+
       {hint && (
         <Box fontSize="xs" mt={2} color="gray.600">
           {hint}
         </Box>
       )}
-      {isInvalid && <FormErrorMessage>{meta.error}</FormErrorMessage>}
     </FormControl>
   );
 };
