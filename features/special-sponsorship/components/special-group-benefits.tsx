@@ -27,7 +27,7 @@ export const SpecialGroupBenefits: FC<{
       </Text>
 
       {normalizedItems.length > 0 && (
-        <List spacing={3} mt={4} ml={3}>
+        <List spacing={3} mt={4}>
           {normalizedItems.map((item) => (
             <ListItem key={item.id} display="flex" alignItems="start">
               <ListIcon

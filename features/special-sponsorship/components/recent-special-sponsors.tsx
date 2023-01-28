@@ -8,6 +8,7 @@ import { Box, StackDivider, Text, VStack } from "@chakra-ui/react";
 import { PersonData } from "@/common/types";
 import { SponsorDetails } from "@/common/components/sponsor-details";
 import dayjs from "dayjs";
+import { HeadingMarker } from "@/common/components/heading-marker";
 
 const SponsorshipTypeList: FC<{
   type: SpecialSponsorshipType;
@@ -60,7 +61,7 @@ const SponsorList: FC<{
   sponsorships: SpecialSponsorship[];
 }> = ({ types, sponsorships }) => {
   return (
-    <VStack spacing={5} divider={<StackDivider borderColor="copper.400" />}>
+    <VStack spacing={5} divider={<StackDivider borderColor="copper.500" />}>
       {types.map((type) => (
         <SponsorshipTypeList
           key={type}
@@ -82,16 +83,11 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
   );
 
   return (
-    <Box
-      bgColor="white"
-      px={8}
-      py={8}
-      shadow="md"
-      borderTop="4px"
-      borderColor="purple.500"
-      roundedBottom="sm"
-    >
-      <Text fontSize="3xl" fontWeight="bold">
+    <Box bgColor="copper.300" p={{ base: 6, lg: 8 }}>
+      <Box w="80px" h="6px">
+        <HeadingMarker color="orange" />
+      </Box>
+      <Text fontSize={{ base: "2xl", lg: "3xl" }} fontWeight="bold" mt={4}>
         Najnovejši botri
       </Text>
       <Text color="gray.600">

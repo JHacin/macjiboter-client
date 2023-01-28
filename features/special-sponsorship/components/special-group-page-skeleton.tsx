@@ -46,7 +46,7 @@ export const SpecialGroupPageSkeleton: FC<{
             shadow="md"
             p={{ base: 4, sm: 10 }}
           >
-            <VStack spacing={{ base: 3, sm: 5 }} align={{ base: "stretch", sm: "start" }}>
+            <VStack spacing={{ base: 3, sm: 5 }}>
               <Heading
                 as="h1"
                 bgColor="orange.500"
@@ -59,17 +59,20 @@ export const SpecialGroupPageSkeleton: FC<{
               >
                 {name}
               </Heading>
-              <Text
-                as="h2"
-                bgColor="orange.200"
-                color="orange.600"
-                fontSize={{ base: "sm", sm: "lg" }}
-                fontWeight="semibold"
-                px={{ base: 3, sm: 7 }}
-                py={2}
-                rounded={{ base: "none", sm: "sm" }}
-              >
-                {description}
+              <Text as="h2" rounded={{ base: "none", sm: "sm" }}>
+                <Text
+                  as="span"
+                  bgColor="orange.200"
+                  px={{ base: 3, sm: 7 }}
+                  py={2}
+                  color="orange.600"
+                  fontSize={{ base: "sm", sm: "lg" }}
+                  fontWeight="semibold"
+                  boxDecorationBreak="clone"
+                  lineHeight="2"
+                >
+                  {description}
+                </Text>
               </Text>
             </VStack>
           </Flex>
@@ -79,9 +82,12 @@ export const SpecialGroupPageSkeleton: FC<{
       <Box bgColor="copper.100">
         <Container>
           <Section spacing={{ top: "sm", bottom: "lg" }}>
-            <Grid gridTemplateColumns={{ base: "2fr 1fr" }} gap={{ base: 72 }}>
+            <Grid
+              gridTemplateColumns={{ base: "auto", lg: "4fr 3fr", xl: "2fr 1fr" }}
+              gap={{ base: 24, lg: 16, xl: 44, "2xl": 72 }}
+            >
               <GridItem>{body}</GridItem>
-              <GridItem>
+              <GridItem maxWidth="450px">
                 <RecentSpecialSponsors group={group} />
               </GridItem>
             </Grid>
