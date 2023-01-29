@@ -1,10 +1,6 @@
-import { FC, useCallback, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { FC } from "react";
 import { QueryKey } from "@/api/types";
-import { GetCatsQueryParams } from "@/cats/util/api";
-import { getNews, GetNewsQueryParams } from "../../util/api";
-import { NextRouter, useRouter } from "next/router";
-import { objectToQueryString } from "../../util/misc";
+import { getNews } from "../../util/api";
 import { NewsPiece } from "../../types";
 import { Box, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import { Pagination } from "../../components/pagination";
@@ -14,16 +10,7 @@ import { EXTERNAL_LINKS } from "../../constants";
 import { dateFormat } from "../../util/date";
 import { Container } from "../../components/container";
 import { CmsContent } from "../../components/cms-content";
-
-const getInitialQueryParamsState = (router: NextRouter) => {
-  const isString = (string: unknown): string is string => {
-    return typeof string === "string";
-  };
-
-  return {
-    page: isString(router.query.page) ? router.query.page : "1",
-  };
-};
+import { usePaginatedList } from "../../hooks/use-paginated-list";
 
 const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
   return (
@@ -44,41 +31,13 @@ const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
 };
 
 export const News: FC = () => {
-  const router = useRouter();
-  const gridWrapperRef = useRef<HTMLDivElement>(null);
+  const { query, queryParams, gridWrapperRef, handlePaginationButtonClick } =
+    usePaginatedList<NewsPiece>({
+      queryKey: QueryKey.News,
+      queryFn: getNews,
+    });
 
-  const [queryParams, setQueryParams] = useState<GetNewsQueryParams>(
-    getInitialQueryParamsState(router)
-  );
-
-  const updateQueryParams = useCallback(
-    async (qp: GetCatsQueryParams) => {
-      setQueryParams(qp);
-
-      const queryString = objectToQueryString(qp, false);
-      await router.replace({ query: queryString }, undefined, { shallow: true });
-    },
-    [router]
-  );
-
-  const { data, isSuccess } = useQuery([QueryKey.News, queryParams], () => getNews(queryParams), {
-    keepPreviousData: true,
-    staleTime: Infinity,
-  });
-
-  const setPage = useCallback(
-    (page: number) => {
-      updateQueryParams({ ...queryParams, page: String(page) });
-    },
-    [queryParams, updateQueryParams]
-  );
-
-  const handlePaginationButtonClick = (page: number) => {
-    setPage(page);
-    gridWrapperRef.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-  };
-
-  if (!isSuccess) {
+  if (!query.isSuccess) {
     return null;
   }
 
@@ -106,17 +65,17 @@ export const News: FC = () => {
       <Section ref={gridWrapperRef}>
         <Container>
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={12}>
-            {data.data.map((newsPiece) => (
+            {query.data.data.map((newsPiece) => (
               <NewsPiece key={newsPiece.id} {...newsPiece} />
             ))}
           </SimpleGrid>
 
-          {data.total > data.per_page && (
+          {query.data.total > query.data.per_page && (
             <Flex justify="center" mt={{ base: 16, lg: 24 }}>
               <Pagination
                 selectedPage={Number(queryParams.page)}
                 onChange={handlePaginationButtonClick}
-                totalPages={data.last_page}
+                totalPages={query.data.last_page}
               />
             </Flex>
           )}

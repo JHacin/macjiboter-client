@@ -6,6 +6,7 @@ export enum CatGender {
 }
 
 export enum CatStatus {
+  // noinspection JSUnusedGlobalSymbols
   SeekingSponsors = 1,
   TempNotSeekingSponsors = 2,
   NotSeekingSponsors = 3,

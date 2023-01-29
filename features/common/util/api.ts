@@ -1,4 +1,4 @@
-import { NewsPiece, PersonData } from "../types";
+import { NewsPiece, PaginatedListQueryParams, PersonData } from "../types";
 import { Cat } from "@/cats/types";
 import { apiGet } from "@/api/util";
 import { objectToQueryString } from "./misc";
@@ -14,12 +14,8 @@ export const getPersonData = async (id: number): Promise<PersonData> => {
   return await apiGet(`person-data/${id}`);
 };
 
-export interface GetNewsQueryParams {
-  page: string;
-}
-
 export const getNews = async (
-  queryParams: GetNewsQueryParams
+  queryParams: PaginatedListQueryParams
 ): Promise<PaginatedModelApiResponse<NewsPiece>> => {
   const query = objectToQueryString(queryParams);
   return await apiGet(`news${query}`);

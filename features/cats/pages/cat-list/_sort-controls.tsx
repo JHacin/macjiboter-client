@@ -1,14 +1,13 @@
 import { FC } from "react";
 import { FormControl, FormLabel, Select } from "@chakra-ui/react";
-import { GetCatsQueryParams } from "../../util/api";
 
 interface CatListSortProps {
-  onChange: (sort: GetCatsQueryParams["sort"]) => void;
+  onChange: (sort: string) => void;
 }
 
 interface SortOption {
   label: string;
-  value: GetCatsQueryParams["sort"];
+  value: string;
 }
 
 const sortOptions: SortOption[] = [
@@ -20,7 +19,7 @@ const sortOptions: SortOption[] = [
   { label: "Starost (najprej mlajši)", value: "age_asc" },
 ];
 
-const defaultSortValue: GetCatsQueryParams["sort"] = "id_desc";
+const defaultSortValue = "id_desc";
 
 export const SortControls: FC<CatListSortProps> = ({ onChange }) => {
   return (
@@ -28,7 +27,7 @@ export const SortControls: FC<CatListSortProps> = ({ onChange }) => {
       <FormLabel>Razvrsti po</FormLabel>
       <Select
         onChange={(event) => {
-          onChange(event.target.value as GetCatsQueryParams["sort"]);
+          onChange(event.target.value);
         }}
         defaultValue={defaultSortValue}
       >

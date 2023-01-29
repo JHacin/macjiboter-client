@@ -190,6 +190,7 @@ const MultiStepFormContent = <TFormValues,>({
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const Debug = () => (
   <div
     style={{

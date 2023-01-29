@@ -1,4 +1,4 @@
-import { FC, useMemo, useRef, useState } from "react";
+import { FC, useState } from "react";
 import { CatsGrid } from "./_cats-grid";
 import { Pagination } from "@/common/components/pagination";
 import { SearchInput } from "./_search-input";
@@ -8,24 +8,28 @@ import { TextLink } from "@/common/components/text-link";
 import { PawPrint } from "phosphor-react";
 import { ROUTES } from "@/common/constants";
 import { SortControls } from "./_sort-controls";
-import { debounce } from "lodash-es";
-import { useCatListQuery } from "./_use-cat-list-query";
 import { Container } from "@/common/components/container";
+import { usePaginatedList } from "@/common/hooks/use-paginated-list";
+import { QueryKey } from "@/api/types";
+import { getCats } from "../../util/api";
+import { Cat } from "../../types";
 
 export const CatList: FC = () => {
-  const { result, queryParams, setPage, setSearch, setSort } = useCatListQuery();
-  const debouncedSetSearchQueryParam = useMemo(() => debounce(setSearch, 400), [setSearch]);
+  const {
+    query,
+    queryParams,
+    setSearch,
+    debouncedSetSearch,
+    setSort,
+    gridWrapperRef,
+    handlePaginationButtonClick,
+  } = usePaginatedList<Cat>({ queryKey: QueryKey.Cats, queryFn: getCats });
+
   const [searchInputValue, setSearchInputValue] = useState<string>(queryParams.search ?? "");
-  const gridWrapperRef = useRef<HTMLDivElement>(null);
 
-  const shouldShowNumResults = !!searchInputValue && !!queryParams.search && !result.isFetching;
+  const shouldShowNumResults = !!searchInputValue && !!queryParams.search && !query.isFetching;
 
-  const handlePaginationButtonClick = (page: number) => {
-    setPage(page);
-    gridWrapperRef.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-  };
-
-  if (!result.isSuccess) {
+  if (!query.isSuccess) {
     return null;
   }
 
@@ -87,14 +91,14 @@ export const CatList: FC = () => {
             <Box w={{ md: "350px" }}>
               <SearchInput
                 value={searchInputValue}
-                setValue={(search) => {
+                setValue={async (search) => {
                   setSearchInputValue(search);
-                  debouncedSetSearchQueryParam(search);
+                  await debouncedSetSearch(search);
                 }}
               />
             </Box>
             <Box w={{ md: "350px" }}>
-              <SortControls onChange={setSort} />{" "}
+              <SortControls onChange={setSort} />
             </Box>
           </Flex>
 
@@ -106,13 +110,13 @@ export const CatList: FC = () => {
               <Text fontSize={{ base: "md", lg: "lg" }}>
                 Število rezultatov:{" "}
                 <Text as="span" fontWeight="semibold">
-                  {result.data.total}
+                  {query.data.total}
                 </Text>
               </Text>
               <Button
                 variant="link"
-                onClick={() => {
-                  setSearch("");
+                onClick={async () => {
+                  await setSearch("");
                   setSearchInputValue("");
                 }}
               >
@@ -120,15 +124,15 @@ export const CatList: FC = () => {
               </Button>
             </Box>
 
-            <CatsGrid cats={result.data.data} />
+            <CatsGrid cats={query.data.data} />
           </VStack>
 
-          {result.data.total > result.data.per_page && (
+          {query.data.total > query.data.per_page && (
             <Flex justify="center" mt={{ base: 16, lg: 24 }}>
               <Pagination
                 selectedPage={Number(queryParams.page)}
                 onChange={handlePaginationButtonClick}
-                totalPages={result.data.last_page}
+                totalPages={query.data.last_page}
               />
             </Flex>
           )}

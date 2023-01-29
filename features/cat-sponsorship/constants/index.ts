@@ -1,6 +1,7 @@
 import { isAgreedToTermsValidation, NUMBER_INPUT_MAX } from "@/forms/constants";
 import * as yup from "yup";
 
+// noinspection JSUnusedGlobalSymbols
 export const catFormValidation = {
   paramsStep: {
     is_gift: yup.boolean(),

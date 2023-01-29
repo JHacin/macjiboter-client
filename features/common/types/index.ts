@@ -25,3 +25,9 @@ export interface NewsPiece {
   created_at: string | null;
   updated_at: string | null;
 }
+
+export interface PaginatedListQueryParams {
+  page: string;
+  search?: string;
+  sort?: string;
+}
