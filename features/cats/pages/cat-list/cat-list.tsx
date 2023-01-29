@@ -1,9 +1,9 @@
 import { FC, useState } from "react";
-import { CatsGrid } from "./_cats-grid";
+import { CatsGrid, CatsGridSkeleton } from "./_cats-grid";
 import { Pagination } from "@/common/components/pagination";
 import { SearchInput } from "./_search-input";
 import { Section } from "@/common/components/section";
-import { Box, Button, Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
+import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
 import { TextLink } from "@/common/components/text-link";
 import { PawPrint } from "phosphor-react";
 import { ROUTES } from "@/common/constants";
@@ -24,14 +24,8 @@ export const CatList: FC = () => {
     gridWrapperRef,
     handlePaginationButtonClick,
   } = usePaginatedList<Cat>({ queryKey: QueryKey.Cats, queryFn: getCats });
-
   const [searchInputValue, setSearchInputValue] = useState<string>(queryParams.search ?? "");
-
   const shouldShowNumResults = !!searchInputValue && !!queryParams.search && !query.isFetching;
-
-  if (!query.isSuccess) {
-    return null;
-  }
 
   return (
     <>
@@ -102,32 +96,37 @@ export const CatList: FC = () => {
             </Box>
           </Flex>
 
-          <VStack mt={{ base: 8, lg: 12 }} spacing={6}>
-            <Box
-              visibility={shouldShowNumResults ? "visible" : "hidden"}
-              aria-hidden={!shouldShowNumResults}
-            >
-              <Text fontSize={{ base: "md", lg: "lg" }}>
-                Število rezultatov:{" "}
-                <Text as="span" fontWeight="semibold">
-                  {query.data.total}
-                </Text>
-              </Text>
-              <Button
-                variant="link"
-                onClick={async () => {
-                  await setSearch("");
-                  setSearchInputValue("");
-                }}
+          <Box mt={{ base: 8, lg: 12 }}>
+            {query.data && (
+              <Box
+                visibility={shouldShowNumResults ? "visible" : "hidden"}
+                aria-hidden={!shouldShowNumResults}
+                mb={shouldShowNumResults ? 6 : 0}
               >
-                Počisti iskanje
-              </Button>
-            </Box>
+                <Text fontSize={{ base: "md", lg: "lg" }}>
+                  Število rezultatov:{" "}
+                  <Text as="span" fontWeight="semibold">
+                    {query.data.total}
+                  </Text>
+                </Text>
+                <Button
+                  variant="link"
+                  onClick={async () => {
+                    await setSearch("");
+                    setSearchInputValue("");
+                  }}
+                >
+                  Počisti iskanje
+                </Button>
+              </Box>
+            )}
 
-            <CatsGrid cats={query.data.data} />
-          </VStack>
+            {query.isSuccess && !query.isFetching && <CatsGrid cats={query.data.data} />}
+            {query.isFetching && <CatsGridSkeleton />}
+            {query.isError && <Text>Prišlo je do napake na strežniku.</Text>}
+          </Box>
 
-          {query.data.total > query.data.per_page && (
+          {query.data && query.data.total > query.data.per_page && (
             <Flex justify="center" mt={{ base: 16, lg: 24 }}>
               <Pagination
                 selectedPage={Number(queryParams.page)}
