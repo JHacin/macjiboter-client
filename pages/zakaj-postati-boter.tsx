@@ -76,7 +76,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
             </Heading>
           </Section>
 
-          <Section spacing={{ top: "sm" }} pl={12}>
+          <Section spacing={{ top: "sm" }}>
             <List spacing={8} fontSize="lg" maxWidth="650px">
               {listItems.map((item) => (
                 <ListItem key={item.id} display="flex" alignItems="start">
