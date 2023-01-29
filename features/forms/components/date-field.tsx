@@ -43,7 +43,7 @@ export const DateField: FC<{
         {...datePickerProps}
         selected={field.value ? dayjs(field.value).toDate() : null}
         onChange={(date) => {
-          helpers.setValue(dayjs(date).format("YYYY-MM-DD"));
+          helpers.setValue(dayjs(date).isValid() ? dayjs(date).format("YYYY-MM-DD") : null);
         }}
         isClearable={true}
         customInput={<DatepickerInput />}
