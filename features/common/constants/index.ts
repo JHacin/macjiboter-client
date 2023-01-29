@@ -30,5 +30,6 @@ export const EXTERNAL_LINKS = {
   FacebookPage: "https://www.facebook.com/MacjiBoter",
   InstagramPage: "https://www.instagram.com/macjiboter",
   MacjaHisa: "https://macjahisa.si",
+  SuperCombe: "http://www.supercombe.si/",
   SuperCombeContactEmail: "trgovina@supercombe.si",
 };

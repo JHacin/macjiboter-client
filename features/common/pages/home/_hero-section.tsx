@@ -1,5 +1,5 @@
 import { Section } from "../../components/section";
-import { Box, Button, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
 import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
 import { EXTERNAL_LINKS, ROUTES } from "../../constants";
@@ -59,9 +59,6 @@ export const HeroSection = () => {
               <ButtonLink href={ROUTES.BecomeSponsorOverview} size="lg" w="200px">
                 Postani boter
               </ButtonLink>
-              <Button variant="subtle" size="lg" w="200px">
-                Več o programu
-              </Button>
             </Stack>
           </Box>
         </Section>
