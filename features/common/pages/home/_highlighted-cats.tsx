@@ -64,7 +64,7 @@ export const HighlightedCats = () => {
   return (
     <Section position="relative" bg="copper.100" spacing={{ bottom: "md" }}>
       <Container>
-        <SectionHeader title="Že dolgo so pri skrbnikih" isCenteredOnDesktop={true}>
+        <SectionHeader title="Iščejo botre" isCenteredOnDesktop={true}>
           V projekt Mačji boter so vključeni predvsem tisti mucki, ki iz različnih vzrokov dalj časa
           iščejo svoj dom, ali pa zaradi njihovih posebnosti predvidevamo, da bodo pri nas dalj
           časa.
