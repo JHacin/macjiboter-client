@@ -61,7 +61,7 @@ const NovZacetekPage: NextPage = () => {
               },
             ]}
           />
-          <SpecialTypeFormLink type={SpecialSponsorshipType.BoterMeseca} />
+          <SpecialTypeFormLink type={SpecialSponsorshipType.NovZacetek} />
         </>
       }
     />
