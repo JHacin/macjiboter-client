@@ -11,7 +11,7 @@ export const HeroSection = () => {
       <Container
         position="relative"
         paddingBottom={{
-          base: "140px",
+          base: "225px",
           sm: "320px",
           md: "120px",
           lg: "140px",

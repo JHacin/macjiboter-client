@@ -7,5 +7,5 @@ export const useCurrentCat = () => {
   const router = useRouter();
   const slug = router.query.slug as string;
 
-  return useQuery([QueryKey.Cat, slug], () => getCat(slug));
+  return useQuery([QueryKey.Cat, slug], () => getCat(slug), { staleTime: Infinity });
 };
