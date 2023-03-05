@@ -7,44 +7,44 @@ import {
   AccordionPanel,
   Box,
   Heading,
-  Text,
   VStack,
 } from "@chakra-ui/react";
 import { Section } from "../../components/section";
 import { ContactEmailTextLink } from "../../components/text-link";
 import { FAQ_ITEMS } from "./_faq-items";
-import { Container } from "@/common/components/container";
+import { ContainerNew } from "@/common/components/container";
+import { PageTitle } from "../../components/page-title";
+import { SectionWaves } from "../../components/section-waves";
+import { PageSubtitle } from "../../components/page-subtitle";
 
 export const FAQ: FC = () => {
   return (
     <>
-      <Section spacing={{ bottom: "none" }}>
-        <Box bgGradient="linear(to-br, blue.50, blue.100, blue.50)" shadow="md">
-          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
-            <Heading size={{ base: "2xl", lg: "3xl" }}>Pravila in pogosta vprašanja</Heading>
+      <Box backgroundColor="copper.100">
+        <ContainerNew indent={1}>
+          <Section spacing={{ top: "sm", bottom: "xs" }}>
+            <PageTitle>pravila in pogosta vprašanja</PageTitle>
 
-            <Text
-              fontSize={{ base: "mg", lg: "lg" }}
-              mt={{ base: 6, lg: 10 }}
-              maxW={{ base: "500px", lg: "640px" }}
-            >
+            <PageSubtitle>
               Na tem mestu so zbrani odgovori na nekatera izmed vprašanj, ki se pogosto pojavijo
               novim botrom. Če vas poleg tega še kar koli zanima, nas lahko kontaktirate prek
               e-pošte na naslovu <ContactEmailTextLink /> , in vam bomo odgovorili v najkrajšem
               možnem času.
-            </Text>
-          </Container>
-        </Box>
-      </Section>
-
-      <Section>
-        <Container>
+            </PageSubtitle>
+          </Section>
+        </ContainerNew>
+      </Box>
+      <SectionWaves waveColor="light-1" bgColor="copper.100" />
+      <Section spacing={{ top: "sm" }}>
+        <ContainerNew indent={1}>
           <Accordion maxWidth="650px" allowMultiple={true}>
             {FAQ_ITEMS.map((item) => (
               <AccordionItem key={item.id}>
                 <AccordionButton _expanded={{ bg: "copper.200" }}>
-                  <Box py={4} flex="1" textAlign="left">
-                    <Heading size="md">{item.title}</Heading>
+                  <Box py={{ base: 3, md: 4 }} flex="1" textAlign="left">
+                    <Heading size={{ base: "sm", md: "md" }} pr={4}>
+                      {item.title}
+                    </Heading>
                   </Box>
                   <AccordionIcon />
                 </AccordionButton>
@@ -57,7 +57,7 @@ export const FAQ: FC = () => {
               </AccordionItem>
             ))}
           </Accordion>
-        </Container>
+        </ContainerNew>
       </Section>
     </>
   );

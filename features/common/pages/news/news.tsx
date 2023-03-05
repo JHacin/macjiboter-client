@@ -8,10 +8,13 @@ import { Section } from "../../components/section";
 import { TextLink } from "../../components/text-link";
 import { EXTERNAL_LINKS } from "../../constants";
 import { dateFormat } from "../../util/date";
-import { Container } from "../../components/container";
+import { ContainerNew } from "../../components/container";
 import { CmsContent } from "../../components/cms-content";
 import { usePaginatedList } from "../../hooks/use-paginated-list";
 import { range } from "lodash-es";
+import { PageTitle } from "../../components/page-title";
+import { SectionWaves } from "../../components/section-waves";
+import { PageSubtitle } from "../../components/page-subtitle";
 
 const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
   return (
@@ -43,25 +46,23 @@ export const News: FC = () => {
   return (
     <>
       <Box backgroundColor="copper.100">
-        <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
-          <Heading size={{ base: "2xl", lg: "3xl" }}>Novice</Heading>
+        <ContainerNew indent={1}>
+          <Section spacing={{ top: "sm", bottom: "xs" }}>
+            <PageTitle>novice</PageTitle>
 
-          <Text
-            fontSize={{ base: "mg", lg: "lg" }}
-            mt={{ base: 6, lg: 10 }}
-            maxW={{ base: "500px", lg: "640px" }}
-          >
-            Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku z
-            vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
-            <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
-            <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
-          </Text>
-        </Container>
+            <PageSubtitle>
+              Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku
+              z vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
+              <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
+              <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
+            </PageSubtitle>
+          </Section>
+        </ContainerNew>
       </Box>
-
-      <Section ref={gridWrapperRef}>
-        <Container>
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={12}>
+      <SectionWaves waveColor="light-1" bgColor="copper.100" />
+      <Section ref={gridWrapperRef} spacing={{ top: "none" }}>
+        <ContainerNew indent={1}>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={16}>
             {!query.isError && (
               <>
                 {query.isSuccess &&
@@ -87,7 +88,7 @@ export const News: FC = () => {
               />
             </Flex>
           )}
-        </Container>
+        </ContainerNew>
       </Section>
     </>
   );

@@ -59,7 +59,7 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
           key={label}
           rightIcon={<CaretDown />}
           fontSize="lg"
-          _hover={{ backgroundColor: "orange.100" }}
+          _hover={{ backgroundColor: "copper.200" }}
         >
           {label}
         </Button>
@@ -82,7 +82,7 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
 
 const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
   return (
-    <ButtonLink href={href} fontSize="lg" _hover={{ backgroundColor: "orange.100" }}>
+    <ButtonLink href={href} fontSize="lg" _hover={{ backgroundColor: "copper.200" }}>
       {label}
     </ButtonLink>
   );

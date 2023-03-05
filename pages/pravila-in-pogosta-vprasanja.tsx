@@ -4,7 +4,7 @@ import { Layout } from "@/common/components/layout";
 
 const FAQPage: NextPage = () => {
   return (
-    <Layout>
+    <Layout variant="filled-header">
       <FAQ />
     </Layout>
   );

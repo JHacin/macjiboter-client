@@ -7,7 +7,7 @@ import { SectionHeader } from "../../components/section-header";
 import { NextLink } from "../../components/next-link";
 import { SectionWaves } from "../../components/section-waves";
 import { ROUTES } from "../../constants";
-import { Container } from "@/common/components/container";
+import { ContainerNew } from "@/common/components/container";
 
 interface SponsorshipTypeCardProps {
   id: number;
@@ -60,7 +60,7 @@ const items: SponsorshipTypeCardProps[] = [
     description:
       "Z botrstvom lahko razveselite bližnjo osebo, ter hkrati prispevate k boljšem življenju muc.",
     buttonProps: {
-      text: "Več o tem, kako deluje",
+      text: "Več o tem",
       link: ROUTES.GiftSponsorship,
     },
     theme: {
@@ -81,7 +81,7 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
       as="article"
       p={{ base: 6, md: 8, lg: 12 }}
       bg={`${color}.100`}
-      rounded="2xl"
+      rounded="lg"
       position="relative"
       overflow="hidden"
       shadow="lg"
@@ -124,7 +124,6 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
         href={buttonProps.link}
         colorScheme={color}
         variant="solid"
-        size={{ base: "sm", sm: "md" }}
         mt={14}
         rightIcon={<Icon as={ArrowRight} weight="bold" />}
       >
@@ -138,18 +137,18 @@ export const SponsorshipTypes: FC = () => {
   return (
     <>
       <SectionWaves waveColor="light-1" bgColor="copper.100" />
-      <Section position="relative" spacing={{ top: "sm", bottom: "lg" }}>
-        <Container maxWidthOverride="950px">
+      <Section position="relative" spacing={{ top: "xs", bottom: "lg" }}>
+        <ContainerNew indent={2}>
           <SectionHeader title="Vrste botrstev" isCenteredOnDesktop={true} markerColor="purple">
             Mucam v naši oskrbi lahko na daljavo pomagate na več načinov.
           </SectionHeader>
 
-          <VStack spacing={10} align="stretch">
+          <VStack spacing={{ base: 4, md: 8 }} align="stretch">
             {items.map((item) => (
               <SponsorshipTypeCard key={item.id} {...item} />
             ))}
           </VStack>
-        </Container>
+        </ContainerNew>
       </Section>
     </>
   );

@@ -16,12 +16,13 @@ export const SectionWaves: FC<SectionWavesProps> = ({ waveColor, bgColor }) => {
   return (
     <Box
       h="10vw"
-      minH="120px"
+      minH={{ base: "100px", md: "120px", lg: "140px" }}
       maxH="200px"
       bgImg={`url(${waveVariants[waveColor]})`}
       bgColor={bgColor}
       bgSize="cover"
       bgRepeat="no-repeat"
+      bgPosition="center top"
     />
   );
 };

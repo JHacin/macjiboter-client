@@ -21,14 +21,16 @@ export const SectionHeader: FC<PropsWithChildren<SectionHeaderProps>> = ({
       direction="column"
       mb={{ base: 16, lg: 24 }}
     >
-      <Box mb={8} w={{ base: "80px", md: "100px", lg: "120px" }} h="6px">
+      <Box mb={8} w={{ base: "80px", md: "100px", lg: "120px" }} h="7px">
         <HeadingMarker color={markerColor} />
       </Box>
 
-      <Heading size="2xl">{title}</Heading>
+      <Heading size="2xl" fontWeight={800}>
+        {title}
+      </Heading>
 
       {children && (
-        <Text fontSize={{ base: "lg", lg: "xl" }} maxW="750px" mt={{ base: 12, lg: 16 }}>
+        <Text fontSize={{ base: "lg", lg: "xl" }} maxW="750px" mt={{ base: 8, lg: 10 }}>
           {children}
         </Text>
       )}

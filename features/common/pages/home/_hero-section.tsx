@@ -1,9 +1,10 @@
 import { Section } from "../../components/section";
-import { Box, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
 import { EXTERNAL_LINKS, ROUTES } from "../../constants";
 import { Container } from "../../components/container";
+import { PageTitle } from "../../components/page-title";
 
 export const HeroSection = () => {
   return (
@@ -34,17 +35,10 @@ export const HeroSection = () => {
             />
 
             <Box pos="relative">
-              <Heading
-                as="h1"
-                size={{ base: "3xl", lg: "4xl" }}
-                lineHeight={{ base: 1, sm: 1.1, lg: 1.1 }}
-                maxW="600px"
-              >
-                Posvoji muco na daljavo.
-              </Heading>
+              <PageTitle>Posvoji muco na daljavo.</PageTitle>
               <Text
                 fontSize={{ base: "lg", lg: "xl" }}
-                mt={16}
+                mt={12}
                 maxW={{ base: "540px", "2xl": "640px" }}
               >
                 Mačji boter je projekt{" "}

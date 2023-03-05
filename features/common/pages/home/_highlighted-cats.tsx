@@ -12,13 +12,9 @@ import { useQuery } from "@tanstack/react-query";
 import { QueryKey } from "@/api/types";
 import { getHomeMeta } from "../../util/api";
 import { useTheme } from "@/theme";
-import { Container } from "../../components/container";
+import { ContainerNew } from "../../components/container";
 
-interface CatGridItemProps {
-  cat: Cat;
-}
-
-const CatGridItem: FC<CatGridItemProps> = ({ cat }) => {
+const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
   const theme = useTheme();
 
   const timeSinceArrivalToShelter = humanReadableDateDifference(
@@ -63,19 +59,19 @@ export const HighlightedCats = () => {
 
   return (
     <Section position="relative" bg="copper.100" spacing={{ bottom: "md" }}>
-      <Container>
+      <ContainerNew>
         <SectionHeader title="Iščejo botre" isCenteredOnDesktop={true}>
           V projekt Mačji boter so vključeni predvsem tisti mucki, ki iz različnih vzrokov dalj časa
           iščejo svoj dom, ali pa zaradi njihovih posebnosti predvidevamo, da bodo pri nas dalj
           časa.
         </SectionHeader>
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 3, "2xl": 4 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 3, "2xl": 4 }} spacing={{ base: 4, md: 8 }}>
           {data.heroCats.map((cat) => (
             <CatGridItem key={cat.id} cat={cat} />
           ))}
         </SimpleGrid>
-      </Container>
+      </ContainerNew>
     </Section>
   );
 };
