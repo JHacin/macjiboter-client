@@ -1,19 +1,15 @@
 import { FC, MutableRefObject } from "react";
-import { Image } from "@chakra-ui/react";
-import "photoswipe/dist/photoswipe.css";
+import { Box, Icon, Image } from "@chakra-ui/react";
 import { Gallery, GalleryProps, Item } from "react-photoswipe-gallery";
 import { DataSourceArray } from "photoswipe";
 import { Cat } from "../../types";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
 import { getPhotoUrl } from "../../util/photos";
-
-interface CatDetailsGalleryProps {
-  cat: Cat;
-}
+import { CaretLeft, CaretRight, IconProps } from "phosphor-react";
+import "photoswipe/dist/photoswipe.css";
+import "swiper/css";
+import "swiper/css/pagination";
 
 // https://dromru.github.io/react-photoswipe-gallery/?path=/docs/demo-custom-ui-elements--thumbnails-in-opened-photoswipe
 const uiElements: GalleryProps["uiElements"] = [
@@ -86,54 +82,90 @@ const uiElements: GalleryProps["uiElements"] = [
   },
 ];
 
-export const PhotoGallery: FC<CatDetailsGalleryProps> = ({ cat }) => {
+const CustomSwiperNavButton: FC<{ className: string; icon: FC<IconProps> }> = ({
+  className,
+  icon,
+}) => {
+  return (
+    <Box
+      className={className}
+      sx={{
+        position: "absolute",
+        top: "50%",
+        transform: "translateY(-50%)",
+        zIndex: 2,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        cursor: "pointer",
+        transition: "all 0.15ms ease-in-out",
+
+        "&:hover": {
+          backgroundColor: "orange.600",
+        },
+      }}
+    >
+      <Icon as={icon} weight="bold" color="white" boxSize={5} />
+    </Box>
+  );
+};
+
+export const PhotoGallery: FC<{ cat: Cat }> = ({ cat }) => {
   if (cat.photos.length === 0) {
     return null;
   }
 
   return (
     <Gallery withDownloadButton={true} uiElements={uiElements}>
-      <Swiper
-        navigation={true}
-        modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        slidesPerGroup={1}
-        autoHeight={true}
-        pagination={{
-          clickable: true,
-        }}
-        breakpoints={{
-          768: {
-            slidesPerView: 2,
-            spaceBetween: 10,
-          },
-          992: {
-            slidesPerView: 3,
-            spaceBetween: 12,
-          },
-        }}
-      >
-        {cat.photos.map((photo) => (
-          <SwiperSlide key={photo.id}>
-            <Item original={getPhotoUrl(photo, "lg")} width="1024" height="1024">
-              {({ ref, open }) => (
-                <Image
-                  ref={ref as MutableRefObject<HTMLImageElement>}
-                  onClick={open}
-                  src={getPhotoUrl(photo, "sm")}
-                  alt={cat.name}
-                  cursor="zoom-in"
-                  transition="opacity .15s ease-in-out"
-                  _hover={{
-                    opacity: 0.85,
-                  }}
-                  width="full"
-                />
-              )}
-            </Item>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <Box position="relative">
+        <Swiper
+          navigation={{
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          }}
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
+          slidesPerGroup={1}
+          autoHeight={true}
+          pagination={{
+            clickable: true,
+          }}
+          breakpoints={{
+            768: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            992: {
+              slidesPerView: 3,
+              spaceBetween: 12,
+            },
+          }}
+        >
+          {cat.photos.map((photo) => (
+            <SwiperSlide key={photo.id}>
+              <Item original={getPhotoUrl(photo, "lg")} width="1024" height="1024">
+                {({ ref, open }) => (
+                  <Image
+                    ref={ref as MutableRefObject<HTMLImageElement>}
+                    onClick={open}
+                    src={getPhotoUrl(photo, "sm")}
+                    alt={cat.name}
+                    cursor="zoom-in"
+                    transition="opacity .15s ease-in-out"
+                    _hover={{
+                      opacity: 0.85,
+                    }}
+                    width="full"
+                  />
+                )}
+              </Item>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+
+        <CustomSwiperNavButton className="swiper-button-prev" icon={CaretLeft} />
+        <CustomSwiperNavButton className="swiper-button-next" icon={CaretRight} />
+      </Box>
     </Gallery>
   );
 };
