@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 export interface PersonData {
   id: number;
   email: string;
@@ -30,4 +32,18 @@ export interface PaginatedListQueryParams {
   page: string;
   search?: string;
   sort?: string;
+}
+
+export interface NavLinkGroupChildLink {
+  label: string;
+  href: string;
+  icon: FC;
+  description: string;
+}
+
+export interface NavLinkGroupProps {
+  label: string;
+  href: string;
+  icon: FC;
+  links?: NavLinkGroupChildLink[];
 }

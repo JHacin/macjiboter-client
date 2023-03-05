@@ -1,9 +1,8 @@
-import { FC } from "react";
+import { FC, Fragment } from "react";
 import { ButtonGroup, Container, HStack, IconButton, Stack, Text, VStack } from "@chakra-ui/react";
 import dayjs from "dayjs";
-import { Envelope, FacebookLogo, InstagramLogo } from "phosphor-react";
 import { LinkVariant, TextLink } from "./text-link";
-import { EXTERNAL_LINKS, ROUTES } from "../constants";
+import { FOOTER_LINKS, SOCIAL_LINKS } from "../constants";
 import { Section } from "@/common/components/section";
 
 export const Footer: FC = () => {
@@ -17,41 +16,27 @@ export const Footer: FC = () => {
             alignItems="center"
             justifyContent="center"
           >
-            <TextLink href={ROUTES.Contact} variant={LinkVariant.UnEmphasized}>
-              Kontakt
-            </TextLink>
-            <Text>&#x2022;</Text>
-            <TextLink href={ROUTES.SponsorOurProgram} variant={LinkVariant.UnEmphasized}>
-              Sponzorstvo
-            </TextLink>
-            <Text>&#x2022;</Text>
-            <TextLink href={ROUTES.Privacy} variant={LinkVariant.UnEmphasized}>
-              Zasebnost
-            </TextLink>
+            {FOOTER_LINKS.map((link, index) => (
+              <Fragment key={link.label}>
+                <TextLink href={link.href} variant={LinkVariant.UnEmphasized}>
+                  {link.label}
+                </TextLink>
+                {index !== FOOTER_LINKS.length - 1 && <Text>&#x2022;</Text>}
+              </Fragment>
+            ))}
           </Stack>
           <HStack alignItems="center" justifyContent="center">
             <ButtonGroup variant="ghost">
-              <IconButton
-                aria-label="Email"
-                as="a"
-                href={`mailto:${EXTERNAL_LINKS.ContactEmail}`}
-                color="gray.700"
-                icon={<Envelope size={24} />}
-              />
-              <IconButton
-                aria-label="Facebook"
-                as="a"
-                href={EXTERNAL_LINKS.FacebookPage}
-                color="gray.700"
-                icon={<FacebookLogo size={24} />}
-              />
-              <IconButton
-                aria-label="Twitter"
-                as="a"
-                href={EXTERNAL_LINKS.InstagramPage}
-                color="gray.700"
-                icon={<InstagramLogo size={24} />}
-              />
+              {SOCIAL_LINKS.map((link) => (
+                <IconButton
+                  key={link.label}
+                  aria-label={link.label}
+                  as="a"
+                  href={link.href}
+                  color="gray.700"
+                  icon={<link.icon size={24} />}
+                />
+              ))}
             </ButtonGroup>
           </HStack>
           <Text fontSize="sm" color="gray.600" textAlign="center">

@@ -16,12 +16,9 @@ import {
 } from "@chakra-ui/react";
 import { CaretDown } from "phosphor-react";
 import { ButtonLink } from "./button-link";
-import { NavLinkGroupChildLink, NavLinkGroupProps } from "./header";
 import { NextLink } from "./next-link";
-
-interface DesktopNavProps {
-  linkGroups: NavLinkGroupProps[];
-}
+import { NavLinkGroupChildLink, NavLinkGroupProps } from "../types";
+import { NAV_LINK_GROUPS } from "../constants";
 
 const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, description }) => {
   const { onClose } = usePopoverContext();
@@ -86,16 +83,16 @@ const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
   );
 };
 
-export const DesktopNav: FC<DesktopNavProps> = ({ linkGroups }) => {
+export const DesktopNav: FC = () => {
   return (
     <ButtonGroup variant="ghost" colorScheme="gray">
-      {linkGroups.map((group) => {
-        if (group.links) {
-          return <DesktopNavItemWithDropdown {...group} links={group.links} key={group.label} />;
-        }
-
-        return <DesktopNavItem {...group} key={group.label} />;
-      })}
+      {NAV_LINK_GROUPS.map((group) =>
+        group.links ? (
+          <DesktopNavItemWithDropdown {...group} links={group.links} key={group.label} />
+        ) : (
+          <DesktopNavItem {...group} key={group.label} />
+        )
+      )}
     </ButtonGroup>
   );
 };
