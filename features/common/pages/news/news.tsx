@@ -42,24 +42,22 @@ export const News: FC = () => {
 
   return (
     <>
-      <Section spacing={{ bottom: "none" }}>
-        <Box bgGradient="linear(to-br, purple.50, purple.100, purple.50)" shadow="md">
-          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
-            <Heading size={{ base: "2xl", lg: "3xl" }}>Novice</Heading>
+      <Box backgroundColor="copper.100">
+        <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
+          <Heading size={{ base: "2xl", lg: "3xl" }}>Novice</Heading>
 
-            <Text
-              fontSize={{ base: "mg", lg: "lg" }}
-              mt={{ base: 6, lg: 10 }}
-              maxW={{ base: "500px", lg: "640px" }}
-            >
-              Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku
-              z vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
-              <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
-              <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
-            </Text>
-          </Container>
-        </Box>
-      </Section>
+          <Text
+            fontSize={{ base: "mg", lg: "lg" }}
+            mt={{ base: 6, lg: 10 }}
+            maxW={{ base: "500px", lg: "640px" }}
+          >
+            Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku z
+            vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
+            <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
+            <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
+          </Text>
+        </Container>
+      </Box>
 
       <Section ref={gridWrapperRef}>
         <Container>

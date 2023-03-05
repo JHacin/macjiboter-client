@@ -6,12 +6,13 @@ import { ArrowRight } from "phosphor-react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
+import { Layout } from "@/common/components/layout";
 
 const BecomeSponsorOverviewPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
-    <>
+    <Layout>
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
@@ -89,7 +90,7 @@ const BecomeSponsorOverviewPage: NextPage = () => {
           </Section>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 };
 

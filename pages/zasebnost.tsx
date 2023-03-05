@@ -3,12 +3,13 @@ import { Container } from "@/common/components/container";
 import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
+import { Layout } from "@/common/components/layout";
 
 const PrivacyPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
-    <>
+    <Layout>
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
@@ -54,7 +55,7 @@ const PrivacyPage: NextPage = () => {
           </Section>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 };
 

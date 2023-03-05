@@ -3,6 +3,7 @@ import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { CatForm } from "@/cat-sponsorship/pages/cat-form/cat-form";
 import { QueryKey } from "@/api/types";
 import { getCat } from "@/cats/util/api";
+import { Layout } from "@/common/components/layout";
 
 export const getServerSideProps: GetServerSideProps<
   { dehydratedState: DehydratedState },
@@ -22,7 +23,11 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 const CatSponsorshipFormPage: NextPage = () => {
-  return <CatForm />;
+  return (
+    <Layout>
+      <CatForm />
+    </Layout>
+  );
 };
 
 export default CatSponsorshipFormPage;

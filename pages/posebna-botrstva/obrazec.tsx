@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { useRouter } from "next/router";
 import { SpecialSponsorshipType } from "@/special-sponsorship/types";
 import { SpecialForm } from "@/special-sponsorship/pages/special-form/special-form";
+import { Layout } from "@/common/components/layout";
 
 const SpecialSponsorshipsFormPage: NextPage = () => {
   const router = useRouter();
@@ -12,7 +13,11 @@ const SpecialSponsorshipsFormPage: NextPage = () => {
     ? typeQueryParam
     : SpecialSponsorshipType.BoterMeseca;
 
-  return <SpecialForm defaultType={defaultType} />;
+  return (
+    <Layout>
+      <SpecialForm defaultType={defaultType} />
+    </Layout>
+  );
 };
 
 export default SpecialSponsorshipsFormPage;

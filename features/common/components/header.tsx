@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box, Hide, HStack, Image, Show } from "@chakra-ui/react";
+import { Box, BoxProps, Hide, HStack, Image, Show } from "@chakra-ui/react";
 import { NextLink } from "./next-link";
 import { DesktopNav } from "./desktop-nav";
 import { ButtonLink } from "./button-link";
@@ -7,9 +7,13 @@ import { MobileNav } from "./mobile-nav";
 import { ROUTES } from "../constants";
 import { Container } from "./container";
 
-export const Header: FC = () => {
+export interface HeaderProps {
+  backgroundColor?: BoxProps["backgroundColor"];
+}
+
+export const Header: FC<HeaderProps> = ({ backgroundColor }) => {
   return (
-    <Box as="nav" pt={{ base: 4, lg: 8 }}>
+    <Box as="nav" pt={{ base: 4, lg: 8 }} backgroundColor={backgroundColor}>
       <Container>
         <HStack justify="space-between">
           <NextLink href={ROUTES.Home}>

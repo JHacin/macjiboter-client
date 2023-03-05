@@ -5,10 +5,11 @@ import { Box, Heading, Icon, Text } from "@chakra-ui/react";
 import { SmileyMeh } from "phosphor-react";
 import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
+import { Layout } from "@/common/components/layout";
 
 const Custom404Page: NextPage = () => {
   return (
-    <>
+    <Layout>
       <Container>
         <Section>
           <Box textAlign="center" display="flex" flexDirection="column" alignItems="center">
@@ -38,7 +39,7 @@ const Custom404Page: NextPage = () => {
           </Box>
         </Section>
       </Container>
-    </>
+    </Layout>
   );
 };
 

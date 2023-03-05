@@ -55,7 +55,12 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
   return (
     <Popover openDelay={100} trigger="hover" arrowSize={10}>
       <PopoverTrigger>
-        <Button key={label} rightIcon={<CaretDown />} fontSize="lg">
+        <Button
+          key={label}
+          rightIcon={<CaretDown />}
+          fontSize="lg"
+          _hover={{ backgroundColor: "orange.100" }}
+        >
           {label}
         </Button>
       </PopoverTrigger>
@@ -77,7 +82,7 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
 
 const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
   return (
-    <ButtonLink href={href} fontSize="lg">
+    <ButtonLink href={href} fontSize="lg" _hover={{ backgroundColor: "orange.100" }}>
       {label}
     </ButtonLink>
   );

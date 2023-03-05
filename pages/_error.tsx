@@ -4,10 +4,11 @@ import { Section } from "@/common/components/section";
 import { Box, Heading, Icon, Text } from "@chakra-ui/react";
 import { SmileySad } from "phosphor-react";
 import { ContactEmailTextLink } from "@/common/components/text-link";
+import { Layout } from "@/common/components/layout";
 
 const CustomError: NextPage<{ statusCode?: number }> = ({ statusCode }) => {
   return (
-    <>
+    <Layout>
       <Container>
         <Section>
           <Box textAlign="center" display="flex" flexDirection="column" alignItems="center">
@@ -39,7 +40,7 @@ const CustomError: NextPage<{ statusCode?: number }> = ({ statusCode }) => {
           </Box>
         </Section>
       </Container>
-    </>
+    </Layout>
   );
 };
 

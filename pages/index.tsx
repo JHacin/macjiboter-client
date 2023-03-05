@@ -3,6 +3,7 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { QueryKey } from "@/api/types";
 import { getHomeMeta } from "@/common/util/api";
 import { Home } from "@/common/pages/home/home";
+import { Layout } from "@/common/components/layout";
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
@@ -18,7 +19,11 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const HomePage: NextPage = () => {
-  return <Home />;
+  return (
+    <Layout>
+      <Home />
+    </Layout>
+  );
 };
 
 export default HomePage;

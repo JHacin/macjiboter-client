@@ -8,6 +8,7 @@ import { ArrowRight, CheckCircle } from "phosphor-react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
+import { Layout } from "@/common/components/layout";
 
 const listItems: { id: number; content: ReactNode }[] = [
   {
@@ -67,7 +68,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
-    <>
+    <Layout>
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
@@ -103,7 +104,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
           </Section>
         </Box>
       </Container>
-    </>
+    </Layout>
   );
 };
 
