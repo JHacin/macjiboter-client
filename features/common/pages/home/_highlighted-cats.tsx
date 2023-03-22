@@ -58,7 +58,7 @@ export const HighlightedCats = () => {
   }
 
   return (
-    <Section position="relative" bg="copper.100" spacing={{ bottom: "md" }}>
+    <Section position="relative" bg="copper.100">
       <ContainerNew>
         <SectionHeader title="Iščejo botre" isCenteredOnDesktop={true}>
           V projekt Mačji boter so vključeni predvsem tisti mucki, ki iz različnih vzrokov dalj časa
@@ -66,7 +66,7 @@ export const HighlightedCats = () => {
           časa.
         </SectionHeader>
 
-        <SimpleGrid columns={{ base: 1, md: 2, xl: 3, "2xl": 4 }} spacing={{ base: 4, md: 8 }}>
+        <SimpleGrid columns={{ base: 1, md: 2, xl: 3, "2xl": 4 }} spacing={{ base: 6, md: 8 }}>
           {data.heroCats.map((cat) => (
             <CatGridItem key={cat.id} cat={cat} />
           ))}

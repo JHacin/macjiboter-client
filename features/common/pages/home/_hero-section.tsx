@@ -1,28 +1,32 @@
-import { Section } from "../../components/section";
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
 import { EXTERNAL_LINKS, ROUTES } from "../../constants";
-import { Container } from "../../components/container";
+import { ContainerNew } from "../../components/container";
 import { PageTitle } from "../../components/page-title";
 
 export const HeroSection = () => {
   return (
     <Box overflow="hidden" position="relative">
-      <Container
-        position="relative"
-        paddingBottom={{
-          base: "225px",
-          sm: "320px",
-          md: "120px",
-          lg: "140px",
-          xl: "70px",
-          "2xl": "70px",
-        }}
-      >
-        <Section
-          pb={{ base: 48, sm: 28, md: 36, lg: 48 }}
-          pt={{ base: 20, sm: 28, md: 32, lg: 40, xl: 44, "2xl": 44 }}
+      <ContainerNew>
+        <Box
+          position="relative"
+          pt={{
+            base: 20,
+            sm: 28,
+            md: 32,
+            lg: 40,
+            xl: 44,
+            "2xl": 44,
+          }}
+          pb={{
+            base: "300px",
+            sm: "400px",
+            md: "300px",
+            lg: "410px",
+            xl: "220px",
+            "2xl": "160px",
+          }}
         >
           <Box position="relative">
             <Image
@@ -49,23 +53,30 @@ export const HeroSection = () => {
                 so v naši oskrbi že dalj časa.
               </Text>
             </Box>
-            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={20}>
+            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={{ base: 12, md: 20 }}>
               <ButtonLink href={ROUTES.BecomeSponsorOverview} size="lg" w="200px">
                 Postani boter
               </ButtonLink>
             </Stack>
           </Box>
-        </Section>
 
-        <Image
-          src="/img/home-hero-image.png"
-          alt=""
-          pos="absolute"
-          bottom={{ base: "-40px", lg: "-65px" }}
-          right={{ base: "0px", sm: "-30px", md: "20px", lg: "30px", xl: "50px", "2xl": "50px" }}
-          w={{ base: "320px", sm: "420px", md: "460px", lg: "580px", xl: "600px", "2xl": "700px" }}
-        />
-      </Container>
+          <Image
+            src="/img/home-hero-image.png"
+            alt=""
+            pos="absolute"
+            bottom={{ base: "-40px", lg: "-65px" }}
+            right={{ base: "0px", sm: "-30px", md: "20px", lg: "30px", xl: "50px", "2xl": "50px" }}
+            w={{
+              base: "320px",
+              sm: "420px",
+              md: "460px",
+              lg: "580px",
+              xl: "600px",
+              "2xl": "700px",
+            }}
+          />
+        </Box>
+      </ContainerNew>
     </Box>
   );
 };

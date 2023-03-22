@@ -14,28 +14,22 @@ import { ContactEmailTextLink } from "../../components/text-link";
 import { FAQ_ITEMS } from "./_faq-items";
 import { ContainerNew } from "@/common/components/container";
 import { PageTitle } from "../../components/page-title";
-import { SectionWaves } from "../../components/section-waves";
 import { PageSubtitle } from "../../components/page-subtitle";
+import { PageHeaderFilled } from "../../components/page-header-filled";
 
 export const FAQ: FC = () => {
   return (
     <>
-      <Box backgroundColor="copper.100">
-        <ContainerNew indent={1}>
-          <Section spacing={{ top: "sm", bottom: "xs" }}>
-            <PageTitle>pravila in pogosta vprašanja</PageTitle>
+      <PageHeaderFilled>
+        <PageTitle>pogosta vprašanja</PageTitle>
+        <PageSubtitle>
+          Če si z odgovori spodaj ne morete odgovoriti na katero od vaših vprašanj, nas lahko
+          kontaktirate prek e-pošte na naslovu <ContactEmailTextLink /> , in vam bomo odgovorili v
+          najkrajšem možnem času.
+        </PageSubtitle>
+      </PageHeaderFilled>
 
-            <PageSubtitle>
-              Na tem mestu so zbrani odgovori na nekatera izmed vprašanj, ki se pogosto pojavijo
-              novim botrom. Če vas poleg tega še kar koli zanima, nas lahko kontaktirate prek
-              e-pošte na naslovu <ContactEmailTextLink /> , in vam bomo odgovorili v najkrajšem
-              možnem času.
-            </PageSubtitle>
-          </Section>
-        </ContainerNew>
-      </Box>
-      <SectionWaves waveColor="light-1" bgColor="copper.100" />
-      <Section spacing={{ top: "sm" }}>
+      <Section>
         <ContainerNew indent={1}>
           <Accordion maxWidth="650px" allowMultiple={true}>
             {FAQ_ITEMS.map((item) => (

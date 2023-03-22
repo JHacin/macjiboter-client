@@ -26,7 +26,7 @@ export const Footer: FC = () => {
                   <TextLink href={link.href} variant={LinkVariant.UnEmphasized}>
                     {link.label}
                   </TextLink>
-                  {index !== FOOTER_LINKS.length - 1 && <Text>&#x2022;</Text>}
+                  {index !== FOOTER_LINKS.length - 1 && <Text color="gray.500">&#x2022;</Text>}
                 </Fragment>
               ))}
             </Stack>

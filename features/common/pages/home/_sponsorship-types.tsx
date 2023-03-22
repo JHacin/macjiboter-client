@@ -143,7 +143,7 @@ export const SponsorshipTypes: FC = () => {
             Mucam v naši oskrbi lahko na daljavo pomagate na več načinov.
           </SectionHeader>
 
-          <VStack spacing={{ base: 4, md: 8 }} align="stretch">
+          <VStack spacing={{ base: 6, md: 8 }} align="stretch">
             {items.map((item) => (
               <SponsorshipTypeCard key={item.id} {...item} />
             ))}

@@ -13,8 +13,8 @@ import { CmsContent } from "../../components/cms-content";
 import { usePaginatedList } from "../../hooks/use-paginated-list";
 import { range } from "lodash-es";
 import { PageTitle } from "../../components/page-title";
-import { SectionWaves } from "../../components/section-waves";
 import { PageSubtitle } from "../../components/page-subtitle";
+import { PageHeaderFilled } from "../../components/page-header-filled";
 
 const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
   return (
@@ -45,22 +45,16 @@ export const News: FC = () => {
 
   return (
     <>
-      <Box backgroundColor="copper.100">
-        <ContainerNew indent={1}>
-          <Section spacing={{ top: "sm", bottom: "xs" }}>
-            <PageTitle>novice</PageTitle>
+      <PageHeaderFilled>
+        <PageTitle>novice</PageTitle>
+        <PageSubtitle>
+          Če želite biti v rednem stiku z vsem, kar se pri nas dogaja, nam lahko tudi sledite na
+          družbenih omrežjih <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
+          <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
+        </PageSubtitle>
+      </PageHeaderFilled>
 
-            <PageSubtitle>
-              Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku
-              z vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
-              <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
-              <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
-            </PageSubtitle>
-          </Section>
-        </ContainerNew>
-      </Box>
-      <SectionWaves waveColor="light-1" bgColor="copper.100" />
-      <Section ref={gridWrapperRef} spacing={{ top: "none" }}>
+      <Section ref={gridWrapperRef}>
         <ContainerNew indent={1}>
           <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={16}>
             {!query.isError && (
