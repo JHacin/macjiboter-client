@@ -37,7 +37,7 @@ export const HeroSection = () => {
             <Box pos="relative">
               <PageTitle>Posvoji muco na daljavo.</PageTitle>
               <Text
-                fontSize={{ base: "lg", lg: "xl" }}
+                fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                 mt={12}
                 maxW={{ base: "540px", "2xl": "640px" }}
               >
