@@ -1,7 +1,7 @@
 import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
-import { EXTERNAL_LINKS, ROUTES } from "../../constants";
+import { ASSET_PATH, EXTERNAL_LINKS, ROUTES } from "../../constants";
 import { ContainerNew } from "../../components/container";
 import { PageTitle } from "../../components/page-title";
 
@@ -30,7 +30,7 @@ export const HeroSection = () => {
         >
           <Box position="relative">
             <Image
-              src="/img/home-hero-blob.svg"
+              src={ASSET_PATH.PublicImage("home-hero-blob.svg")}
               alt=""
               pos="absolute"
               top={{ base: "-50px", lg: "-68px" }}
@@ -61,7 +61,7 @@ export const HeroSection = () => {
           </Box>
 
           <Image
-            src="/img/home-hero-image.png"
+            src={ASSET_PATH.PublicImage("home-hero-image.png")}
             alt=""
             pos="absolute"
             bottom={{ base: "-40px", lg: "-65px" }}

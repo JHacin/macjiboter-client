@@ -4,7 +4,7 @@ import { NextLink } from "./next-link";
 import { DesktopNav } from "./desktop-nav";
 import { ButtonLink } from "./button-link";
 import { MobileNav } from "./mobile-nav";
-import { ROUTES } from "../constants";
+import { ASSET_PATH, ROUTES } from "../constants";
 import { Container } from "./container";
 
 export interface HeaderProps {
@@ -18,7 +18,7 @@ export const Header: FC<HeaderProps> = ({ backgroundColor }) => {
         <HStack justify="space-between">
           <NextLink href={ROUTES.Home}>
             <Image
-              src="/img/logo.svg"
+              src={ASSET_PATH.PublicImage("logo.svg")}
               alt="Mačji boter"
               h={{
                 base: "60px",

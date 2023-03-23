@@ -1,6 +1,12 @@
-import { SpecialFormValues, SpecialSponsorshipGroup, SpecialSponsorshipType } from "../types";
+import {
+  SpecialFormValues,
+  SpecialSponsorshipGroup,
+  SpecialSponsorshipGroupMeta,
+  SpecialSponsorshipType,
+} from "../types";
 import * as yup from "yup";
 import { isAgreedToTermsValidation, NUMBER_INPUT_MAX } from "@/forms/constants";
+import { ASSET_PATH } from "@/common/constants";
 
 export const SPECIAL_SPONSORSHIPS_META: Record<
   SpecialSponsorshipType,
@@ -67,7 +73,10 @@ const SpecialGroupMetaFactory = ({
   pageSlug: string;
 }) => ({
   name,
-  imageUrls: { sm: `/img/posebna-${imageName}_sm.jpeg`, lg: `/img/posebna-${imageName}.jpeg` },
+  imageUrls: {
+    sm: ASSET_PATH.PublicImage(`posebna-${imageName}_sm.jpeg`),
+    lg: ASSET_PATH.PublicImage(`posebna-${imageName}.jpeg`),
+  },
   description,
   pageSlug,
   childTypes: Object.keys(SPECIAL_SPONSORSHIPS_META)
@@ -77,13 +86,7 @@ const SpecialGroupMetaFactory = ({
 
 export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
   SpecialSponsorshipGroup,
-  {
-    name: string;
-    imageUrls: { sm: string; lg: string };
-    description: string;
-    pageSlug: string;
-    childTypes: SpecialSponsorshipType[];
-  }
+  SpecialSponsorshipGroupMeta
 > = {
   [SpecialSponsorshipGroup.BoterMeseca]: SpecialGroupMetaFactory({
     group: SpecialSponsorshipGroup.BoterMeseca,

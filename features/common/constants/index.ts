@@ -1,5 +1,4 @@
-import { SpecialSponsorshipGroup, SpecialSponsorshipType } from "@/special-sponsorship/types";
-import { SPECIAL_SPONSORSHIP_GROUP_META } from "@/special-sponsorship/constants";
+import { SpecialSponsorshipGroupMeta, SpecialSponsorshipType } from "@/special-sponsorship/types";
 import { NavLinkGroupProps } from "../types";
 import {
   Envelope,
@@ -26,8 +25,8 @@ export const ROUTES = {
   BecomeCatSponsor: (slug: string) => `/muce/${slug}/postani-boter`,
   WhyBecomeSponsor: "/zakaj-postati-boter",
   SpecialSponsorships: "/posebna-botrstva",
-  SpecialSponsorshipGroup: (group: SpecialSponsorshipGroup) =>
-    `/posebna-botrstva/${SPECIAL_SPONSORSHIP_GROUP_META[group].pageSlug}`,
+  SpecialSponsorshipGroup: (meta: SpecialSponsorshipGroupMeta) =>
+    `/posebna-botrstva/${meta.pageSlug}`,
   SpecialSponsorshipsForm: (type: SpecialSponsorshipType) =>
     `/posebna-botrstva/obrazec?tip=${type}`,
   GiftSponsorship: "/podari-botrstvo",
@@ -36,6 +35,10 @@ export const ROUTES = {
   FAQ: "/pravila-in-pogosta-vprasanja",
   News: "/novice",
   SponsorOurProgram: "/sponzorstvo",
+};
+
+export const ASSET_PATH = {
+  PublicImage: (filename: string) => `/img/${filename}`,
 };
 
 export const EXTERNAL_LINKS = {

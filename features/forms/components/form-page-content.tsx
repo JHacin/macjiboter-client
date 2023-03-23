@@ -4,6 +4,7 @@ import { Breadcrumbs, BreadcrumbsProps } from "@/common/components/breadcrumbs";
 import { Box, Heading, Image, SimpleGrid } from "@chakra-ui/react";
 import { FormAsideNotes } from "@/forms/components/form-aside-notes";
 import { Section } from "@/common/components/section";
+import { ASSET_PATH } from "@/common/constants";
 
 export const FormPageContent: FC<{
   title: string;
@@ -25,7 +26,7 @@ export const FormPageContent: FC<{
       >
         <Box position="relative" mt={{ base: 24, sm: 32, lg: 44 }}>
           <Image
-            src="/img/form-page-heading-blob.svg"
+            src={ASSET_PATH.PublicImage("form-page-heading-blob.svg")}
             alt=""
             pos="absolute"
             top={{ base: "-75px", sm: "-85px", md: "-75px", lg: "-90px" }}

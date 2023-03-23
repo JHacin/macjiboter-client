@@ -36,6 +36,14 @@ export enum SpecialSponsorshipGroup {
   ZobnaMiska,
 }
 
+export type SpecialSponsorshipGroupMeta = {
+  name: string;
+  imageUrls: { sm: string; lg: string };
+  description: string;
+  pageSlug: string;
+  childTypes: SpecialSponsorshipType[];
+};
+
 export type SpecialFormValues = SpecialFormParamsValues &
   SponsorshipFormPayerValues &
   SponsorshipFormGifteeValues & {

@@ -52,8 +52,9 @@ const SpecialSponsorshipTypeCard: FC<SpecialSponsorshipListItemProps> = ({
   group,
   amountRange,
 }) => {
-  const { imageUrls, name, description } = SPECIAL_SPONSORSHIP_GROUP_META[group];
-  const href = ROUTES.SpecialSponsorshipGroup(group);
+  const meta = SPECIAL_SPONSORSHIP_GROUP_META[group];
+  const { imageUrls, name, description } = meta;
+  const href = ROUTES.SpecialSponsorshipGroup(meta);
 
   return (
     <LinkBox as={Flex} flexDirection="column" bg="white" shadow="lg">
