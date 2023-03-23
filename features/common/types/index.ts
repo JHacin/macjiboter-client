@@ -37,13 +37,13 @@ export interface PaginatedListQueryParams {
 export interface NavLinkGroupChildLink {
   label: string;
   href: string;
-  icon: FC;
+  icon?: FC;
   description: string;
 }
 
 export interface NavLinkGroupProps {
   label: string;
   href: string;
-  icon: FC;
+  icon?: FC;
   links?: NavLinkGroupChildLink[];
 }

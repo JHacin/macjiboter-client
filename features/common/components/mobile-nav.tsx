@@ -1,6 +1,5 @@
-import { FC, PropsWithChildren, useRef } from "react";
+import { FC, ReactNode, useRef } from "react";
 import {
-  Box,
   Divider,
   Drawer,
   DrawerBody,
@@ -11,30 +10,38 @@ import {
   useDisclosure,
   Icon,
   ButtonGroup,
+  Flex,
 } from "@chakra-ui/react";
-import { CaretRight, List } from "phosphor-react";
+import { CaretRight, IconProps, List } from "phosphor-react";
 import { NextLink } from "./next-link";
 import { FOOTER_LINKS, NAV_LINK_GROUPS, SOCIAL_LINKS } from "../constants";
 
 const LinkGroupDivider = () => <Divider borderColor="blackAlpha.300" my={4} />;
 
-const MobileNavLink: FC<
-  PropsWithChildren<{ href: string; onClick: () => void; variant?: "primary" | "secondary" }>
-> = ({ href, onClick, variant = "primary", children }) => {
+const MobileNavLink: FC<{
+  href: string;
+  onClick: () => void;
+  variant?: "primary" | "secondary";
+  icon?: FC<IconProps>;
+  children: ReactNode;
+}> = ({ href, onClick, variant = "primary", icon, children }) => {
   return (
-    <Box
+    <Flex
       as={NextLink}
       href={href}
-      display="flex"
       alignItems="center"
       justifyContent="space-between"
       height="44px"
-      _hover={{ fontWeight: "semibold" }}
+      _hover={{ textDecoration: "underline" }}
       onClick={onClick}
     >
-      {children}
-      {variant === "primary" && <Icon as={CaretRight} />}
-    </Box>
+      <Flex alignItems="center" gap={3}>
+        {icon && <Icon as={icon} boxSize={5} />}
+        {children}
+      </Flex>
+
+      {variant === "primary" && <Icon as={CaretRight} weight="bold" />}
+    </Flex>
   );
 };
 
@@ -62,7 +69,7 @@ export const MobileNav: FC = () => {
             <LinkGroupDivider />
             {NAV_LINK_GROUPS.map((group) =>
               (group.links ?? [group]).map((link) => (
-                <MobileNavLink key={link.label} href={link.href} onClick={onClose}>
+                <MobileNavLink key={link.label} href={link.href} onClick={onClose} icon={link.icon}>
                   {link.label}
                 </MobileNavLink>
               ))
@@ -86,9 +93,9 @@ export const MobileNav: FC = () => {
                   aria-label={link.label}
                   as="a"
                   href={link.href}
-                  color="gray.700"
+                  color="orange.600"
                   icon={<link.icon size={24} />}
-                  bgColor="copper.100"
+                  bgColor="orange.100"
                 />
               ))}
             </ButtonGroup>

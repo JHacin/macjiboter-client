@@ -2,12 +2,12 @@ import { SpecialSponsorshipGroup, SpecialSponsorshipType } from "@/special-spons
 import { SPECIAL_SPONSORSHIP_GROUP_META } from "@/special-sponsorship/constants";
 import { NavLinkGroupProps } from "../types";
 import {
-  Article,
   Envelope,
   FacebookLogo,
   Gift,
   IconProps,
   InstagramLogo,
+  NewspaperClipping,
   PawPrint,
   Question,
   Sparkle,
@@ -76,7 +76,7 @@ export const NAV_LINK_GROUPS: NavLinkGroupProps[] = [
   {
     href: ROUTES.News,
     label: "Novice",
-    icon: Article,
+    icon: NewspaperClipping,
   },
   {
     href: ROUTES.FAQ,

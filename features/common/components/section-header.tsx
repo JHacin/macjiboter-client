@@ -25,7 +25,7 @@ export const SectionHeader: FC<PropsWithChildren<SectionHeaderProps>> = ({
         <HeadingMarker color={markerColor} />
       </Box>
 
-      <Heading size={{ base: "xl", md: "2xl" }} fontWeight={800}>
+      <Heading size="2xl" fontWeight={800}>
         {title}
       </Heading>
 
