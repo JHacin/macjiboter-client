@@ -42,7 +42,6 @@ export const SpecialGroupPageSkeleton: FC<{
             bgSize="cover"
             bgPosition="center"
             minHeight={{ base: "320px", sm: "460px" }}
-            rounded={{ base: "none", sm: "md" }}
             shadow="md"
             p={{ base: 4, sm: 10 }}
           >
@@ -55,11 +54,10 @@ export const SpecialGroupPageSkeleton: FC<{
                 fontWeight="bold"
                 px={{ base: 3, sm: 7 }}
                 py={{ base: 3, sm: 6 }}
-                rounded={{ base: "none", sm: "sm" }}
               >
                 {name}
               </Heading>
-              <Text as="h2" rounded={{ base: "none", sm: "sm" }}>
+              <Text as="h2">
                 <Text
                   as="span"
                   bgColor="orange.200"

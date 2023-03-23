@@ -24,7 +24,7 @@ const defaultSortValue = "id_desc";
 export const SortControls: FC<CatListSortProps> = ({ onChange }) => {
   return (
     <FormControl>
-      <FormLabel>Razvrsti po</FormLabel>
+      <FormLabel>Razvrščanje</FormLabel>
       <Select
         onChange={(event) => {
           onChange(event.target.value);

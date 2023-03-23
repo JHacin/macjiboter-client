@@ -42,15 +42,7 @@ export const DataPieces: FC<CatDetailsDataProps> = ({
   return (
     <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={4}>
       {dataPieces.map((dataPiece) => (
-        <HStack
-          spacing={4}
-          key={dataPiece.label}
-          bg="copper.100"
-          py={3}
-          px={4}
-          rounded="md"
-          shadow="sm"
-        >
+        <HStack spacing={4} key={dataPiece.label} bg="copper.100" py={3} px={4} shadow="sm">
           <Icon as={dataPiece.icon} w={8} h={8} />
           <VStack spacing={1}>
             <Text fontWeight="semibold">{dataPiece.label}</Text>

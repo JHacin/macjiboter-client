@@ -13,12 +13,10 @@ const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
       cat={cat}
       body={
         <>
-          <Text mt={1} color={cat.is_group ? "whiteAlpha.700" : "gray.500"}>
+          <Text mt={1} color="gray.700">
             {cat.sponsorships_count} {pluralize("boter", cat.sponsorships_count)}
           </Text>
-          <Text mt={6} color={cat.is_group ? "whiteAlpha.900" : "gray.700"}>
-            {cat.story_short}
-          </Text>
+          <Text mt={6}>{cat.story_short}</Text>
 
           <ButtonLink
             mt={6}
@@ -26,9 +24,7 @@ const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
             variant="link"
             textDecoration="underline"
             fontWeight="medium"
-            colorScheme={cat.is_group ? "whiteAlpha" : "orange"}
-            color={cat.is_group ? "white" : "orange.500"}
-            _hover={{ color: cat.is_group ? "whiteAlpha.700" : "orange.700" }}
+            _hover={{ color: "orange.700" }}
           >
             {cat.is_group ? "Preberi si več o nas" : "Preberi mojo zgodbo"}
           </ButtonLink>
@@ -40,7 +36,7 @@ const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
 
 const CatsGridBase: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 3, "2xl": 4 }} spacing={8}>
+    <SimpleGrid columns={{ base: 1, md: 2, lg: 3, "2xl": 4 }} spacing={{ base: 6, md: 8 }}>
       {children}
     </SimpleGrid>
   );

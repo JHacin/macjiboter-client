@@ -94,7 +94,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
             </List>
 
             <ButtonLink
-              href={ROUTES.BecomeSponsorOverview}
+              href={ROUTES.CatsList}
               size="lg"
               mt={20}
               rightIcon={<Icon as={ArrowRight} />}

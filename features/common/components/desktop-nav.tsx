@@ -28,7 +28,6 @@ const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, 
       <Box
         onClick={onClose}
         w="full"
-        rounded="lg"
         cursor="pointer"
         _hover={{ textDecoration: "none", bg: "orange.50" }}
       >

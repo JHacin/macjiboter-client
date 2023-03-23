@@ -75,7 +75,6 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
               bgColor="purple.100"
               px={{ base: 6, lg: 12 }}
               py={{ base: 10, lg: 12 }}
-              rounded="md"
               shadow="lg"
             >
               <Box h="6px" w="120px">

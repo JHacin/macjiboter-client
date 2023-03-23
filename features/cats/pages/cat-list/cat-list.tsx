@@ -3,9 +3,8 @@ import { CatsGrid, CatsGridSkeleton } from "./_cats-grid";
 import { Pagination } from "@/common/components/pagination";
 import { SearchInput } from "./_search-input";
 import { Section } from "@/common/components/section";
-import { Box, Button, Flex, Heading, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
 import { TextLink } from "@/common/components/text-link";
-import { PawPrint } from "phosphor-react";
 import { ROUTES } from "@/common/constants";
 import { SortControls } from "./_sort-controls";
 import { Container } from "@/common/components/container";
@@ -13,6 +12,10 @@ import { usePaginatedList } from "@/common/hooks/use-paginated-list";
 import { QueryKey } from "@/api/types";
 import { getCats } from "../../util/api";
 import { Cat } from "../../types";
+import { PageTitle } from "@/common/components/page-title";
+import { PageSubtitle } from "@/common/components/page-subtitle";
+import { PageHeaderOutlined } from "@/common/components/page-header-outlined";
+import { X } from "phosphor-react";
 
 export const CatList: FC = () => {
   const {
@@ -29,51 +32,14 @@ export const CatList: FC = () => {
 
   return (
     <>
-      <Section spacing={{ bottom: "none" }}>
-        <Box
-          bgGradient="linear(to-br, copper.200, copper.100, copper.200)"
-          shadow="md"
-          overflow="hidden"
-        >
-          <Container paddingVertical={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
-            <Icon
-              as={PawPrint}
-              color="copper.300"
-              opacity={{ base: 0.4, md: 1 }}
-              boxSize={{
-                base: "360px",
-                sm: "300px",
-                md: "320px",
-                lg: "360px",
-                xl: "420px",
-                "2xl": "460px",
-              }}
-              weight="light"
-              position="absolute"
-              bottom="0px"
-              right="0px"
-              transform="auto"
-              rotate="-25deg"
-              translateY="30%"
-              translateX={{ base: "20%", xl: "-25%", "2xl": "-40%" }}
-            />
-
-            <Box position="relative">
-              <Heading size={{ base: "2xl", lg: "3xl" }}>Muce, ki iščejo botra</Heading>
-
-              <Text
-                fontSize={{ base: "mg", lg: "lg" }}
-                mt={{ base: 6, lg: 10 }}
-                maxW={{ base: "500px", lg: "640px" }}
-              >
-                Na seznamu so objavljene vse muce, ki trenutno iščejo botra. Preden nadaljujete, si
-                lahko najprej preberete več o tem,{" "}
-                <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
-              </Text>
-            </Box>
-          </Container>
-        </Box>
-      </Section>
+      <PageHeaderOutlined>
+        <PageTitle>redno botrstvo</PageTitle>
+        <PageSubtitle>
+          Na seznamu so objavljene vse muce, ki trenutno iščejo botra. Preden nadaljujete, si lahko
+          najprej preberete več o tem,{" "}
+          <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
+        </PageSubtitle>
+      </PageHeaderOutlined>
 
       <Section ref={gridWrapperRef}>
         <Container>
@@ -96,31 +62,28 @@ export const CatList: FC = () => {
             </Box>
           </Flex>
 
-          <Box mt={{ base: 8, lg: 12 }}>
-            {query.data && (
-              <Box
-                visibility={shouldShowNumResults ? "visible" : "hidden"}
-                aria-hidden={!shouldShowNumResults}
-                mb={shouldShowNumResults ? 6 : 0}
-              >
-                <Text fontSize={{ base: "md", lg: "lg" }}>
-                  Število rezultatov:{" "}
-                  <Text as="span" fontWeight="semibold">
-                    {query.data.total}
-                  </Text>
+          {query.data && shouldShowNumResults && (
+            <Box mt={{ base: 6, md: 4 }} mb={6}>
+              <Text fontSize={{ base: "md", lg: "lg" }}>
+                Število rezultatov:{" "}
+                <Text as="span" fontWeight="semibold">
+                  {query.data.total}
                 </Text>
-                <Button
-                  variant="link"
-                  onClick={async () => {
-                    await setSearch("");
-                    setSearchInputValue("");
-                  }}
-                >
-                  Počisti iskanje
-                </Button>
-              </Box>
-            )}
+              </Text>
+              <Button
+                mt={2}
+                rightIcon={<Icon as={X} weight="bold" />}
+                onClick={async () => {
+                  await setSearch("");
+                  setSearchInputValue("");
+                }}
+              >
+                Počisti iskanje
+              </Button>
+            </Box>
+          )}
 
+          <Box mt={{ base: 12, md: 8 }}>
             {query.isSuccess && !query.isFetching && <CatsGrid cats={query.data.data} />}
             {query.isFetching && <CatsGridSkeleton />}
             {query.isError && <Text>Prišlo je do napake na strežniku.</Text>}

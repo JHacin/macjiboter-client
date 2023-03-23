@@ -18,7 +18,7 @@ export const SponsorsList: FC<CatDetailsSponsorsProps> = ({ cat: { sponsorships,
   ).length;
 
   return (
-    <Box bgColor="copper.200" px={5} py={6} rounded="md" shadow="sm">
+    <Box bgColor="copper.200" px={5} py={6} shadow="sm">
       <Flex alignItems="center" gap={3}>
         <Icon as={Users} boxSize={6} weight="bold" />
         <Heading as="h3" size="md">

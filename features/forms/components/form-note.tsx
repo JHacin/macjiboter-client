@@ -6,7 +6,7 @@ export const FormNote: FC<PropsWithChildren<{ bgColor?: "blackAlpha" | "orange" 
   children,
 }) => {
   return (
-    <Box bgColor={`${bgColor}.100`} rounded="md" py={4} px={5} fontSize="sm">
+    <Box bgColor={`${bgColor}.100`} py={4} px={5} fontSize="sm">
       {children}
     </Box>
   );

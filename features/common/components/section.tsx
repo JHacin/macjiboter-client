@@ -19,6 +19,7 @@ interface SectionProps {
   spacing?: SectionSpacing | { top?: SectionSpacing; bottom?: SectionSpacing };
   position?: BoxProps["position"];
   bg?: BoxProps["bg"];
+  as?: BoxProps["as"];
 }
 
 const createSpacingProps = (spacing: SectionProps["spacing"] | undefined) => {
@@ -43,9 +44,9 @@ const createSpacingProps = (spacing: SectionProps["spacing"] | undefined) => {
 };
 
 export const Section = forwardRef<HTMLDivElement, SectionProps>(
-  ({ spacing, children, position, bg }, ref) => {
+  ({ spacing, children, position, bg, as = "section" }, ref) => {
     return (
-      <Box as="section" {...createSpacingProps(spacing)} position={position} bg={bg} ref={ref}>
+      <Box {...createSpacingProps(spacing)} as={as} position={position} bg={bg} ref={ref}>
         {children}
       </Box>
     );

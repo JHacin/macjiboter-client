@@ -81,7 +81,6 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
       as="article"
       p={{ base: 6, md: 8, lg: 12 }}
       bg={`${color}.100`}
-      rounded="lg"
       position="relative"
       overflow="hidden"
       shadow="lg"

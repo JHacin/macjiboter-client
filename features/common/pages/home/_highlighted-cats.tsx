@@ -36,9 +36,27 @@ const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
       cat={cat}
       body={
         <>
-          <VStack mt={4} color="gray.600" spacing={2}>
-            <Text noOfLines={1}>{timeSinceArrivalToShelter} v Mačji hiši</Text>
-            <Text noOfLines={1}>Trenutno botrov: {cat.sponsorships_count}</Text>
+          <VStack mt={4} spacing={2}>
+            <Text
+              noOfLines={1}
+              borderLeft="2px"
+              borderColor="orange.500"
+              bgColor="blackAlpha.50"
+              px={2}
+              py={1}
+            >
+              {timeSinceArrivalToShelter} v Mačji hiši
+            </Text>
+            <Text
+              noOfLines={1}
+              borderLeft="2px"
+              borderColor="orange.500"
+              bgColor="blackAlpha.50"
+              px={2}
+              py={1}
+            >
+              Trenutno botrov: {cat.sponsorships_count}
+            </Text>
           </VStack>
           <ButtonLink mt={12} href={ROUTES.CatDetails(cat.slug)}>
             Preberi mojo zgodbo

@@ -13,7 +13,5 @@ const colorToGradientMap = {
 };
 
 export const HeadingMarker: FC<HeadingMarkerProps> = ({ color }) => {
-  return (
-    <Box bgGradient={`linear(to-r, ${colorToGradientMap[color]})`} rounded="lg" w="full" h="full" />
-  );
+  return <Box bgGradient={`linear(to-r, ${colorToGradientMap[color]})`} w="full" h="full" />;
 };

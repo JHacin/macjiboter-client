@@ -11,7 +11,7 @@ interface CatListSearchProps {
 export const SearchInput: FC<CatListSearchProps> = ({ value, setValue }) => {
   return (
     <FormControl>
-      <FormLabel>Išči po imenu</FormLabel>
+      <FormLabel>Iskanje po imenu</FormLabel>
       <InputGroup>
         <InputLeftElement>
           <Icon as={MagnifyingGlass} weight="bold" color="gray.400" />
