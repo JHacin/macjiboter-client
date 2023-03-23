@@ -7,12 +7,14 @@ import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const BecomeSponsorOverviewPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
     <Layout>
+      <MetaTags title="Postani boter" description="Vse o tem, kako deluje program Mačji boter." />
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
@@ -20,7 +22,6 @@ const BecomeSponsorOverviewPage: NextPage = () => {
               Postani boter
             </Heading>
           </Section>
-
           <Section spacing={{ top: "sm" }}>
             <VStack spacing={6} fontSize="lg" maxWidth="850px">
               <Text>

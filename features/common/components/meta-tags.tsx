@@ -2,18 +2,30 @@ import Head from "next/head";
 import { FC } from "react";
 import { useRouter } from "next/router";
 import * as process from "process";
+import { ASSET_PATH } from "../constants";
 
 export const MetaTags: FC<{
   title: string;
   description: string;
-  isIndexable: boolean;
-  imagePath: string;
-}> = ({ title, description, isIndexable, imagePath }) => {
+  isIndexable?: boolean;
+  image?: {
+    isExternal: boolean;
+    path: string;
+  };
+}> = ({
+  title,
+  description,
+  isIndexable = true,
+  image = {
+    isExternal: false,
+    path: ASSET_PATH.PublicImage("logo.png"),
+  },
+}) => {
   const { pathname } = useRouter();
   const formattedTitle = `${title}${title && " | "}Mačji boter`;
   const pathRoot = process.env.NEXT_PUBLIC_BASE_PATH;
   const fullPath = `${pathRoot}${pathname}`;
-  const fullImagePath = `${pathRoot}${imagePath}`;
+  const fullImagePath = image.isExternal ? image.path : `${pathRoot}${image.path}`;
 
   return (
     <Head>

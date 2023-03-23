@@ -5,18 +5,12 @@ import { DataPieces } from "./_data-pieces";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Section } from "@/common/components/section";
 import { Breadcrumbs } from "@/common/components/breadcrumbs";
-import { useCurrentCat } from "../../hooks/use-current-cat";
 import { ROUTES } from "@/common/constants";
 import { SponsorsList } from "./_sponsors-list";
 import { Container } from "@/common/components/container";
+import { Cat } from "../../types";
 
-export const CatDetails: FC = () => {
-  const { data: cat, isSuccess } = useCurrentCat();
-
-  if (!isSuccess) {
-    return null;
-  }
-
+export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
   return (
     <>
       <Section spacing={{ top: "sm", bottom: "lg" }}>

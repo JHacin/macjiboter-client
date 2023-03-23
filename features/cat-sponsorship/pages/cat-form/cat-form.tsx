@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
 import { payerDefaultValues, payerStepValidation, PayerStep } from "@/forms/components/payer-step";
-import { useCurrentCat } from "@/cats/hooks/use-current-cat";
 import { apiPost } from "@/api/util";
 import { CatFormValues } from "../../types";
 import { ParamsStep } from "./_params-step";
@@ -15,6 +14,7 @@ import {
   gifteeDefaultValues,
   GifteeStep,
 } from "@/forms/components/giftee-step";
+import { Cat } from "@/cats/types";
 
 const initialValues: CatFormValues = {
   is_gift: false,
@@ -27,13 +27,8 @@ const initialValues: CatFormValues = {
   is_agreed_to_terms: false,
 };
 
-export const CatForm: FC = () => {
-  const { data: cat, isSuccess } = useCurrentCat();
+export const CatForm: FC<{ cat: Cat }> = ({ cat }) => {
   const [values, setValues] = useState(initialValues);
-
-  if (!isSuccess) {
-    return null;
-  }
 
   const steps = [
     {

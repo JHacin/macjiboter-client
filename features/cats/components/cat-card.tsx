@@ -3,8 +3,7 @@ import { Flex, Icon, Image, LinkBox, LinkOverlay, SystemStyleObject, Text } from
 import { NextLink } from "@/common/components/next-link";
 import { ROUTES } from "@/common/constants";
 import { Cat } from "../types";
-import { CAT_PLACEHOLDER_IMAGE_URL } from "../constants";
-import { getPhotoUrl } from "../util/photos";
+import { getFirstPhotoOrFallback } from "../util/photos";
 import { PawPrint } from "phosphor-react";
 
 interface CatCardProps {
@@ -13,13 +12,9 @@ interface CatCardProps {
   styles?: SystemStyleObject;
 }
 
-export const CatCard: FC<CatCardProps> = ({
-  cat: { photos, name, slug, is_group },
-  body,
-  styles,
-}) => {
-  const link = ROUTES.CatDetails(slug);
-  const photoUrl = photos.length === 0 ? CAT_PLACEHOLDER_IMAGE_URL : getPhotoUrl(photos[0], "sm");
+export const CatCard: FC<CatCardProps> = ({ cat, body, styles }) => {
+  const link = ROUTES.CatDetails(cat.slug);
+  const photoUrl = getFirstPhotoOrFallback(cat);
 
   return (
     <LinkBox
@@ -30,16 +25,16 @@ export const CatCard: FC<CatCardProps> = ({
       flexDir="column"
       position="relative"
     >
-      <Image src={photoUrl} alt={name} position="relative" />
+      <Image src={photoUrl} alt={cat.name} position="relative" />
       <Flex p={6} pb={9} flexGrow={1} direction="column" alignItems="flex-start">
         <LinkOverlay as={NextLink} href={link}>
           <Text fontSize="2xl" fontWeight="bold" noOfLines={1}>
-            {name}
+            {cat.name}
           </Text>
         </LinkOverlay>
         {body}
       </Flex>
-      {is_group && (
+      {cat.is_group && (
         <Flex
           position="absolute"
           top="0"

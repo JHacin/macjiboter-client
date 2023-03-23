@@ -4,12 +4,17 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const SponsorshipPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
     <Layout>
+      <MetaTags
+        title="Sponzorstvo"
+        description="Vse o tem, kako lahko program Mačji boter sponzorirate."
+      />
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>

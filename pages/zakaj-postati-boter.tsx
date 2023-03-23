@@ -9,6 +9,7 @@ import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const listItems: { id: number; content: ReactNode }[] = [
   {
@@ -69,6 +70,10 @@ const WhyBecomeSponsorPage: NextPage = () => {
 
   return (
     <Layout>
+      <MetaTags
+        title="Zakaj postati boter"
+        description="Vse o tem, zakaj je dobro biti mačji boter."
+      />
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>

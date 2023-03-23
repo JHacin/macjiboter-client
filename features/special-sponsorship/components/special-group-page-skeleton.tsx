@@ -8,6 +8,7 @@ import { Breadcrumbs } from "@/common/components/breadcrumbs";
 import { ROUTES } from "@/common/constants";
 import { RecentSpecialSponsors } from "./recent-special-sponsors";
 import { SectionWaves } from "@/common/components/section-waves";
+import { MetaTags } from "@/common/components/meta-tags";
 
 export const SpecialGroupPageSkeleton: FC<{
   group: SpecialSponsorshipGroup;
@@ -17,6 +18,12 @@ export const SpecialGroupPageSkeleton: FC<{
 
   return (
     <>
+      <MetaTags
+        title={name}
+        description={description}
+        image={{ isExternal: false, path: imageUrls.lg }}
+      />
+
       <Container>
         <Section spacing={{ top: "sm", bottom: "none" }}>
           <Breadcrumbs

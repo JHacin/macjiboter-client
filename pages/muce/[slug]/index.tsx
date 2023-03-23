@@ -4,6 +4,9 @@ import { QueryKey } from "@/api/types";
 import { getCat } from "@/cats/util/api";
 import { CatDetails } from "@/cats/pages/cat-details/cat-details";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
+import { useCurrentCat } from "@/cats/hooks/use-current-cat";
+import { getFirstPhotoOrFallback } from "@/cats/util/photos";
 
 export const getServerSideProps: GetServerSideProps<
   { dehydratedState: DehydratedState },
@@ -23,9 +26,23 @@ export const getServerSideProps: GetServerSideProps<
 };
 
 const CatDetailsPage: NextPage = () => {
+  const { data: cat, isSuccess } = useCurrentCat();
+
+  if (!isSuccess) {
+    return null;
+  }
+
   return (
     <Layout>
-      <CatDetails />
+      <MetaTags
+        title={cat.name}
+        description={cat.story_short}
+        image={{
+          isExternal: true,
+          path: getFirstPhotoOrFallback(cat),
+        }}
+      />
+      <CatDetails cat={cat} />
     </Layout>
   );
 };

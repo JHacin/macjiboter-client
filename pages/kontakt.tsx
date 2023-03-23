@@ -4,12 +4,14 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const ContactPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
     <Layout>
+      <MetaTags title="Kontakt" description="Dosežete nas lahko na več načinov." />
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
@@ -17,7 +19,6 @@ const ContactPage: NextPage = () => {
               Kontakt
             </Heading>
           </Section>
-
           <Section spacing={{ top: "sm" }}>
             <VStack spacing={6} fontSize="lg" maxWidth="850px">
               <Text>

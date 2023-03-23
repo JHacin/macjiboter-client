@@ -4,12 +4,14 @@ import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const PrivacyPage: NextPage = () => {
   const { breakpoints } = useTheme();
 
   return (
     <Layout>
+      <MetaTags title="Zasebnost" description="Vse o tem, kako upravljamo z vašimi podatki." />
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
