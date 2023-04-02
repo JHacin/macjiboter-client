@@ -40,7 +40,7 @@ export const DataPieces: FC<CatDetailsDataProps> = ({
   ].filter((dataPiece) => !!dataPiece.value);
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={4} mx={{ base: -6, sm: 0 }}>
+    <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={4}>
       {dataPieces.map((dataPiece) => (
         <HStack spacing={3} key={dataPiece.label} bg="copper.200" py={4} px={5} shadow="sm">
           <Icon as={dataPiece.icon} w={8} h={8} />

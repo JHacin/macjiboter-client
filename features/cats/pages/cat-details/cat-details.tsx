@@ -27,7 +27,6 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
               base: 8,
               sm: 12,
             }}
-            mx={{ base: -6, sm: 0 }}
           >
             <PhotoGallery cat={cat} />
           </Box>

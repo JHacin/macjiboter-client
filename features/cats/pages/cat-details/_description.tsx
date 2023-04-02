@@ -75,7 +75,6 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
               bgColor="copper.200"
               px={{ base: 6, sm: 8, lg: 10 }}
               py={{ base: 10, lg: 12 }}
-              mx={{ base: -6, sm: 0 }}
               shadow={{ base: "none", lg: "md" }}
             >
               <Box h="6px" w={{ base: "90px", md: "120px" }}>
