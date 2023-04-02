@@ -16,7 +16,7 @@ const FormAsideNote: FC<FormAsideNoteProps> = ({ title, body, icon }) => {
       <HStack align="start" spacing={3}>
         <Icon as={icon} color="orange.500" weight="bold" boxSize={5} />
         <Box>
-          <Text fontWeight="semibold" lineHeight={1.3}>
+          <Text fontWeight="bold" lineHeight={1.3}>
             {title}
           </Text>
           <Text mt={3}>{body}</Text>

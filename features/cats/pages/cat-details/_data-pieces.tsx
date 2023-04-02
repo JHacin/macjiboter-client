@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { HStack, Icon, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Icon, SimpleGrid, Text } from "@chakra-ui/react";
 import { humanReadableDateDifference } from "@/common/util/date-difference-format";
 import dayjs from "dayjs";
 import { dateFormat } from "@/common/util/date";
@@ -40,14 +40,16 @@ export const DataPieces: FC<CatDetailsDataProps> = ({
   ].filter((dataPiece) => !!dataPiece.value);
 
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={4}>
+    <SimpleGrid columns={{ base: 1, md: 2, lg: 1 }} spacing={4} mx={{ base: -6, sm: 0 }}>
       {dataPieces.map((dataPiece) => (
-        <HStack spacing={4} key={dataPiece.label} bg="copper.100" py={3} px={4} shadow="sm">
+        <HStack spacing={3} key={dataPiece.label} bg="copper.200" py={4} px={5} shadow="sm">
           <Icon as={dataPiece.icon} w={8} h={8} />
-          <VStack spacing={1}>
-            <Text fontWeight="semibold">{dataPiece.label}</Text>
+          <Box>
+            <Text fontWeight="bold" fontSize="lg">
+              {dataPiece.label}
+            </Text>
             <Text>{dataPiece.value}</Text>
-          </VStack>
+          </Box>
         </HStack>
       ))}
     </SimpleGrid>

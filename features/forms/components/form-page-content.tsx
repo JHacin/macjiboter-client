@@ -35,7 +35,7 @@ export const FormPageContent: FC<{
           />
 
           <Box position="relative">
-            <Heading as="h1" size={{ base: "xl", lg: "2xl" }}>
+            <Heading as="h1" size={{ base: "xl", lg: "2xl" }} fontWeight="extrabold">
               {title}
             </Heading>
           </Box>
