@@ -16,7 +16,7 @@ export const getServerSideProps: GetServerSideProps<
 
   const slug = context.query.slug as string;
 
-  await queryClient.prefetchQuery([QueryKey.Cat, slug], () => getCat(slug));
+  // await queryClient.prefetchQuery([QueryKey.Cat, slug], () => getCat(slug));
 
   return {
     props: {

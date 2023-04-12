@@ -37,10 +37,22 @@ const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
       body={
         <>
           <VStack mt={4} spacing={3}>
-            <Text noOfLines={1} borderLeft="2px" borderColor="orange.500" color="gray.700" pl={2}>
+            <Text
+              noOfLines={1}
+              borderLeft="2px"
+              borderColor="blackAlpha.400"
+              color="gray.700"
+              pl={2}
+            >
               {timeSinceArrivalToShelter} v Mačji hiši
             </Text>
-            <Text noOfLines={1} borderLeft="2px" borderColor="orange.500" color="gray.700" pl={2}>
+            <Text
+              noOfLines={1}
+              borderLeft="2px"
+              borderColor="blackAlpha.400"
+              color="gray.700"
+              pl={2}
+            >
               Trenutno botrov: {cat.sponsorships_count}
             </Text>
           </VStack>
