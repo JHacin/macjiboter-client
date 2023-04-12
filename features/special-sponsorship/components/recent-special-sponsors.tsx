@@ -4,7 +4,7 @@ import { SPECIAL_SPONSORSHIP_GROUP_META, SPECIAL_SPONSORSHIPS_META } from "../co
 import { useQuery } from "@tanstack/react-query";
 import { QueryKey } from "@/api/types";
 import { getRecentSpecialSponsorships } from "../util/api";
-import { Box, StackDivider, Text, VStack } from "@chakra-ui/react";
+import { Box, Spinner, StackDivider, Text, VStack } from "@chakra-ui/react";
 import { PersonData } from "@/common/types";
 import { SponsorDetails } from "@/common/components/sponsor-details";
 import dayjs from "dayjs";
@@ -34,7 +34,9 @@ const SponsorshipTypeList: FC<{
         </Text>
       )}
       <Box>
-        {sponsorships.length === 0 && <Text>Botrov še ni bilo.</Text>}
+        {sponsorships.length === 0 && (
+          <Text fontStyle="italic">Botrov v zadnjih dveh mesecih še ni bilo.</Text>
+        )}
 
         {sponsorships.length > 0 && (
           <VStack spacing={1}>
@@ -94,7 +96,7 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
         {dayjs().subtract(1, "month").format("MMMM") + "—" + dayjs().format("MMMM")}
       </Text>
       <Box mt={{ base: 10 }}>
-        <Box>{status === "loading" && "Nalagam..."}</Box>
+        <Box>{status === "loading" && <Spinner size="sm" />}</Box>
         <Box>{status === "error" && "Prišlo je do napake."}</Box>
         <Box>
           {status === "success" && <SponsorList types={childTypes} sponsorships={sponsorships} />}
