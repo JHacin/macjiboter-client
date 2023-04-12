@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Heart, IconProps, Question } from "phosphor-react";
+import { Heart, IconProps, Question } from "@phosphor-icons/react";
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";

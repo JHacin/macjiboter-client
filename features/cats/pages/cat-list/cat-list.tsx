@@ -15,7 +15,7 @@ import { Cat } from "../../types";
 import { PageTitle } from "@/common/components/page-title";
 import { PageSubtitle } from "@/common/components/page-subtitle";
 import { PageHeaderOutlined } from "@/common/components/page-header-outlined";
-import { X } from "phosphor-react";
+import { X } from "@phosphor-icons/react";
 
 export const CatList: FC = () => {
   const {

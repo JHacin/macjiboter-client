@@ -1,12 +1,11 @@
 import { FC } from "react";
-import { Calendar, CurrencyEur } from "phosphor-react";
+import { Calendar, CurrencyEur } from "@phosphor-icons/react";
 import { OptionsWithCustomValue } from "@/forms/components/options-with-custom-value";
 import { CheckboxField } from "@/forms/components/checkbox-field";
 import { useFormikContext } from "formik";
 import { numericInputValueParser } from "@/forms/util";
 import { CatFormValues } from "../../types";
 import { FormGroup } from "@/forms/components/form-group";
-import { InlineTooltipDecorator } from "@/common/components/inline-tooltip-decorator";
 
 export const ParamsStep: FC = () => {
   const { values, setFieldValue } = useFormikContext<CatFormValues>();
@@ -71,15 +70,19 @@ export const ParamsStep: FC = () => {
       )}
 
       <FormGroup>
-        <InlineTooltipDecorator tooltipContent="Po oddaji obrazca vam bomo na vaš e-mail naslov poslali navodila za plačevanje prek trajnika.">
-          <CheckboxField name="wants_direct_debit" label="Želim plačevati prek trajnika" />
-        </InlineTooltipDecorator>
+        <CheckboxField
+          name="wants_direct_debit"
+          label="Želim plačevati prek trajnika"
+          hint="Po oddaji obrazca vam bomo na vaš e-mail naslov poslali navodila za plačevanje prek trajnika."
+        />
       </FormGroup>
 
       <FormGroup>
-        <InlineTooltipDecorator tooltipContent="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu trenutnih botrov pri vaši posvojeni muci.">
-          <CheckboxField name="is_anonymous" label="Botrstvo naj bo anonimno" />
-        </InlineTooltipDecorator>
+        <CheckboxField
+          name="is_anonymous"
+          label="Botrstvo naj bo anonimno"
+          hint="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu trenutnih botrov pri vaši posvojeni muci."
+        />
       </FormGroup>
     </>
   );

@@ -4,7 +4,7 @@ import { NextLink } from "@/common/components/next-link";
 import { ROUTES } from "@/common/constants";
 import { Cat } from "../types";
 import { getFirstPhotoOrFallback } from "../util/photos";
-import { PawPrint } from "phosphor-react";
+import { PawPrint } from "@phosphor-icons/react";
 
 interface CatCardProps {
   cat: Cat;
@@ -24,6 +24,7 @@ export const CatCard: FC<CatCardProps> = ({ cat, body, styles }) => {
       display="flex"
       flexDir="column"
       position="relative"
+      bgColor="white"
     >
       <Image src={photoUrl} alt={cat.name} position="relative" />
       <Flex p={6} pb={9} flexGrow={1} direction="column" alignItems="flex-start">

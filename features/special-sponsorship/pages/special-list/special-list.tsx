@@ -1,8 +1,7 @@
 import { FC } from "react";
 import { Section } from "@/common/components/section";
 import { Container } from "@/common/components/container";
-import { Box, Flex, Icon, LinkBox, LinkOverlay, SimpleGrid, Text, Image } from "@chakra-ui/react";
-import { ArrowRight } from "phosphor-react";
+import { Box, Flex, LinkBox, LinkOverlay, SimpleGrid, Text, Image } from "@chakra-ui/react";
 import { SPECIAL_SPONSORSHIP_GROUP_META, SPECIAL_SPONSORSHIPS_META } from "../../constants";
 import { SpecialSponsorshipGroup } from "../../types";
 import { max, min } from "lodash-es";
@@ -70,9 +69,7 @@ const SpecialSponsorshipTypeCard: FC<SpecialSponsorshipListItemProps> = ({
         </Text>
         <Text mt={4}>{description}</Text>
         <Box mt="auto" pt={8}>
-          <ButtonLink href={href} rightIcon={<Icon as={ArrowRight} weight="bold" />}>
-            Izberi
-          </ButtonLink>
+          <ButtonLink href={href}>Več informacij</ButtonLink>
         </Box>
       </Flex>
     </LinkBox>

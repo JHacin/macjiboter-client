@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Section } from "../../components/section";
 import { Heading, Icon, LinkBox, LinkOverlay, Text, VStack } from "@chakra-ui/react";
-import { ArrowRight, Gift, IconProps, PawPrint, Sparkle } from "phosphor-react";
+import { Gift, IconProps, PawPrint, Sparkle } from "@phosphor-icons/react";
 import { ButtonLink } from "../../components/button-link";
 import { SectionHeader } from "../../components/section-header";
 import { NextLink } from "../../components/next-link";
@@ -119,13 +119,7 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
         {description}
       </Text>
 
-      <ButtonLink
-        href={buttonProps.link}
-        colorScheme={color}
-        variant="solid"
-        mt={14}
-        rightIcon={<Icon as={ArrowRight} weight="bold" />}
-      >
+      <ButtonLink href={buttonProps.link} colorScheme={color} variant="solid" mt={14}>
         {buttonProps.text}
       </ButtonLink>
     </LinkBox>

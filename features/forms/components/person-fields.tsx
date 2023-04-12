@@ -9,6 +9,7 @@ import { useFormikContext } from "formik";
 import { PersonGender } from "@/common/types";
 import { FormOption } from "../types";
 import countries from "i18n-iso-countries";
+import { FORM_GROUP_SPACING } from "../constants";
 
 const PERSON_GENDER_LABELS = {
   [PersonGender.Male]: "moški",
@@ -68,7 +69,7 @@ export const PersonFields: FC<{ personType: "payer" | "giftee" }> = ({ personTyp
       </FormGroup>
 
       <FormGroup>
-        <Grid templateColumns="repeat(5, 1fr)" gap={4}>
+        <Grid templateColumns="repeat(5, 1fr)" rowGap={FORM_GROUP_SPACING} columnGap={4}>
           <GridItem colSpan={{ base: 5, md: 2 }}>
             <TextField
               name={formatFieldName("first_name")}
@@ -106,7 +107,7 @@ export const PersonFields: FC<{ personType: "payer" | "giftee" }> = ({ personTyp
       </FormGroup>
 
       <FormGroup>
-        <Grid templateColumns="repeat(5, 1fr)" gap={4}>
+        <Grid templateColumns="repeat(5, 1fr)" rowGap={FORM_GROUP_SPACING} columnGap={4}>
           <GridItem colSpan={{ base: 5, md: 2 }}>
             <TextField
               name={formatFieldName("zip_code")}

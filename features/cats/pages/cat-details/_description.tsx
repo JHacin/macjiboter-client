@@ -3,28 +3,12 @@ import { VStack, Text, Box, Heading } from "@chakra-ui/react";
 import { Cat, CatGender, CatStatus } from "../../types";
 import { ButtonLink } from "@/common/components/button-link";
 import { ROUTES } from "@/common/constants";
-import { InlineTooltipDecorator } from "@/common/components/inline-tooltip-decorator";
 import { HeadingMarker } from "@/common/components/heading-marker";
 import { CmsContent } from "@/common/components/cms-content";
 
 interface CatDetailsDescriptionProps {
   cat: Cat;
 }
-
-const TempNotSeekingSponsorsMsg = () => {
-  const content =
-    "Zaradi posebnih okoliščin muca trenutno ne sprejema novih botrov. " +
-    "Prosimo poskusite kdaj drugič, ali pa se odločite za posvojitev druge muce. " +
-    "Hvala za razumevanje.";
-
-  return (
-    <InlineTooltipDecorator tooltipContent={content}>
-      <Text fontSize={{ base: "sm", md: "md", lg: "lg" }} fontStyle="italic">
-        Muca trenutno ne išče novih botrov.
-      </Text>
-    </InlineTooltipDecorator>
-  );
-};
 
 export const Description: FC<CatDetailsDescriptionProps> = ({
   cat: { is_group, gender, story, status, slug, name },
@@ -68,7 +52,12 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
             md: 16,
           }}
         >
-          {status === CatStatus.TempNotSeekingSponsors && <TempNotSeekingSponsorsMsg />}
+          {status === CatStatus.TempNotSeekingSponsors && (
+            <Text fontStyle="italic">
+              Muca trenutno ne išče novih botrov. Prosimo poskusite kdaj drugič, ali pa se odločite
+              za posvojitev druge muce. Hvala za razumevanje.
+            </Text>
+          )}
 
           {status === CatStatus.SeekingSponsors && (
             <Box

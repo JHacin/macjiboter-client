@@ -12,7 +12,7 @@ import {
   ButtonGroup,
   Flex,
 } from "@chakra-ui/react";
-import { CaretRight, IconProps, List } from "phosphor-react";
+import { CaretRight, IconProps, List } from "@phosphor-icons/react";
 import { NextLink } from "./next-link";
 import { FOOTER_LINKS, NAV_LINK_GROUPS, SOCIAL_LINKS } from "../constants";
 

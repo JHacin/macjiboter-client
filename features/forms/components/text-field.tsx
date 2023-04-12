@@ -2,7 +2,7 @@ import { ChangeEventHandler, FC } from "react";
 import { Input, Icon, InputProps, SystemStyleObject } from "@chakra-ui/react";
 import { useField } from "formik";
 import { InputGroup, InputLeftElement } from "@chakra-ui/input";
-import { IconProps } from "phosphor-react";
+import { IconProps } from "@phosphor-icons/react";
 import { FieldControl } from "./field-control";
 
 export interface TextFieldInputProps {

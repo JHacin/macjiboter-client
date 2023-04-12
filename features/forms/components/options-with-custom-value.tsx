@@ -4,7 +4,7 @@ import { useField } from "formik";
 import { TextField, TextFieldInputProps } from "./text-field";
 import { FieldControl } from "./field-control";
 import { FormOption } from "../types";
-import { CheckCircle } from "phosphor-react";
+import { CheckCircle } from "@phosphor-icons/react";
 
 interface OptionsWithCustomValueProps {
   name: string;

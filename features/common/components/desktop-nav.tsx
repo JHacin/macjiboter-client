@@ -14,7 +14,7 @@ import {
   usePopoverContext,
   VStack,
 } from "@chakra-ui/react";
-import { CaretDown } from "phosphor-react";
+import { CaretDown } from "@phosphor-icons/react";
 import { ButtonLink } from "./button-link";
 import { NextLink } from "./next-link";
 import { NavLinkGroupChildLink, NavLinkGroupProps } from "../types";

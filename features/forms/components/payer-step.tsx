@@ -37,9 +37,5 @@ export const payerDefaultValues = {
 };
 
 export const PayerStep: FC = () => {
-  return (
-    <>
-      <PersonFields personType="payer" />
-    </>
-  );
+  return <PersonFields personType="payer" />;
 };

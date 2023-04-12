@@ -6,7 +6,7 @@ import { Cat } from "../../types";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getPhotoUrl } from "../../util/photos";
-import { CaretLeft, CaretRight, IconProps } from "phosphor-react";
+import { CaretLeft, CaretRight, IconProps } from "@phosphor-icons/react";
 import "photoswipe/dist/photoswipe.css";
 import "swiper/css";
 import "swiper/css/pagination";

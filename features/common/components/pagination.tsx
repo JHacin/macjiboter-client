@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
 import { Button, ButtonGroup, Flex, Icon, IconButton } from "@chakra-ui/react";
 import { range } from "lodash-es";
-import { ArrowLeft, ArrowRight, DotsThree } from "phosphor-react";
+import { ArrowLeft, ArrowRight, DotsThree } from "@phosphor-icons/react";
 
 interface PaginationProps {
   selectedPage: number;

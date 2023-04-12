@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/input";
 import { CloseButton, FormControl, FormLabel, Icon } from "@chakra-ui/react";
-import { MagnifyingGlass } from "phosphor-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 
 interface CatListSearchProps {
   value: string;

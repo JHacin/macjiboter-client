@@ -3,7 +3,7 @@ import { FieldControl } from "./field-control";
 import DatePicker, { ReactDatePickerProps } from "react-datepicker";
 import { useField } from "formik";
 import { Icon, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import { Calendar } from "phosphor-react";
+import { Calendar } from "@phosphor-icons/react";
 import dayjs from "dayjs";
 
 const DatepickerInput = forwardRef<

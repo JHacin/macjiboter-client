@@ -12,7 +12,7 @@ import * as yup from "yup";
 import { Box, Button, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
 import { useScrollToError } from "../hooks/use-scroll-to-error";
 import { FormSubmitStatus } from "../types";
-import { ArrowLeft, ArrowRight, PaperPlaneTilt } from "phosphor-react";
+import { ArrowLeft, ArrowRight, PaperPlaneTilt } from "@phosphor-icons/react";
 import { HeadingMarker } from "@/common/components/heading-marker";
 
 interface MultiStepFormStep {

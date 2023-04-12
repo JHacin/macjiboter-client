@@ -10,7 +10,7 @@ import {
   PawPrint,
   Question,
   Sparkle,
-} from "phosphor-react";
+} from "@phosphor-icons/react";
 import { FC } from "react";
 
 export const BACKEND_URL = process.env["NEXT_PUBLIC_BACKEND_URL"];
@@ -46,7 +46,7 @@ export const EXTERNAL_LINKS = {
   FacebookPage: "https://www.facebook.com/MacjiBoter",
   InstagramPage: "https://www.instagram.com/macjiboter",
   MacjaHisa: "https://macjahisa.si",
-  SuperCombe: "http://www.supercombe.si/",
+  SuperCombe: "https://www.supercombe.si/",
   SuperCombeContactEmail: "trgovina@supercombe.si",
 };
 

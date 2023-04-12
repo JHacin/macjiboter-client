@@ -2,14 +2,13 @@ import { FC } from "react";
 import { CheckboxField } from "@/forms/components/checkbox-field";
 import { SelectField } from "@/forms/components/select-field";
 import { useFormikContext } from "formik";
-import { CurrencyEur } from "phosphor-react";
+import { CurrencyEur } from "@phosphor-icons/react";
 import { TextField } from "@/forms/components/text-field";
 import { SPECIAL_SPONSORSHIPS_META } from "../../constants";
 import { SpecialFormValues, SpecialSponsorshipType } from "../../types";
 import { numericInputValueParser } from "@/forms/util";
 import { FormOption } from "@/forms/types";
 import { FormGroup } from "@/forms/components/form-group";
-import { InlineTooltipDecorator } from "@/common/components/inline-tooltip-decorator";
 
 const typeOptions: FormOption[] = Object.keys(SPECIAL_SPONSORSHIPS_META)
   .map((type) => Number(type))
@@ -56,9 +55,11 @@ export const ParamsStep: FC = () => {
       </FormGroup>
 
       <FormGroup>
-        <InlineTooltipDecorator tooltipContent="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu botrov.">
-          <CheckboxField name="is_anonymous" label="Botrstvo naj bo anonimno" />
-        </InlineTooltipDecorator>
+        <CheckboxField
+          name="is_anonymous"
+          label="Botrstvo naj bo anonimno"
+          hint="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu botrov."
+        />
       </FormGroup>
     </>
   );

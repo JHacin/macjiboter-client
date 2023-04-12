@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Box, Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
 import { SponsorDetailsWithQuery } from "@/common/components/sponsor-details";
 import { Cat } from "../../types";
-import { Users } from "phosphor-react";
+import { Users } from "@phosphor-icons/react";
 
 interface CatDetailsSponsorsProps {
   cat: Cat;
@@ -26,7 +26,7 @@ export const SponsorsList: FC<CatDetailsSponsorsProps> = ({ cat: { sponsorships,
         </Heading>
       </Flex>
 
-      <Box mt={3}>
+      <Box mt={5}>
         {sponsorships.length === 0 && <Text>Muca še nima botrov.</Text>}
 
         {sponsorships.length > 0 && (

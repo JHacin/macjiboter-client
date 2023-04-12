@@ -3,7 +3,7 @@ import { Box, HStack, Icon, SimpleGrid, Text } from "@chakra-ui/react";
 import { humanReadableDateDifference } from "@/common/util/date-difference-format";
 import dayjs from "dayjs";
 import { dateFormat } from "@/common/util/date";
-import { Cake, Calendar, GenderIntersex, IconProps } from "phosphor-react";
+import { Cake, Calendar, GenderIntersex, IconProps } from "@phosphor-icons/react";
 import { CAT_GENDER_LABELS } from "../../constants";
 import { Cat } from "../../types";
 
@@ -45,9 +45,7 @@ export const DataPieces: FC<CatDetailsDataProps> = ({
         <HStack spacing={3} key={dataPiece.label} bg="copper.200" py={4} px={5} shadow="sm">
           <Icon as={dataPiece.icon} w={8} h={8} />
           <Box>
-            <Text fontWeight="bold" fontSize="lg">
-              {dataPiece.label}
-            </Text>
+            <Text fontWeight="bold">{dataPiece.label}</Text>
             <Text>{dataPiece.value}</Text>
           </Box>
         </HStack>

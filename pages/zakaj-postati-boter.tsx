@@ -4,7 +4,7 @@ import { Box, Heading, Icon, List, ListIcon, ListItem, Text } from "@chakra-ui/r
 import { ReactNode } from "react";
 import { TextLink } from "@/common/components/text-link";
 import { EXTERNAL_LINKS, ROUTES } from "@/common/constants";
-import { ArrowRight, CheckCircle } from "phosphor-react";
+import { ArrowRight, CheckCircle } from "@phosphor-icons/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
@@ -102,7 +102,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
               href={ROUTES.CatsList}
               size="lg"
               mt={20}
-              rightIcon={<Icon as={ArrowRight} />}
+              rightIcon={<Icon as={ArrowRight} weight="bold" />}
             >
               Postani boter
             </ButtonLink>

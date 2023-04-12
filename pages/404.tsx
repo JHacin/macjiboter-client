@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { Container } from "@/common/components/container";
 import { Section } from "@/common/components/section";
 import { Box, Heading, Icon, Text } from "@chakra-ui/react";
-import { SmileyMeh } from "phosphor-react";
+import { SmileyMeh } from "@phosphor-icons/react";
 import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
 import { Layout } from "@/common/components/layout";

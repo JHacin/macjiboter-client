@@ -1,6 +1,5 @@
 import { FC } from "react";
-import { CaretRight } from "phosphor-react";
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
+import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink } from "@chakra-ui/react";
 import { TextLink } from "./text-link";
 
 type BreadcrumbsItem = {
@@ -23,7 +22,14 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items }) => {
   const linkFontSize = { base: "sm", sm: "md" };
 
   return (
-    <Breadcrumb spacing={2} separator={<CaretRight />}>
+    <Breadcrumb
+      spacing={{ base: 2, sm: 3 }}
+      separator={<Box boxSize="3px" bgColor="gray.700" rounded="full" />}
+      listProps={{
+        flexWrap: "wrap",
+        rowGap: 1,
+      }}
+    >
       {items.map((item) => (
         <BreadcrumbItem key={item.text}>
           {!item.isCurrentPage && (
@@ -39,7 +45,13 @@ export const Breadcrumbs: FC<BreadcrumbsProps> = ({ items }) => {
           )}
 
           {item.isCurrentPage && (
-            <BreadcrumbLink isCurrentPage={true} fontSize={linkFontSize}>
+            <BreadcrumbLink
+              isCurrentPage={true}
+              fontSize={linkFontSize}
+              color="gray.700"
+              cursor="initial"
+              _hover={{ textDecoration: "none" }}
+            >
               {item.text}
             </BreadcrumbLink>
           )}

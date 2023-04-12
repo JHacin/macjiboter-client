@@ -2,7 +2,7 @@ import { NextPage } from "next";
 import { Container } from "@/common/components/container";
 import { Box, Heading, Icon, Text, VStack } from "@chakra-ui/react";
 import { ROUTES } from "@/common/constants";
-import { ArrowRight } from "phosphor-react";
+import { ArrowRight } from "@phosphor-icons/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";

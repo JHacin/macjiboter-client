@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Box, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
-import { CheckCircle, Gift } from "phosphor-react";
+import { CheckCircle, Gift } from "@phosphor-icons/react";
 
 export const SpecialGroupBenefits: FC<{
   items: { id: number; content: ReactNode; isForGiftOnly?: boolean }[];
