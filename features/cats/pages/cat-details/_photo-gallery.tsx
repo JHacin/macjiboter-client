@@ -1,8 +1,8 @@
-import { FC, MutableRefObject } from "react";
-import { Box, Icon, Image } from "@chakra-ui/react";
+import { FC, MutableRefObject, useEffect, useMemo, useState } from "react";
+import { Box, Icon, Image, ImageProps } from "@chakra-ui/react";
 import { Gallery, GalleryProps, Item } from "react-photoswipe-gallery";
 import { DataSourceArray } from "photoswipe";
-import { Cat } from "../../types";
+import { Cat, CatPhoto } from "../../types";
 import { Navigation, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { getPhotoUrl } from "../../util/photos";
@@ -110,6 +110,44 @@ const CustomSwiperNavButton: FC<{ className: string; icon: FC<IconProps> }> = ({
   );
 };
 
+const SlideshowPhoto: FC<{ photo: CatPhoto; alt: string }> = ({ photo, alt }) => {
+  // Workaround for react-photoswipe-gallery throwing errors in SSR.
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const imageProps = useMemo<ImageProps>(
+    () => ({
+      src: getPhotoUrl(photo, "sm"),
+      alt,
+      transition: "opacity .15s ease-in-out",
+      _hover: { opacity: 0.85 },
+      width: "full",
+    }),
+    [alt, photo]
+  );
+
+  if (!isClient) {
+    return <Image {...imageProps} alt={imageProps.alt} />;
+  }
+
+  return (
+    <Item original={getPhotoUrl(photo, "lg")} width="1024" height="1024">
+      {({ ref, open }) => (
+        <Image
+          {...imageProps}
+          alt={imageProps.alt}
+          ref={ref as MutableRefObject<HTMLImageElement>}
+          onClick={open}
+          cursor="zoom-in"
+        />
+      )}
+    </Item>
+  );
+};
+
 export const PhotoGallery: FC<{ cat: Cat }> = ({ cat }) => {
   if (cat.photos.length === 0) {
     return null;
@@ -143,22 +181,7 @@ export const PhotoGallery: FC<{ cat: Cat }> = ({ cat }) => {
         >
           {cat.photos.map((photo) => (
             <SwiperSlide key={photo.id}>
-              <Item original={getPhotoUrl(photo, "lg")} width="1024" height="1024">
-                {({ ref, open }) => (
-                  <Image
-                    ref={ref as MutableRefObject<HTMLImageElement>}
-                    onClick={open}
-                    src={getPhotoUrl(photo, "sm")}
-                    alt={cat.name}
-                    cursor="zoom-in"
-                    transition="opacity .15s ease-in-out"
-                    _hover={{
-                      opacity: 0.85,
-                    }}
-                    width="full"
-                  />
-                )}
-              </Item>
+              <SlideshowPhoto photo={photo} alt={cat.name} />
             </SwiperSlide>
           ))}
         </Swiper>
