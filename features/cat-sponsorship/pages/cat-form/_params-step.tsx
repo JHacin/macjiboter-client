@@ -33,6 +33,7 @@ export const ParamsStep: FC = () => {
             base: 2,
             sm: 4,
           }}
+          isNumeric={true}
         />
       </FormGroup>
 
@@ -65,6 +66,7 @@ export const ParamsStep: FC = () => {
             buttonsPerRow={{
               base: 2,
             }}
+            isNumeric={true}
           />
         </FormGroup>
       )}

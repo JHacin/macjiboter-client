@@ -47,6 +47,7 @@ export const ParamsStep: FC = () => {
               setFieldValue("amount", numericInputValueParser(event.target.value));
             },
           }}
+          isNumeric={true}
         />
       </FormGroup>
 
