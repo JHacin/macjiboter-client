@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
 import { VStack, Text, Box, Heading } from "@chakra-ui/react";
 import { Cat, CatGender, CatStatus } from "../../types";
 import { ButtonLink } from "@/common/components/button-link";
@@ -13,16 +13,19 @@ interface CatDetailsDescriptionProps {
 export const Description: FC<CatDetailsDescriptionProps> = ({
   cat: { is_group, gender, story, status, slug, name },
 }) => {
-  const t = {
-    mi: is_group ? "nam" : "mi",
-    dobim: is_group ? "dobimo" : "dobim",
-    Jaz: is_group ? "Mi" : "Jaz",
-    obljubim: is_group ? "obljubimo" : "obljubim",
-    bom: is_group ? "bomo" : "bom",
-    oglasil: is_group ? "oglasili" : gender === CatGender.Male ? "oglasil" : "oglasila",
-    povedal: is_group ? "povedali" : gender === CatGender.Male ? "povedal" : "povedala",
-    imam: is_group ? "imamo" : "imam",
-  };
+  const t = useMemo(
+    () => ({
+      mi: is_group ? "nam" : "mi",
+      dobim: is_group ? "dobimo" : "dobim",
+      Jaz: is_group ? "Mi" : "Jaz",
+      obljubim: is_group ? "obljubimo" : "obljubim",
+      bom: is_group ? "bomo" : "bom",
+      oglasil: is_group ? "oglasili" : gender === CatGender.Male ? "oglasil" : "oglasila",
+      povedal: is_group ? "povedali" : gender === CatGender.Male ? "povedal" : "povedala",
+      imam: is_group ? "imamo" : "imam",
+    }),
+    [gender, is_group]
+  );
 
   return (
     <Box>
