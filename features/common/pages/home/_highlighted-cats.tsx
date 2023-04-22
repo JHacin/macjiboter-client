@@ -1,5 +1,5 @@
 import { Section } from "../../components/section";
-import { SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { Icon, SimpleGrid, Stack, Text, VStack } from "@chakra-ui/react";
 import { FC } from "react";
 import { humanReadableDateDifference } from "../../util/date-difference-format";
 import dayjs from "dayjs";
@@ -13,6 +13,7 @@ import { QueryKey } from "@/api/types";
 import { getHomeMeta } from "../../util/api";
 import { useTheme } from "@/theme";
 import { ContainerNew } from "../../components/container";
+import { Calendar, Users } from "@phosphor-icons/react";
 
 const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
   const theme = useTheme();
@@ -36,27 +37,21 @@ const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
       cat={cat}
       body={
         <>
-          <VStack mt={4} spacing={3}>
-            <Text
-              noOfLines={1}
-              borderLeft="2px"
-              borderColor="blackAlpha.400"
-              color="gray.700"
-              pl={2}
-            >
-              {timeSinceArrivalToShelter} v Mačji hiši
-            </Text>
-            <Text
-              noOfLines={1}
-              borderLeft="2px"
-              borderColor="blackAlpha.400"
-              color="gray.700"
-              pl={2}
-            >
-              Trenutno botrov: {cat.sponsorships_count}
-            </Text>
+          <VStack mt={4} spacing={2}>
+            <Stack direction="row" alignItems="center" spacing={2.5}>
+              <Icon as={Calendar} boxSize={5} color="gray.600" />
+              <Text noOfLines={1} color="gray.700">
+                {timeSinceArrivalToShelter} v Mačji hiši
+              </Text>
+            </Stack>
+            <Stack direction="row" alignItems="center" spacing={2.5}>
+              <Icon as={Users} boxSize={5} color="gray.600" />
+              <Text noOfLines={1} color="gray.700">
+                Trenutno botrov: {cat.sponsorships_count}
+              </Text>
+            </Stack>
           </VStack>
-          <ButtonLink mt={12} href={ROUTES.CatDetails(cat.slug)}>
+          <ButtonLink mt={10} href={ROUTES.CatDetails(cat.slug)}>
             Preberi mojo zgodbo
           </ButtonLink>
         </>
