@@ -12,6 +12,7 @@ import countries from "i18n-iso-countries";
 import localizedCountries from "i18n-iso-countries/langs/sl.json";
 import { registerLocale } from "react-datepicker";
 import sl from "date-fns/locale/sl";
+import { Analytics } from "@vercel/analytics/react";
 
 dayjs.locale("sl");
 yup.setLocale(locale);
@@ -36,6 +37,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
         <ChakraProvider theme={theme}>
           <ProgressBar />
           <Component {...pageProps} />
+          <Analytics />
         </ChakraProvider>
       </Hydrate>
     </QueryClientProvider>
