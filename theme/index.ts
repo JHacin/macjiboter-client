@@ -214,6 +214,9 @@ export const theme = extendTheme(
         },
         ".react-datepicker__day--selected": {
           backgroundColor: "orange.500",
+          height: "14px",
+          width: "14px",
+          fontSize: "14px",
         },
       },
     },

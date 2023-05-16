@@ -5,6 +5,7 @@ import { useField } from "formik";
 import { Icon, Input, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import { Calendar } from "@phosphor-icons/react";
 import dayjs from "dayjs";
+import { format, parseISO } from "date-fns";
 
 const DatepickerInput = forwardRef<
   HTMLInputElement,
@@ -18,7 +19,7 @@ const DatepickerInput = forwardRef<
       <Input
         ref={ref}
         onClick={onClick}
-        value={value ?? ""}
+        value={value ? format(parseISO(value), "d. M. yyyy") : ""}
         placeholder="Izberi datum..."
         readOnly={true}
       />
