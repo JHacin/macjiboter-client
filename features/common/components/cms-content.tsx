@@ -8,7 +8,7 @@ interface CmsContentProps {
 
 export const CmsContent: FC<CmsContentProps> = ({ content }) => {
   return (
-    <Prose sx={{ overflowX: "hidden" }}>
+    <Prose>
       <Box dangerouslySetInnerHTML={{ __html: content }} />
     </Prose>
   );

@@ -54,7 +54,7 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
             mt={{ base: 12, lg: 16, xl: 20, "2xl": 24 }}
             px={{ xl: "60px", "2xl": "100px" }}
           >
-            <GridItem area="description">
+            <GridItem area="description" sx={{ overflowX: "hidden" }}>
               <Description cat={cat} />
             </GridItem>
 
