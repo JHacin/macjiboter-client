@@ -45,6 +45,7 @@ export const SpecialGroupPageSkeleton: FC<{
             flexDirection="column"
             justifyContent="flex-end"
             bgImage={`url(${imageUrls.lg})`}
+            bgColor="copper.200"
             bgRepeat="no-repeat"
             bgSize="cover"
             bgPosition="center"
