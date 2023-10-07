@@ -22,7 +22,6 @@ export interface Cat {
   story_short: string;
   story: string | null;
   date_of_arrival_mh: string | null;
-  date_of_arrival_boter: string | null;
   date_of_birth: string | null;
   is_group: boolean;
   created_at: string | null;

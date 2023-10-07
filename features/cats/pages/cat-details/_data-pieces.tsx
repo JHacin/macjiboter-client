@@ -18,7 +18,7 @@ interface DataPiece {
 }
 
 export const DataPieces: FC<CatDetailsDataProps> = ({
-  cat: { date_of_arrival_boter, date_of_arrival_mh, date_of_birth, gender },
+  cat: { date_of_arrival_mh, date_of_birth, gender },
 }) => {
   const dataPieces: DataPiece[] = [
     { label: "Spol", value: gender ? CAT_GENDER_LABELS[gender] : null, icon: GenderIntersex },
@@ -30,11 +30,6 @@ export const DataPieces: FC<CatDetailsDataProps> = ({
     {
       label: "Prihod v Mačjo hišo",
       value: date_of_arrival_mh ? dateFormat(date_of_arrival_mh, "monthAndYear") : null,
-      icon: Calendar,
-    },
-    {
-      label: "Vstop v botrstvo",
-      value: date_of_arrival_boter ? dateFormat(date_of_arrival_boter, "monthAndYear") : null,
       icon: Calendar,
     },
   ].filter((dataPiece) => !!dataPiece.value);
