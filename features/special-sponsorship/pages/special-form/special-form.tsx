@@ -56,6 +56,7 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
         ...gifteeStepValidation,
         gift_requested_activation_date: yup
           .date()
+          .nullable()
           .min(threeDaysInTheFuture, "Datum mora biti vsaj 3 dni v prihodnosti."),
       },
       component: (
