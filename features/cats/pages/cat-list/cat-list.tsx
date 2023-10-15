@@ -1,9 +1,9 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { CatsGrid, CatsGridSkeleton } from "./_cats-grid";
 import { Pagination } from "@/common/components/pagination";
 import { SearchInput } from "./_search-input";
 import { Section } from "@/common/components/section";
-import { Box, Button, Flex, Icon, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Skeleton, Text } from "@chakra-ui/react";
 import { TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
 import { SortControls } from "./_sort-controls";
@@ -21,13 +21,14 @@ export const CatList: FC = () => {
   const {
     query,
     queryParams,
+    searchInputValue,
     setSearch,
-    debouncedSetSearch,
     setSort,
     gridWrapperRef,
     handlePaginationButtonClick,
+    isReady,
   } = usePaginatedList<Cat>({ queryKey: QueryKey.Cats, queryFn: getCats });
-  const [searchInputValue, setSearchInputValue] = useState<string>(queryParams.search ?? "");
+
   const shouldShowNumResults = !!searchInputValue && !!queryParams.search && !query.isFetching;
 
   return (
@@ -49,16 +50,18 @@ export const CatList: FC = () => {
             justify={{ md: "space-between" }}
           >
             <Box w={{ md: "350px" }}>
-              <SearchInput
-                value={searchInputValue}
-                setValue={async (search) => {
-                  setSearchInputValue(search);
-                  await debouncedSetSearch(search);
-                }}
-              />
+              {isReady ? (
+                <SearchInput value={searchInputValue} setValue={setSearch} />
+              ) : (
+                <Skeleton height="40px" />
+              )}
             </Box>
             <Box w={{ md: "350px" }}>
-              <SortControls onChange={setSort} />
+              {isReady ? (
+                <SortControls onChange={setSort} value={queryParams.sort} />
+              ) : (
+                <Skeleton height="40px" />
+              )}
             </Box>
           </Flex>
 
@@ -73,9 +76,8 @@ export const CatList: FC = () => {
               <Button
                 mt={2}
                 rightIcon={<Icon as={X} weight="bold" />}
-                onClick={async () => {
-                  await setSearch("");
-                  setSearchInputValue("");
+                onClick={() => {
+                  setSearch("");
                 }}
               >
                 Počisti iskanje

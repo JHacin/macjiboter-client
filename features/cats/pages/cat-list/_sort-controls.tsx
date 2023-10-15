@@ -2,6 +2,7 @@ import { FC } from "react";
 import { FormControl, FormLabel, Select } from "@chakra-ui/react";
 
 interface CatListSortProps {
+  value: string | undefined;
   onChange: (sort: string) => void;
 }
 
@@ -21,7 +22,7 @@ const sortOptions: SortOption[] = [
 
 const defaultSortValue = "id_desc";
 
-export const SortControls: FC<CatListSortProps> = ({ onChange }) => {
+export const SortControls: FC<CatListSortProps> = ({ value, onChange }) => {
   return (
     <FormControl>
       <FormLabel>Razvrščanje</FormLabel>
@@ -29,7 +30,7 @@ export const SortControls: FC<CatListSortProps> = ({ onChange }) => {
         onChange={(event) => {
           onChange(event.target.value);
         }}
-        defaultValue={defaultSortValue}
+        value={value || defaultSortValue}
       >
         {sortOptions.map((option) => (
           <option key={option.value} value={option.value}>
