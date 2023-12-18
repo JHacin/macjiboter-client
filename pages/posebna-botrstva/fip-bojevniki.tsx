@@ -21,8 +21,8 @@ const FipBojevnikiPage: NextPage = () => {
                 <VStack spacing={4}>
                   <Text>
                     Enemu FIP bojevniku omogočite zdravljenje za določeno število dni. Mačji FIP
-                    bojevnik prejema zdravila vsaj <strong>12 tednov</strong> (84 dni), ob tem pa
-                    potrebuje redne kontrole in vitaminsko podporo.
+                    bojevnik prejema zdravila vsaj <strong>12 tednov</strong> (84 dni), ob tem
+                    potrebuje tudi redne veterinarske kontrole in vitaminsko podporo.
                   </Text>
                   <Text>
                     Zaradi visokih stroškov je botrstvo FIP bojevnik vseskozi aktivno, tudi takrat,
@@ -53,21 +53,19 @@ const FipBojevnikiPage: NextPage = () => {
                     </>
                   ),
                 },
-
+                {
+                  id: 2,
+                  content: <>elektronsko potrdilo/diplomo &quot;FIP bojevnik&quot;</>,
+                },
                 {
                   id: 3,
                   content: (
                     <>
                       (če izberete program <strong>FIP bojevnik za en teden</strong>) uvrstitev med
                       botre mucka Čombeta za dve leti. Prejemali boste vse, kar prejemajo redni
-                      mačji botri (pisma muckov, voščila, mesečna ozadja za namizje, in še kaj)
+                      mačji botri (pisma muckov, voščila, mesečna ozadja za namizje)
                     </>
                   ),
-                },
-                {
-                  id: 2,
-                  content: <>elektronsko potrdilo/diplomo &quot;FIP bojevnik&quot;</>,
-                  isForGiftOnly: true,
                 },
               ]}
             />

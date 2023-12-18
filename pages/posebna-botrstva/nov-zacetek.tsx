@@ -32,7 +32,7 @@ const NovZacetekPage: NextPage = () => {
                   id: 2,
                   content: (
                     <>
-                      uvrstitev na seznam botrov Bubijev za obdobje enega leta. Eno leto boste
+                      uvrstitev na seznam botrov Bubijev za obdobje pol leta. Šest mesecev boste
                       prejemali vse, kar prejemajo stalni mačji botri Bubijev (pisma muckov,
                       voščila, dostop do mesečnih namizij in še kaj)
                     </>

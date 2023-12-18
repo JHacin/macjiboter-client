@@ -72,9 +72,8 @@ export const HighlightedCats = () => {
     <Section position="relative" bg="copper.100">
       <ContainerNew>
         <SectionHeader title="Iščejo botre" isCenteredOnDesktop={true}>
-          V projekt Mačji boter so vključeni predvsem tisti mucki, ki iz različnih vzrokov dalj časa
-          iščejo svoj dom, ali pa zaradi njihovih posebnosti predvidevamo, da bodo pri nas dalj
-          časa.
+          Med botrskimi mucki najdete predvsem tiste, ki iz različnih vzrokov že dolgo iščejo nov
+          dom, ali pa zaradi njihovih posebnosti predvidevamo, da bodo pri nas dalj časa.
         </SectionHeader>
 
         <SimpleGrid columns={{ base: 1, md: 2, xl: 3, "2xl": 4 }} spacing={{ base: 6, md: 8 }}>

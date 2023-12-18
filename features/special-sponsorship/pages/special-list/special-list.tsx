@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Section } from "@/common/components/section";
 import { Container } from "@/common/components/container";
-import { Box, Flex, LinkBox, LinkOverlay, SimpleGrid, Text, Image } from "@chakra-ui/react";
+import { Box, Flex, LinkBox, LinkOverlay, SimpleGrid, Text, Image, VStack } from "@chakra-ui/react";
 import { SPECIAL_SPONSORSHIP_GROUP_META, SPECIAL_SPONSORSHIPS_META } from "../../constants";
 import { SpecialSponsorshipGroup } from "../../types";
 import { max, min } from "lodash-es";
@@ -82,12 +82,15 @@ export const SpecialList: FC = () => {
       <PageHeaderOutlined>
         <PageTitle>posebna botrstva</PageTitle>
         <PageSubtitle>
-          Posebna botrstva so{" "}
-          <Text as="span" fontWeight="semibold">
-            enkratne donacije
-          </Text>
-          , ki nam jih lahko namenite kadar koli želite. Pri tem vam ponujamo več možnosti, ki so
-          navedene na spodnjem seznamu.
+          <VStack spacing={5}>
+            <Text>
+              Posebna botrstva se od rednega botrovanja razlikujejo v tem, da nam z njimi lahko
+              pomagate občasno ali enkratno, takrat ko to sami želite in zmorete. Pri tem ne
+              izbirate določenega mucka, ki mu podarjate svoj prispevek, temveč izberete, za kakšen
+              namen bo ta porabljen.
+            </Text>
+            <Text>Izbirate lahko med naslednjimi posebnimi botrstvi:</Text>
+          </VStack>
         </PageSubtitle>
       </PageHeaderOutlined>
 

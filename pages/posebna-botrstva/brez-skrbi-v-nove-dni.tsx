@@ -20,8 +20,8 @@ const BrezSkrbiVNoveDniPage: NextPage = () => {
               content={
                 <>
                   <Text>
-                    Pokrijte stroške sterilizacije ali kastracije za enega mucka ali muco. Več o
-                    tem, zakaj je operacija pomembna, si lahko preberete na{" "}
+                    Prispevajte za pokritje stroškov sterilizacije ali kastracije za enega mucka ali
+                    muco. Več o poteku, pomenu in nujnosti tega posega, si lahko preberete na{" "}
                     <TextLink
                       href="https://macjahisa.si/dobro-je-vedeti/sterilizacija-kastracija"
                       isExternal={true}

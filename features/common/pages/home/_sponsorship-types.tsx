@@ -28,7 +28,8 @@ const items: SponsorshipTypeCardProps[] = [
   {
     id: 1,
     title: "Redno botrstvo",
-    description: "Kot redni boter se zavežete k rednim mesečnim prispevkom eni muci do prekinitve.",
+    description:
+      "Kot redni boter se zavežete k rednim mesečnim prispevkom, namenjenim določeni muci.",
 
     buttonProps: {
       text: "Muce, ki iščejo botra",
@@ -58,7 +59,7 @@ const items: SponsorshipTypeCardProps[] = [
     id: 3,
     title: "Botrstvo kot darilo",
     description:
-      "Z botrstvom lahko razveselite bližnjo osebo, ter hkrati prispevate k boljšem življenju muc.",
+      "Z botrstvom lahko razveselite bližnjo osebo in hkrati prispevate k boljšemu življenju muc.",
     buttonProps: {
       text: "Več o tem",
       link: ROUTES.GiftSponsorship,

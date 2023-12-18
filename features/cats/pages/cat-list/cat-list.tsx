@@ -3,7 +3,7 @@ import { CatsGrid, CatsGridSkeleton } from "./_cats-grid";
 import { Pagination } from "@/common/components/pagination";
 import { SearchInput } from "./_search-input";
 import { Section } from "@/common/components/section";
-import { Box, Button, Flex, Icon, Skeleton, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Icon, Skeleton, Text, VStack } from "@chakra-ui/react";
 import { TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
 import { SortControls } from "./_sort-controls";
@@ -36,9 +36,20 @@ export const CatList: FC = () => {
       <PageHeaderOutlined>
         <PageTitle>redno botrstvo</PageTitle>
         <PageSubtitle>
-          Na seznamu so objavljene vse muce, ki trenutno iščejo botra. Preden nadaljujete, si lahko
-          najprej preberete več o tem,{" "}
-          <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
+          <VStack spacing={5}>
+            <Text>Na seznamu so objavljene vse muce, ki trenutno iščejo botra.</Text>
+            <Text>
+              To so predvsem tiste, ki iz različnih vzrokov dalj časa čakajo na svoj dom ali pa
+              zaradi njihovih posebnosti predvidevamo, da bodo pri nas dalj časa. S pomočjo mačjih
+              botrov jim v skrbništvu ves čas bivanja nudimo kvalitetno hrano, veterinarsko oskrbo
+              in vse, kar potrebujejo za srečno mačje življenje. Tudi skrb, ljubezen, neprespane
+              noči, solze, ko je hudo, in radost, ko gre na bolje.
+            </Text>
+            <Text>
+              Preden nadaljujete, si lahko najprej preberete več o tem,{" "}
+              <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
+            </Text>
+          </VStack>
         </PageSubtitle>
       </PageHeaderOutlined>
 

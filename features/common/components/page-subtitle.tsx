@@ -6,7 +6,8 @@ export const PageSubtitle: FC<PropsWithChildren> = ({ children }) => {
     <Text
       fontSize={{ base: "md", lg: "lg" }}
       mt={{ base: 5, lg: 6, xl: 8, "2xl": 10 }}
-      maxW={{ base: "500px", lg: "640px" }}
+      maxW={{ base: "580px", lg: "800px" }}
+      as="div"
     >
       {children}
     </Text>

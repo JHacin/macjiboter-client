@@ -39,18 +39,18 @@ export const HeroSection = () => {
             />
 
             <Box pos="relative">
-              <PageTitle>Posvoji muco na daljavo.</PageTitle>
+              <PageTitle>posvoji muco na daljavo.</PageTitle>
               <Text
                 fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                 mt={12}
                 maxW={{ base: "540px", "2xl": "640px" }}
               >
-                Mačji boter je projekt{" "}
+                Mačji boter omogoča posvojitve muck na daljavo ter druge oblike pomoči pri oskrbi
+                nekoč brezdomnih muc, ki so našle zavetje v{" "}
                 <TextLink href={EXTERNAL_LINKS.MacjaHisa} isExternal={true} fontWeight="semibold">
-                  Mačje hiše
+                  Mačji hiši
                 </TextLink>
-                , ki omogoča posvojitve muck na daljavo in druge oblike pomoči pri oskrbi muckov, ki
-                so v naši oskrbi že dalj časa.
+                .
               </Text>
             </Box>
             <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={{ base: 12, md: 20 }}>

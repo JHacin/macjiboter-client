@@ -48,9 +48,12 @@ export const News: FC = () => {
       <PageHeaderFilled>
         <PageTitle>novice</PageTitle>
         <PageSubtitle>
-          Če želite biti v rednem stiku z vsem, kar se pri nas dogaja, nam lahko tudi sledite na
-          družbenih omrežjih <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
-          <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
+          Če želite biti v rednem stiku z vsem, kar se pri nas dogaja, vas vabimo, da se nam
+          pridružite na družbenih omrežjih{" "}
+          <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
+          <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>. Veseli bomo vaših
+          všečkov, komentarjev in delitev, ki povečajo prepoznavnost botrskih muc. Morda bo kateremu
+          od njih prav vaš všeček (ali srček) prinesel čisto nov dom.
         </PageSubtitle>
       </PageHeaderFilled>
 

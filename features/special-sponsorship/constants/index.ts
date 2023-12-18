@@ -99,14 +99,15 @@ export const SPECIAL_SPONSORSHIP_GROUP_META: Record<
     group: SpecialSponsorshipGroup.BrezSkrbiVNoveDni,
     name: "Brez skrbi v nove dni",
     imageName: "brez-skrbi",
-    description: "Pokrijte stroške sterilizacije/kastracije za enega mucka.",
+    description:
+      "Prispevajte za pokritje stroškov sterilizacije ali kastracije za enega mucka ali muco.",
     pageSlug: "brez-skrbi-v-nove-dni",
   }),
   [SpecialSponsorshipGroup.NovZacetek]: SpecialGroupMetaFactory({
     group: SpecialSponsorshipGroup.NovZacetek,
     name: "Nov začetek",
     imageName: "nov-zacetek",
-    description: "Enemu mucku zagotovite popolno veterinarsko oskrbo.",
+    description: "Enemu mucku zagotovite veterinarsko oskrbo.",
     pageSlug: "nov-zacetek",
   }),
   [SpecialSponsorshipGroup.FipBojevniki]: SpecialGroupMetaFactory({

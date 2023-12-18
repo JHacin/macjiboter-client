@@ -25,7 +25,7 @@ const ZobnaMiskaPage: NextPage = () => {
                   </Text>
                   <Text>
                     Zdravje ustne votline je, tako kot pri ljudeh, tudi pri mačkah ključno za
-                    vitalnost celotnega organizma zato so zdravi zobje naših muckov ena naših
+                    vitalnost celotnega organizma, zato so zdravi zobje naših muckov ena naših
                     prioritet. Včasih je treba le odstraniti zobni kamen, drugič izpuliti poškodovan
                     zob, v nekaterih primerih pa je potreben večji zobni poseg. Četudi škrbasti, so
                     mucki brez bolečih zob dosti bolj zadovoljni in zdravi, da o apetitu sploh ne
@@ -40,8 +40,8 @@ const ZobnaMiskaPage: NextPage = () => {
                   id: 1,
                   content: (
                     <>
-                      uvrstitev med botre Čombeta za eno leto (prejemali boste vse, kar prejemajo
-                      stalni botri)
+                      uvrstitev med botre Čombeta za pol leta (Mala zobna miška) ali eno leto
+                      (Velika zobna miš). V tem času prejemate vse, kar prejemajo stalni botri)
                     </>
                   ),
                 },

@@ -39,7 +39,7 @@ export const usePaginatedList = <TModel>({ queryKey, queryFn }: UsePaginatedList
     router.isReady ? getInitialQueryParamsState(router.query) : { page: "1" }
   );
   const [searchInputValue, setSearchInputValue] = useState<string>(queryParams.search ?? "");
-  const [isInitialized, setIsInitialized] = useState(router.isReady);
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     if (!router.isReady || isInitialized) {

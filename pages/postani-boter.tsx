@@ -1,13 +1,12 @@
 import { NextPage } from "next";
 import { Container } from "@/common/components/container";
-import { Box, Heading, Icon, Text, VStack } from "@chakra-ui/react";
-import { ROUTES } from "@/common/constants";
-import { ArrowRight } from "@phosphor-icons/react";
+import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { EXTERNAL_LINKS, ROUTES } from "@/common/constants";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
-import { ButtonLink } from "@/common/components/button-link";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
+import { TextLink } from "@/common/components/text-link";
 
 const BecomeSponsorOverviewPage: NextPage = () => {
   const { breakpoints } = useTheme();
@@ -18,76 +17,83 @@ const BecomeSponsorOverviewPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading size="3xl" bgColor="copper.200" display="inline-block" px={6} py={5}>
-              Postani boter
+            <Heading
+              as="h1"
+              size="3xl"
+              bgColor="copper.200"
+              display="inline-block"
+              fontWeight={800}
+              px={6}
+              py={5}
+            >
+              postani boter
             </Heading>
           </Section>
           <Section spacing={{ top: "sm" }}>
             <VStack spacing={6} fontSize="lg" maxWidth="850px">
               <Text>
-                <strong>
-                  Tukaj bodo razloženi različni načini botrovanja, in kako deluje v osnovi (čisto na
-                  kratko). Podarjevanje botrstev pa je bolj podrobno razloženo na drugi strani,
-                  tukaj je samo na kratko omenjeno.
-                </strong>
+                Botri so tisti, ki omogočajo, da vsak muc pri nas dobi to, kar potrebuje, ne glede
+                na njegovo starost, dolžino in barvo dlake, morebitne poškodbe, zdravstveno stanje
+                in druge posebnosti.
               </Text>
               <Text>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras imperdiet ipsum
-                facilisis magna consectetur bibendum. Maecenas non rutrum felis. Ut vestibulum
-                pretium odio, vitae ornare tortor dapibus in. Quisque quis eros augue.
+                Že od leta 2009, ko je v okviru{" "}
+                <TextLink href={EXTERNAL_LINKS.MacjaHisa} isExternal={true} fontWeight="semibold">
+                  Mačje hiše
+                </TextLink>{" "}
+                nastal, program Mačji boter omogoča posvojitve muck na daljavo. Takšna posvojitev
+                pomeni, da mačji botri finančno pomagajo brezdomnim mucam, ki so svoje zavetje
+                dobile v zavetišču (ali pri skrbnikih prostovoljcih) in tam čakajo na nove domove. V
+                primerjavi z običajnimi donacijami botrstvo nudi boljši vpogled v to, za kaj je bil
+                porabljen prispevek in donatorja poveže z njegovim muckom (ali skupino muckov) na
+                mnogo bolj pristen in oseben način.
               </Text>
               <Text>
-                Aenean egestas dignissim enim, at aliquam erat iaculis sit amet. Sed malesuada,
-                tortor nec volutpat laoreet, nunc ante posuere purus, eu condimentum purus risus sed
-                tortor. Curabitur scelerisque lobortis ante, sed egestas libero elementum sit amet.
-                Morbi ut massa non tortor tincidunt consectetur ut ut augue. Fusce lacus turpis,
-                suscipit a fringilla et, euismod a erat. Donec laoreet eleifend ante. Etiam ut
-                fringilla purus, id mattis nunc.
+                Nekateri pravijo, da je botrstvo čisto brez veze, saj mucki v resnici ne vedo, kaj
+                to je in kdo je njihov boter. Morda imajo celo prav, čeprav se mi s tem ne
+                strinjamo. Mi verjamemo, da lepe želje vedno najdejo pot do tistih, ki so jim
+                namenjene in jih na čisto svoj način pobožajo.
               </Text>
               <Text>
-                Phasellus fringilla eu nunc quis sagittis. Quisque iaculis vulputate leo sit amet
-                laoreet. Sed et consequat nulla. Phasellus id condimentum leo. Ut auctor a dolor vel
-                sagittis. Praesent a varius ligula. Aliquam in diam eget elit facilisis blandit.
-              </Text>
-              <Text>
-                In suscipit, velit a mattis rutrum, dui arcu sollicitudin est, aliquam suscipit
-                justo elit eget nunc. In id turpis quis mi ultrices feugiat. Mauris finibus enim sit
-                amet neque accumsan, quis aliquet nibh consectetur. Praesent varius dui et nulla
-                vestibulum porta. Quisque vulputate risus eros, eget ornare nunc sodales sed.
+                Če ne drugače, jim ljubezen botrov predamo tisti, ki se vsakodnevno trudimo za njih.
+                Nam to, da jih ima poleg nas rad tudi še kdo drug, da se še komu zdijo vredni truda,
+                ljubezni, časa in denarja, pomeni ogromno. Pomeni, da{" "}
+                <strong>nismo sami in da moramo vztrajati</strong>.
               </Text>
             </VStack>
 
-            <VStack spacing={6}>
-              <ButtonLink
-                width="310px"
-                href={ROUTES.CatsList}
-                size="lg"
-                mt={20}
-                rightIcon={<Icon as={ArrowRight} />}
-              >
-                Posvoji muco na daljavo
-              </ButtonLink>
-              <ButtonLink
-                width="310px"
-                href={ROUTES.SpecialSponsorships}
-                size="lg"
-                mt={20}
-                rightIcon={<Icon as={ArrowRight} />}
-                colorScheme="purple"
-              >
-                Izberi posebno botrstvo
-              </ButtonLink>
-              <ButtonLink
-                width="310px"
-                href={ROUTES.CatsList}
-                size="lg"
-                mt={20}
-                rightIcon={<Icon as={ArrowRight} />}
-                colorScheme="blue"
-              >
-                Več o botrstvu kot darilu
-              </ButtonLink>
-            </VStack>
+            <Box mt={20} maxWidth="850px">
+              <Heading as="h2" fontWeight={800} size="xl">
+                Vrste botrstev
+              </Heading>
+              <VStack spacing={6} mt={6} fontSize="lg">
+                <Text>
+                  Najbolj pogosto izbrana oblika mačjega botrstva je{" "}
+                  <TextLink href={ROUTES.CatsList} fontWeight="semibold">
+                    redno botrstvo
+                  </TextLink>
+                  , pri katerem boter izbere svojega mucka ali skupino muckov (pozitivčke, mladičke
+                  s pomočjo Bubija ali kar vse s pomočjo Čombeta). Z izpolnitvijo{" "}
+                  <i>Dogovora o posvojitvi na daljavo</i> se boter zaveže, da bo za svojega mucka
+                  redno mesečno prispeval izbran znesek.
+                </Text>
+                <Text>
+                  Tistim, ki bi želeli pomagati le občasno ali enkratno, so namenjena različna{" "}
+                  <TextLink href={ROUTES.SpecialSponsorships} fontWeight="semibold">
+                    posebna botrstva
+                  </TextLink>
+                  .
+                </Text>
+                <Text>
+                  Prav vse oblike botrovanj pa lahko tudi{" "}
+                  <TextLink href={ROUTES.GiftSponsorship} fontWeight="semibold">
+                    podarite
+                  </TextLink>
+                  , s tem razveselite obdarovanca ter hkrati v njegovem imenu prispevate k boljšem
+                  življenju muc.
+                </Text>
+              </VStack>
+            </Box>
           </Section>
         </Box>
       </Container>

@@ -23,9 +23,8 @@ export const FAQ: FC = () => {
       <PageHeaderFilled>
         <PageTitle>pogosta vprašanja</PageTitle>
         <PageSubtitle>
-          Če si z odgovori spodaj ne morete odgovoriti na katero od vaših vprašanj, nas lahko
-          kontaktirate prek e-pošte na naslovu <ContactEmailTextLink /> , in vam bomo odgovorili v
-          najkrajšem možnem času.
+          Če med spodaj navedenimi ni odgovora na vaše vprašanje, nam pišite na{" "}
+          <ContactEmailTextLink />. Potrudili se bomo, da vam odgovorimo v najkrajšem možnem času.
         </PageSubtitle>
       </PageHeaderFilled>
 
