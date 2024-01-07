@@ -27,7 +27,7 @@ const listItems: { id: number; content: ReactNode }[] = [
   { content: <>Ker nam s svojo podporo omogočate rešiti še več brezdomnih muc.</> },
   {
     content: (
-      <>Ker lahko že za 5 evrov mesečno pridobite zvestega mačjega prijatelja za vse življenje.</>
+      <>Ker lahko že za 10 evrov mesečno pridobite zvestega mačjega prijatelja za vse življenje.</>
     ),
   },
   {
@@ -77,13 +77,20 @@ const WhyBecomeSponsorPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading size="3xl" bgColor="copper.200" display="inline-block" px={6} py={5}>
-              Zakaj postati boter?
+            <Heading
+              size="3xl"
+              bgColor="copper.200"
+              display="inline-block"
+              px={6}
+              py={5}
+              fontWeight={800}
+            >
+              zakaj postati boter?
             </Heading>
           </Section>
 
           <Section spacing={{ top: "sm" }}>
-            <List spacing={8} fontSize="lg" maxWidth="650px">
+            <List spacing={6} fontSize="lg" maxWidth="750px">
               {listItems.map((item) => (
                 <ListItem key={item.id} display="flex" alignItems="start">
                   <ListIcon
