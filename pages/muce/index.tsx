@@ -1,9 +1,8 @@
-import { NextPage } from "next";
 import { CatList } from "@/cats/pages/cat-list/cat-list";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
 
-const CatListPage: NextPage = () => {
+export default function CatListPage() {
   return (
     <Layout>
       <MetaTags
@@ -13,6 +12,4 @@ const CatListPage: NextPage = () => {
       <CatList />
     </Layout>
   );
-};
-
-export default CatListPage;
+}

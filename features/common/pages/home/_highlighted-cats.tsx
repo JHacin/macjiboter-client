@@ -62,7 +62,9 @@ const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
 };
 
 export const HighlightedCats = () => {
-  const { data, isSuccess } = useQuery([QueryKey.HomeMeta], getHomeMeta, { staleTime: Infinity });
+  const { data, isSuccess } = useQuery([QueryKey.HomeMeta], getHomeMeta, {
+    staleTime: 5 * 60 * 1000,
+  });
 
   if (!isSuccess) {
     return null;

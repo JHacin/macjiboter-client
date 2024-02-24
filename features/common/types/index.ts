@@ -32,6 +32,7 @@ export interface PaginatedListQueryParams {
   page: string;
   search?: string;
   sort?: string;
+  per_page?: string;
 }
 
 export interface NavLinkGroupChildLink {
