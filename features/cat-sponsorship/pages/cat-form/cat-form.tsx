@@ -20,7 +20,7 @@ const initialValues: CatFormValues = {
   is_gift: false,
   wants_direct_debit: false,
   is_anonymous: false,
-  monthly_amount: 5,
+  monthly_amount: 10,
   requested_duration: null,
   ...payerDefaultValues,
   ...gifteeDefaultValues,
