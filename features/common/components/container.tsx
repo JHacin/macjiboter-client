@@ -15,14 +15,14 @@ interface ContainerProps extends PropsWithChildren, Pick<ChakraContainerProps, "
   maxWidthOverride?: ChakraContainerProps["maxWidth"];
 }
 
-export const Container: FC<ContainerProps> = ({
+export const Container = ({
   paddingHorizontal = {},
   paddingVertical = {},
   paddingBottom = {},
   maxWidthOverride,
   position,
   children,
-}) => {
+}: ContainerProps) => {
   const { breakpoints } = useTheme();
 
   return (

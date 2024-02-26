@@ -1,35 +1,40 @@
-import { GetServerSideProps, NextPage } from "next";
-import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { CatForm } from "@/cat-sponsorship/pages/cat-form/cat-form";
-import { QueryKey } from "@/api/types";
-import { getCat } from "@/cats/util/api";
-import { Layout } from "@/common/components/layout";
 import { useCurrentCat } from "@/cats/hooks/use-current-cat";
-import { MetaTags } from "@/common/components/meta-tags";
 import { getFirstPhotoOrFallback } from "@/cats/util/photos";
+import { Container } from "@/common/components/container";
+import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
+import { Section } from "@/common/components/section";
+import { Box, Spinner } from "@chakra-ui/react";
 
-export const getServerSideProps: GetServerSideProps<
-  { dehydratedState: DehydratedState },
-  { slug: string }
-> = async (context) => {
-  const queryClient = new QueryClient();
-
-  const slug = context.query.slug as string;
-
-  await queryClient.prefetchQuery([QueryKey.Cat, slug], () => getCat(slug));
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
-
-const CatSponsorshipFormPage: NextPage = () => {
+export default function CatSponsorshipFormPage() {
   const { data: cat, isSuccess } = useCurrentCat();
 
   if (!isSuccess) {
-    return null;
+    return (
+      <Layout>
+        <Section spacing={{ top: "sm", bottom: "lg" }}>
+          <Container>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                py: 24,
+              }}
+            >
+              <Spinner
+                thickness="4px"
+                speed="0.8s"
+                emptyColor="gray.200"
+                color="orange.500"
+                size="xl"
+              />
+            </Box>
+          </Container>
+        </Section>
+      </Layout>
+    );
   }
 
   return (
@@ -46,6 +51,4 @@ const CatSponsorshipFormPage: NextPage = () => {
       <CatForm cat={cat} />
     </Layout>
   );
-};
-
-export default CatSponsorshipFormPage;
+}
