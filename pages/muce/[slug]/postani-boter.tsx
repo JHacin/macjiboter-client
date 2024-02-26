@@ -5,12 +5,12 @@ import { Container } from "@/common/components/container";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
 import { Section } from "@/common/components/section";
-import { Box, Spinner } from "@chakra-ui/react";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Spinner } from "@chakra-ui/react";
 
 export default function CatSponsorshipFormPage() {
-  const { data: cat, isSuccess } = useCurrentCat();
+  const { data: cat, isLoading, isError } = useCurrentCat();
 
-  if (!isSuccess) {
+  if (isLoading) {
     return (
       <Layout>
         <Section spacing={{ top: "sm", bottom: "lg" }}>
@@ -31,6 +31,22 @@ export default function CatSponsorshipFormPage() {
                 size="xl"
               />
             </Box>
+          </Container>
+        </Section>
+      </Layout>
+    );
+  }
+
+  if (isError) {
+    return (
+      <Layout>
+        <Section spacing={{ top: "sm", bottom: "lg" }}>
+          <Container>
+            <Alert status="error" maxWidth="650px">
+              <AlertIcon />
+              <AlertTitle>Prišlo je do napake.</AlertTitle>
+              <AlertDescription>Prosimo, poskusite znova.</AlertDescription>
+            </Alert>
           </Container>
         </Section>
       </Layout>

@@ -42,9 +42,16 @@ export const getStaticProps: GetStaticProps<{ dehydratedState: DehydratedState }
   }
 
   const queryClient = new QueryClient();
-  await queryClient.prefetchQuery([QueryKey.Cat, params.slug], () => getCat(params.slug), {
-    staleTime: 5 * 60 * 1000,
-  });
+
+  try {
+    await queryClient.fetchQuery([QueryKey.Cat, params.slug], () => getCat(params.slug), {
+      staleTime: 5 * 60 * 1000,
+    });
+  } catch (error) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
