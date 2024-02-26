@@ -84,6 +84,7 @@ const WhyBecomeSponsorPage: NextPage = () => {
               px={6}
               py={5}
               fontWeight={800}
+              rounded="md"
             >
               zakaj postati boter?
             </Heading>

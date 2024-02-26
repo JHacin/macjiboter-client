@@ -136,7 +136,14 @@ const MultiStepFormContent = <TFormValues,>({
 
   return (
     <Form ref={formRef}>
-      <Box bg="white" p={{ base: 6, sm: 12 }} shadow="xl" borderColor="gray.100" borderWidth="1px">
+      <Box
+        bg="white"
+        p={{ base: 6, sm: 12 }}
+        shadow="xl"
+        borderColor="gray.100"
+        borderWidth="1px"
+        rounded="md"
+      >
         <Text color="gray.500">
           Korak {currentStepIndex + 1}/{steps.length}
         </Text>

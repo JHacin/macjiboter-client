@@ -24,6 +24,7 @@ const PrivacyPage: NextPage = () => {
               py={5}
               fontWeight={800}
               as="h1"
+              rounded="md"
             >
               zasebnost
             </Heading>

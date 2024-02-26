@@ -85,6 +85,7 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
       position="relative"
       overflow="hidden"
       shadow="lg"
+      rounded="md"
     >
       <Icon
         as={icon}

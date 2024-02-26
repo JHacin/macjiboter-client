@@ -10,7 +10,14 @@ interface FormSubmitFeedbackProps {
 
 export const FormSubmitFeedback: FC<FormSubmitFeedbackProps> = ({ status, title, body }) => {
   return (
-    <Alert status={status} variant="subtle" flexDirection="column" alignItems="flex-start" p="6">
+    <Alert
+      status={status}
+      variant="subtle"
+      flexDirection="column"
+      alignItems="flex-start"
+      p="6"
+      rounded="sm"
+    >
       <Flex alignItems="center">
         <AlertIcon boxSize="20px" />
         <AlertTitle>{title}</AlertTitle>

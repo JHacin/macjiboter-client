@@ -12,7 +12,7 @@ interface FormAsideNoteProps {
 
 const FormAsideNote: FC<FormAsideNoteProps> = ({ title, body, icon }) => {
   return (
-    <Box bg="copper.100" py={5} px={4} shadow="sm">
+    <Box bg="copper.100" py={5} px={4} shadow="sm" rounded="md">
       <HStack align="start" spacing={3}>
         <Icon as={icon} color="orange.500" weight="bold" boxSize={5} />
         <Box>

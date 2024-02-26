@@ -63,7 +63,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
               maxWidth="850px"
               columns={{ base: 1, md: 2 }}
             >
-              <LinkBox backgroundColor="orange.100" shadow="md" p={{ base: 6, lg: 7 }}>
+              <LinkBox backgroundColor="orange.100" shadow="md" p={{ base: 6, lg: 7 }} rounded="md">
                 <LinkOverlay as={NextLink} href={ROUTES.CatsList}>
                   <Heading as="h3" size="lg">
                     Redno botrstvo
@@ -88,7 +88,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
                   Muce, ki iščejo botra
                 </ButtonLink>
               </LinkBox>
-              <LinkBox backgroundColor="purple.100" shadow="md" p={{ base: 6, lg: 7 }}>
+              <LinkBox backgroundColor="purple.100" shadow="md" p={{ base: 6, lg: 7 }} rounded="md">
                 <LinkOverlay as={NextLink} href={ROUTES.CatsList}>
                   <Heading as="h3" size="lg">
                     Posebno botrstvo

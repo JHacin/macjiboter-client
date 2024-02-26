@@ -25,8 +25,10 @@ export const CatCard: FC<CatCardProps> = ({ cat, body, styles }) => {
       flexDir="column"
       position="relative"
       bgColor="white"
+      rounded="md"
+      overflow="hidden"
     >
-      <Image src={photoUrl} alt={cat.name} position="relative" />
+      <Image src={photoUrl} alt={cat.name} position="relative" roundedTop="inherit" />
       <Flex p={6} pb={9} flexGrow={1} direction="column" alignItems="flex-start">
         <LinkOverlay as={NextLink} href={link}>
           <Text fontSize="2xl" fontWeight="bold" noOfLines={1}>

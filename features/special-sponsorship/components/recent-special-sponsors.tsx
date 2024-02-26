@@ -85,7 +85,7 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
   );
 
   return (
-    <Box bgColor="copper.300" p={{ base: 6, lg: 8 }}>
+    <Box bgColor="copper.300" p={{ base: 6, lg: 8 }} rounded="md">
       <Box w="80px" h="6px">
         <HeadingMarker color="orange" />
       </Box>

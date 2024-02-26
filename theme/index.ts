@@ -1,8 +1,5 @@
 import {
-  Button,
-  Checkbox,
   extendTheme,
-  Select,
   StyleFunctionProps,
   useTheme as useChakraTheme,
   VStack,
@@ -13,7 +10,6 @@ import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
 import "@fontsource/poppins/800.css";
 import { withProse } from "@nikolovlazar/chakra-ui-prose";
-import { Input } from "@chakra-ui/input";
 
 type ColorPalette = Record<50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900, string>;
 
@@ -244,7 +240,3 @@ export const theme = extendTheme(
 export const useTheme = () => useChakraTheme<Theme>();
 
 VStack.defaultProps = { ...VStack.defaultProps, align: "start" };
-Button.defaultProps = { ...Button.defaultProps, rounded: "none" };
-Input.defaultProps = { ...Input.defaultProps, rounded: "none" };
-Select.defaultProps = { ...Select.defaultProps, rounded: "none" };
-Checkbox.defaultProps = { ...Checkbox.defaultProps, rounded: "none" };

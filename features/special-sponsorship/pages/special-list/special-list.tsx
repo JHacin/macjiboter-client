@@ -56,8 +56,8 @@ const SpecialSponsorshipTypeCard: FC<SpecialSponsorshipListItemProps> = ({
   const href = ROUTES.SpecialSponsorshipGroup(meta);
 
   return (
-    <LinkBox as={Flex} flexDirection="column" bg="white" shadow="lg">
-      <Image src={imageUrls.sm} alt={name} position="relative" />
+    <LinkBox as={Flex} flexDirection="column" bg="white" shadow="lg" rounded="md" overflow="hidden">
+      <Image src={imageUrls.sm} alt={name} position="relative" roundedTop="inherit" />
       <Flex flexGrow={1} flexDirection="column" alignItems="flex-start" p={6}>
         <LinkOverlay as={NextLink} href={href}>
           <Text as="h3" fontSize={{ base: "xl", sm: "2xl" }} fontWeight="bold">

@@ -19,6 +19,7 @@ import { ButtonLink } from "./button-link";
 import { NextLink } from "./next-link";
 import { NavLinkGroupChildLink, NavLinkGroupProps } from "../types";
 import { NAV_LINK_GROUPS } from "../constants";
+import { useRouter } from "next/router";
 
 const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, description }) => {
   const { onClose } = usePopoverContext();
@@ -30,6 +31,7 @@ const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, 
         w="full"
         cursor="pointer"
         _hover={{ textDecoration: "none", bg: "orange.50" }}
+        rounded="md"
       >
         <HStack spacing={4} p={3}>
           <Icon as={icon} w={8} h={8} color="orange.500" />
@@ -52,13 +54,13 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
   const ref = useRef(null);
 
   return (
-    <Popover openDelay={100} trigger="hover" arrowSize={10}>
+    <Popover openDelay={100} arrowSize={10}>
       <PopoverTrigger>
         <Button
           key={label}
           rightIcon={<CaretDown />}
           fontSize="lg"
-          _hover={{ backgroundColor: "copper.200" }}
+          _hover={{ backgroundColor: "copper.300" }}
         >
           {label}
         </Button>
@@ -80,8 +82,17 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
 };
 
 const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
+  const { pathname } = useRouter();
+
   return (
-    <ButtonLink href={href} fontSize="lg" _hover={{ backgroundColor: "copper.200" }}>
+    <ButtonLink
+      href={href}
+      fontSize="lg"
+      _hover={{ backgroundColor: "copper.300" }}
+      sx={{
+        backgroundColor: pathname === href ? "copper.300" : "inherit",
+      }}
+    >
       {label}
     </ButtonLink>
   );

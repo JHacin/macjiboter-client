@@ -68,6 +68,7 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
               px={{ base: 6, sm: 8, lg: 10 }}
               py={{ base: 10, lg: 12 }}
               shadow={{ base: "none", lg: "md" }}
+              rounded="md"
             >
               <Box h="6px" w={{ base: "90px", md: "120px" }}>
                 <HeadingMarker color="orange" />

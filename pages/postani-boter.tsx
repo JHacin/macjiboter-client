@@ -25,6 +25,7 @@ const BecomeSponsorOverviewPage: NextPage = () => {
               fontWeight={800}
               px={6}
               py={5}
+              rounded="md"
             >
               postani boter
             </Heading>

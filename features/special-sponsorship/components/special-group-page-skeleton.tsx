@@ -52,6 +52,7 @@ export const SpecialGroupPageSkeleton: FC<{
             minHeight={{ base: "320px", sm: "460px" }}
             shadow="md"
             p={{ base: 4, sm: 10 }}
+            rounded="md"
           >
             <VStack spacing={{ base: 3, sm: 5 }}>
               <Heading
@@ -62,6 +63,7 @@ export const SpecialGroupPageSkeleton: FC<{
                 fontWeight="bold"
                 px={{ base: 3, sm: 7 }}
                 py={{ base: 3, sm: 6 }}
+                rounded="md"
               >
                 {name}
               </Heading>
@@ -76,6 +78,7 @@ export const SpecialGroupPageSkeleton: FC<{
                   fontWeight="semibold"
                   boxDecorationBreak="clone"
                   lineHeight="2"
+                  rounded="md"
                 >
                   {description}
                 </Text>

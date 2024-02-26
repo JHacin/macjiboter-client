@@ -18,7 +18,14 @@ const SponsorshipPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading size="3xl" bgColor="copper.200" display="inline-block" px={6} py={5}>
+            <Heading
+              size="3xl"
+              bgColor="copper.200"
+              display="inline-block"
+              px={6}
+              py={5}
+              rounded="md"
+            >
               Sponzorstvo
             </Heading>
           </Section>
