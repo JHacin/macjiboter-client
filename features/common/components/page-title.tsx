@@ -19,13 +19,16 @@ export function FilledPageTitle({ children }: PropsWithChildren) {
   return (
     <Heading
       as="h1"
-      size={{ base: "2xl", lg: "3xl" }}
       bgColor="copper.200"
-      display="inline-block"
-      px={6}
-      py={5}
+      display="inline"
+      px={{ base: 4 }}
+      py={{ base: 1 }}
       fontWeight={800}
       rounded="md"
+      whiteSpace="pre-wrap"
+      boxDecorationBreak="clone"
+      fontSize={{ base: "4xl", md: "5xl", xl: "6xl" }}
+      lineHeight={{ base: 1.8 }}
     >
       {children}
     </Heading>
