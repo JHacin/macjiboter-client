@@ -12,7 +12,7 @@ import { usePaginatedList } from "@/common/hooks/use-paginated-list";
 import { QueryKey } from "@/api/types";
 import { getCats } from "../../util/api";
 import { Cat } from "../../types";
-import { PageTitle } from "@/common/components/page-title";
+import { LargePageTitle } from "@/common/components/page-title";
 import { PageSubtitle } from "@/common/components/page-subtitle";
 import { PageHeaderOutlined } from "@/common/components/page-header-outlined";
 import { X } from "@phosphor-icons/react";
@@ -34,7 +34,7 @@ export const CatList: FC = () => {
   return (
     <>
       <PageHeaderOutlined>
-        <PageTitle>redno botrstvo</PageTitle>
+        <LargePageTitle>redno botrstvo</LargePageTitle>
         <PageSubtitle>
           <VStack spacing={5}>
             <Text>Na seznamu so objavljene vse muce, ki trenutno iščejo botra.</Text>
@@ -47,10 +47,7 @@ export const CatList: FC = () => {
             </Text>
             <Text>
               Preden nadaljujete, si lahko najprej preberete več o tem,{" "}
-              <TextLink href={ROUTES.WhyBecomeSponsor} fontWeight="semibold">
-                zakaj sploh postati mačji boter
-              </TextLink>
-              .
+              <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
             </Text>
           </VStack>
         </PageSubtitle>

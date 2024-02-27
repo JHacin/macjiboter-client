@@ -1,16 +1,28 @@
 import { Container } from "@/common/components/container";
-import { Box, Heading, Icon, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Box, Icon, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
+import { FC, ReactNode } from "react";
 import { TextLink } from "@/common/components/text-link";
 import { EXTERNAL_LINKS, ROUTES } from "@/common/constants";
-import { ArrowRight, CheckCircle } from "@phosphor-icons/react";
+import {
+  ArrowRight,
+  Cat,
+  Gift,
+  Globe,
+  HandHeart,
+  HouseLine,
+  IconProps,
+  PaperPlaneTilt,
+  PawPrint,
+  ShoppingCart,
+} from "@phosphor-icons/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { ButtonLink } from "@/common/components/button-link";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
+import { FilledPageTitle } from "@/common/components/page-title";
 
-const listItems: { id: number; content: ReactNode }[] = [
+const listItems: { id: number; content: ReactNode; icon: FC<IconProps> }[] = [
   {
     content: (
       <>
@@ -18,16 +30,20 @@ const listItems: { id: number; content: ReactNode }[] = [
         <TextLink href={EXTERNAL_LINKS.MacjaHisa} isExternal={true}>
           Mačji hiši
         </TextLink>{" "}
-        omogočiti nekoč brezdomnim mucam varno in zadovoljno življenje, četudi morda ne bodo nikoli
-        posvojene.
+        omogočiti nekoč brezdomnim mucam lepo življenje, četudi morda ne bodo nikoli posvojene.
       </>
     ),
+    icon: HouseLine,
   },
-  { content: <>Ker nam s svojo podporo omogočate rešiti še več brezdomnih muc.</> },
+  {
+    content: <>Ker nam s svojo podporo omogočate rešiti še več brezdomnih muc.</>,
+    icon: HandHeart,
+  },
   {
     content: (
       <>Ker lahko že za 10 evrov mesečno pridobite zvestega mačjega prijatelja za vse življenje.</>
     ),
+    icon: PawPrint,
   },
   {
     content: (
@@ -35,6 +51,7 @@ const listItems: { id: number; content: ReactNode }[] = [
         Ker vas bo vaš novi prijatelj razveseljeval s pismi iz svojega navihanega mačjega življenja.
       </>
     ),
+    icon: PaperPlaneTilt,
   },
   {
     content: (
@@ -48,8 +65,12 @@ const listItems: { id: number; content: ReactNode }[] = [
         .
       </>
     ),
+    icon: ShoppingCart,
   },
-  { content: <>Ker občasno pripravimo svojim botrom majhna prijetna presenečenja.</> },
+  {
+    content: <>Ker občasno pripravimo svojim botrom majhna prijetna presenečenja.</>,
+    icon: Gift,
+  },
   {
     content: (
       <>
@@ -57,8 +78,12 @@ const listItems: { id: number; content: ReactNode }[] = [
         ljudi, kot tudi do živali.
       </>
     ),
+    icon: Globe,
   },
-  { content: <>Ker vas muce potrebujejo.</> },
+  {
+    content: <>Ker vas muce potrebujejo.</>,
+    icon: Cat,
+  },
 ].map((item, index) => ({
   ...item,
   id: index,
@@ -76,29 +101,33 @@ export default function WhyBecomeSponsorPage() {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading
-              size="3xl"
-              bgColor="copper.200"
-              display="inline-block"
-              px={6}
-              py={5}
-              fontWeight={800}
-              rounded="md"
-            >
-              zakaj postati boter?
-            </Heading>
+            <FilledPageTitle>zakaj postati boter?</FilledPageTitle>
           </Section>
 
           <Section spacing={{ top: "sm" }}>
-            <List spacing={6} fontSize="lg" maxWidth="750px">
+            <List spacing={4} fontSize={{ base: "md", lg: "lg" }} maxWidth="850px">
               {listItems.map((item) => (
-                <ListItem key={item.id} display="flex" alignItems="start">
+                <ListItem
+                  key={item.id}
+                  sx={{
+                    display: "flex",
+                    alignItems: { base: "flex-start", sm: "center" },
+                    bg: "orange.50",
+                    rounded: "md",
+                    py: { base: 4, lg: 5 },
+                    px: { base: 5, lg: 6 },
+                    gap: { base: 5, lg: 6 },
+                  }}
+                >
                   <ListIcon
-                    as={CheckCircle}
+                    as={item.icon}
                     color="orange.500"
                     weight="fill"
-                    boxSize="24px"
-                    height="28px"
+                    boxSize={{ base: 10, lg: 12 }}
+                    mr={0}
+                    bg="orange.100"
+                    rounded="full"
+                    p={2}
                   />
                   <Text as="span">{item.content}</Text>
                 </ListItem>

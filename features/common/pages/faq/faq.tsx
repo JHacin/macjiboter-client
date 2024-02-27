@@ -13,7 +13,7 @@ import { Section } from "../../components/section";
 import { ContactEmailTextLink } from "../../components/text-link";
 import { FAQ_ITEMS } from "./_faq-items";
 import { ContainerNew } from "@/common/components/container";
-import { PageTitle } from "../../components/page-title";
+import { LargePageTitle } from "../../components/page-title";
 import { PageSubtitle } from "../../components/page-subtitle";
 import { PageHeaderFilled } from "../../components/page-header-filled";
 
@@ -21,7 +21,7 @@ export const FAQ: FC = () => {
   return (
     <>
       <PageHeaderFilled>
-        <PageTitle>pogosta vprašanja</PageTitle>
+        <LargePageTitle>pogosta vprašanja</LargePageTitle>
         <PageSubtitle>
           Če med spodaj navedenimi ni odgovora na vaše vprašanje, nam pišite na{" "}
           <ContactEmailTextLink />. Potrudili se bomo, da vam odgovorimo v najkrajšem možnem času.

@@ -21,7 +21,7 @@ export default function CatDetailsPage() {
     <Layout>
       <MetaTags
         title={cat.name}
-        description={cat.story_short}
+        description="Posvoji muco na daljavo."
         image={{
           isExternal: true,
           path: getFirstPhotoOrFallback(cat),

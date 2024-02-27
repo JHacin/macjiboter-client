@@ -86,6 +86,8 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
       overflow="hidden"
       shadow="md"
       rounded="md"
+      transition="all 0.2s ease-in-out"
+      _hover={{ shadow: "lg" }}
     >
       <Icon
         as={icon}

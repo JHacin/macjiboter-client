@@ -8,6 +8,7 @@ import { MetaTags } from "@/common/components/meta-tags";
 import { NextLink } from "@/common/components/next-link";
 import { ROUTES } from "@/common/constants";
 import { ButtonLink } from "@/common/components/button-link";
+import { FilledPageTitle } from "@/common/components/page-title";
 
 const GiftSponsorshipOverviewPage: NextPage = () => {
   const { breakpoints } = useTheme();
@@ -18,18 +19,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading
-              as="h1"
-              size="3xl"
-              bgColor="copper.200"
-              display="inline-block"
-              px={6}
-              py={5}
-              fontWeight={800}
-              rounded="md"
-            >
-              podari botrstvo
-            </Heading>
+            <FilledPageTitle>podari botrstvo</FilledPageTitle>
           </Section>
           <Section spacing={{ top: "sm" }}>
             <VStack spacing={6} fontSize="lg" maxWidth="850px">

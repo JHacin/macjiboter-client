@@ -3,7 +3,7 @@ import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
 import { ASSET_PATH, EXTERNAL_LINKS, ROUTES } from "../../constants";
 import { ContainerNew } from "../../components/container";
-import { PageTitle } from "../../components/page-title";
+import { LargePageTitle } from "../../components/page-title";
 
 export const HeroSection = () => {
   return (
@@ -39,7 +39,7 @@ export const HeroSection = () => {
             />
 
             <Box pos="relative">
-              <PageTitle>posvoji muco na daljavo.</PageTitle>
+              <LargePageTitle>posvoji muco na daljavo.</LargePageTitle>
               <Text
                 fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                 mt={12}

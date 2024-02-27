@@ -12,7 +12,7 @@ import { ContainerNew } from "../../components/container";
 import { CmsContent } from "../../components/cms-content";
 import { usePaginatedList } from "../../hooks/use-paginated-list";
 import { range } from "lodash-es";
-import { PageTitle } from "../../components/page-title";
+import { LargePageTitle } from "../../components/page-title";
 import { PageSubtitle } from "../../components/page-subtitle";
 import { PageHeaderFilled } from "../../components/page-header-filled";
 
@@ -46,7 +46,7 @@ export const News: FC = () => {
   return (
     <>
       <PageHeaderFilled>
-        <PageTitle>novice</PageTitle>
+        <LargePageTitle>novice</LargePageTitle>
         <PageSubtitle>
           Če želite biti v rednem stiku z vsem, kar se pri nas dogaja, vas vabimo, da se nam
           pridružite na družbenih omrežjih{" "}

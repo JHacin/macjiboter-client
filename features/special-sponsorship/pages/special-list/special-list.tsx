@@ -9,7 +9,7 @@ import { NextLink } from "@/common/components/next-link";
 import { ButtonLink } from "@/common/components/button-link";
 import { ROUTES } from "@/common/constants";
 import { PageHeaderOutlined } from "@/common/components/page-header-outlined";
-import { PageTitle } from "@/common/components/page-title";
+import { LargePageTitle } from "@/common/components/page-title";
 import { PageSubtitle } from "@/common/components/page-subtitle";
 
 interface SpecialSponsorshipListItemProps {
@@ -80,7 +80,7 @@ export const SpecialList: FC = () => {
   return (
     <>
       <PageHeaderOutlined>
-        <PageTitle>posebna botrstva</PageTitle>
+        <LargePageTitle>posebna botrstva</LargePageTitle>
         <PageSubtitle>
           <VStack spacing={5}>
             <Text>

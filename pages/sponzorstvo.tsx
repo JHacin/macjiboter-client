@@ -1,10 +1,11 @@
 import { NextPage } from "next";
 import { Container } from "@/common/components/container";
-import { Box, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Text, VStack } from "@chakra-ui/react";
 import { useTheme } from "@/theme";
 import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
+import { FilledPageTitle } from "@/common/components/page-title";
 
 const SponsorshipPage: NextPage = () => {
   const { breakpoints } = useTheme();
@@ -18,16 +19,7 @@ const SponsorshipPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading
-              size="3xl"
-              bgColor="copper.200"
-              display="inline-block"
-              px={6}
-              py={5}
-              rounded="md"
-            >
-              Sponzorstvo
-            </Heading>
+            <FilledPageTitle>sponzorstvo</FilledPageTitle>
           </Section>
 
           <Section spacing={{ top: "sm" }}>

@@ -57,13 +57,14 @@ export const CatCard: FC<CatCardProps> = ({ cat, body, styles }) => {
           bg="orange.500"
           color="white"
           alignItems="center"
-          gap={1.5}
+          gap={{ base: 1.5, xl: 2 }}
           px={3}
           py={2}
           shadow="sm"
+          roundedBottomLeft="md"
         >
-          <Icon as={PawPrint} weight="fill" color="whiteAlpha.600" />
-          <Text as="span" fontWeight="semibold" fontSize="sm">
+          <Icon as={PawPrint} weight="fill" color="whiteAlpha.600" boxSize={{ base: 4, xl: 5 }} />
+          <Text as="span" fontWeight="semibold" fontSize={{ base: "sm", xl: "md" }}>
             Skupina
           </Text>
         </Flex>

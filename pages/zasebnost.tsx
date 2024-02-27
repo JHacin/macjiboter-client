@@ -6,6 +6,7 @@ import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
 import { ContactEmailTextLink } from "@/common/components/text-link";
+import { FilledPageTitle } from "@/common/components/page-title";
 
 const PrivacyPage: NextPage = () => {
   const { breakpoints } = useTheme();
@@ -16,18 +17,7 @@ const PrivacyPage: NextPage = () => {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading
-              size="3xl"
-              bgColor="copper.200"
-              display="inline-block"
-              px={6}
-              py={5}
-              fontWeight={800}
-              as="h1"
-              rounded="md"
-            >
-              zasebnost
-            </Heading>
+            <FilledPageTitle>zasebnost</FilledPageTitle>
           </Section>
 
           <Section spacing={{ top: "sm" }}>

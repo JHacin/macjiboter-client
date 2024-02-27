@@ -6,6 +6,7 @@ import { Section } from "@/common/components/section";
 import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
 import { TextLink } from "@/common/components/text-link";
+import { FilledPageTitle } from "@/common/components/page-title";
 
 export default function BecomeSponsorOverviewPage() {
   const { breakpoints } = useTheme();
@@ -16,18 +17,7 @@ export default function BecomeSponsorOverviewPage() {
       <Container>
         <Box maxWidth={breakpoints.xl} mx="auto">
           <Section spacing={{ bottom: "none" }}>
-            <Heading
-              as="h1"
-              size="3xl"
-              bgColor="copper.200"
-              display="inline-block"
-              fontWeight={800}
-              px={6}
-              py={5}
-              rounded="md"
-            >
-              postani boter
-            </Heading>
+            <FilledPageTitle>postani boter</FilledPageTitle>
           </Section>
           <Section spacing={{ top: "sm" }}>
             <VStack spacing={6} fontSize="lg" maxWidth="850px">
