@@ -33,7 +33,7 @@ const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, 
         _hover={{ textDecoration: "none", bg: "orange.50" }}
         rounded="md"
       >
-        <HStack spacing={4} p={3}>
+        <HStack spacing={4} py={3} px={4}>
           <Icon as={icon} w={8} h={8} color="orange.500" />
           <VStack spacing={1}>
             <Text fontWeight={500} fontSize="lg">
@@ -60,14 +60,14 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
           key={label}
           rightIcon={<CaretDown />}
           fontSize="lg"
-          _hover={{ backgroundColor: "copper.300" }}
+          _hover={{ backgroundColor: "copper.200" }}
         >
           {label}
         </Button>
       </PopoverTrigger>
       <Box ref={ref}>
         <Portal containerRef={ref}>
-          <PopoverContent p={3}>
+          <PopoverContent p={3} width="sm" shadow="md">
             <PopoverArrow />
             <VStack spacing={2} align="stretch">
               {links.map((link) => (
@@ -88,7 +88,7 @@ const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
     <ButtonLink
       href={href}
       fontSize="lg"
-      _hover={{ backgroundColor: "copper.300" }}
+      _hover={{ backgroundColor: pathname === href ? "copper.300" : "copper.200" }}
       sx={{
         backgroundColor: pathname === href ? "copper.300" : "inherit",
       }}

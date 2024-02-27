@@ -25,13 +25,25 @@ export const CatCard: FC<CatCardProps> = ({ cat, body, styles }) => {
       flexDir="column"
       position="relative"
       bgColor="white"
-      rounded="md"
+      rounded={{ base: "sm", md: "md" }}
       overflow="hidden"
+      _hover={{ shadow: "xl" }}
+      transition="all 0.2s ease-in-out"
     >
       <Image src={photoUrl} alt={cat.name} position="relative" roundedTop="inherit" />
-      <Flex p={6} pb={9} flexGrow={1} direction="column" alignItems="flex-start">
+      <Flex
+        p={{ base: 3, sm: 4, xl: 5, "2xl": 6 }}
+        pb={{ base: 4, sm: 5, xl: 6, "2xl": 7 }}
+        flexGrow={1}
+        direction="column"
+        alignItems="flex-start"
+      >
         <LinkOverlay as={NextLink} href={link}>
-          <Text fontSize="2xl" fontWeight="bold" noOfLines={1}>
+          <Text
+            fontSize={{ base: "md", md: "lg", xl: "xl", "2xl": "2xl" }}
+            fontWeight="bold"
+            noOfLines={1}
+          >
             {cat.name}
           </Text>
         </LinkOverlay>

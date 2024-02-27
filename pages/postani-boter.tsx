@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { Container } from "@/common/components/container";
 import { Box, Heading, Text, VStack } from "@chakra-ui/react";
 import { EXTERNAL_LINKS, ROUTES } from "@/common/constants";
@@ -8,7 +7,7 @@ import { Layout } from "@/common/components/layout";
 import { MetaTags } from "@/common/components/meta-tags";
 import { TextLink } from "@/common/components/text-link";
 
-const BecomeSponsorOverviewPage: NextPage = () => {
+export default function BecomeSponsorOverviewPage() {
   const { breakpoints } = useTheme();
 
   return (
@@ -68,7 +67,15 @@ const BecomeSponsorOverviewPage: NextPage = () => {
                 Vrste botrstev
               </Heading>
               <VStack spacing={6} mt={6} fontSize="lg">
-                <Text>
+                <Text
+                  sx={{
+                    rounded: "sm",
+                    borderLeftWidth: "3px",
+                    borderColor: "orange.500",
+                    p: 4,
+                    bgColor: "orange.50",
+                  }}
+                >
                   Najbolj pogosto izbrana oblika mačjega botrstva je{" "}
                   <TextLink href={ROUTES.CatsList} fontWeight="semibold">
                     redno botrstvo
@@ -78,14 +85,30 @@ const BecomeSponsorOverviewPage: NextPage = () => {
                   <i>Dogovora o posvojitvi na daljavo</i> se boter zaveže, da bo za svojega mucka
                   redno mesečno prispeval izbran znesek.
                 </Text>
-                <Text>
+                <Text
+                  sx={{
+                    rounded: "sm",
+                    borderLeftWidth: "3px",
+                    borderColor: "purple.500",
+                    p: 4,
+                    bgColor: "purple.50",
+                  }}
+                >
                   Tistim, ki bi želeli pomagati le občasno ali enkratno, so namenjena različna{" "}
                   <TextLink href={ROUTES.SpecialSponsorships} fontWeight="semibold">
                     posebna botrstva
                   </TextLink>
                   .
                 </Text>
-                <Text>
+                <Text
+                  sx={{
+                    rounded: "sm",
+                    borderLeftWidth: "3px",
+                    borderColor: "blue.500",
+                    p: 4,
+                    bgColor: "blue.50",
+                  }}
+                >
                   Prav vse oblike botrovanj pa lahko tudi{" "}
                   <TextLink href={ROUTES.GiftSponsorship} fontWeight="semibold">
                     podarite
@@ -100,6 +123,4 @@ const BecomeSponsorOverviewPage: NextPage = () => {
       </Container>
     </Layout>
   );
-};
-
-export default BecomeSponsorOverviewPage;
+}

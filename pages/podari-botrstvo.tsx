@@ -26,6 +26,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
               px={6}
               py={5}
               fontWeight={800}
+              rounded="md"
             >
               podari botrstvo
             </Heading>

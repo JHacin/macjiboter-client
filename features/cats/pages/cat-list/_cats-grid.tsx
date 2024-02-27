@@ -1,11 +1,12 @@
 import { FC, PropsWithChildren } from "react";
-import { SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
+import { Icon, SimpleGrid, Skeleton, Stack, Text } from "@chakra-ui/react";
 import { CatCard } from "../../components/cat-card";
 import { ButtonLink } from "@/common/components/button-link";
 import { pluralize } from "@/common/util/pluralize";
 import { ROUTES } from "@/common/constants";
 import { Cat } from "../../types";
 import { range } from "lodash-es";
+import { Users } from "@phosphor-icons/react";
 
 const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
   return (
@@ -13,20 +14,29 @@ const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
       cat={cat}
       body={
         <>
-          <Text mt={1} color="gray.700">
-            {cat.sponsorships_count} {pluralize("boter", cat.sponsorships_count)}
-          </Text>
-          <Text mt={6}>{cat.story_short}</Text>
+          <Stack
+            direction="row"
+            alignItems="center"
+            spacing={{ base: 1.5, xl: 2.5 }}
+            mt={{ base: 0.5, md: 1, lg: 0.5, xl: 1 }}
+          >
+            <Icon as={Users} boxSize={{ base: 4, xl: 5, "2xl": 6 }} color="gray.600" />
+            <Text mt={1} color="gray.700" fontSize={{ base: "sm", xl: "md", "2xl": "lg" }}>
+              {cat.sponsorships_count} {pluralize("boter", cat.sponsorships_count)}
+            </Text>
+          </Stack>
 
           <ButtonLink
-            mt={6}
+            mt={{ base: 4, md: 6, lg: 4, xl: 6 }}
             href={ROUTES.CatDetails(cat.slug)}
             variant="link"
             textDecoration="underline"
-            fontWeight="medium"
+            fontWeight="semibold"
+            fontSize={{ base: "sm", md: "md", lg: "sm", xl: "md", "2xl": "lg" }}
             _hover={{ color: "orange.700" }}
+            whiteSpace="initial"
           >
-            {cat.is_group ? "Preberi si več o nas" : "Preberi mojo zgodbo"}
+            {cat.is_group ? "Več o nas" : "Več o meni"}
           </ButtonLink>
         </>
       }
@@ -36,7 +46,7 @@ const CatsGridItem: FC<{ cat: Cat }> = ({ cat }) => {
 
 const CatsGridBase: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <SimpleGrid columns={{ base: 1, md: 2, lg: 3, "2xl": 4 }} spacing={{ base: 6, md: 8 }}>
+    <SimpleGrid columns={{ base: 2, md: 3, lg: 4 }} spacing={{ base: 3, sm: 4, lg: 5 }}>
       {children}
     </SimpleGrid>
   );

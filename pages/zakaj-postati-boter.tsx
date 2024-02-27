@@ -1,4 +1,3 @@
-import { NextPage } from "next";
 import { Container } from "@/common/components/container";
 import { Box, Heading, Icon, List, ListIcon, ListItem, Text } from "@chakra-ui/react";
 import { ReactNode } from "react";
@@ -65,7 +64,7 @@ const listItems: { id: number; content: ReactNode }[] = [
   id: index,
 }));
 
-const WhyBecomeSponsorPage: NextPage = () => {
+export default function WhyBecomeSponsorPage() {
   const { breakpoints } = useTheme();
 
   return (
@@ -119,6 +118,4 @@ const WhyBecomeSponsorPage: NextPage = () => {
       </Container>
     </Layout>
   );
-};
-
-export default WhyBecomeSponsorPage;
+}

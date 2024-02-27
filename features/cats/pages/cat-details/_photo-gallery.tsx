@@ -98,7 +98,7 @@ const CustomSwiperNavButton: FC<{ className: string; icon: FC<IconProps> }> = ({
         alignItems: "center",
         justifyContent: "center",
         cursor: "pointer",
-        transition: "all 0.15ms ease-in-out",
+        transition: "all 0.15s ease-in-out",
 
         "&:hover": {
           backgroundColor: "orange.600",

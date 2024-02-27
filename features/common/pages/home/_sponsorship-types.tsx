@@ -84,7 +84,7 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
       bg={`${color}.100`}
       position="relative"
       overflow="hidden"
-      shadow="lg"
+      shadow="md"
       rounded="md"
     >
       <Icon

@@ -171,9 +171,6 @@ export const theme = extendTheme(
     },
     styles: {
       global: {
-        body: {
-          backgroundColor: "copper.50",
-        },
         ".swiper-button-prev, .swiper-button-next": {
           boxSize: {
             base: "32px",

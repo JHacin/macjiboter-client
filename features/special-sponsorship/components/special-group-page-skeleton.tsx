@@ -37,7 +37,7 @@ export const SpecialGroupPageSkeleton: FC<{
 
       <Section spacing={{ top: "xs", bottom: "xs" }} position="relative">
         <Box position="absolute" bottom="0" width="full">
-          <SectionWaves waveColor="semi-1" bgColor="copper.50" />
+          <SectionWaves waveColor="semi-1" bgColor="white" />
         </Box>
 
         <Container paddingHorizontal={{ base: 0 }} position="relative">

@@ -47,7 +47,10 @@ export const CatList: FC = () => {
             </Text>
             <Text>
               Preden nadaljujete, si lahko najprej preberete več o tem,{" "}
-              <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
+              <TextLink href={ROUTES.WhyBecomeSponsor} fontWeight="semibold">
+                zakaj sploh postati mačji boter
+              </TextLink>
+              .
             </Text>
           </VStack>
         </PageSubtitle>

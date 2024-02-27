@@ -19,7 +19,6 @@ export interface Cat {
   name: string;
   gender: CatGender | null;
   status: CatStatus;
-  story_short: string;
   story: string | null;
   date_of_arrival_mh: string | null;
   date_of_birth: string | null;
