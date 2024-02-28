@@ -15,6 +15,7 @@ import sl from "date-fns/locale/sl";
 import { Analytics } from "@vercel/analytics/react";
 import "react-datepicker/dist/react-datepicker.css";
 import { MailchimpSignup } from "@/common/mailchimp-signup";
+import { CookieConsent } from "@/common/components/cookie-consent";
 
 dayjs.locale("sl");
 yup.setLocale(locale);
@@ -40,9 +41,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <ProgressBar />
           <Component {...pageProps} />
           <Analytics />
+          <CookieConsent />
+          <MailchimpSignup />
         </ChakraProvider>
       </Hydrate>
-      <MailchimpSignup />
     </QueryClientProvider>
   );
 };
