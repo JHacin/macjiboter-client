@@ -34,7 +34,6 @@ export const ROUTES = {
   Contact: "/kontakt",
   FAQ: "/pravila-in-pogosta-vprasanja",
   News: "/novice",
-  SponsorOurProgram: "/sponzorstvo",
 };
 
 export const ASSET_PATH = {
@@ -92,10 +91,6 @@ export const FOOTER_LINKS: { href: string; label: string }[] = [
   {
     href: ROUTES.Contact,
     label: "Kontakt",
-  },
-  {
-    href: ROUTES.SponsorOurProgram,
-    label: "Sponzorstvo",
   },
   {
     href: ROUTES.Privacy,
