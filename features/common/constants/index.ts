@@ -34,6 +34,7 @@ export const ROUTES = {
   Contact: "/kontakt",
   FAQ: "/pravila-in-pogosta-vprasanja",
   News: "/novice",
+  Terms: "/splosni-pogoji",
 };
 
 export const ASSET_PATH = {
@@ -91,6 +92,10 @@ export const FOOTER_LINKS: { href: string; label: string }[] = [
   {
     href: ROUTES.Contact,
     label: "Kontakt",
+  },
+  {
+    href: ROUTES.Terms,
+    label: "Splošni pogoji",
   },
   {
     href: ROUTES.Privacy,
