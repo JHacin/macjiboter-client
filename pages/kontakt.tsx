@@ -50,16 +50,10 @@ const ContactPage: NextPage = () => {
                   Email: <ContactEmailTextLink />
                 </Text>
                 <Text wordBreak="break-all">
-                  Facebook:{" "}
-                  <TextLink href={EXTERNAL_LINKS.FacebookPage}>
-                    {EXTERNAL_LINKS.FacebookPage}
-                  </TextLink>
+                  Facebook: <TextLink href={EXTERNAL_LINKS.FacebookPage}>povezava</TextLink>
                 </Text>
                 <Text wordBreak="break-all">
-                  Instagram:{" "}
-                  <TextLink href={EXTERNAL_LINKS.InstagramPage}>
-                    {EXTERNAL_LINKS.InstagramPage}
-                  </TextLink>
+                  Instagram: <TextLink href={EXTERNAL_LINKS.InstagramPage}>povezava</TextLink>
                 </Text>
               </VStack>
             </VStack>
