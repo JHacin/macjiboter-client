@@ -68,7 +68,7 @@ export const CatsGridSkeleton: FC = () => {
   return (
     <CatsGridBase>
       {SKELETON_INDICES.map((i) => (
-        <Skeleton key={i} height="640px" />
+        <Skeleton key={i} height={{ base: "320px", lg: "400px" }} />
       ))}
     </CatsGridBase>
   );
