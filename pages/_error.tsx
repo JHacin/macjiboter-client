@@ -27,12 +27,12 @@ const CustomError: NextPage<{ statusCode?: number }> = ({ statusCode }) => {
             </Heading>
 
             <Box maxWidth="650px" textAlign="center">
-              <Text mt={16} color="red.500" fontWeight="bold" fontSize="lg">
+              <Text mt={16} color="red.500" fontWeight="bold" fontSize={{ lg: "lg" }}>
                 {statusCode
                   ? `Opis: napaka s številko ${statusCode} na strežniku.`
                   : "Opis: napaka na klientu."}
               </Text>
-              <Text mt={4} fontSize="lg">
+              <Text mt={4} fontSize={{ lg: "lg" }}>
                 Prosimo, poskusite ponovno. Če se napaka ponovi, vam bomo izredno hvaležni, če nas o
                 tem obvestite na <ContactEmailTextLink /> (prosimo, če pripišete opis napake).
               </Text>

@@ -28,11 +28,11 @@ const Custom404Page: NextPage = () => {
             </Heading>
 
             <Box maxWidth="650px" textAlign="center">
-              <Text mt={16} fontSize="lg">
+              <Text mt={16} fontSize={{ lg: "lg" }}>
                 Če menite, da je prišlo do napake, oziroma ne najdete tega, kar ste iskali, nam
                 lahko pišete na <ContactEmailTextLink />.
               </Text>
-              <Text fontSize="lg" mt={4}>
+              <Text fontSize={{ lg: "lg" }} mt={4}>
                 Lahko se tudi vrnete na <TextLink href={ROUTES.Home}>prvo stran</TextLink>.
               </Text>
             </Box>

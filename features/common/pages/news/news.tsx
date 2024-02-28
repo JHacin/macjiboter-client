@@ -23,11 +23,11 @@ const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
         {dateFormat(created_at, "default")}
       </Text>
       {title && (
-        <Heading size="md" mt={2}>
+        <Heading as="h3" size="md" mt={2}>
           {title}
         </Heading>
       )}
-      <Box mt={8}>
+      <Box mt={{ base: 4, md: 8 }}>
         <CmsContent content={body} />
       </Box>
     </Box>

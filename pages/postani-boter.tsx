@@ -20,7 +20,7 @@ export default function BecomeSponsorOverviewPage() {
             <FilledPageTitle>postani boter</FilledPageTitle>
           </Section>
           <Section spacing={{ top: "sm" }}>
-            <VStack spacing={6} fontSize="lg" maxWidth="850px">
+            <VStack spacing={6} fontSize={{ lg: "lg" }} maxWidth="850px">
               <Text>
                 Botri so tisti, ki omogočajo, da vsak muc pri nas dobi to, kar potrebuje, ne glede
                 na njegovo starost, dolžino in barvo dlake, morebitne poškodbe, zdravstveno stanje
@@ -56,7 +56,7 @@ export default function BecomeSponsorOverviewPage() {
               <Heading as="h2" fontWeight={800} size="xl">
                 Vrste botrstev
               </Heading>
-              <VStack spacing={6} mt={6} fontSize="lg">
+              <VStack spacing={6} mt={6} fontSize={{ lg: "lg" }}>
                 <Text
                   sx={{
                     rounded: "sm",

@@ -35,7 +35,7 @@ export const FAQ: FC = () => {
               <AccordionItem key={item.id}>
                 <AccordionButton _expanded={{ bg: "copper.200" }}>
                   <Box py={{ base: 3, md: 4 }} flex="1" textAlign="left">
-                    <Heading size="md" pr={4}>
+                    <Heading size={{ base: "sm", md: "md" }} pr={4}>
                       {item.title}
                     </Heading>
                   </Box>

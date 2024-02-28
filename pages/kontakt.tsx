@@ -22,14 +22,14 @@ const ContactPage: NextPage = () => {
             <FilledPageTitle>kontakt</FilledPageTitle>
           </Section>
           <Section spacing={{ top: "sm" }}>
-            <VStack spacing={16} fontSize="lg" maxWidth="800px">
+            <VStack spacing={16} fontSize={{ lg: "lg" }} maxWidth="850px">
               <VStack spacing={3}>
-                <Text fontSize={{ base: "xl", lg: "2xl" }} fontWeight="extrabold">
+                <Text fontSize={{ base: "lg", lg: "2xl" }} fontWeight="extrabold">
                   Zavod Mačja hiša, zavod za oskrbo mačk in osveščanje
                 </Text>
                 <Text
                   py={4}
-                  fontSize={{ sm: "xl" }}
+                  fontSize={{ sm: "lg", lg: "xl" }}
                   display="inline-flex"
                   alignItems="center"
                   gap={2}

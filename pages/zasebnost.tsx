@@ -21,7 +21,7 @@ const PrivacyPage: NextPage = () => {
           </Section>
 
           <Section spacing={{ top: "sm" }}>
-            <VStack spacing={16} fontSize="lg" maxWidth="800px">
+            <VStack spacing={16} fontSize={{ lg: "lg" }} maxWidth="850px">
               <VStack spacing={4}>
                 <Heading as="h2" size="lg" mb={4}>
                   I. PREDSTAVITEV UPRAVLJAVCA

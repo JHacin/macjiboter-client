@@ -22,7 +22,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
             <FilledPageTitle>podari botrstvo</FilledPageTitle>
           </Section>
           <Section spacing={{ top: "sm" }}>
-            <VStack spacing={6} fontSize="lg" maxWidth="850px">
+            <VStack spacing={6} fontSize={{ lg: "lg" }} maxWidth="850px">
               <Text>
                 Z mačjim botrstvom vedno naredite nekaj dobrega za mucke in za svoje dobro počutje.
                 V primeru, da ga nekomu podarite, pa osrečite še prejemnika darila.
@@ -61,11 +61,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
                   </Heading>
                 </LinkOverlay>
 
-                <Text
-                  fontSize={{ base: "md", lg: "lg" }}
-                  mt={{ base: 4, lg: 5 }}
-                  position="relative"
-                >
+                <Text fontSize={{ lg: "lg" }} mt={{ base: 4, lg: 5 }} position="relative">
                   Obdarovancu podarite botrovanje točno določenemu mucku ali skupini muckov. V času
                   botrstva bo prejemal vse, kar prejemajo mačji botri.
                 </Text>
@@ -86,11 +82,7 @@ const GiftSponsorshipOverviewPage: NextPage = () => {
                   </Heading>
                 </LinkOverlay>
 
-                <Text
-                  fontSize={{ base: "md", lg: "lg" }}
-                  mt={{ base: 4, lg: 5 }}
-                  position="relative"
-                >
+                <Text fontSize={{ lg: "lg" }} mt={{ base: 4, lg: 5 }} position="relative">
                   Pri posebnih vrstah botrstva ne izberete določenega mucka, temveč splošen namen,
                   za katerega bo prispevek porabljen.
                 </Text>

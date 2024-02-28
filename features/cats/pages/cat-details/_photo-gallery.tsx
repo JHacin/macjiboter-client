@@ -125,6 +125,7 @@ const SlideshowPhoto: FC<{ photo: CatPhoto; alt: string }> = ({ photo, alt }) =>
       transition: "opacity .15s ease-in-out",
       _hover: { opacity: 0.85 },
       width: "full",
+      rounded: "md",
     }),
     [alt, photo]
   );

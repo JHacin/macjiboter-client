@@ -26,7 +26,13 @@ export function CookieConsent() {
     <SlideFade
       in={shouldGetConsent}
       offsetY="40px"
-      style={{ position: "fixed", bottom: "1rem", left: "1rem", zIndex: 30 }}
+      style={{
+        position: "fixed",
+        bottom: "1rem",
+        left: "1rem",
+        zIndex: 30,
+        pointerEvents: shouldGetConsent ? "initial" : "none",
+      }}
       transition={{
         enter: { duration: 0.35, delay: 0.5 },
         exit: { duration: 0.25 },
