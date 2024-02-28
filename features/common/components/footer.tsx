@@ -19,18 +19,31 @@ export const Footer: FC = () => {
     <Section as="footer" spacing="sm">
       <Container>
         <VStack spacing={{ base: 6 }} align="stretch">
-          <Show above="sm">
-            <Stack direction="row" spacing={4} alignItems="center" justifyContent="center">
-              {FOOTER_LINKS.map((link, index) => (
-                <Fragment key={link.label}>
-                  <TextLink href={link.href} variant={LinkVariant.UnEmphasized}>
-                    {link.label}
-                  </TextLink>
-                  {index !== FOOTER_LINKS.length - 1 && <Text color="gray.500">&#x2022;</Text>}
-                </Fragment>
-              ))}
-            </Stack>
-          </Show>
+          <Stack
+            direction={{ base: "column", sm: "row" }}
+            spacing={4}
+            alignItems="center"
+            justifyContent="center"
+          >
+            {FOOTER_LINKS.map((link, index) => (
+              <Fragment key={link.label}>
+                <TextLink
+                  href={link.href}
+                  variant={LinkVariant.UnEmphasized}
+                  textDecoration={{ base: "underline", sm: "none" }}
+                >
+                  {link.label}
+                </TextLink>
+
+                {index !== FOOTER_LINKS.length - 1 && (
+                  <Show above="sm">
+                    <Text color="gray.500">&#x2022;</Text>
+                  </Show>
+                )}
+              </Fragment>
+            ))}
+          </Stack>
+
           <HStack alignItems="center" justifyContent="center">
             <ButtonGroup variant="ghost">
               {SOCIAL_LINKS.map((link) => (

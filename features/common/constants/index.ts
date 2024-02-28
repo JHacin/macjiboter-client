@@ -35,6 +35,7 @@ export const ROUTES = {
   FAQ: "/pravila-in-pogosta-vprasanja",
   News: "/novice",
   Terms: "/splosni-pogoji",
+  CookiePolicy: "/piskotki",
 };
 
 export const ASSET_PATH = {
@@ -100,6 +101,10 @@ export const FOOTER_LINKS: { href: string; label: string }[] = [
   {
     href: ROUTES.Privacy,
     label: "Zasebnost",
+  },
+  {
+    href: ROUTES.CookiePolicy,
+    label: "Piškotki",
   },
 ];
 
