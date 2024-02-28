@@ -10,7 +10,7 @@ import { SummaryStep } from "@/forms/components/summary-step";
 import { FormPageContent } from "@/forms/components/form-page-content";
 import { FormNote } from "@/forms/components/form-note";
 import { FormGroup } from "@/forms/components/form-group";
-import { Divider, Text, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import {
   gifteeDefaultValues,
   GifteeStep,
@@ -88,20 +88,13 @@ export const SpecialForm: FC<SpecialFormProps> = ({ defaultType }) => {
       validationSchema: specialFormValidation.summaryStep,
       component: (
         <SummaryStep
-          agreementCheckboxText={
-            <>
-              Potrjujem, da sem seznanjen/a s pravili botrstva in se z njimi strinjam ter Mačji hiši
-              dovoljujem rabo osebnih podatkov izključno za namene obveščanja.
-            </>
-          }
           beforeContent={
             <FormGroup>
               <FormNote bgColor="orange">
-                <Text fontWeight="semibold" fontSize="md">
+                <Text fontWeight="semibold" fontSize="lg" textDecoration="underline">
                   Pravila botrstva
                 </Text>
-                <Divider borderColor="blackAlpha.300" mt={2} mb={4} />
-                <VStack spacing={4}>
+                <VStack spacing={4} mt={4}>
                   <Text>
                     Znesek za botrstvo je treba nakazati na TRR Mačje hiše najkasneje 3 dni po
                     oddaji obrazca.

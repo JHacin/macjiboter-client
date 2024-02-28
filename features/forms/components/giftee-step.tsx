@@ -56,21 +56,21 @@ export const GifteeStep: FC<{ additionalFieldsBefore?: ReactNode }> = ({
         <PersonFields personType="giftee" />
       </Box>
       <FormGroup>
-        <FormSectionHeading>Posebnosti</FormSectionHeading>
+        <FormSectionHeading>Podatki o darilu</FormSectionHeading>
       </FormGroup>
       {additionalFieldsBefore && additionalFieldsBefore}
       <FormGroup>
         <TextareaField
           name="gift_message"
-          label="Osebno sporočilo obdarovancu"
+          label="Vaše voščilo"
           hint="Sporočilo bomo v vašem imenu poslali skupaj z obvestilom o prejemu botrstva."
         />
       </FormGroup>
       <FormGroup>
         <TextareaField
           name="gift_notes"
-          label="Opombe"
-          hint="Nas želite na kaj opozoriti, imate kakšne posebne želje?"
+          label="Posebnosti"
+          hint="Nas želite na kaj opozoriti, gre za kakšno posebno priložnost, imate kakšne druge želje ali opombe?"
         />
       </FormGroup>
     </>

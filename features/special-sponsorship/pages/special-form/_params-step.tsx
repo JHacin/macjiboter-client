@@ -59,7 +59,7 @@ export const ParamsStep: FC = () => {
         <CheckboxField
           name="is_anonymous"
           label="Botrstvo naj bo anonimno"
-          hint="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu botrov."
+          hint="Označite v primeru, da ne želite navedbe vašega (obdarovančevega) imena in kraja bivanja na seznamu botrov."
         />
       </FormGroup>
     </>

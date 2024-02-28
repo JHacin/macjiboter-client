@@ -1,6 +1,6 @@
-import { FC, useMemo } from "react";
+import { FC } from "react";
 import { VStack, Text, Box, Heading } from "@chakra-ui/react";
-import { Cat, CatGender, CatStatus } from "../../types";
+import { Cat, CatStatus } from "../../types";
 import { ButtonLink } from "@/common/components/button-link";
 import { ROUTES } from "@/common/constants";
 import { HeadingMarker } from "@/common/components/heading-marker";
@@ -11,22 +11,8 @@ interface CatDetailsDescriptionProps {
 }
 
 export const Description: FC<CatDetailsDescriptionProps> = ({
-  cat: { is_group, gender, story, status, slug, name },
+  cat: { is_group, story, status, slug, name },
 }) => {
-  const t = useMemo(
-    () => ({
-      mi: is_group ? "nam" : "mi",
-      dobim: is_group ? "dobimo" : "dobim",
-      Jaz: is_group ? "Mi" : "Jaz",
-      obljubim: is_group ? "obljubimo" : "obljubim",
-      bom: is_group ? "bomo" : "bom",
-      oglasil: is_group ? "oglasili" : gender === CatGender.Male ? "oglasil" : "oglasila",
-      povedal: is_group ? "povedali" : gender === CatGender.Male ? "povedal" : "povedala",
-      imam: is_group ? "imamo" : "imam",
-    }),
-    [gender, is_group]
-  );
-
   return (
     <Box>
       <Heading as="h1" size={{ base: "xl", lg: "2xl" }} fontWeight="extrabold">
@@ -84,25 +70,17 @@ export const Description: FC<CatDetailsDescriptionProps> = ({
                 mt={{ base: 8, md: 10, lg: 10 }}
               >
                 <Text>
-                  Lahko izpolniš{" "}
-                  <Text as="span" fontWeight="semibold">
+                  Purrrrrrfektno! Potem izpolni{" "}
+                  <Text as="span" fontStyle="italic">
                     Dogovor o posvojitvi na daljavo
-                  </Text>
-                  , s čimer {t.mi} obljubiš, da {t.mi} boš s svojimi prispevki vsak mesec pomagal
-                  pri tem, da {t.dobim} najboljšo možno oskrbo.
+                  </Text>{" "}
+                  in {is_group ? "naša" : "najina"} skupna zgodba se lahko prične.
                 </Text>
                 <Text>
-                  Botrstvo lahko tudi pokloniš kot{" "}
-                  <Text as="span" fontWeight="semibold">
-                    darilo
-                  </Text>
-                  , in s tem razveseliš bližnjo osebo.
+                  Če pa misliš, da {is_group ? "našo" : "mojo"} botrom namenjeno mehko mačjo prejo
+                  bolj potrebuje tebi ljuba oseba, lahko botrstvo tudi podariš.
                 </Text>
-                <Text>
-                  {t.Jaz} pa tebi {t.obljubim}, da se {t.bom} tebi (ali tvojemu obdarovancu) vsake
-                  toliko časa {t.oglasil} s pozdravčkom in ti {t.povedal} več o tem, kako se{" "}
-                  {t.imam}.
-                </Text>
+                <Text>Hvala iz srca (in ja, mucki v resnici znamo biti še kako hvaležni)!</Text>
               </VStack>
 
               <Box mt={{ base: 8, md: 10, lg: 12 }}>

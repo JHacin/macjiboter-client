@@ -4,14 +4,12 @@ import { useFormikContext } from "formik";
 import { FormSubmitFeedback } from "@/forms/components/form-submit-feedback";
 import { FormSubmitStatus } from "@/forms/types";
 import { FormGroup } from "@/forms/components/form-group";
-import { ContactEmailTextLink } from "@/common/components/text-link";
-import { Text, VStack } from "@chakra-ui/react";
+import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
+import { Box, Text, VStack } from "@chakra-ui/react";
 import { FormNote } from "./form-note";
+import { ROUTES } from "@/common/constants";
 
-export const SummaryStep: FC<{ agreementCheckboxText: ReactNode; beforeContent?: ReactNode }> = ({
-  agreementCheckboxText,
-  beforeContent,
-}) => {
+export const SummaryStep: FC<{ beforeContent?: ReactNode }> = ({ beforeContent }) => {
   const { status } = useFormikContext();
 
   if (status === FormSubmitStatus.Success) {
@@ -39,8 +37,13 @@ export const SummaryStep: FC<{ agreementCheckboxText: ReactNode; beforeContent?:
     <>
       <FormGroup>
         <FormNote>
-          Po oddaji obrazca boste na svoj elektronski naslov prejeli samodejni odgovor z nadaljnimi
-          podatki glede plačila.
+          <Box>
+            Po oddaji obrazca boste na svoj mail prejeli samodejni odgovor s podatki za nakazilo.
+          </Box>
+          <Box mt={4}>
+            Prosimo, preverite tudi nezaželeno pošto in kategorijo Promocije. V primeru, da
+            sporočila ne prejmete, nam pišite na <ContactEmailTextLink />.
+          </Box>
         </FormNote>
       </FormGroup>
 
@@ -49,7 +52,19 @@ export const SummaryStep: FC<{ agreementCheckboxText: ReactNode; beforeContent?:
       <FormGroup>
         <CheckboxField
           name="is_agreed_to_terms"
-          label={agreementCheckboxText}
+          label={
+            <>
+              Potrjujem seznanjenost z{" "}
+              <TextLink href={ROUTES.FAQ} isExternal={true}>
+                informacijami o programu mačjega botrstva
+              </TextLink>{" "}
+              in strinjanje s{" "}
+              <TextLink href={ROUTES.Terms} isExternal={true}>
+                splošnimi pogoji
+              </TextLink>
+              . Mačji hiši dovoljujem rabo osebnih podatkov za namene obveščanja.
+            </>
+          }
           checkboxProps={{
             alignItems: "flex-start",
             sx: {

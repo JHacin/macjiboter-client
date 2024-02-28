@@ -8,7 +8,6 @@ import { catFormValidation } from "../../constants";
 import { ROUTES } from "@/common/constants";
 import { SummaryStep } from "@/forms/components/summary-step";
 import { FormPageContent } from "@/forms/components/form-page-content";
-import { TextLink } from "@/common/components/text-link";
 import {
   gifteeStepValidation,
   gifteeDefaultValues,
@@ -50,19 +49,7 @@ export const CatForm: FC<{ cat: Cat }> = ({ cat }) => {
     {
       name: "Zaključek",
       validationSchema: catFormValidation.summaryStep,
-      component: (
-        <SummaryStep
-          agreementCheckboxText={
-            <>
-              Potrjujem, da se strinjam s{" "}
-              <TextLink href={ROUTES.FAQ} isExternal={true}>
-                pravili posvojitve na daljavo
-              </TextLink>
-              , ter da Mačji hiši dovoljujem rabo osebnih podatkov izključno za namene obveščanja.
-            </>
-          }
-        />
-      ),
+      component: <SummaryStep />,
     },
   ];
 

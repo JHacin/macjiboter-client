@@ -53,8 +53,12 @@ export const PersonFields: FC<{ personType: "payer" | "giftee" }> = ({ personTyp
               Osebne podatke potrebujemo izključno za namene komunikacije in obveščanja po e-mailu.
             </Text>
             <Text>
-              Podatki naslova niso obvezni, vendar nam pridejo prav v primerih, ko se na naslov
-              pošlje kakšno manjše presenečenje ali kaj podobnega.
+              Naslov ni obvezen podatek, vendar vam v primeru, da nam ga ne zaupate, vaš posvojenec
+              ne bo mogel poslati npr. novoletne voščilnice.
+            </Text>
+            <Text>
+              Podatek o spolu potrebujemo izključno zato, da vam muc pošlje pismo, napisano v pravem
+              spolu.
             </Text>
           </VStack>
         </FormNote>

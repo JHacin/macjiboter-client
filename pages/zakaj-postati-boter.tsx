@@ -56,13 +56,11 @@ const listItems: { id: number; content: ReactNode; icon: FC<IconProps> }[] = [
   {
     content: (
       <>
-        Ker lahko vsi botri brezplačno postanete člani Kluba Mačja hiša. Članstvo v klubu vam ne
-        prinaša nobene obveznosti, imate pa kot član ugodne pogoje pri nakupih v naši spletni
-        trgovinici{" "}
+        Ker lahko botri v naši spletni trgovini{" "}
         <TextLink href={EXTERNAL_LINKS.SuperCombe} isExternal={true}>
           Super Čombe
-        </TextLink>
-        .
+        </TextLink>{" "}
+        nakupujete ugodneje.
       </>
     ),
     icon: ShoppingCart,
