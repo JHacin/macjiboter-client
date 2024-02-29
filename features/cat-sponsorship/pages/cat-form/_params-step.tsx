@@ -1,12 +1,11 @@
 import { FC } from "react";
-import { Calendar, CurrencyEur } from "phosphor-react";
+import { Calendar, CurrencyEur } from "@phosphor-icons/react";
 import { OptionsWithCustomValue } from "@/forms/components/options-with-custom-value";
 import { CheckboxField } from "@/forms/components/checkbox-field";
 import { useFormikContext } from "formik";
 import { numericInputValueParser } from "@/forms/util";
 import { CatFormValues } from "../../types";
 import { FormGroup } from "@/forms/components/form-group";
-import { InlineTooltipDecorator } from "@/common/components/inline-tooltip-decorator";
 
 export const ParamsStep: FC = () => {
   const { values, setFieldValue } = useFormikContext<CatFormValues>();
@@ -18,10 +17,10 @@ export const ParamsStep: FC = () => {
           name="monthly_amount"
           label="Mesečni znesek"
           options={[
-            { label: "5€", value: 5 },
             { label: "10€", value: 10 },
             { label: "15€", value: 15 },
-            { label: "25€", value: 25 },
+            { label: "20€", value: 20 },
+            { label: "30€", value: 30 },
           ]}
           onInputChangeOverride={(value) => {
             setFieldValue("monthly_amount", numericInputValueParser(value));
@@ -34,6 +33,7 @@ export const ParamsStep: FC = () => {
             base: 2,
             sm: 4,
           }}
+          isNumeric={true}
         />
       </FormGroup>
 
@@ -66,20 +66,25 @@ export const ParamsStep: FC = () => {
             buttonsPerRow={{
               base: 2,
             }}
+            isNumeric={true}
           />
         </FormGroup>
       )}
 
       <FormGroup>
-        <InlineTooltipDecorator tooltipContent="Po oddaji obrazca vam bomo na vaš e-mail naslov poslali navodila za plačevanje prek trajnika.">
-          <CheckboxField name="wants_direct_debit" label="Želim plačevati prek trajnika" />
-        </InlineTooltipDecorator>
+        <CheckboxField
+          name="wants_direct_debit"
+          label="Želim plačevati prek trajnika"
+          hint="Po oddaji obrazca vam bomo na vaš e-mail naslov poslali navodila za plačevanje prek trajnika."
+        />
       </FormGroup>
 
       <FormGroup>
-        <InlineTooltipDecorator tooltipContent="Označite, če želite, da se vaše ime in kraj ne prikazujeta na seznamu trenutnih botrov pri vaši posvojeni muci.">
-          <CheckboxField name="is_anonymous" label="Botrstvo naj bo anonimno" />
-        </InlineTooltipDecorator>
+        <CheckboxField
+          name="is_anonymous"
+          label="Botrstvo naj bo anonimno"
+          hint="Označite v primeru, da ne želite navedbe vašega (obdarovančevega) imena in kraja bivanja na seznamu botrov."
+        />
       </FormGroup>
     </>
   );

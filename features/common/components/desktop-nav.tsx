@@ -14,14 +14,12 @@ import {
   usePopoverContext,
   VStack,
 } from "@chakra-ui/react";
-import { CaretDown } from "phosphor-react";
+import { CaretDown } from "@phosphor-icons/react";
 import { ButtonLink } from "./button-link";
-import { NavLinkGroupChildLink, NavLinkGroupProps } from "./header";
 import { NextLink } from "./next-link";
-
-interface DesktopNavProps {
-  linkGroups: NavLinkGroupProps[];
-}
+import { NavLinkGroupChildLink, NavLinkGroupProps } from "../types";
+import { NAV_LINK_GROUPS } from "../constants";
+import { useRouter } from "next/router";
 
 const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, description }) => {
   const { onClose } = usePopoverContext();
@@ -31,11 +29,11 @@ const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, 
       <Box
         onClick={onClose}
         w="full"
-        rounded="lg"
         cursor="pointer"
         _hover={{ textDecoration: "none", bg: "orange.50" }}
+        rounded="md"
       >
-        <HStack spacing={4} p={3}>
+        <HStack spacing={4} py={3} px={4}>
           <Icon as={icon} w={8} h={8} color="orange.500" />
           <VStack spacing={1}>
             <Text fontWeight={500} fontSize="lg">
@@ -56,17 +54,22 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
   const ref = useRef(null);
 
   return (
-    <Popover openDelay={100} trigger="hover" arrowSize={10}>
+    <Popover openDelay={100} arrowSize={10}>
       <PopoverTrigger>
-        <Button key={label} rightIcon={<CaretDown />} fontSize="lg">
+        <Button
+          key={label}
+          rightIcon={<CaretDown />}
+          fontSize="lg"
+          _hover={{ backgroundColor: "copper.200" }}
+        >
           {label}
         </Button>
       </PopoverTrigger>
       <Box ref={ref}>
         <Portal containerRef={ref}>
-          <PopoverContent p={3}>
+          <PopoverContent p={3} width="sm" shadow="md">
             <PopoverArrow />
-            <VStack spacing={2}>
+            <VStack spacing={2} align="stretch">
               {links.map((link) => (
                 <DesktopNavDropdownItem {...link} key={link.label} />
               ))}
@@ -79,23 +82,32 @@ const DesktopNavItemWithDropdown: FC<NavLinkGroupProps & { links: NavLinkGroupCh
 };
 
 const DesktopNavItem: FC<NavLinkGroupProps> = ({ label, href }) => {
+  const { pathname } = useRouter();
+
   return (
-    <ButtonLink href={href} fontSize="lg">
+    <ButtonLink
+      href={href}
+      fontSize="lg"
+      _hover={{ backgroundColor: pathname === href ? "copper.300" : "copper.200" }}
+      sx={{
+        backgroundColor: pathname === href ? "copper.300" : "inherit",
+      }}
+    >
       {label}
     </ButtonLink>
   );
 };
 
-export const DesktopNav: FC<DesktopNavProps> = ({ linkGroups }) => {
+export const DesktopNav: FC = () => {
   return (
     <ButtonGroup variant="ghost" colorScheme="gray">
-      {linkGroups.map((group) => {
-        if (group.links) {
-          return <DesktopNavItemWithDropdown {...group} links={group.links} key={group.label} />;
-        }
-
-        return <DesktopNavItem {...group} key={group.label} />;
-      })}
+      {NAV_LINK_GROUPS.map((group) =>
+        group.links ? (
+          <DesktopNavItemWithDropdown {...group} links={group.links} key={group.label} />
+        ) : (
+          <DesktopNavItem {...group} key={group.label} />
+        )
+      )}
     </ButtonGroup>
   );
 };

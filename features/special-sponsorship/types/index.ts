@@ -1,12 +1,12 @@
-import {
-  SponsorshipFormGifteeValues,
-  SponsorshipFormPayerValues,
-} from "@/forms/components/person-form-step";
+import { SponsorshipFormPayerValues } from "@/forms/components/payer-step";
+import { PersonData } from "@/common/types";
+import { SponsorshipFormGifteeValues } from "@/forms/components/giftee-step";
 
 export interface SpecialSponsorship {
   id: number;
   type: SpecialSponsorshipType;
   sponsor_id: number | null;
+  sponsor?: PersonData;
   payer_id: number | null;
   is_gift: boolean;
   confirmed_at: string | null;
@@ -28,10 +28,27 @@ export enum SpecialSponsorshipType {
   VelikaZobnaMis = 9,
 }
 
+export enum SpecialSponsorshipGroup {
+  BoterMeseca,
+  BrezSkrbiVNoveDni,
+  NovZacetek,
+  FipBojevniki,
+  ZobnaMiska,
+}
+
+export type SpecialSponsorshipGroupMeta = {
+  name: string;
+  imageUrls: { sm: string; lg: string };
+  description: string;
+  pageSlug: string;
+  childTypes: SpecialSponsorshipType[];
+};
+
 export type SpecialFormValues = SpecialFormParamsValues &
   SponsorshipFormPayerValues &
-  SponsorshipFormGifteeValues &
-  SpecialFormSummaryValues;
+  SponsorshipFormGifteeValues & {
+    gift_requested_activation_date: string | null;
+  } & SpecialFormSummaryValues;
 
 export interface SpecialFormParamsValues {
   type: SpecialSponsorshipType;

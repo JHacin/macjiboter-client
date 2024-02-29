@@ -4,7 +4,7 @@ import { useField } from "formik";
 import { TextField, TextFieldInputProps } from "./text-field";
 import { FieldControl } from "./field-control";
 import { FormOption } from "../types";
-import { CheckCircle } from "phosphor-react";
+import { CheckCircle } from "@phosphor-icons/react";
 
 interface OptionsWithCustomValueProps {
   name: string;
@@ -12,6 +12,7 @@ interface OptionsWithCustomValueProps {
   options: FormOption[];
   onInputChangeOverride?: (value: any) => any;
   inputProps?: Pick<TextFieldInputProps, "type" | "leftElementIcon" | "placeholder">;
+  isNumeric?: boolean;
   buttonsPerRow: {
     base: number;
     sm?: number;
@@ -24,6 +25,7 @@ export const OptionsWithCustomValue: FC<OptionsWithCustomValueProps> = ({
   options,
   onInputChangeOverride,
   inputProps = {},
+  isNumeric,
   buttonsPerRow,
 }) => {
   const [field, _meta, helpers] = useField(name);
@@ -105,6 +107,7 @@ export const OptionsWithCustomValue: FC<OptionsWithCustomValueProps> = ({
               },
               _placeholder: { fontSize: { base: "sm", sm: "md" } },
             }}
+            isNumeric={isNumeric}
           />
         </GridItem>
       </Grid>

@@ -1,24 +1,15 @@
-import type { GetServerSideProps, NextPage } from "next";
-import { dehydrate, QueryClient } from "@tanstack/react-query";
-import { QueryKey } from "@/api/types";
-import { getNews } from "@/common/util/api";
+import type { NextPage } from "next";
 import { News } from "@/common/pages/news/news";
-
-export const getServerSideProps: GetServerSideProps = async () => {
-  const queryClient = new QueryClient();
-
-  const queryParams = { page: "1" };
-  await queryClient.prefetchQuery([QueryKey.News, queryParams], () => getNews(queryParams));
-
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
+import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 const NewsPage: NextPage = () => {
-  return <News />;
+  return (
+    <Layout variant="filled-header">
+      <MetaTags title="Novice" description="Vse o tem, kaj se pri nas trenutno dogaja." />
+      <News />
+    </Layout>
+  );
 };
 
 export default NewsPage;

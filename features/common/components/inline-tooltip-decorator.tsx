@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Text, Icon, Tooltip, TooltipProps, HStack, Box } from "@chakra-ui/react";
-import { Question } from "phosphor-react";
+import { Question } from "@phosphor-icons/react";
 
 interface InlineTooltipProps extends Omit<TooltipProps, "children" | "label" | "aria-label"> {
   tooltipContent: string;

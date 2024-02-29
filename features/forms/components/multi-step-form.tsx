@@ -12,7 +12,7 @@ import * as yup from "yup";
 import { Box, Button, Flex, Icon, IconButton, Text } from "@chakra-ui/react";
 import { useScrollToError } from "../hooks/use-scroll-to-error";
 import { FormSubmitStatus } from "../types";
-import { ArrowLeft, ArrowRight, PaperPlaneTilt } from "phosphor-react";
+import { ArrowLeft, ArrowRight, PaperPlaneTilt } from "@phosphor-icons/react";
 import { HeadingMarker } from "@/common/components/heading-marker";
 
 interface MultiStepFormStep {
@@ -140,9 +140,9 @@ const MultiStepFormContent = <TFormValues,>({
         bg="white"
         p={{ base: 6, sm: 12 }}
         shadow="xl"
-        rounded="lg"
         borderColor="gray.100"
         borderWidth="1px"
+        rounded="md"
       >
         <Text color="gray.500">
           Korak {currentStepIndex + 1}/{steps.length}
@@ -190,6 +190,7 @@ const MultiStepFormContent = <TFormValues,>({
   );
 };
 
+// noinspection JSUnusedGlobalSymbols
 export const Debug = () => (
   <div
     style={{

@@ -8,6 +8,7 @@ import "@fontsource/poppins";
 import "@fontsource/poppins/500.css";
 import "@fontsource/poppins/600.css";
 import "@fontsource/poppins/700.css";
+import "@fontsource/poppins/800.css";
 import { withProse } from "@nikolovlazar/chakra-ui-prose";
 
 type ColorPalette = Record<50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900, string>;
@@ -133,6 +134,11 @@ export const theme = extendTheme(
           focusBorderColor: "orange.500",
         },
       },
+      Textarea: {
+        defaultProps: {
+          focusBorderColor: "orange.500",
+        },
+      },
       Select: {
         defaultProps: {
           focusBorderColor: "orange.500",
@@ -165,9 +171,6 @@ export const theme = extendTheme(
     },
     styles: {
       global: {
-        body: {
-          backgroundColor: "copper.50",
-        },
         ".swiper-button-prev, .swiper-button-next": {
           boxSize: {
             base: "32px",
@@ -198,6 +201,15 @@ export const theme = extendTheme(
           "&.swiper-pagination-bullet-active": {
             backgroundColor: "orange.500",
           },
+        },
+        ".react-datepicker__close-icon::after": {
+          backgroundColor: "orange.500",
+        },
+        ".react-datepicker__day--selected": {
+          backgroundColor: "orange.500",
+          height: "14px",
+          width: "14px",
+          fontSize: "14px",
         },
       },
     },

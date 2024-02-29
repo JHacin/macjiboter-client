@@ -1,29 +1,20 @@
-import { FC, useCallback, useRef, useState } from "react";
-import { useQuery } from "@tanstack/react-query";
+import { FC } from "react";
 import { QueryKey } from "@/api/types";
-import { GetCatsQueryParams } from "@/cats/util/api";
-import { getNews, GetNewsQueryParams } from "../../util/api";
-import { NextRouter, useRouter } from "next/router";
-import { objectToQueryString } from "../../util/misc";
+import { getNews } from "../../util/api";
 import { NewsPiece } from "../../types";
-import { Box, Flex, Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, SimpleGrid, Skeleton, Text } from "@chakra-ui/react";
 import { Pagination } from "../../components/pagination";
 import { Section } from "../../components/section";
 import { TextLink } from "../../components/text-link";
 import { EXTERNAL_LINKS } from "../../constants";
 import { dateFormat } from "../../util/date";
-import { Container } from "../../components/container";
+import { ContainerNew } from "../../components/container";
 import { CmsContent } from "../../components/cms-content";
-
-const getInitialQueryParamsState = (router: NextRouter) => {
-  const isString = (string: unknown): string is string => {
-    return typeof string === "string";
-  };
-
-  return {
-    page: isString(router.query.page) ? router.query.page : "1",
-  };
-};
+import { usePaginatedList } from "../../hooks/use-paginated-list";
+import { range } from "lodash-es";
+import { LargePageTitle } from "../../components/page-title";
+import { PageSubtitle } from "../../components/page-subtitle";
+import { PageHeaderFilled } from "../../components/page-header-filled";
 
 const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
   return (
@@ -32,95 +23,69 @@ const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
         {dateFormat(created_at, "default")}
       </Text>
       {title && (
-        <Heading size="md" mt={2}>
+        <Heading as="h3" size="md" mt={2}>
           {title}
         </Heading>
       )}
-      <Box mt={8}>
+      <Box mt={{ base: 4, md: 8 }}>
         <CmsContent content={body} />
       </Box>
     </Box>
   );
 };
 
+const SKELETON_INDICES = range(0, 12);
+
 export const News: FC = () => {
-  const router = useRouter();
-  const gridWrapperRef = useRef<HTMLDivElement>(null);
-
-  const [queryParams, setQueryParams] = useState<GetNewsQueryParams>(
-    getInitialQueryParamsState(router)
-  );
-
-  const updateQueryParams = useCallback(
-    async (qp: GetCatsQueryParams) => {
-      setQueryParams(qp);
-
-      const queryString = objectToQueryString(qp, false);
-      await router.replace({ query: queryString }, undefined, { shallow: true });
-    },
-    [router]
-  );
-
-  const { data, isSuccess } = useQuery([QueryKey.News, queryParams], () => getNews(queryParams), {
-    keepPreviousData: true,
-    staleTime: Infinity,
-  });
-
-  const setPage = useCallback(
-    (page: number) => {
-      updateQueryParams({ ...queryParams, page: String(page) });
-    },
-    [queryParams, updateQueryParams]
-  );
-
-  const handlePaginationButtonClick = (page: number) => {
-    setPage(page);
-    gridWrapperRef.current?.scrollIntoView({ behavior: "smooth", block: "start", inline: "start" });
-  };
-
-  if (!isSuccess) {
-    return null;
-  }
+  const { query, queryParams, gridWrapperRef, handlePaginationButtonClick } =
+    usePaginatedList<NewsPiece>({
+      queryKey: QueryKey.News,
+      queryFn: getNews,
+    });
 
   return (
     <>
-      <Section spacing={{ bottom: "none" }}>
-        <Box bgGradient="linear(to-br, purple.50, purple.100, purple.50)" shadow="md">
-          <Container py={{ base: 12, md: 16, lg: 20, xl: 24 }} position="relative">
-            <Heading size={{ base: "2xl", lg: "3xl" }}>Novice</Heading>
-
-            <Text
-              fontSize={{ base: "mg", lg: "lg" }}
-              mt={{ base: 6, lg: 10 }}
-              maxW={{ base: "500px", lg: "640px" }}
-            >
-              Na tem mestu so zbrane novice glede naših oskrbovancev. Če želite biti v rednem stiku
-              z vsem, kar se nam dogaja, nam lahko tudi sledite na družbenih omrežjih{" "}
-              <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
-              <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>.
-            </Text>
-          </Container>
-        </Box>
-      </Section>
+      <PageHeaderFilled>
+        <LargePageTitle>novice</LargePageTitle>
+        <PageSubtitle>
+          Če želite biti v rednem stiku z vsem, kar se pri nas dogaja, vas vabimo, da se nam
+          pridružite na družbenih omrežjih{" "}
+          <TextLink href={EXTERNAL_LINKS.FacebookPage}>Facebook</TextLink> in{" "}
+          <TextLink href={EXTERNAL_LINKS.InstagramPage}>Instagram</TextLink>. Veseli bomo vaših
+          všečkov, komentarjev in delitev, ki povečajo prepoznavnost botrskih muc. Morda bo kateremu
+          od njih prav vaš všeček (ali srček) prinesel čisto nov dom.
+        </PageSubtitle>
+      </PageHeaderFilled>
 
       <Section ref={gridWrapperRef}>
-        <Container>
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={12}>
-            {data.data.map((newsPiece) => (
-              <NewsPiece key={newsPiece.id} {...newsPiece} />
-            ))}
+        <ContainerNew indent={1}>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={16}>
+            {!query.isError && (
+              <>
+                {query.isSuccess &&
+                  !query.isFetching &&
+                  query.data.data.map((newsPiece) => (
+                    <NewsPiece key={newsPiece.id} {...newsPiece} />
+                  ))}
+
+                {query.isFetching &&
+                  SKELETON_INDICES.map((i) => <Skeleton key={i} height="185px" my={6} />)}
+              </>
+            )}
+
+            {query.isError && <Text>Prišlo je do napake na strežniku.</Text>}
           </SimpleGrid>
 
-          {data.total > data.per_page && (
+          {query.data && query.data.total > query.data.per_page && (
             <Flex justify="center" mt={{ base: 16, lg: 24 }}>
               <Pagination
                 selectedPage={Number(queryParams.page)}
                 onChange={handlePaginationButtonClick}
-                totalPages={data.last_page}
+                totalPages={query.data.last_page}
               />
             </Flex>
           )}
-        </Container>
+        </ContainerNew>
       </Section>
     </>
   );

@@ -5,22 +5,16 @@ import { DataPieces } from "./_data-pieces";
 import { Box, Grid, GridItem } from "@chakra-ui/react";
 import { Section } from "@/common/components/section";
 import { Breadcrumbs } from "@/common/components/breadcrumbs";
-import { useCurrentCat } from "../../hooks/use-current-cat";
 import { ROUTES } from "@/common/constants";
 import { SponsorsList } from "./_sponsors-list";
-import { Container } from "@/common/components/container";
+import { ContainerNew } from "@/common/components/container";
+import { Cat } from "../../types";
 
-export const CatDetails: FC = () => {
-  const { data: cat, isSuccess } = useCurrentCat();
-
-  if (!isSuccess) {
-    return null;
-  }
-
+export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
   return (
     <>
       <Section spacing={{ top: "sm", bottom: "lg" }}>
-        <Container>
+        <ContainerNew>
           <Breadcrumbs
             items={[
               { text: "Muce, ki iščejo botra", href: ROUTES.CatsList },
@@ -30,7 +24,8 @@ export const CatDetails: FC = () => {
 
           <Box
             mt={{
-              base: 12,
+              base: 8,
+              sm: 12,
             }}
           >
             <PhotoGallery cat={cat} />
@@ -56,9 +51,10 @@ export const CatDetails: FC = () => {
               base: "auto",
               lg: "2fr 1fr",
             }}
-            mt={{ base: 16, lg: 16 }}
+            mt={{ base: 12, lg: 16, xl: 20, "2xl": 24 }}
+            px={{ xl: "60px", "2xl": "100px" }}
           >
-            <GridItem area="description">
+            <GridItem area="description" sx={{ overflowX: "hidden" }}>
               <Description cat={cat} />
             </GridItem>
 
@@ -66,7 +62,8 @@ export const CatDetails: FC = () => {
               {!cat.is_group && (
                 <Box
                   mb={{
-                    base: 16,
+                    base: 14,
+                    md: 16,
                     lg: 4,
                   }}
                 >
@@ -78,21 +75,14 @@ export const CatDetails: FC = () => {
             <GridItem
               area="sponsors"
               mt={{
-                base: 12,
+                base: 8,
                 lg: 0,
               }}
             >
-              <Box
-                display={{
-                  md: "inline-block",
-                  lg: "unset",
-                }}
-              >
-                <SponsorsList cat={cat} />
-              </Box>
+              <SponsorsList cat={cat} />
             </GridItem>
           </Grid>
-        </Container>
+        </ContainerNew>
       </Section>
     </>
   );

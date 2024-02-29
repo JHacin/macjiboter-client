@@ -1,24 +1,36 @@
-import { Section } from "../../components/section";
-import { Box, Button, Heading, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Image, Stack, Text } from "@chakra-ui/react";
 import { ButtonLink } from "../../components/button-link";
 import { TextLink } from "../../components/text-link";
-import { EXTERNAL_LINKS, ROUTES } from "../../constants";
-import { Container } from "../../components/container";
+import { ASSET_PATH, EXTERNAL_LINKS, ROUTES } from "../../constants";
+import { ContainerNew } from "../../components/container";
+import { LargePageTitle } from "../../components/page-title";
 
 export const HeroSection = () => {
   return (
     <Box overflow="hidden" position="relative">
-      <Container
-        position="relative"
-        pb={{ base: "140px", sm: "320px", md: "120px", lg: "140px", xl: "70px", "2xl": "70px" }}
-      >
-        <Section
-          pb={{ base: 48, sm: 28, md: 36, lg: 48 }}
-          pt={{ base: 20, sm: 28, md: 32, lg: 40, xl: 44, "2xl": 44 }}
+      <ContainerNew>
+        <Box
+          position="relative"
+          pt={{
+            base: 20,
+            sm: 28,
+            md: 32,
+            lg: 40,
+            xl: 44,
+            "2xl": 44,
+          }}
+          pb={{
+            base: "300px",
+            sm: "400px",
+            md: "300px",
+            lg: "410px",
+            xl: "220px",
+            "2xl": "160px",
+          }}
         >
           <Box position="relative">
             <Image
-              src="/img/home-hero-blob.svg"
+              src={ASSET_PATH.PublicImage("home-hero-blob.svg")}
               alt=""
               pos="absolute"
               top={{ base: "-50px", lg: "-68px" }}
@@ -27,47 +39,44 @@ export const HeroSection = () => {
             />
 
             <Box pos="relative">
-              <Heading
-                as="h1"
-                size={{ base: "3xl", lg: "4xl" }}
-                lineHeight={{ base: 1, sm: 1.1, lg: 1.1 }}
-                maxW="600px"
-              >
-                Posvoji muco na daljavo.
-              </Heading>
+              <LargePageTitle>posvoji muco na daljavo.</LargePageTitle>
               <Text
-                fontSize={{ base: "lg", lg: "xl" }}
-                mt={16}
+                fontSize={{ base: "md", sm: "lg", lg: "xl" }}
+                mt={12}
                 maxW={{ base: "540px", "2xl": "640px" }}
               >
-                Mačji boter je projekt{" "}
+                Mačji boter omogoča posvojitve muck na daljavo ter druge oblike pomoči pri oskrbi
+                nekoč brezdomnih muc, ki so našle zavetje v{" "}
                 <TextLink href={EXTERNAL_LINKS.MacjaHisa} isExternal={true} fontWeight="semibold">
-                  Mačje hiše
+                  Mačji hiši
                 </TextLink>
-                , ki omogoča posvojitve muck na daljavo in druge oblike pomoči pri oskrbi muckov, ki
-                so v naši oskrbi že dalj časa.
+                .
               </Text>
             </Box>
-            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={20}>
+            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={{ base: 12, md: 20 }}>
               <ButtonLink href={ROUTES.BecomeSponsorOverview} size="lg" w="200px">
                 Postani boter
               </ButtonLink>
-              <Button variant="subtle" size="lg" w="200px">
-                Več o programu
-              </Button>
             </Stack>
           </Box>
-        </Section>
 
-        <Image
-          src="/img/home-hero-image.png"
-          alt=""
-          pos="absolute"
-          bottom={{ base: "-40px", lg: "-65px" }}
-          right={{ base: "0px", sm: "-30px", md: "20px", lg: "30px", xl: "50px", "2xl": "50px" }}
-          w={{ base: "320px", sm: "420px", md: "460px", lg: "580px", xl: "600px", "2xl": "700px" }}
-        />
-      </Container>
+          <Image
+            src={ASSET_PATH.PublicImage("home-hero-image.png")}
+            alt=""
+            pos="absolute"
+            bottom={{ base: "-40px", lg: "-65px" }}
+            right={{ base: "0px", sm: "-30px", md: "20px", lg: "30px", xl: "50px", "2xl": "50px" }}
+            w={{
+              base: "320px",
+              sm: "420px",
+              md: "460px",
+              lg: "580px",
+              xl: "600px",
+              "2xl": "700px",
+            }}
+          />
+        </Box>
+      </ContainerNew>
     </Box>
   );
 };

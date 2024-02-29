@@ -2,7 +2,7 @@ import { ChangeEventHandler, FC } from "react";
 import { Input, Icon, InputProps, SystemStyleObject } from "@chakra-ui/react";
 import { useField } from "formik";
 import { InputGroup, InputLeftElement } from "@chakra-ui/input";
-import { IconProps } from "phosphor-react";
+import { IconProps } from "@phosphor-icons/react";
 import { FieldControl } from "./field-control";
 
 export interface TextFieldInputProps {
@@ -18,12 +18,14 @@ export interface TextFieldInputProps {
 export interface TextFieldProps {
   name: string;
   label?: string;
+  isNumeric?: boolean;
   inputProps?: TextFieldInputProps;
 }
 
 export const TextField: FC<TextFieldProps> = ({
   name,
   label,
+  isNumeric,
   inputProps: {
     type = "text",
     leftElementIcon,
@@ -44,6 +46,10 @@ export const TextField: FC<TextFieldProps> = ({
     autoComplete,
     value: value ?? field.value ?? "",
     onChange: onChangeOverride ?? field.onChange,
+    ...(isNumeric && {
+      inputMode: "numeric",
+      pattern: "[0-9]*",
+    }),
   };
 
   return (

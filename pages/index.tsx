@@ -3,6 +3,8 @@ import { dehydrate, QueryClient } from "@tanstack/react-query";
 import { QueryKey } from "@/api/types";
 import { getHomeMeta } from "@/common/util/api";
 import { Home } from "@/common/pages/home/home";
+import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
 
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
@@ -18,7 +20,12 @@ export const getStaticProps: GetStaticProps = async () => {
 };
 
 const HomePage: NextPage = () => {
-  return <Home />;
+  return (
+    <Layout>
+      <MetaTags title="" description="Posvoji muco na daljavo." />
+      <Home />
+    </Layout>
+  );
 };
 
 export default HomePage;

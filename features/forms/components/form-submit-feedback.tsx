@@ -1,7 +1,6 @@
 import { FC, ReactNode } from "react";
 import { Alert, AlertDescription, AlertIcon, AlertTitle, Flex } from "@chakra-ui/react";
 import { AlertStatus } from "@chakra-ui/alert";
-import { ContactEmailTextLink } from "@/common/components/text-link";
 
 interface FormSubmitFeedbackProps {
   status: AlertStatus;
@@ -17,31 +16,16 @@ export const FormSubmitFeedback: FC<FormSubmitFeedbackProps> = ({ status, title,
       flexDirection="column"
       alignItems="flex-start"
       p="6"
-      rounded="md"
+      rounded="sm"
     >
       <Flex alignItems="center">
-        <AlertIcon boxSize="24px" />
-        <AlertTitle fontSize="lg">{title}</AlertTitle>
+        <AlertIcon boxSize="20px" />
+        <AlertTitle>{title}</AlertTitle>
       </Flex>
 
-      <AlertDescription mt={8} lineHeight={5}>
+      <AlertDescription mt={4} lineHeight={5} fontSize="sm">
         {body}
       </AlertDescription>
     </Alert>
-  );
-};
-
-export const FormSubmitFeedbackGenericError: FC = () => {
-  return (
-    <FormSubmitFeedback
-      status="error"
-      title="Prišlo je do napake."
-      body={
-        <>
-          Vaših podatkov žal nismo prejeli. Prosimo, poskusite jih ponovno poslati. Če se napaka
-          ponovi, nam pišite na <ContactEmailTextLink />.
-        </>
-      }
-    />
   );
 };

@@ -1,14 +1,21 @@
-import { FC, PropsWithChildren } from "react";
+import { FC, PropsWithChildren, ReactNode } from "react";
 import { useField } from "formik";
-import { FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/react";
+import { Box, FormControl, FormErrorMessage, FormLabel } from "@chakra-ui/react";
 
 interface FieldControlProps extends PropsWithChildren {
   name: string;
   label?: string;
+  hint?: ReactNode;
   shouldHideError?: boolean;
 }
 
-export const FieldControl: FC<FieldControlProps> = ({ name, label, shouldHideError, children }) => {
+export const FieldControl: FC<FieldControlProps> = ({
+  name,
+  label,
+  hint,
+  shouldHideError,
+  children,
+}) => {
   const [_field, meta, _helpers] = useField(name);
   const isInvalid = shouldHideError ? false : !!meta.error && meta.touched;
 
@@ -19,6 +26,12 @@ export const FieldControl: FC<FieldControlProps> = ({ name, label, shouldHideErr
       {children}
 
       {isInvalid && <FormErrorMessage>{meta.error}</FormErrorMessage>}
+
+      {hint && (
+        <Box fontSize="xs" mt={2} color="gray.600">
+          {hint}
+        </Box>
+      )}
     </FormControl>
   );
 };

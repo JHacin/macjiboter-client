@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Heart, IconProps, Question } from "phosphor-react";
+import { Heart, IconProps, Question } from "@phosphor-icons/react";
 import { Box, HStack, Icon, Text, VStack } from "@chakra-ui/react";
 import { ContactEmailTextLink, TextLink } from "@/common/components/text-link";
 import { ROUTES } from "@/common/constants";
@@ -12,11 +12,11 @@ interface FormAsideNoteProps {
 
 const FormAsideNote: FC<FormAsideNoteProps> = ({ title, body, icon }) => {
   return (
-    <Box bg="copper.100" rounded="md" py={5} px={4} shadow="sm">
+    <Box bg="copper.100" py={5} px={4} shadow="sm" rounded="md">
       <HStack align="start" spacing={3}>
         <Icon as={icon} color="orange.500" weight="bold" boxSize={5} />
         <Box>
-          <Text fontWeight="semibold" lineHeight={1.3}>
+          <Text fontWeight="bold" lineHeight={1.3}>
             {title}
           </Text>
           <Text mt={3}>{body}</Text>

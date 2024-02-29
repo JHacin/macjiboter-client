@@ -1,33 +1,51 @@
-import { FC, Fragment, useRef } from "react";
+import { FC, ReactNode, useRef } from "react";
 import {
-  ButtonGroup,
+  Divider,
   Drawer,
   DrawerBody,
   DrawerCloseButton,
   DrawerContent,
-  DrawerFooter,
-  DrawerHeader,
   DrawerOverlay,
-  Icon,
   IconButton,
-  Image,
-  Text,
   useDisclosure,
-  VStack,
+  Icon,
+  ButtonGroup,
+  Flex,
 } from "@chakra-ui/react";
-import { Envelope, FacebookLogo, InstagramLogo, List } from "phosphor-react";
+import { CaretRight, IconProps, List } from "@phosphor-icons/react";
 import { NextLink } from "./next-link";
-import { ButtonLink } from "./button-link";
-import dayjs from "dayjs";
-import { TextLink } from "./text-link";
-import { NavLinkGroupProps } from "./header";
-import { EXTERNAL_LINKS, ROUTES } from "../constants";
+import { FOOTER_LINKS, NAV_LINK_GROUPS, SOCIAL_LINKS } from "../constants";
 
-interface MobileNavProps {
-  linkGroups: NavLinkGroupProps[];
-}
+const LinkGroupDivider = () => <Divider borderColor="blackAlpha.300" my={4} />;
 
-export const MobileNav: FC<MobileNavProps> = ({ linkGroups }) => {
+const MobileNavLink: FC<{
+  href: string;
+  onClick: () => void;
+  variant?: "primary" | "secondary";
+  icon?: FC<IconProps>;
+  children: ReactNode;
+}> = ({ href, onClick, variant = "primary", icon, children }) => {
+  return (
+    <Flex
+      as={NextLink}
+      href={href}
+      alignItems="center"
+      justifyContent="space-between"
+      height="44px"
+      _hover={{ textDecoration: "underline" }}
+      onClick={onClick}
+    >
+      <Flex alignItems="center" gap={3}>
+        {icon && <Icon as={icon} boxSize={5} />}
+        {children}
+      </Flex>
+
+      {variant === "primary" && <Icon as={CaretRight} weight="bold" />}
+    </Flex>
+  );
+};
+
+export const MobileNav: FC = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement>(null);
 
@@ -43,90 +61,45 @@ export const MobileNav: FC<MobileNavProps> = ({ linkGroups }) => {
         ref={btnRef}
         onClick={onOpen}
       />
-      <Drawer isOpen={isOpen} placement="left" onClose={onClose} finalFocusRef={btnRef} size="md">
+      <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef} size="sm">
         <DrawerOverlay />
         <DrawerContent>
           <DrawerCloseButton size="lg" />
-          <DrawerHeader>
-            <NextLink href={ROUTES.Home}>
-              <Image src="/img/logo-text.svg" alt="Mačji boter" w="150px" />
-            </NextLink>
-          </DrawerHeader>
-          <DrawerBody pt={6}>
-            <VStack spacing={6}>
-              {linkGroups.map((group) => {
-                if (group.links) {
-                  return (
-                    <Fragment key={group.label}>
-                      {group.links.map((link) => (
-                        <ButtonLink
-                          key={link.label}
-                          leftIcon={<Icon as={link.icon} w={6} h={6} color="gray.700" />}
-                          href={link.href}
-                          variant="link"
-                          size="lg"
-                          colorScheme=""
-                        >
-                          {link.label}
-                        </ButtonLink>
-                      ))}
-                    </Fragment>
-                  );
-                }
-
-                return (
-                  <ButtonLink
-                    key={group.label}
-                    leftIcon={<Icon as={group.icon} w={6} h={6} color="gray.700" />}
-                    href={group.href}
-                    variant="link"
-                    size="lg"
-                    colorScheme=""
-                  >
-                    {group.label}
-                  </ButtonLink>
-                );
-              })}
-            </VStack>
-            <ButtonLink href={ROUTES.BecomeSponsorOverview} size="lg" mt={8}>
-              Postani boter
-            </ButtonLink>
+          <DrawerBody pt={10} bgColor="copper.50">
+            <LinkGroupDivider />
+            {NAV_LINK_GROUPS.map((group) =>
+              (group.links ?? [group]).map((link) => (
+                <MobileNavLink key={link.label} href={link.href} onClick={onClose} icon={link.icon}>
+                  {link.label}
+                </MobileNavLink>
+              ))
+            )}
+            <LinkGroupDivider />
+            {FOOTER_LINKS.map((link) => (
+              <MobileNavLink
+                key={link.label}
+                href={link.href}
+                onClick={onClose}
+                variant="secondary"
+              >
+                {link.label}
+              </MobileNavLink>
+            ))}
+            <LinkGroupDivider />
+            <ButtonGroup variant="ghost" alignItems="center" spacing={3} mt={3}>
+              {SOCIAL_LINKS.map((link) => (
+                <IconButton
+                  key={link.label}
+                  aria-label={link.label}
+                  as="a"
+                  href={link.href}
+                  color="orange.600"
+                  icon={<link.icon size={24} />}
+                  bgColor="orange.100"
+                />
+              ))}
+            </ButtonGroup>
           </DrawerBody>
-          <DrawerFooter justifyContent="center" bg="gray.100">
-            <VStack align="center" spacing={2}>
-              <ButtonGroup variant="ghost">
-                <IconButton
-                  aria-label="Email"
-                  as="a"
-                  href={`mailto:${EXTERNAL_LINKS.ContactEmail}`}
-                  color="orange.600"
-                  icon={<Envelope size={22} />}
-                />
-                <IconButton
-                  colorScheme="gray"
-                  aria-label="Facebook"
-                  as="a"
-                  href={EXTERNAL_LINKS.FacebookPage}
-                  color="orange.600"
-                  icon={<FacebookLogo size={22} />}
-                />
-                <IconButton
-                  colorScheme="gray"
-                  aria-label="Twitter"
-                  as="a"
-                  href={EXTERNAL_LINKS.InstagramPage}
-                  color="orange.600"
-                  icon={<InstagramLogo size={22} />}
-                />
-              </ButtonGroup>
-              <Text fontSize="sm" color="gray.700">
-                Zavod Mačja hiša © {dayjs().get("year")} Mačji boter
-              </Text>
-              <TextLink href="/zasebnost" fontSize="sm">
-                Zasebnost
-              </TextLink>
-            </VStack>
-          </DrawerFooter>
         </DrawerContent>
       </Drawer>
     </>

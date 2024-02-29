@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 export interface PersonData {
   id: number;
   email: string;
@@ -24,4 +26,25 @@ export interface NewsPiece {
   body: string;
   created_at: string | null;
   updated_at: string | null;
+}
+
+export interface PaginatedListQueryParams {
+  page: string;
+  search?: string;
+  sort?: string;
+  per_page?: string;
+}
+
+export interface NavLinkGroupChildLink {
+  label: string;
+  href: string;
+  icon?: FC;
+  description: string;
+}
+
+export interface NavLinkGroupProps {
+  label: string;
+  href: string;
+  icon?: FC;
+  links?: NavLinkGroupChildLink[];
 }

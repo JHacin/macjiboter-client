@@ -1,13 +1,6 @@
 import { FC, useState } from "react";
 import { MultiStepForm } from "@/forms/components/multi-step-form";
-import {
-  gifteeDefaultValues,
-  gifteeStepValidation,
-  payerDefaultValues,
-  payerStepValidation,
-  PersonFormStep,
-} from "@/forms/components/person-form-step";
-import { useCurrentCat } from "@/cats/hooks/use-current-cat";
+import { payerDefaultValues, payerStepValidation, PayerStep } from "@/forms/components/payer-step";
 import { apiPost } from "@/api/util";
 import { CatFormValues } from "../../types";
 import { ParamsStep } from "./_params-step";
@@ -15,25 +8,26 @@ import { catFormValidation } from "../../constants";
 import { ROUTES } from "@/common/constants";
 import { SummaryStep } from "@/forms/components/summary-step";
 import { FormPageContent } from "@/forms/components/form-page-content";
+import {
+  gifteeStepValidation,
+  gifteeDefaultValues,
+  GifteeStep,
+} from "@/forms/components/giftee-step";
+import { Cat } from "@/cats/types";
 
 const initialValues: CatFormValues = {
   is_gift: false,
   wants_direct_debit: false,
   is_anonymous: false,
-  monthly_amount: 5,
+  monthly_amount: 10,
   requested_duration: null,
   ...payerDefaultValues,
   ...gifteeDefaultValues,
   is_agreed_to_terms: false,
 };
 
-export const CatForm: FC = () => {
-  const { data: cat, isSuccess } = useCurrentCat();
+export const CatForm: FC<{ cat: Cat }> = ({ cat }) => {
   const [values, setValues] = useState(initialValues);
-
-  if (!isSuccess) {
-    return null;
-  }
 
   const steps = [
     {
@@ -44,12 +38,12 @@ export const CatForm: FC = () => {
     {
       name: "Vaši podatki",
       validationSchema: payerStepValidation,
-      component: <PersonFormStep personType="payer" />,
+      component: <PayerStep />,
     },
     {
-      name: "Podatki obdarovanca",
+      name: "Darilo",
       validationSchema: gifteeStepValidation,
-      component: <PersonFormStep personType="giftee" />,
+      component: <GifteeStep />,
       isHidden: !values.is_gift,
     },
     {

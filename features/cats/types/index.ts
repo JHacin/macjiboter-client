@@ -6,6 +6,7 @@ export enum CatGender {
 }
 
 export enum CatStatus {
+  // noinspection JSUnusedGlobalSymbols
   SeekingSponsors = 1,
   TempNotSeekingSponsors = 2,
   NotSeekingSponsors = 3,
@@ -18,10 +19,8 @@ export interface Cat {
   name: string;
   gender: CatGender | null;
   status: CatStatus;
-  story_short: string;
   story: string | null;
   date_of_arrival_mh: string | null;
-  date_of_arrival_boter: string | null;
   date_of_birth: string | null;
   is_group: boolean;
   created_at: string | null;

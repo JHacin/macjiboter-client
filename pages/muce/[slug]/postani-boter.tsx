@@ -1,28 +1,70 @@
-import { GetServerSideProps, NextPage } from "next";
-import { dehydrate, DehydratedState, QueryClient } from "@tanstack/react-query";
 import { CatForm } from "@/cat-sponsorship/pages/cat-form/cat-form";
-import { QueryKey } from "@/api/types";
-import { getCat } from "@/cats/util/api";
+import { useCurrentCat } from "@/cats/hooks/use-current-cat";
+import { getFirstPhotoOrFallback } from "@/cats/util/photos";
+import { Container } from "@/common/components/container";
+import { Layout } from "@/common/components/layout";
+import { MetaTags } from "@/common/components/meta-tags";
+import { Section } from "@/common/components/section";
+import { Alert, AlertDescription, AlertIcon, AlertTitle, Box, Spinner } from "@chakra-ui/react";
 
-export const getServerSideProps: GetServerSideProps<
-  { dehydratedState: DehydratedState },
-  { slug: string }
-> = async (context) => {
-  const queryClient = new QueryClient();
+export default function CatSponsorshipFormPage() {
+  const { data: cat, isLoading, isError } = useCurrentCat();
 
-  const slug = context.query.slug as string;
+  if (isLoading) {
+    return (
+      <Layout>
+        <Section spacing={{ top: "sm", bottom: "lg" }}>
+          <Container>
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                py: 24,
+              }}
+            >
+              <Spinner
+                thickness="4px"
+                speed="0.8s"
+                emptyColor="gray.200"
+                color="orange.500"
+                size="xl"
+              />
+            </Box>
+          </Container>
+        </Section>
+      </Layout>
+    );
+  }
 
-  await queryClient.prefetchQuery([QueryKey.Cat, slug], () => getCat(slug));
+  if (isError) {
+    return (
+      <Layout>
+        <Section spacing={{ top: "sm", bottom: "lg" }}>
+          <Container>
+            <Alert status="error" maxWidth="650px">
+              <AlertIcon />
+              <AlertTitle>Prišlo je do napake.</AlertTitle>
+              <AlertDescription>Prosimo, poskusite znova.</AlertDescription>
+            </Alert>
+          </Container>
+        </Section>
+      </Layout>
+    );
+  }
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    },
-  };
-};
-
-const CatSponsorshipFormPage: NextPage = () => {
-  return <CatForm />;
-};
-
-export default CatSponsorshipFormPage;
+  return (
+    <Layout>
+      <MetaTags
+        title={`${cat.name} - Dogovor o posvojitvi na daljavo`}
+        description="Z vašo pomočjo lahko mucam omogočimo varno in zadovoljno življenje."
+        isIndexable={false}
+        image={{
+          isExternal: true,
+          path: getFirstPhotoOrFallback(cat),
+        }}
+      />
+      <CatForm cat={cat} />
+    </Layout>
+  );
+}

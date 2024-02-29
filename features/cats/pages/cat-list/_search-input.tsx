@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Input, InputGroup, InputLeftElement, InputRightElement } from "@chakra-ui/input";
 import { CloseButton, FormControl, FormLabel, Icon } from "@chakra-ui/react";
-import { MagnifyingGlass } from "phosphor-react";
+import { MagnifyingGlass } from "@phosphor-icons/react";
 
 interface CatListSearchProps {
   value: string;
@@ -11,7 +11,7 @@ interface CatListSearchProps {
 export const SearchInput: FC<CatListSearchProps> = ({ value, setValue }) => {
   return (
     <FormControl>
-      <FormLabel>Išči po imenu</FormLabel>
+      <FormLabel>Iskanje po imenu</FormLabel>
       <InputGroup>
         <InputLeftElement>
           <Icon as={MagnifyingGlass} weight="bold" color="gray.400" />
