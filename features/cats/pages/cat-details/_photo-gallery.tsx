@@ -1,5 +1,5 @@
 import { FC, MutableRefObject, useEffect, useMemo, useState } from "react";
-import { Box, Icon, Image, ImageProps } from "@chakra-ui/react";
+import { Box, Icon, Image, ImageProps, SystemStyleObject } from "@chakra-ui/react";
 import { Gallery, GalleryProps, Item } from "react-photoswipe-gallery";
 import { DataSourceArray } from "photoswipe";
 import { Cat, CatPhoto } from "../../types";
@@ -82,10 +82,11 @@ const uiElements: GalleryProps["uiElements"] = [
   },
 ];
 
-const CustomSwiperNavButton: FC<{ className: string; icon: FC<IconProps> }> = ({
-  className,
-  icon,
-}) => {
+const CustomSwiperNavButton: FC<{
+  className: string;
+  icon: FC<IconProps>;
+  sx: SystemStyleObject;
+}> = ({ className, icon, sx }) => {
   return (
     <Box
       className={className}
@@ -103,6 +104,7 @@ const CustomSwiperNavButton: FC<{ className: string; icon: FC<IconProps> }> = ({
         "&:hover": {
           backgroundColor: "orange.600",
         },
+        ...sx,
       }}
     >
       <Icon as={icon} weight="bold" color="white" boxSize={5} />
@@ -150,9 +152,16 @@ const SlideshowPhoto: FC<{ photo: CatPhoto; alt: string }> = ({ photo, alt }) =>
 };
 
 export const PhotoGallery: FC<{ cat: Cat }> = ({ cat }) => {
-  if (cat.photos.length === 0) {
-    return null;
-  }
+  // Hide the navigation buttons if there is no overflow of images based on breakpoint.
+  const navButtonStyles = {
+    display: cat.photos.length > 1 ? "flex" : "none",
+    "@media screen and (min-width: 768px)": {
+      display: cat.photos.length > 2 ? "flex" : "none",
+    },
+    "@media screen and (min-width: 992px)": {
+      display: cat.photos.length > 3 ? "flex" : "none",
+    },
+  };
 
   return (
     <Gallery withDownloadButton={true} uiElements={uiElements}>
@@ -187,8 +196,16 @@ export const PhotoGallery: FC<{ cat: Cat }> = ({ cat }) => {
           ))}
         </Swiper>
 
-        <CustomSwiperNavButton className="swiper-button-prev" icon={CaretLeft} />
-        <CustomSwiperNavButton className="swiper-button-next" icon={CaretRight} />
+        <CustomSwiperNavButton
+          className="swiper-button-prev"
+          icon={CaretLeft}
+          sx={navButtonStyles}
+        />
+        <CustomSwiperNavButton
+          className="swiper-button-next"
+          icon={CaretRight}
+          sx={navButtonStyles}
+        />
       </Box>
     </Gallery>
   );
