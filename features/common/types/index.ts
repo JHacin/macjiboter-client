@@ -48,3 +48,8 @@ export interface NavLinkGroupProps {
   icon?: FC;
   links?: NavLinkGroupChildLink[];
 }
+
+export interface SponsorListViewData {
+  anonymousCount: number;
+  identifiedSponsors: Pick<PersonData, "id" | "first_name" | "city">[];
+}

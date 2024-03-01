@@ -21,4 +21,5 @@ export enum QueryKey {
   PersonData = "personData",
   News = "news",
   RecentSpecialSponsorships = "recentSpecialSponsorships",
+  CatSponsors = "catSponsors",
 }

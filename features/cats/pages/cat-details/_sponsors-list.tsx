@@ -1,46 +1,47 @@
-import { FC } from "react";
-import { Box, Flex, Heading, Icon, Text, VStack } from "@chakra-ui/react";
-import { SponsorDetailsWithQuery } from "@/common/components/sponsor-details";
+import { Box, Flex, Heading, Icon, Skeleton, Text, VStack } from "@chakra-ui/react";
+import { SponsorDetails } from "@/common/components/sponsor-details";
 import { Cat } from "../../types";
 import { Users } from "@phosphor-icons/react";
+import { useQuery } from "@tanstack/react-query";
+import { QueryKey } from "@/api/types";
+import { getCatSponsors } from "../../util/api";
 
-interface CatDetailsSponsorsProps {
-  cat: Cat;
-}
-
-export const SponsorsList: FC<CatDetailsSponsorsProps> = ({ cat: { sponsorships, is_group } }) => {
-  const identifiableSponsorIds = sponsorships
-    .filter((sponsorship) => !sponsorship.is_anonymous && sponsorship.sponsor_id)
-    .map((sponsorship) => sponsorship.sponsor_id as number);
-
-  const anonymousSponsorsCount = sponsorships.filter(
-    (sponsorship) => sponsorship.is_anonymous
-  ).length;
+export function SponsorsList({ cat }: { cat: Cat }) {
+  const { data, isSuccess } = useQuery([QueryKey.CatSponsors, cat.id], () =>
+    getCatSponsors(cat.id)
+  );
 
   return (
     <Box bgColor="purple.100" px={{ base: 6, sm: 8, lg: 6 }} py={5} shadow="sm" rounded="md">
       <Flex alignItems="center" gap={3}>
         <Icon as={Users} boxSize={6} weight="bold" />
         <Heading as="h3" size="md">
-          {is_group ? "Naši botri" : "Moji botri"}
+          {cat.is_group ? "Naši botri" : "Moji botri"}
         </Heading>
       </Flex>
 
       <Box mt={5}>
-        {sponsorships.length === 0 && <Text>Muca še nima botrov.</Text>}
+        {cat.sponsorships_count === 0 && <Text>Muca še nima botrov.</Text>}
 
-        {sponsorships.length > 0 && (
+        {cat.sponsorships_count > 0 && (
           <VStack spacing={3}>
-            {identifiableSponsorIds.map((id) => (
-              <SponsorDetailsWithQuery key={id} id={id} />
-            ))}
+            {!isSuccess &&
+              [1, 2, 3, 4, 5].map((i) => <Skeleton key={i} height="30px" width="110px" />)}
 
-            {anonymousSponsorsCount > 0 && (
-              <Text fontStyle="italic">Anonimnih botrov: {anonymousSponsorsCount}</Text>
+            {isSuccess && (
+              <>
+                {data.identifiedSponsors.map((sponsor) => (
+                  <SponsorDetails key={sponsor.id} {...sponsor} />
+                ))}
+
+                {data.anonymousCount > 0 && (
+                  <Text fontStyle="italic">Anonimnih botrov: {data.anonymousCount}</Text>
+                )}
+              </>
             )}
           </VStack>
         )}
       </Box>
     </Box>
   );
-};
+}

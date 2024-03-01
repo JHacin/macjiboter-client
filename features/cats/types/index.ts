@@ -1,5 +1,3 @@
-import { Sponsorship } from "@/cat-sponsorship/types";
-
 export enum CatGender {
   Male = 1,
   Female = 2,
@@ -27,7 +25,6 @@ export interface Cat {
   updated_at: string | null;
   slug: string;
   photos: CatPhoto[];
-  sponsorships: Sponsorship[];
   sponsorships_count: number;
 }
 
