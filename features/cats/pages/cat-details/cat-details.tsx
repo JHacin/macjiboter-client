@@ -22,14 +22,16 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
             ]}
           />
 
-          <Box
-            mt={{
-              base: 8,
-              sm: 12,
-            }}
-          >
-            <PhotoGallery cat={cat} />
-          </Box>
+          {cat.photos.length > 0 && (
+            <Box
+              mt={{
+                base: 8,
+                sm: 12,
+              }}
+            >
+              <PhotoGallery cat={cat} />
+            </Box>
+          )}
 
           <Grid
             templateAreas={{
