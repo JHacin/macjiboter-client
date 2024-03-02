@@ -19,11 +19,6 @@ import { pluralize } from "../../util/pluralize";
 const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
   const theme = useTheme();
 
-  const timeSinceArrivalToShelter = humanReadableDateDifference(
-    dayjs(cat.date_of_arrival_mh),
-    dayjs()
-  );
-
   // Hide the fourth cat between the two breakpoints where we only want to show three (so it looks nicer).
   const styles = {
     [`@media (min-width:${theme.breakpoints.md}) and (max-width:${theme.breakpoints["lg"]})`]: {
@@ -47,17 +42,19 @@ const CatGridItem: FC<{ cat: Cat }> = ({ cat }) => {
               gap: 1,
             }}
           >
-            <Stack
-              direction="row"
-              alignItems="center"
-              spacing={{ base: 1.5, md: 2.5 }}
-              display={{ base: "none", xl: "flex" }}
-            >
-              <Icon as={Calendar} boxSize={{ base: 4, xl: 5 }} color="gray.600" />
-              <Text noOfLines={1} color="gray.700" fontSize={{ base: "sm", xl: "md" }}>
-                {timeSinceArrivalToShelter} v Mačji hiši
-              </Text>
-            </Stack>
+            {cat.date_of_arrival_mh && (
+              <Stack
+                direction="row"
+                alignItems="center"
+                spacing={{ base: 1.5, md: 2.5 }}
+                display={{ base: "none", xl: "flex" }}
+              >
+                <Icon as={Calendar} boxSize={{ base: 4, xl: 5 }} color="gray.600" />
+                <Text noOfLines={1} color="gray.700" fontSize={{ base: "sm", xl: "md" }}>
+                  {humanReadableDateDifference(dayjs(cat.date_of_arrival_mh), dayjs())} v Mačji hiši
+                </Text>
+              </Stack>
+            )}
             <Stack direction="row" alignItems="center" spacing={{ base: 1.5, md: 2.5 }}>
               <Icon as={Users} boxSize={{ base: 4, xl: 5 }} color="gray.600" />
               <Text mt={1} color="gray.700" fontSize={{ base: "sm", xl: "md" }}>
