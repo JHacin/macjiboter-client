@@ -18,7 +18,7 @@ import { PageHeaderFilled } from "../../components/page-header-filled";
 
 const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
   return (
-    <Box borderBottom="1px" borderColor="gray.300" py={8}>
+    <Box borderBottom="1px" borderColor="gray.300">
       <Text color="gray.500" fontSize="sm">
         {dateFormat(created_at, "default")}
       </Text>
@@ -27,7 +27,7 @@ const NewsPiece: FC<NewsPiece> = ({ title, body, created_at }) => {
           {title}
         </Heading>
       )}
-      <Box mt={{ base: 4, md: 8 }}>
+      <Box mt={6} mb={{ base: 10, lg: 12 }}>
         <CmsContent content={body} />
       </Box>
     </Box>
@@ -59,7 +59,7 @@ export const News: FC = () => {
 
       <Section ref={gridWrapperRef}>
         <ContainerNew indent={1}>
-          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={16}>
+          <SimpleGrid columns={{ base: 1, lg: 2 }} spacingX={16} spacingY={{ base: 10, lg: 12 }}>
             {!query.isError && (
               <>
                 {query.isSuccess &&
