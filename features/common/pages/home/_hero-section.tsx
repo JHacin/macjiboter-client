@@ -20,15 +20,13 @@ export const HeroSection = () => {
             "2xl": 44,
           }}
           pb={{
-            base: "300px",
-            sm: "400px",
-            md: "300px",
-            lg: "410px",
-            xl: "220px",
-            "2xl": "160px",
+            md: "380px",
+            lg: "530px",
+            xl: "340px",
+            "2xl": "220px",
           }}
         >
-          <Box position="relative">
+          <Box position="relative" zIndex={1}>
             <Image
               src={ASSET_PATH.PublicImage("home-hero-blob.svg")}
               alt=""
@@ -61,19 +59,23 @@ export const HeroSection = () => {
           </Box>
 
           <Image
-            src={ASSET_PATH.PublicImage("home-hero-image.png")}
+            src={ASSET_PATH.PublicImage("home-hero-img.jpg")}
             alt=""
-            pos="absolute"
-            bottom={{ base: "-40px", lg: "-65px" }}
-            right={{ base: "0px", sm: "-30px", md: "20px", lg: "30px", xl: "50px", "2xl": "50px" }}
+            pos={{ base: "relative", md: "absolute" }}
+            bottom={{ md: "20px" }}
+            right={{ md: "50px", lg: "70px", xl: "50px", "2xl": "80px" }}
             w={{
-              base: "320px",
-              sm: "420px",
-              md: "460px",
-              lg: "580px",
-              xl: "600px",
-              "2xl": "700px",
+              base: "100%",
+              md: "420px",
+              lg: "520px",
+              xl: "560px",
+              "2xl": "670px",
             }}
+            pb={{
+              base: "20px",
+              md: 0,
+            }}
+            zIndex={0}
           />
         </Box>
       </ContainerNew>
