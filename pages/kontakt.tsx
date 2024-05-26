@@ -35,7 +35,7 @@ const ContactPage: NextPage = () => {
                   gap={2}
                 >
                   <Icon as={MapPin} flexShrink={0} display={{ base: "none", sm: "block" }} />
-                  <span>Kulturniška ulica 35, 3000 Celje</span>
+                  <span>Groharjeva ulica 8, 3000 Celje</span>
                 </Text>
                 <Text>
                   <u>Matična številka</u>: 3636569000

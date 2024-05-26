@@ -28,7 +28,7 @@ const PrivacyPage: NextPage = () => {
                 </Heading>
                 <Text>
                   Spletno stran www.macjiboter.si (v nadaljevanju: spletno mesto) upravlja Zavod
-                  Mačja hiša, Kulturniška ulica 35, 3000 Celje. Osebni podatki uporabnikov se
+                  Mačja hiša, Groharjeva ulica 8, 3000 Celje. Osebni podatki uporabnikov se
                   obdelujejo v mejah, ki jih določajo predpisi s področja varstva osebnih podatkov
                   oziroma izražena volja s strani posameznikov ali organizacij, ki uporabljajo
                   spletno mesto.
@@ -63,7 +63,7 @@ const PrivacyPage: NextPage = () => {
                   izpolniti.
                 </Text>
                 <Text>
-                  Zavod Mačja hiša, Kulturniška ulica 35, 3000 Celje, vaše osebne podatke preko
+                  Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje, vaše osebne podatke preko
                   spletne strani shranjuje in obdeluje v naslednjih primerih:
                 </Text>
                 <Text fontWeight="bold" pt={6} pb={2} fontSize="xl">
@@ -83,7 +83,7 @@ const PrivacyPage: NextPage = () => {
                   Kategorije osebnih podatkov in nameni:
                 </Text>
                 <Text>
-                  Zavod Mačja hiša, Kulturniška ulica 35, 3000 Celje, za namen komunikacije vodi
+                  Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje, za namen komunikacije vodi
                   naslednje kategorije osebnih podatkov:
                 </Text>
                 <VStack>
@@ -163,8 +163,8 @@ const PrivacyPage: NextPage = () => {
                   Kategorije osebnih podatkov in nameni:
                 </Text>
                 <Text>
-                  Zavod Mačja hiša, Kulturniška ulica 35, 3000 Celje v zbirki vodi za namen
-                  pošiljanja novic naslednje kategorije osebnih podatkov:
+                  Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje v zbirki vodi za namen pošiljanja
+                  novic naslednje kategorije osebnih podatkov:
                 </Text>
                 <VStack>
                   <Text>1. ime,</Text>
@@ -229,7 +229,7 @@ const PrivacyPage: NextPage = () => {
                   Kategorije osebnih podatkov in nameni:
                 </Text>
                 <Text>
-                  Zavod Mačja hiša, Kulturniška ulica 35, 3000 Celje v zbirki vodi za namen prodaje
+                  Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje v zbirki vodi za namen prodaje
                   izdelkov in nudenja storitev naslednje kategorije osebnih podatkov:
                 </Text>
                 <VStack>

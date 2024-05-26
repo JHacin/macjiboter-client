@@ -151,7 +151,7 @@ export const FAQ_ITEMS: FAQItemProps[] = [
           posvojitvi.
         </Text>
         <Text fontSize="sm">
-          <u>IBAN</u>: SI56 6100 0000 2600 529 (Zavod Mačja hiša, Kulturniška ulica 35, 3000 Celje)
+          <u>IBAN</u>: SI56 6100 0000 2600 529 (Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje)
           <br />
           <u>BIC</u>: HDELSI22
           <br />

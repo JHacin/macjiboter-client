@@ -85,7 +85,7 @@ export default function TermsPage() {
                 </Text>
                 <VStack>
                   <Text>ZAVOD MAČJA HIŠA, zavod za oskrbo mačk in osveščanje</Text>
-                  <Text>Kulturniška ulica 35</Text>
+                  <Text>Groharjeva ulica 8</Text>
                   <Text>3000 Celje</Text>
                 </VStack>
 
