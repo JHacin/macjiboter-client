@@ -1,5 +1,5 @@
 import { ReactNode } from "react";
-import { ListItem, OrderedList, Text } from "@chakra-ui/react";
+import { ListItem, OrderedList, Text, VStack } from "@chakra-ui/react";
 import { EXTERNAL_LINKS, ROUTES } from "../../constants";
 import { ContactEmailTextLink, TextLink } from "../../components/text-link";
 
@@ -150,17 +150,60 @@ export const FAQ_ITEMS: FAQItemProps[] = [
           Vse podatke za nakazilo boste prejeli na vaš elektronski naslov po izpolnitvi Dogovora o
           posvojitvi.
         </Text>
-        <Text fontSize="sm">
-          <u>IBAN</u>: SI56 6100 0000 2600 529 (Zavod Mačja hiša, Groharjeva ulica 8, 3000 Celje)
-          <br />
-          <u>BIC</u>: HDELSI22
-          <br />
-          <u>KODA NAMENA</u>: CHAR
-          <br />
-          <u>NAMEN</u>: BOTER &quot;IME MAČKA&quot
-          <br />
-          <u>REFERENCA</u>: SI00 + referenčna številka, ki jo prejmete v potrditvenem sporočilu
-        </Text>
+        <VStack
+          backgroundColor="blackAlpha.50"
+          padding={{ base: "1rem", md: "1.5rem" }}
+          spacing={3}
+          rounded="sm"
+        >
+          <VStack spacing={0}>
+            <Text fontWeight="bold" fontSize="sm">
+              Prejemnik
+            </Text>
+            <Text>
+              Zavod Mačja hiša
+              <br />
+              Groharjeva ulica 8, 3000 Celje
+            </Text>
+          </VStack>
+          <VStack spacing={0}>
+            <Text fontWeight="bold" fontSize="sm">
+              IBAN
+            </Text>
+            <Text>SI56 6100 0000 2600 529</Text>
+          </VStack>
+
+          <VStack spacing={0.5}>
+            <Text fontWeight="bold" fontSize="sm">
+              Podatki o banki (za nakazila iz tujine)
+            </Text>
+            <Text>
+              Delavska hranilnica
+              <br />
+              Miklošičeva 5, 1000 Ljubljana
+              <br />
+              BIC: HDELSI22
+            </Text>
+          </VStack>
+          <VStack spacing={0.5}>
+            <Text fontWeight="bold" fontSize="sm">
+              Koda namena
+            </Text>
+            <Text>CHAR</Text>
+          </VStack>
+          <VStack spacing={0.5}>
+            <Text fontWeight="bold" fontSize="sm">
+              Namen
+            </Text>
+            <Text>BOTER + &quot;IME MAČKA&quot; (npr. BOTER GARFIELD)</Text>
+          </VStack>
+          <VStack spacing={0.5}>
+            <Text fontWeight="bold" fontSize="sm">
+              Referenca
+            </Text>
+            <Text>SI00 + referenčna številka, ki jo prejmete v potrditvenem sporočilu.</Text>
+          </VStack>
+        </VStack>
       </>
     ),
   },
