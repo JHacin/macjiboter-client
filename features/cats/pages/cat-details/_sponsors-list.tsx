@@ -12,7 +12,7 @@ export function SponsorsList({ cat }: { cat: Cat }) {
   );
 
   return (
-    <Box bgColor="purple.100" px={{ base: 6, sm: 8, lg: 6 }} py={5} shadow="sm" rounded="md">
+    <Box bgColor="blackAlpha.100" px={{ base: 6, sm: 8, lg: 6 }} py={5} shadow="sm" rounded="md">
       <Flex alignItems="center" gap={3}>
         <Icon as={Users} boxSize={6} weight="bold" />
         <Heading as="h3" size="md">
@@ -24,7 +24,7 @@ export function SponsorsList({ cat }: { cat: Cat }) {
         {cat.sponsorships_count === 0 && <Text>Muca še nima botrov.</Text>}
 
         {cat.sponsorships_count > 0 && (
-          <VStack spacing={3}>
+          <VStack spacing={2} fontSize="md">
             {!isSuccess &&
               [1, 2, 3, 4, 5].map((i) => <Skeleton key={i} height="30px" width="110px" />)}
 

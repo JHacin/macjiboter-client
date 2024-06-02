@@ -9,6 +9,7 @@ import { ROUTES } from "@/common/constants";
 import { SponsorsList } from "./_sponsors-list";
 import { ContainerNew } from "@/common/components/container";
 import { Cat } from "../../types";
+import { CatFormCta } from "./_cat-form-cta";
 
 export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
   return (
@@ -77,7 +78,7 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
             <GridItem
               area="sponsors"
               mt={{
-                base: 8,
+                base: 4,
                 lg: 0,
               }}
             >
@@ -85,6 +86,9 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
             </GridItem>
           </Grid>
         </ContainerNew>
+        <Box position="sticky" bottom="0" mt={{ base: 8 }}>
+          <CatFormCta cat={cat} />
+        </Box>
       </Section>
     </>
   );
