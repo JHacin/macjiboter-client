@@ -1,4 +1,4 @@
-import { NewsPiece, PaginatedListQueryParams, PersonData } from "../types";
+import { NewsPiece, PaginatedListQueryParams, PersonData, SponsorshipWallpaper } from "../types";
 import { Cat } from "@/cats/types";
 import { apiGet } from "@/api/util";
 import { objectToQueryString } from "./misc";
@@ -19,4 +19,10 @@ export const getNews = async (
 ): Promise<PaginatedModelApiResponse<NewsPiece>> => {
   const query = objectToQueryString(queryParams);
   return await apiGet(`news${query}`);
+};
+
+export const getSponsorshipWallpapers = async (): Promise<{
+  data: SponsorshipWallpaper[];
+}> => {
+  return await apiGet("sponsorship-wallpapers");
 };

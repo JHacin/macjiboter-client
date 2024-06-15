@@ -18,6 +18,10 @@ export const apiGet = async (url: string) => {
   return (await apiClient.get(url)).data;
 };
 
+export const apiDownload = async (url: string) => {
+  return await apiClient.get(url, { responseType: "blob" });
+};
+
 export const apiPost = async (url: string, body: any) => {
   await getCsrfCookie();
 

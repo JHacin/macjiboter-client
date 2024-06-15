@@ -28,6 +28,14 @@ export interface NewsPiece {
   updated_at: string | null;
 }
 
+export type SponsorshipWallpaper = {
+  id: number;
+  month_and_year: string;
+  file_path: string;
+  created_at: string | null;
+  updated_at: string | null;
+};
+
 export interface PaginatedListQueryParams {
   page: string;
   search?: string;
