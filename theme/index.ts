@@ -219,6 +219,10 @@ export const theme = extendTheme(
       p: {
         fontSize: "inherit",
         lineHeight: 1.5,
+
+        "&:empty": {
+          display: "none",
+        },
       },
       li: {
         my: 2,
