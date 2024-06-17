@@ -14,7 +14,10 @@ export function CatFormCta({ cat }: { cat: Cat }) {
 
     return (
       <LinkBox>
-        <CtaContainer _hover={{ backgroundColor: "copper.300" }} transition="all 0.25s ease-in-out">
+        <CtaContainer
+          _hover={{ md: { backgroundColor: "copper.300" } }}
+          transition="all 0.25s ease-in-out"
+        >
           <>
             <Show above="md">
               <Box display="flex" rowGap="0.5rem" columnGap="1rem" flexWrap="wrap">
@@ -46,16 +49,20 @@ export function CatFormCta({ cat }: { cat: Cat }) {
                 width="100%"
               >
                 <LinkOverlay href={href}>
-                  <Heading as="h3" size="sm" fontWeight="extrabold">
+                  <Heading as="h3" size="sm" fontWeight="bold" color="white">
                     {title}
                   </Heading>
                 </LinkOverlay>
                 <IconButtonLink
                   href={href}
-                  icon={<Icon as={ArrowRight} weight="bold" fontSize="lg" />}
+                  icon={<Icon as={ArrowRight} weight="bold" fontSize="lg" color="orange.500" />}
                   aria-label={buttonLabel}
                   isRound={true}
                   size="sm"
+                  backgroundColor="white"
+                  _hover={{
+                    backgroundColor: "white",
+                  }}
                 />
               </Box>
             </Show>
@@ -77,7 +84,14 @@ export function CatFormCta({ cat }: { cat: Cat }) {
 
 function CtaContainer({ children, ...boxProps }: BoxProps & { children: ReactNode }) {
   return (
-    <Box {...boxProps} backgroundColor="copper.200" py={{ base: "1rem", md: "1.5rem" }}>
+    <Box
+      {...boxProps}
+      backgroundColor={{
+        base: "orange.500",
+        md: "copper.200",
+      }}
+      py={{ base: "1rem", md: "1.5rem" }}
+    >
       <ContainerNew>
         <Box
           display="flex"
