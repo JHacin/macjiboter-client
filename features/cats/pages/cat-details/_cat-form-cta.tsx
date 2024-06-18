@@ -31,7 +31,7 @@ export function CatFormCta({ cat }: { cat: Cat }) {
                   <Text as="span" fontStyle="italic">
                     Dogovor o posvojitvi na daljavo
                   </Text>{" "}
-                  in najina skupna zgodba se lahko prične.
+                  in {cat.is_group ? "naša" : "najina"} skupna zgodba se lahko prične.
                 </Text>
               </Box>
               <Box>
@@ -74,7 +74,11 @@ export function CatFormCta({ cat }: { cat: Cat }) {
 
   return (
     <CtaContainer>
-      <Text fontStyle="italic" fontSize={{ base: "sm", md: "md" }}>
+      <Text
+        fontStyle="italic"
+        fontSize={{ base: "sm", md: "md" }}
+        color={{ base: "white", md: "unset" }}
+      >
         Muca trenutno ne išče novih botrov. Prosimo poskusite kdaj drugič, ali pa se odločite za
         posvojitev druge muce. Hvala za razumevanje.
       </Text>
