@@ -20,10 +20,10 @@ export const HeroSection = () => {
             "2xl": 44,
           }}
           pb={{
-            md: "380px",
-            lg: "530px",
-            xl: "340px",
-            "2xl": "220px",
+            md: "350px",
+            lg: "460px",
+            xl: "230px",
+            "2xl": "210px",
           }}
         >
           <Box position="relative" zIndex={1}>
@@ -37,7 +37,12 @@ export const HeroSection = () => {
             />
 
             <Box pos="relative">
-              <LargePageTitle>posvoji muco na daljavo.</LargePageTitle>
+              <LargePageTitle>
+                posvoji muco
+                <br />
+                na daljavo.
+              </LargePageTitle>
+
               <Text
                 fontSize={{ base: "md", sm: "lg", lg: "xl" }}
                 mt={12}
@@ -51,7 +56,7 @@ export const HeroSection = () => {
                 .
               </Text>
             </Box>
-            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={{ base: 12, md: 20 }}>
+            <Stack direction={{ base: "column", xl: "row" }} spacing={4} mt={{ base: 8, md: 20 }}>
               <ButtonLink href={ROUTES.BecomeSponsorOverview} size="lg" w="200px">
                 Postani boter
               </ButtonLink>
@@ -62,19 +67,16 @@ export const HeroSection = () => {
             src={ASSET_PATH.PublicImage("home-hero-img.jpg")}
             alt=""
             pos={{ base: "relative", md: "absolute" }}
-            bottom={{ md: "20px" }}
-            right={{ md: "50px", lg: "70px", xl: "50px", "2xl": "80px" }}
+            bottom={{ md: "25px", lg: "40px", xl: "60px", "2xl": "40px" }}
+            right={{ md: "20px", lg: "70px", xl: "-5px", "2xl": "80px" }}
             w={{
               base: "100%",
-              md: "420px",
-              lg: "520px",
-              xl: "560px",
-              "2xl": "670px",
+              md: "460px",
+              lg: "560px",
+              xl: "660px",
+              "2xl": "720px",
             }}
-            pb={{
-              base: "20px",
-              md: 0,
-            }}
+            py={{ base: "30px", md: 0 }}
             zIndex={0}
           />
         </Box>
