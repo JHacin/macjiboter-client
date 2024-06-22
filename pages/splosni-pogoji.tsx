@@ -52,7 +52,7 @@ export default function TermsPage() {
                 <Text>
                   Uporabnik se zavezuje, da bo spletno stran uporabljal zakonito in na običajen
                   način. Če uporabnik spletno stran uporablja v nasprotju s temi pogoji, mu lahko
-                  Mačja hiša začasno ali trajno (glede na težo kršitve) onemogočijo dostop.
+                  Mačja hiša začasno ali trajno (glede na težo kršitve) onemogoči dostop.
                 </Text>
                 <Text>
                   Z običajno uporabo spletne strani med uporabnikom in Mačjo hišo ne nastane nobena
@@ -138,8 +138,8 @@ export default function TermsPage() {
                 <Text>
                   Značilnosti posameznih digitalnih vsebin se razlikujejo glede na izbrano vrsto
                   mačjega botrstva. Te značilnosti so podrobno opisane pri predstavitvi posameznih
-                  vrst botrstev in dodatno v zavihku Pogosta vprašanja jih na tem mestu ne navajamo
-                  posebej.
+                  vrst botrstev in dodatno v zavihku Pogosta vprašanja in jih na tem mestu ne
+                  navajamo posebej.
                 </Text>
                 <Text>
                   S strinjanjem s splošnimi pogoji uporabnik potrjuje, da se je seznanil s
