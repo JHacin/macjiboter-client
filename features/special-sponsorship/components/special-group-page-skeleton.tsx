@@ -1,5 +1,5 @@
 import { FC, ReactNode } from "react";
-import { Box, Flex, Grid, GridItem, Heading, Text, VStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading } from "@chakra-ui/react";
 import { SPECIAL_SPONSORSHIP_GROUP_META } from "../constants";
 import { SpecialSponsorshipGroup } from "../types";
 import { Section } from "@/common/components/section";
@@ -9,6 +9,7 @@ import { ROUTES } from "@/common/constants";
 import { RecentSpecialSponsors } from "./recent-special-sponsors";
 import { SectionWaves } from "@/common/components/section-waves";
 import { MetaTags } from "@/common/components/meta-tags";
+import { HeadingMarker } from "@/common/components/heading-marker";
 
 export const SpecialGroupPageSkeleton: FC<{
   group: SpecialSponsorshipGroup;
@@ -40,62 +41,51 @@ export const SpecialGroupPageSkeleton: FC<{
           <SectionWaves waveColor="semi-1" bgColor="white" />
         </Box>
 
-        <Container paddingHorizontal={{ base: 0 }} position="relative">
-          <Flex
-            flexDirection="column"
-            justifyContent="flex-end"
+        <Container paddingHorizontal={{ base: 0, sm: 4 }} position="relative">
+          <Box
             bgImage={`url(${imageUrls.lg})`}
             bgColor="copper.200"
             bgRepeat="no-repeat"
             bgSize="cover"
             bgPosition="center"
-            minHeight={{ base: "320px", sm: "460px" }}
+            minHeight={{
+              base: "280px",
+              sm: "320px",
+              md: "360px",
+              lg: "460px",
+              xl: "500px",
+              "2xl": "540px",
+            }}
             shadow="md"
-            p={{ base: 4, sm: 10 }}
-            rounded="md"
-          >
-            <VStack spacing={{ base: 3, sm: 5 }}>
-              <Heading
-                as="h1"
-                bgColor="orange.500"
-                color="white"
-                size={{ base: "lg", sm: "3xl" }}
-                fontWeight="bold"
-                px={{ base: 3, sm: 7 }}
-                py={{ base: 3, sm: 6 }}
-                rounded="md"
-              >
-                {name}
-              </Heading>
-              <Text as="h2">
-                <Text
-                  as="span"
-                  bgColor="orange.200"
-                  px={{ base: 3, sm: 7 }}
-                  py={2}
-                  color="orange.600"
-                  fontSize={{ base: "sm", sm: "lg" }}
-                  fontWeight="semibold"
-                  boxDecorationBreak="clone"
-                  lineHeight="2"
-                  rounded="md"
-                >
-                  {description}
-                </Text>
-              </Text>
-            </VStack>
-          </Flex>
+            rounded={{ sm: "md" }}
+          />
         </Container>
       </Section>
 
       <Box bgColor="copper.100">
         <Container>
-          <Section spacing={{ top: "sm", bottom: "lg" }}>
+          <Section spacing={{ top: "xs", bottom: "lg" }}>
             <Grid
               gridTemplateColumns={{ base: "auto", lg: "4fr 3fr", xl: "2fr 1fr" }}
               gap={{ base: 24, lg: 16, xl: 44, "2xl": 72 }}
             >
-              <GridItem>{body}</GridItem>
+              <GridItem>
+                <Heading
+                  as="h1"
+                  size={{ base: "xl", sm: "2xl", lg: "xl", xl: "2xl" }}
+                  fontWeight="extrabold"
+                >
+                  {name}
+                </Heading>
+                <Box
+                  h={{ base: "6px", sm: "8px" }}
+                  w={{ base: "80px", sm: "100px" }}
+                  mt={{ base: 1, sm: 3 }}
+                >
+                  <HeadingMarker color="orange" />
+                </Box>
+                <Box mt={12}>{body}</Box>
+              </GridItem>
               <GridItem maxWidth="450px">
                 <RecentSpecialSponsors group={group} />
               </GridItem>
