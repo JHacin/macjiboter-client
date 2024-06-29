@@ -234,6 +234,9 @@ export const theme = extendTheme(
           color: "orange.600",
         },
       },
+      details: {
+        my: 4,
+      },
     },
   })
 );

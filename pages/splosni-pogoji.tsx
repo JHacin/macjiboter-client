@@ -196,6 +196,11 @@ export default function TermsPage() {
                   del brez navedbe avtorja.
                 </Text>
                 <Text>
+                  Besedila in fotografije so prispevali zaposleni in prostovoljci Mačje hiše,
+                  pesmice so delo Anje Ivakič, ilustracije je prispevala Sara Vidmajer, stran je
+                  postavil in grafično oblikoval Jan Hacin.
+                </Text>
+                <Text>
                   Vse avtorske pravice so pridržane njihovim nosilcem. Objave vsebin na spletnem
                   mestu v nobenem primeru ni mogoče razlagati kot odpoved katerikoli avtorski
                   pravici na vsebinah spletne strani.
