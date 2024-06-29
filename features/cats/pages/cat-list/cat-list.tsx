@@ -49,6 +49,12 @@ export const CatList: FC = () => {
               Preden nadaljujete, si lahko najprej preberete več o tem,{" "}
               <TextLink href={ROUTES.WhyBecomeSponsor}>zakaj sploh postati mačji boter</TextLink>.
             </Text>
+            <Text>
+              So vas mucki prepričali? Potem je čas, da izberete, kateremu želite pomagati.
+              Izpolnite obrazec s svojimi podatki, da se vam bo muc lahko oglasil, se vam zahvalil
+              in vam poslal dostop do botrskih ozadij. Pa kar pogumno pri izbiri, tukaj ni napačnih
+              odločitev, prav vse so pravilne in prave.
+            </Text>
           </VStack>
         </PageSubtitle>
       </PageHeaderOutlined>

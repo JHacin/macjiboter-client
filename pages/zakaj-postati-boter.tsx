@@ -110,8 +110,8 @@ export default function WhyBecomeSponsorPage() {
                   sx={{
                     display: "flex",
                     alignItems: { base: "flex-start", sm: "center" },
-                    bg: "orange.50",
-                    rounded: "md",
+                    bg: "blackAlpha.50",
+                    rounded: "lg",
                     py: { base: 4, lg: 5 },
                     px: { base: 5, lg: 6 },
                     gap: { base: 5, lg: 6 },
@@ -120,10 +120,9 @@ export default function WhyBecomeSponsorPage() {
                   <ListIcon
                     as={item.icon}
                     color="orange.500"
-                    weight="fill"
                     boxSize={{ base: 10, lg: 12 }}
                     mr={0}
-                    bg="orange.100"
+                    bg="orange.50"
                     rounded="full"
                     p={2}
                   />
