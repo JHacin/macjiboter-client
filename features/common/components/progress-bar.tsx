@@ -12,7 +12,7 @@ export const ProgressBar = () => {
       height={3}
       showOnShallow={false}
       nonce="progress-bar"
-      options={{ speed: 300 }}
+      options={{ speed: 300, showSpinner: false }}
     />
   );
 };

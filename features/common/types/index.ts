@@ -47,7 +47,7 @@ export interface NavLinkGroupChildLink {
   label: string;
   href: string;
   icon?: FC;
-  description: string;
+  description?: string;
 }
 
 export interface NavLinkGroupProps {

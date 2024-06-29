@@ -152,7 +152,7 @@ const MultiStepFormContent = <TFormValues,>({
           {currentStep.name}
         </Text>
 
-        <Box h="6px" w="60px" mt={3}>
+        <Box h="6px" w="60px" mt={2}>
           <HeadingMarker color="orange" />
         </Box>
 

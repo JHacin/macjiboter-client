@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Section } from "../../components/section";
 import { Heading, Icon, LinkBox, LinkOverlay, Text, VStack } from "@chakra-ui/react";
-import { Gift, IconProps, PawPrint, Sparkle } from "@phosphor-icons/react";
+import { Gift, IconProps, PawPrint, Sparkle, Briefcase } from "@phosphor-icons/react";
 import { ButtonLink } from "../../components/button-link";
 import { SectionHeader } from "../../components/section-header";
 import { NextLink } from "../../components/next-link";
@@ -30,7 +30,6 @@ const items: SponsorshipTypeCardProps[] = [
     title: "Redno botrstvo",
     description:
       "Kot redni boter se zavežete k rednim mesečnim prispevkom, namenjenim določeni muci.",
-
     buttonProps: {
       text: "Muce, ki iščejo botra",
       link: ROUTES.CatsList,
@@ -67,6 +66,20 @@ const items: SponsorshipTypeCardProps[] = [
     theme: {
       icon: Gift,
       color: "blue",
+    },
+  },
+  {
+    id: 4,
+    title: "Botrstva pravnih oseb",
+    description:
+      "Pogoji botrovanj pravnih oseb se nekoliko razlikujejo od botrovanj fizičnih oseb.",
+    buttonProps: {
+      text: "Več o tem",
+      link: ROUTES.LegalPersons,
+    },
+    theme: {
+      icon: Briefcase,
+      color: "blackAlpha",
     },
   },
 ];
@@ -112,16 +125,15 @@ const SponsorshipTypeCard: FC<SponsorshipTypeCardProps> = ({
         <Heading as="h3" size="lg">
           {title}
         </Heading>
+        <Text
+          fontSize={{ base: "md", lg: "lg" }}
+          mt={4}
+          maxW={{ base: "300px", md: "480px" }}
+          position="relative"
+        >
+          {description}
+        </Text>
       </LinkOverlay>
-
-      <Text
-        fontSize={{ base: "md", lg: "lg" }}
-        mt={4}
-        maxW={{ base: "300px", md: "480px" }}
-        position="relative"
-      >
-        {description}
-      </Text>
 
       <ButtonLink href={buttonProps.link} colorScheme={color} variant="solid" mt={14}>
         {buttonProps.text}

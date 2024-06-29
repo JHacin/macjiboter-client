@@ -38,6 +38,21 @@ export const FAQ_ITEMS: FAQItemProps[] = [
     ),
   },
   {
+    id: "kako-lahko-pomagam-kot-pravna-oseba",
+    title: "Kako lahko botrujem kot pravna oseba?",
+    body: (
+      <>
+        <Text>
+          V primeru botrovanj pravnih oseb in fizičnih oseb z dejavnostjo (s.p.) vam pripravimo
+          donatorsko pogodbo. Pogoji botrovanj se nekoliko razlikujejo od botrovanj fizičnih oseb.
+        </Text>
+        <Text>
+          Več si lahko preberete <TextLink href={ROUTES.LegalPersons}>tukaj</TextLink>.
+        </Text>
+      </>
+    ),
+  },
+  {
     id: "kako-dolgo-je-veljavno-redno-botrovanje",
     title: "Kako dolgo je veljavno redno botrovanje?",
     body: (

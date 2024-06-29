@@ -32,11 +32,10 @@ const MobileNavLink: FC<{
       alignItems="center"
       justifyContent="space-between"
       height="44px"
-      _hover={{ textDecoration: "underline" }}
       onClick={onClick}
     >
       <Flex alignItems="center" gap={3}>
-        {icon && <Icon as={icon} boxSize={5} />}
+        {icon && <Icon as={icon} boxSize={5} color="orange.500" />}
         {children}
       </Flex>
 

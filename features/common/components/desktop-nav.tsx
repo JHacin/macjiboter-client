@@ -35,11 +35,11 @@ const DesktopNavDropdownItem: FC<NavLinkGroupChildLink> = ({ label, href, icon, 
       >
         <HStack spacing={4} py={3} px={4}>
           <Icon as={icon} w={8} h={8} color="orange.500" />
-          <VStack spacing={1}>
+          <VStack spacing={0}>
             <Text fontWeight={500} fontSize="lg">
               {label}
             </Text>
-            <Text color="gray.600">{description}</Text>
+            {description && <Text color="gray.600">{description}</Text>}
           </VStack>
         </HStack>
       </Box>

@@ -10,6 +10,7 @@ import {
   PawPrint,
   Question,
   Sparkle,
+  Briefcase,
 } from "@phosphor-icons/react";
 import { FC } from "react";
 
@@ -36,6 +37,7 @@ export const ROUTES = {
   News: "/novice",
   Terms: "/splosni-pogoji",
   CookiePolicy: "/piskotki",
+  LegalPersons: "/pravne-osebe",
 };
 
 export const ASSET_PATH = {
@@ -74,6 +76,11 @@ export const NAV_LINK_GROUPS: NavLinkGroupProps[] = [
         label: "Podari botrstvo",
         icon: Gift,
         description: "Botrstvo podari bližnji osebi.",
+      },
+      {
+        href: ROUTES.LegalPersons,
+        label: "Pravne osebe",
+        icon: Briefcase,
       },
     ],
   },
