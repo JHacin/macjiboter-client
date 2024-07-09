@@ -20,7 +20,7 @@ export function SponsorsList({ cat }: { cat: Cat }) {
         </Heading>
       </Flex>
 
-      <Box mt={5}>
+      <Box mt={5} maxHeight="300px" overflowY="auto">
         {cat.sponsorships_count === 0 && <Text>Muca še nima botrov.</Text>}
 
         {cat.sponsorships_count > 0 && (
