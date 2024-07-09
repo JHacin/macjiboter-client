@@ -86,7 +86,7 @@ export const CatDetails: FC<{ cat: Cat }> = ({ cat }) => {
             </GridItem>
           </Grid>
         </ContainerNew>
-        <Box position="sticky" bottom="0" mt={{ base: 8 }} zIndex={20}>
+        <Box position="sticky" bottom="0" mt={{ base: 8, lg: 16 }} zIndex={20}>
           <CatFormCta cat={cat} />
         </Box>
       </Section>
