@@ -14,7 +14,6 @@ import { registerLocale } from "react-datepicker";
 import sl from "date-fns/locale/sl";
 import { Analytics } from "@vercel/analytics/react";
 import "react-datepicker/dist/react-datepicker.css";
-import { CookieConsent } from "@/common/components/cookie-consent";
 
 dayjs.locale("sl");
 yup.setLocale(locale);
@@ -40,7 +39,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
           <ProgressBar />
           <Component {...pageProps} />
           <Analytics />
-          <CookieConsent />
+          {/*<CookieConsent />*/}
         </ChakraProvider>
       </Hydrate>
     </QueryClientProvider>
