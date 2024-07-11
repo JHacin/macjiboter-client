@@ -22,6 +22,7 @@ export const SpecialGroupSubtypeCards: FC<{
             shadow="lg"
             borderTop="4px"
             borderColor={`${item.color}.500`}
+            rounded="md"
           >
             <Text as="h4" fontSize={{ base: "xl", lg: "2xl" }} fontWeight="bold">
               {SPECIAL_SPONSORSHIPS_META[item.type].label}

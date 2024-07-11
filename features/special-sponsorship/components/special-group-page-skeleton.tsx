@@ -9,7 +9,6 @@ import { ROUTES } from "@/common/constants";
 import { RecentSpecialSponsors } from "./recent-special-sponsors";
 import { SectionWaves } from "@/common/components/section-waves";
 import { MetaTags } from "@/common/components/meta-tags";
-import { HeadingMarker } from "@/common/components/heading-marker";
 
 export const SpecialGroupPageSkeleton: FC<{
   group: SpecialSponsorshipGroup;
@@ -44,7 +43,7 @@ export const SpecialGroupPageSkeleton: FC<{
         <Container paddingHorizontal={{ base: 0, sm: 4 }} position="relative">
           <Box
             bgImage={`url(${imageUrls.lg})`}
-            bgColor="copper.200"
+            bgColor="copper.100"
             bgRepeat="no-repeat"
             bgSize="cover"
             bgPosition="center"
@@ -52,9 +51,9 @@ export const SpecialGroupPageSkeleton: FC<{
               base: "280px",
               sm: "320px",
               md: "360px",
-              lg: "460px",
-              xl: "500px",
-              "2xl": "540px",
+              lg: "420px",
+              xl: "460px",
+              "2xl": "500px",
             }}
             shadow="md"
             rounded={{ sm: "md" }}
@@ -77,13 +76,7 @@ export const SpecialGroupPageSkeleton: FC<{
                 >
                   {name}
                 </Heading>
-                <Box
-                  h={{ base: "6px", sm: "8px" }}
-                  w={{ base: "80px", sm: "100px" }}
-                  mt={{ base: 1, sm: 3 }}
-                >
-                  <HeadingMarker color="orange" />
-                </Box>
+
                 <Box mt={12}>{body}</Box>
               </GridItem>
               <GridItem maxWidth="450px">
