@@ -14,7 +14,8 @@ const SponsorshipTypeList: FC<{
   type: SpecialSponsorshipType;
   sponsorships: SpecialSponsorship[];
   isTheOnlyChildType: boolean;
-}> = ({ type, sponsorships, isTheOnlyChildType }) => {
+  emptyText: string;
+}> = ({ type, sponsorships, isTheOnlyChildType, emptyText }) => {
   const { label } = SPECIAL_SPONSORSHIPS_META[type];
 
   const identifiableSponsors = sponsorships
@@ -34,9 +35,7 @@ const SponsorshipTypeList: FC<{
         </Text>
       )}
       <Box>
-        {sponsorships.length === 0 && (
-          <Text fontStyle="italic">Botrov v zadnjih dveh mesecih še ni bilo.</Text>
-        )}
+        {sponsorships.length === 0 && <Text fontStyle="italic">{emptyText}</Text>}
 
         {sponsorships.length > 0 && (
           <VStack spacing={1}>
@@ -62,6 +61,41 @@ const SponsorList: FC<{
   types: SpecialSponsorshipType[];
   sponsorships: SpecialSponsorship[];
 }> = ({ types, sponsorships }) => {
+  if (types.length === 1 && types[0] === SpecialSponsorshipType.BoterMeseca) {
+    const type = SpecialSponsorshipType.BoterMeseca;
+    const typeSponsorships = sponsorships.filter((s) => s.type === type);
+
+    const currMonth = dayjs();
+    const prevMonth = dayjs().subtract(1, "month");
+
+    const isInMonth = (sponsorship: SpecialSponsorship, month: dayjs.Dayjs) => {
+      return dayjs(sponsorship.confirmed_at).get("month") === month.get("month");
+    };
+
+    return (
+      <VStack spacing={5}>
+        <VStack spacing={1}>
+          <Text color="gray.600">{currMonth.format("MMMM")}</Text>
+          <SponsorshipTypeList
+            type={type}
+            sponsorships={typeSponsorships.filter((s) => isInMonth(s, currMonth))}
+            isTheOnlyChildType={true}
+            emptyText="Botrov v tem mesecu še ni bilo."
+          />
+        </VStack>
+        <VStack spacing={1}>
+          <Text color="gray.600">{prevMonth.format("MMMM")}</Text>
+          <SponsorshipTypeList
+            type={type}
+            sponsorships={typeSponsorships.filter((s) => isInMonth(s, prevMonth))}
+            isTheOnlyChildType={true}
+            emptyText="Botrov v tem mesecu ni bilo."
+          />
+        </VStack>
+      </VStack>
+    );
+  }
+
   return (
     <VStack spacing={5} divider={<StackDivider borderColor="copper.500" />}>
       {types.map((type) => (
@@ -70,6 +104,7 @@ const SponsorList: FC<{
           type={type}
           sponsorships={sponsorships.filter((s) => s.type === type)}
           isTheOnlyChildType={types.length === 1}
+          emptyText="Botrov v zadnjih dveh mesecih še ni bilo."
         />
       ))}
     </VStack>
@@ -92,10 +127,16 @@ export const RecentSpecialSponsors: FC<{ group: SpecialSponsorshipGroup }> = ({ 
       <Text fontSize={{ base: "2xl", lg: "3xl" }} fontWeight="bold" mt={4}>
         Najnovejši botri
       </Text>
-      <Text color="gray.600">
-        {dayjs().subtract(1, "month").format("MMMM") + "—" + dayjs().format("MMMM")}
-      </Text>
-      <Box mt={{ base: 10 }}>
+      {group !== SpecialSponsorshipGroup.BoterMeseca && (
+        <Text color="gray.600">
+          {dayjs().subtract(1, "month").format("MMMM") + "—" + dayjs().format("MMMM")}
+        </Text>
+      )}
+      <Box
+        mt={{ base: group === SpecialSponsorshipGroup.BoterMeseca ? 6 : 10 }}
+        maxHeight="300px"
+        overflowY="auto"
+      >
         <Box>{status === "loading" && <Spinner size="sm" />}</Box>
         <Box>{status === "error" && "Prišlo je do napake."}</Box>
         <Box>
